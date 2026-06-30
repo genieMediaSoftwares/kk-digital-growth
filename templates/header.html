@@ -1,0 +1,270 @@
+{% load static %}
+
+<header class="navbar">
+    <div class="navbar-container home-container">
+
+    <!-- ================= LOGO ================= -->
+
+    <div class="logo">
+
+        <a href="{% url 'home' %}">
+
+            <img src="{% static 'images/kk-logo.png' %}" alt="KK Digital Growth">
+
+        </a>
+
+    </div>
+
+    <!-- ================= DESKTOP NAVIGATION ================= -->
+
+    <nav>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="{% url 'home' %}"
+                   class="{% if request.path == '/' %}active-link{% endif %}">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'about' %}"
+                   class="{% if request.path == '/about/' %}active-link{% endif %}">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'services' %}"
+                   class="{% if request.path == '/services/' %}active-link{% endif %}">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'projects' %}"
+                   class="{% if request.path == '/projects/' %}active-link{% endif %}">
+                    Work
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'process' %}"
+                   class="{% if request.path == '/process/' %}active-link{% endif %}">
+                    Process
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'clients' %}"
+                   class="{% if request.path == '/clients/' %}active-link{% endif %}">
+                    Clients
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'case_studies' %}"
+                   class="{% if request.path == '/case-studies/' or '/case-studies/' in request.path %}active-link{% endif %}">
+                    Case Studies
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'contact' %}"
+                   class="{% if request.path == '/contact/' %}active-link{% endif %}">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- ================= RIGHT SIDE ================= -->
+
+    <div class="action-buttons">
+
+        <a href="{% url 'consultation' %}" class="quote-btn">
+
+            Get A Quote →
+
+        </a>
+
+        <!-- Hamburger -->
+
+        <div class="menu-toggle" id="menu-toggle">
+
+            <span></span>
+
+            <span></span>
+
+            <span></span>
+
+        </div>
+
+    </div>
+    </div>
+
+</header>
+
+<!-- ================= MOBILE MENU ================= -->
+
+<div class="mobile-menu" id="mobile-menu">
+
+    <div class="close-menu" id="close-menu">
+
+        <i class="fa-solid fa-xmark"></i>
+
+    </div>
+
+    <div class="mobile-logo">
+
+        <img src="{% static 'images/kk-logo.png' %}" alt="KK Digital">
+
+        <h2>KK Digital Growth</h2>
+
+        <p>Build • Innovate • Scale</p>
+
+    </div>
+
+    <ul>
+
+        <li><a href="{% url 'home' %}"><i class="fa-solid fa-house"></i> Home</a></li>
+
+        <li><a href="{% url 'about' %}"><i class="fa-solid fa-user"></i> About</a></li>
+
+        <li><a href="{% url 'services' %}"><i class="fa-solid fa-laptop-code"></i> Services</a></li>
+
+        <li><a href="{% url 'process' %}"><i class="fa-solid fa-gears"></i> Our Process</a></li>
+
+        <li><a href="{% url 'clients' %}"><i class="fa-solid fa-building"></i> Clients</a></li>
+
+        <li><a href="{% url 'projects' %}"><i class="fa-solid fa-folder-open"></i> Projects</a></li>
+
+        <li><a href="{% url 'case_studies' %}"><i class="fa-solid fa-chart-line"></i> Case Studies</a></li>
+
+        <li><a href="{% url 'contact' %}"><i class="fa-solid fa-phone"></i> Contact</a></li>
+
+    </ul>
+
+    <div class="mobile-services">
+
+        <h4>Our Expertise</h4>
+
+        <span>🌐 Website Development</span>
+
+        <span>📱 Mobile App Development</span>
+
+        <span>🤖 AI Solutions</span>
+
+        <span>💻 ERP Development</span>
+
+        <span>🎨 UI / UX Design</span>
+
+        <span>☁ Cloud Applications</span>
+
+        <span>📈 Digital Marketing</span>
+
+    </div>
+
+    <div class="mobile-stats">
+
+        <div>
+
+            <h3>50+</h3>
+
+            <p>Projects</p>
+
+        </div>
+
+        <div>
+
+            <h3>99%</h3>
+
+            <p>Client Satisfaction</p>
+
+        </div>
+
+        <div>
+
+            <h3>24/7</h3>
+
+            <p>Support</p>
+
+        </div>
+
+    </div>
+
+    <div class="mobile-contact">
+
+        <p>
+
+            <i class="fa-solid fa-phone"></i>
+
+            +91 9032845433
+
+        </p>
+
+        <p>
+
+            <i class="fa-solid fa-envelope"></i>
+
+            admin@geniemedia.in
+
+        </p>
+
+        <p>
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            Visakhapatnam, Andhra Pradesh
+
+        </p>
+
+    </div>
+
+    <a href="{% url 'consultation' %}" class="mobile-btn">
+
+        🚀 Get Free Quote
+
+    </a>
+
+</div>
+
+<!-- ================= MOBILE MENU SCRIPT ================= -->
+
+<script>
+
+const menu = document.getElementById("menu-toggle");
+
+const mobile = document.getElementById("mobile-menu");
+
+const closeMenu = document.getElementById("close-menu");
+
+menu.addEventListener("click", () => {
+
+    mobile.classList.add("active");
+
+});
+
+closeMenu.addEventListener("click", () => {
+
+    mobile.classList.remove("active");
+
+});
+
+document.addEventListener("click", (e) => {
+
+    if (
+        !mobile.contains(e.target) &&
+        !menu.contains(e.target)
+    ) {
+
+        mobile.classList.remove("active");
+
+    }
+
+});
+
+</script>

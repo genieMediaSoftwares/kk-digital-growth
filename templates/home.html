@@ -1,0 +1,471 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KK Digital Growth</title>
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Your CSS -->
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.8">
+
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+
+</head>
+
+<body>
+{% include 'header.html' %}
+<section class="hero">
+    <div class="hero-container">
+    <div class="hero-left">
+
+        <div class="rating-badge">
+            ⭐ 4.9/5 • Highly reviewed on G2
+        </div>
+
+        <h1 class="hero-heading">
+
+            Building Digital Solutions
+
+            <br>
+
+            That Scale Your Business
+
+            <br>
+
+            <span class="highlight">
+                websites, apps & ERPs
+            </span>
+
+            <br>
+
+            <span class="highlight">
+                built to deliver results
+            </span>
+
+        </h1>
+
+        <p class="hero-description">
+
+            KK Digital Growth is the technology partner that builds websites,
+            mobile apps, ERP systems and custom software your business
+            actually needs.
+
+            Transparent pricing, fixed timelines, and full project visibility
+            mean you always know exactly what you're getting.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="{% url 'consultation' %}" class="hero-btn primary">
+               <span>Book A Free Consultation</span>
+               <i class="fa-regular fa-calendar-check btn-icon"></i>
+            </a>  
+
+            <a href="{% url 'services' %}" class="hero-btn secondary">
+               <span>See Our Services</span>
+               <i class="fa-solid fa-arrow-right btn-icon"></i>
+            </a>
+
+        </div>
+        <div class="client-review-card">
+
+    <div class="review-top">
+
+        <img src="{% static 'images/client-avatar' %}"
+             alt="Client"
+             class="client-avatar">
+
+        <div class="review-content">
+
+            <p class="review-quote">
+                "They didn't just write code — they understood our
+                business and shipped a platform that actually works,
+                on time and on budget."
+            </p>
+
+            <h4>
+                Bryan Taylor
+                <span>CTO, Morphio</span>
+            </h4>
+
+        </div>
+
+        <div class="review-badge">
+            G
+        </div>
+
+    </div>
+
+</div>
+
+    </div>
+
+    <div class="hero-right">
+
+    <div class="hero-cards">
+
+        <!-- Card 1 -->
+        <div class="hero-card card-partner">
+            <p class="card-tag">PARTNER</p>
+            <h3>Reliable Growth</h3>
+            <div class="stars">★★★★★</div>
+            <p class="card-text">
+                Fixed-scope & fixed-timeline delivery with no hidden surprises.
+            </p>
+            <div class="verified">✔ Verified Partner</div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="hero-card card-services">
+            <p class="card-tag">SERVICES</p>
+            <h3>Tech Stack</h3>
+            <ul class="card-list">
+                <li><i class="fa-solid fa-code"></i> Web & ERP Systems</li>
+                <li><i class="fa-solid fa-mobile-screen"></i> Mobile Apps</li>
+                <li><i class="fa-solid fa-robot"></i> AI Automations</li>
+                <li><i class="fa-solid fa-headset"></i> Dedicated Support</li>
+            </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="hero-card card-metrics-details">
+            <p class="card-tag">METRICS</p>
+            <h3>Proven Success</h3>
+            <div class="card-metrics">
+                <div class="metric-box">
+                    <strong>50+</strong>
+                    <span>Delivered</span>
+                </div>
+                <div class="metric-box">
+                    <strong>99%</strong>
+                    <span>Satisfaction</span>
+                </div>
+            </div>
+            <div class="verified"><i class="fa-solid fa-star"></i> 4.9/5 Google Rated</div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="hero-card card-transparency">
+            <p class="card-tag">TRANSPARENCY</p>
+            <h3>Our Promise</h3>
+            <ul class="card-list">
+                <li><i class="fa-regular fa-circle-check"></i> Milestone billing</li>
+                <li><i class="fa-regular fa-circle-check"></i> Real-time tracking</li>
+                <li><i class="fa-regular fa-circle-check"></i> In-house QA & Dev</li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+        
+
+    </div>
+
+</section>
+<section class="trusted-brands">
+    <div class="home-container">
+        <div class="brands-left">
+            <h2>
+                Startups, retailers and growing businesses building
+
+                <span>scalable software</span>
+
+                <br>
+
+                <span>through custom development</span>
+            </h2>
+
+        </div>
+
+        <div class="brands-right">
+
+        <div class="brand nimbus">
+            <span class="icon-circle"></span>
+            <div>
+                <h4>NimbusERP</h4>
+                <p>by Nimbus Manufacturing</p>
+            </div>
+        </div>
+
+        <div class="brand cartly">
+            <span class="icon-diamond">✦</span>
+            <h4>cartly</h4>
+        </div>
+
+        <div class="brand fleet">
+            <span class="icon-square"></span>
+            <h4>FLEET<br>BOSS</h4>
+        </div>
+
+        <div class="brand clinic">
+            <span class="icon-circle-sm">⊖</span>
+            <h4>clinicsync</h4>
+        </div>
+
+        <div class="brand erp">
+            <span class="erp-a">A</span>
+
+            <div>
+                <h4>ERP²</h4>
+                <p>Vantix Systems</p>
+            </div>
+        </div>
+
+        <div class="brand petdesk">
+            <span class="icon-circle-sm">⊖</span>
+            <h4>PetDesk</h4>
+        </div>
+
+        <div class="brand stax">
+            <h4>stax ➜</h4>
+        </div>
+
+    </div>
+    </div>
+</section>
+<section class="results-section">
+    <div class="home-container">
+        <h2 class="results-title">
+            <span>Over 100 businesses</span>
+            have launched and scaled with KK Digital Growth
+        </h2>
+
+    <div class="results-grid">
+
+        <!-- CARD 1 -->
+
+        <div class="result-card">
+
+            <p class="brand-name">
+                cartly website redesign
+            </p>
+
+            <h3>$1.4M</h3>
+
+            <p>New Online Revenue</p>
+
+            <div class="chart-svg">
+
+                <svg viewBox="0 0 400 180">
+
+                    <defs>
+                        <linearGradient id="revenueFill" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#27d3d3" stop-opacity="0.35"/>
+                            <stop offset="100%" stop-color="#27d3d3" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+
+                    <path
+                        d="
+                        M20 150
+                        C80 120 110 130 140 95
+                        C180 70 220 90 260 65
+                        C300 45 340 25 380 20
+                        L380 180
+                        L20 180
+                        Z"
+                        fill="url(#revenueFill)"
+                    />
+
+                    <path
+                        d="
+                        M20 150
+                        C80 120 110 130 140 95
+                        C180 70 220 90 260 65
+                        C300 45 340 25 380 20"
+                        class="revenue-line"
+                    />
+
+                    <circle cx="130" cy="95" r="8" class="chart-dot"/>
+                    <circle cx="235" cy="72" r="8" class="chart-dot"/>
+                    <circle cx="350" cy="32" r="8" class="chart-dot"/>
+
+                </svg>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 2 -->
+
+        <div class="result-card">
+
+            <p class="brand-name">
+                clinicsync mobile app
+            </p>
+
+            <h3>300%</h3>
+
+            <p>Increase in App Bookings</p>
+
+            <div class="chart-svg">
+
+                <svg viewBox="0 0 400 180">
+
+                    <defs>
+                        <linearGradient id="growthFill" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#27d3d3" stop-opacity="0.35"/>
+                            <stop offset="100%" stop-color="#27d3d3" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+
+                    <path
+                        d="
+                        M20 170
+                        L120 135
+                        L140 80
+                        L260 70
+                        L280 20
+                        L380 65
+                        L380 180
+                        L20 180
+                        Z"
+                        fill="url(#growthFill)"
+                    />
+
+                    <path
+                        d="
+                        M20 170
+                        L120 135
+                        L140 80
+                        L260 70
+                        L280 20
+                        L380 65"
+                        class="growth-line"
+                    />
+
+                </svg>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 3 -->
+
+        <div class="result-card">
+
+            <p class="brand-name">
+                NimbusERP
+            </p>
+
+            <h3>10x</h3>
+
+            <p>Faster Order Processing</p>
+
+            <div class="bars">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+        <a href="#" class="case-btn">
+            More Case Studies →
+        </a>
+    </div>
+</section>
+<section class="comparison-section">
+    <div class="home-container">
+        <h2 class="comparison-title">
+            Most dev agencies aren't built for long-term partnership.
+            KK Digital Growth
+            <span>puts you first.</span>
+        </h2>
+
+    <div class="comparison-grid">
+
+        <!-- LEFT CARD -->
+
+        <div class="comparison-card bad-card">
+
+            <h3>Other software development agencies</h3>
+
+            <ul>
+
+                <li><i class="fa-regular fa-circle-xmark bad-icon"></i> Vague project scopes that balloon in cost</li>
+
+                <li><i class="fa-regular fa-circle-xmark bad-icon"></i> Hidden costs and unclear development timelines</li>
+
+                <li><i class="fa-regular fa-circle-xmark bad-icon"></i> Little to no visibility into project progress</li>
+
+                <li><i class="fa-regular fa-circle-xmark bad-icon"></i> Generic templates instead of custom-built solutions</li>
+
+                <li><i class="fa-regular fa-circle-xmark bad-icon"></i> No support once the project goes live</li>
+
+                <li><i class="fa-regular fa-circle-xmark bad-icon"></i> Slow turnaround on bug fixes and feature requests</li>
+
+            </ul>
+
+        </div>
+
+        <!-- RIGHT CARD -->
+
+        <div class="comparison-card good-card">
+
+            <div class="kk-logo-wrap">
+
+                <img src="{% static 'images/kk-logo.png' %}" alt="KK Digital">
+
+            </div>
+
+            <ul>
+
+                <li><i class="fa-regular fa-circle-check good-icon"></i> Fixed-scope, fixed-timeline projects with no surprises</li>
+
+                <li><i class="fa-regular fa-circle-check good-icon"></i> 100% transparent pricing and milestone-based billing</li>
+
+                <li><i class="fa-regular fa-circle-check good-icon"></i> Real-time project dashboards and weekly progress updates</li>
+
+                <li><i class="fa-regular fa-circle-check good-icon"></i> Fully custom-built websites, apps and ERPs — no templates</li>
+
+                <li><i class="fa-regular fa-circle-check good-icon"></i> Free post-launch support and continuous optimisation</li>
+
+                <li><i class="fa-regular fa-circle-check good-icon"></i> In-house design, development and QA team under one roof</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="comparison-btn-wrap">
+
+        <a href="{% url 'process' %}" class="comparison-btn">
+    See Why Businesses Choose Us
+</a>
+    </div>
+    </div>
+    </div>
+
+</section>
+</section>
+{% include 'footer.html' %}
+</body>
+</html>

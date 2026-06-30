@@ -1,0 +1,124 @@
+
+.comparison-section{
+    background:#f8fcff;
+    padding:40px 0;
+}
+/* COMPARISON SECTION */
+
+.comparison-section{
+    padding:50px 0;
+    background:#f7f8fc;
+}
+
+.comparison-title{
+    text-align:center;
+    font-size:40px;
+    line-height:1.35;
+    color:#123F6B;
+    max-width:900px;
+    margin:0 auto 50px;
+}
+
+.comparison-title span{
+    background:#C9861E;
+    color:white;
+    padding:4px 14px;
+   border-radius:6px;
+}
+
+.comparison-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+   align-items:stretch;
+}
+/* CARDS */
+
+.comparison-card{
+    background:white;
+    border-radius:24px;
+    padding:40px;
+    transition:all .45s cubic-bezier(.25,.46,.45,.94);
+    position:relative;
+   overflow:hidden;
+}
+
+.comparison-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:4px;
+    transition:height .3s ease;
+}
+
+.comparison-card:hover{
+    box-shadow:0 25px 50px rgba(0,0,0,.12);
+}
+
+.comparison-card:hover::before{
+    height:6px;
+}
+/* LIST */
+
+.comparison-card ul{
+
+    list-style:none;
+}
+
+.comparison-card li{
+    padding:16px 0;
+    border-bottom:1px solid #eef2f7;
+    font-size:17px;
+    color:#3a5675;
+    line-height:1.55;
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    transition:all .3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.comparison-card li:last-child{
+    border-bottom:none;
+}
+
+.comparison-card li:hover{
+    padding-left:8px;
+    color: #123F6B;
+}
+
+.comparison-card.bad-card li:hover .bad-icon {
+    transform: rotate(90deg) scale(1.15);
+    color: #d9381e;
+}
+
+.comparison-card.good-card li:hover .good-icon {
+    transform: scale(1.2) translateY(-1px);
+   color: #2ecc71;
+}
+/* BUTTON */
+
+.comparison-btn-wrap{
+    text-align:center;
+   margin-top:45px;
+}
+
+.comparison-btn{
+    display:inline-block;
+    background:#C9861E;
+    color:white;
+    text-decoration:none;
+    padding:18px 40px;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:600;
+    transition:all .3s ease;
+    box-shadow:0 4px 15px rgba(201,134,30,.3);
+}
+
+.comparison-btn:hover{
+    background:#123F6B;
+    transform:translateY(-3px);
+    box-shadow:0 8px 25px rgba(18,63,107,.3);
+}

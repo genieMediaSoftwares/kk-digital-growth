@@ -1,0 +1,149 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ case.title }} Case Study - KK Digital Growth</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+{% include 'header.html' %}
+
+<!-- ================= BACK BAR ================= -->
+<div class="case-back-bar">
+    <div class="home-container">
+        <a href="{% url 'case_studies' %}" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Case Studies</a>
+    </div>
+</div>
+
+<!-- ================= DETAIL HERO ================= -->
+<section class="case-detail-hero">
+    <div class="case-detail-hero-container home-container">
+        <span class="detail-industry">{{ case.industry }}</span>
+        <h1>{{ case.title }}</h1>
+        <p class="detail-subtitle">{{ case.project }}</p>
+    </div>
+</section>
+
+<!-- ================= CONTENT GRID ================= -->
+<section class="case-detail-content-section">
+    <div class="case-detail-grid home-container">
+        <!-- Left Side: Narrative process -->
+        <div class="case-detail-main">
+            <div class="detail-card">
+                <h2><i class="fa-solid fa-compass"></i> Project Overview</h2>
+                <p>{{ case.overview }}</p>
+            </div>
+            
+            <div class="detail-card">
+                <h2><i class="fa-solid fa-triangle-exclamation"></i> Client Challenge</h2>
+                <p>{{ case.client_challenge }}</p>
+            </div>
+            
+            <div class="detail-card process-card">
+                <h2><i class="fa-solid fa-list-check"></i> Our Methodical Process</h2>
+                
+                <div class="process-step">
+                    <span class="step-num">01</span>
+                    <div class="step-text">
+                        <h3>Research</h3>
+                        <p>{{ case.research }}</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <span class="step-num">02</span>
+                    <div class="step-text">
+                        <h3>Planning</h3>
+                        <p>{{ case.planning }}</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <span class="step-num">03</span>
+                    <div class="step-text">
+                        <h3>UI/UX Design</h3>
+                        <p>{{ case.ui_ux }}</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <span class="step-num">04</span>
+                    <div class="step-text">
+                        <h3>Development</h3>
+                        <p>{{ case.development }}</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <span class="step-num">05</span>
+                    <div class="step-text">
+                        <h3>Testing & Quality Assurance</h3>
+                        <p>{{ case.testing }}</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <span class="step-num">06</span>
+                    <div class="step-text">
+                        <h3>Deployment & Integration</h3>
+                        <p>{{ case.deployment }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Side: Sidebar stats, tech and testimonial -->
+        <aside class="case-detail-sidebar">
+            <div class="sidebar-widget duration-widget">
+                <h3>Project Duration</h3>
+                <p style="font-size: 16px; font-weight: 600; color: #334155; display: flex; align-items: center; gap: 10px; margin: 0;">
+                    <i class="fa-regular fa-calendar-days" style="color: #d8932d; font-size: 18px;"></i>
+                    {{ case.duration }}
+                </p>
+            </div>
+
+            <div class="sidebar-widget tech-widget">
+                <h3>Technologies Used</h3>
+                <div class="tech-pills">
+                    {% for tech in case.technologies %}
+                    <span class="tech-pill">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="sidebar-widget results-widget">
+                <h3>Final Results</h3>
+                <ul class="results-list">
+                    {% for result in case.results %}
+                    <li>
+                        <div class="result-check"><i class="fa-solid fa-check"></i></div>
+                        <div class="result-text">{{ result }}</div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <div class="sidebar-widget testimonial-widget">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <p class="testimonial-quote">"{{ case.testimonial }}"</p>
+                <p class="testimonial-author">— {{ case.testimonial_author }}</p>
+            </div>
+            
+            <div class="sidebar-widget cta-widget">
+                <h3>Ready to achieve similar results?</h3>
+                <p>Let's map out a customized digital solution for your business.</p>
+                <a href="{% url 'consultation' %}" class="sidebar-cta-btn">Start Your Project →</a>
+            </div>
+        </aside>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+</body>
+</html>

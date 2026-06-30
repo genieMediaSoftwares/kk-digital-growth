@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies - KK Digital Growth</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+{% include 'header.html' %}
+
+<!-- ================= HERO SECTION ================= -->
+<section class="case-hero">
+    <div class="case-hero-container home-container">
+        <span class="hero-tag"><i class="fa-solid fa-chart-line"></i> OUR TRACK RECORD</span>
+        <h1>Case Studies</h1>
+        <p>Discover how KK Digital Growth helps businesses build scalable ERP systems, professional websites and powerful mobile applications that solve real business problems.</p>
+        <div class="case-hero-buttons">
+            <a href="{% url 'consultation' %}" class="btn-primary">Start Your Project →</a>
+            <a href="{% url 'services' %}" class="btn-secondary">View Our Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- ================= LISTING SECTION ================= -->
+<section class="case-listing-section">
+    <div class="case-grid home-container">
+        {% for case in case_studies %}
+        <div class="case-card">
+            <div class="case-card-image">
+                <img src="{% static case.image %}" alt="{{ case.title }}">
+                <span class="case-industry">{{ case.industry }}</span>
+            </div>
+            
+            <div class="case-card-content">
+                <span class="case-project-type">{{ case.project }}</span>
+                <h2>{{ case.title }}</h2>
+                
+                <div class="case-detail-block">
+                    <h3>Client Challenge:</h3>
+                    <p>{{ case.client_challenge }}</p>
+                </div>
+                
+                <div class="case-detail-block">
+                    <h3>Our Solution:</h3>
+                    <p>{{ case.solution }}</p>
+                </div>
+                
+                <div class="case-detail-block">
+                    <h3>Technologies:</h3>
+                    <div class="case-tech-badges">
+                        {% for tech in case.technologies %}
+                        <span class="tech-pill">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="case-detail-block">
+                    <h3>Business Results:</h3>
+                    <ul class="case-result-list">
+                        {% for result in case.results %}
+                        <li><i class="fa-solid fa-circle-check"></i> {{ result }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+                <div class="case-card-footer">
+                    <a href="{% url 'case_study_detail' slug=case.slug %}" class="view-case-btn">
+                        View Full Case Study →
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | KK Digital Growth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.8">
+    <link rel="stylesheet" href="{% static 'css/services.css' %}?v=1.1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    {% include 'header.html' %}
+
+    <!-- ================= SERVICES HERO/GRID ================= -->
+    <section class="services-section">
+        <div class="services-section-container">
+            <div class="section-title">
+                <span class="section-badge">OUR EXPERTISE</span>
+                <h2>Our Services</h2>
+                <p>Digital solutions built to help businesses grow faster.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Website Development -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon website-icon">
+                            <i class="fa-regular fa-window-maximize"></i>
+                        </div>
+                        <div class="service-title-info">
+                            <h3>Website Development</h3>
+                            <p>Custom • Responsive • Performance-first</p>
+                        </div>
+                        <span class="explore-btn">Explore →</span>
+                    </div>
+
+                    <div class="service-body">
+                        <p>We build fast, scalable, conversion-focused websites that look great and perform even better.</p>
+                        <div class="feature-grid">
+                            <span><i class="fa-regular fa-image"></i> Custom Website Design</span>
+                            <span><i class="fa-solid fa-cart-shopping"></i> E-commerce Development</span>
+                            <span><i class="fa-regular fa-file"></i> CMS Integration</span>
+                            <span><i class="fa-solid fa-arrow-trend-up"></i> SEO & Performance</span>
+                        </div>
+                    </div>
+
+                    <div class="service-footer">
+                        <a href="{% url 'consultation' %}" class="service-action">Start Your Website Project →</a>
+                    </div>
+                </div>
+
+                <!-- Mobile App -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon mobile-icon">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+                        <div class="service-title-info">
+                            <h3>Mobile App Development</h3>
+                            <p>iOS • Android • Cross-platform</p>
+                        </div>
+                        <span class="explore-btn">Explore →</span>
+                    </div>
+
+                    <div class="service-body">
+                        <p>Native and cross-platform mobile apps designed for growth.</p>
+                        <div class="feature-grid">
+                            <span><i class="fa-brands fa-apple"></i> iOS Development</span>
+                            <span><i class="fa-brands fa-android"></i> Android Development</span>
+                            <span><i class="fa-solid fa-code"></i> Cross-platform Apps</span>
+                            <span><i class="fa-solid fa-link"></i> API Integration</span>
+                        </div>
+                    </div>
+
+                    <div class="service-footer">
+                        <a href="{% url 'consultation' %}" class="service-action">Start Your App Project →</a>
+                    </div>
+                </div>
+
+                <!-- ERP -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon erp-icon">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </div>
+                        <div class="service-title-info">
+                            <h3>ERP Development</h3>
+                            <p>Inventory • Finance • HR • Operations</p>
+                        </div>
+                        <span class="explore-btn">Explore →</span>
+                    </div>
+
+                    <div class="service-body">
+                        <p>Custom ERP systems that connect every part of your business.</p>
+                        <div class="feature-grid">
+                            <span><i class="fa-solid fa-box"></i> Inventory Management</span>
+                            <span><i class="fa-solid fa-money-bill"></i> Finance & Billing</span>
+                            <span><i class="fa-solid fa-users"></i> HR & Payroll</span>
+                            <span><i class="fa-solid fa-chart-line"></i> Operations Reporting</span>
+                        </div>
+                    </div>
+
+                    <div class="service-footer">
+                        <a href="{% url 'consultation' %}" class="service-action">Start Your ERP Project →</a>
+                    </div>
+                </div>
+
+                <!-- Custom Application -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon software-icon">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <div class="service-title-info">
+                            <h3>Custom Application Development</h3>
+                            <p>Internal Tools • SaaS • Automation</p>
+                        </div>
+                        <span class="explore-btn">Explore →</span>
+                    </div>
+
+                    <div class="service-body">
+                        <p>Tailor-made applications built around your workflow.</p>
+                        <div class="feature-grid">
+                            <span><i class="fa-solid fa-toolbox"></i> Internal Tools</span>
+                            <span><i class="fa-solid fa-star"></i> SaaS Platforms</span>
+                            <span><i class="fa-solid fa-gear"></i> Automation</span>
+                            <span><i class="fa-solid fa-puzzle-piece"></i> Integrations</span>
+                        </div>
+                    </div>
+
+                    <div class="service-footer">
+                        <a href="{% url 'consultation' %}" class="service-action">Start Your Project →</a>
+                    </div>
+                </div>
+
+                <!-- UI UX -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon design-icon">
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <div class="service-title-info">
+                            <h3>UI/UX Design & QA Testing</h3>
+                            <p>Research • Wireframing • Testing • Launch</p>
+                        </div>
+                        <span class="explore-btn">Explore →</span>
+                    </div>
+
+                    <div class="service-body">
+                        <p>User-focused design backed by testing and research.</p>
+                        <div class="feature-grid">
+                            <span><i class="fa-regular fa-user"></i> User Research</span>
+                            <span><i class="fa-regular fa-square"></i> Wireframing</span>
+                            <span><i class="fa-solid fa-shield"></i> QA Testing</span>
+                            <span><i class="fa-solid fa-gauge-high"></i> Performance Audits</span>
+                        </div>
+                    </div>
+
+                    <div class="service-footer">
+                        <a href="{% url 'consultation' %}" class="service-action">Start Your Design Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PROCESS SECTION ================= -->
+    <section class="process-section">
+        <div class="services-section-container">
+            <div class="section-title">
+                <span class="section-badge">OUR METHODOLOGY</span>
+                <h2>How We <span>Work</span></h2>
+                <p class="process-subtitle">A clear, proven process from first call to final launch</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-icon orange">🔍</div>
+                    <h3>Discovery</h3>
+                    <p>Understand goals and requirements</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon cyan">☑</div>
+                    <h3>Planning</h3>
+                    <p>Roadmap and project strategy</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon blue">&lt;/&gt;</div>
+                    <h3>Development</h3>
+                    <p>Building your solution</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon orange">✓</div>
+                    <h3>Delivery</h3>
+                    <p>Testing, launch and support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CTA SECTION ================= -->
+    <section class="services-cta-section">
+        <div class="services-section-container">
+            <div class="services-cta">
+                <h2>Not sure which service you need?</h2>
+                <h3>Let's talk it through.</h3>
+                <p>Book a free 30-minute call and we'll point you in the right direction.</p>
+                <a href="{% url 'consultation' %}" class="cta-btn">Book a Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    {% include 'footer.html' %}
+</body>
+</html>

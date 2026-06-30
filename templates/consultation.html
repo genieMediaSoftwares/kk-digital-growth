@@ -1,0 +1,342 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Consultation</title>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+{% include 'header.html' %}
+<section class="consultation-section">
+
+    <div class="consult-left">
+
+        <h1>
+            Ready to Build Your Next
+            <span class="orange">
+                Software Solution?
+            </span>
+        </h1>
+
+        <h3>
+            Schedule a Free Discovery Call & We'll Cover:
+        </h3>
+
+        <ul class="consult-list">
+
+            <li>Understanding your business requirements</li>
+
+            <li>Custom software and app development needs</li>
+
+            <li>Technology recommendations</li>
+
+            <li>Project scope and roadmap</li>
+
+            <li>Cost estimation and engagement models</li>
+
+        </ul>
+        <div class="review-logos">
+
+   <div class="review-item">
+    <img src="{% static 'images/google.png' %}" alt="Google">
+
+    <p class="review-text">Reviews</p>
+
+    <div class="rating">
+        <span>5.0</span>
+        <span class="stars gold">★★★★★</span>
+    </div>
+</div>
+
+<div class="review-item">
+    <img src="{% static 'images/clutch.png' %}" alt="Clutch">
+
+    <p class="review-text">Reviews</p>
+
+    <div class="rating">
+        <span>5.0</span>
+        <span class="stars red">★★★★★</span>
+    </div>
+</div>
+
+<div class="review-item">
+    <img src="{% static 'images/g2.png' %}" alt="G2">
+
+    <p class="review-text">Reviews</p>
+
+    <div class="rating">
+        <span>5.0</span>
+        <span class="stars red">★★★★★</span>
+    </div>
+</div>
+</div>
+    </div>
+
+    <div class="consult-right">
+    {% if success %}
+    <div class="success-message">
+        Thank you! We will contact you shortly.
+    </div>
+    {% endif %}
+    <div class="call-benefits">
+
+    <h3>What You'll Get From the Call</h3>
+
+    <div class="benefit-item">
+        <span class="dot"></span>
+        <p>Free consultation with experienced software developers</p>
+    </div>
+
+    <div class="benefit-item">
+        <span class="dot"></span>
+        <p>Technical feasibility assessment of your idea</p>
+    </div>
+
+    <div class="benefit-item">
+        <span class="dot"></span>
+        <p>Recommended technology stack and development approach</p>
+    </div>
+
+    <div class="benefit-item">
+        <span class="dot"></span>
+        <p>Estimated timeline and budget discussion</p>
+    </div>
+
+    <div class="benefit-item">
+        <span class="dot"></span>
+        <p>Answers to all your software development questions</p>
+    </div>
+
+</div>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="first_name" placeholder="First Name">
+
+            <input type="text" name="last_name" placeholder="Last Name">
+
+            <input type="text" name="company_name" placeholder="Company Name">
+
+            <input type="email" name="email" placeholder="Email Address">
+
+            <input type="text" name="phone_number" placeholder="Phone Number">
+
+            <input type="text" name="project_name" placeholder="Project Name (Optional)">
+            
+
+            <button type="submit">
+                Let's Talk!
+            </button>
+
+        </form>
+
+    </div>
+    
+</section>
+<section class="faq-section">
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-grid">
+    <div class="faq-item active">
+
+    <div class="faq-question">
+        <span>How long does a typical project take?</span>
+        <span class="faq-icon">-</span>
+    </div>
+
+    <div class="faq-answer">
+        Most websites take 2–4 weeks, apps and ERP modules usually run 4–10 weeks depending on scope. You'll get a real timeline after the first call.
+    </div>
+
+</div>
+
+<div class="faq-item">
+
+    <div class="faq-question">
+        <span>Will I own the source code?</span>
+        <span class="faq-icon">+</span>
+    </div>
+
+    <div class="faq-answer">
+        Yes. Once the project is completed and payment obligations are met, you receive full ownership of the source code and project assets.
+    </div>
+
+</div>
+
+<div class="faq-item">
+
+    <div class="faq-question">
+        <span>Can you work with our existing ERP setup?</span>
+        <span class="faq-icon">+</span>
+    </div>
+
+    <div class="faq-answer">
+        Absolutely. We can integrate with existing ERP, CRM, accounting systems, APIs, and third-party platforms to ensure smooth business operations.
+    </div>
+
+</div>
+
+<div class="faq-item">
+
+    <div class="faq-question">
+        <span>Do you offer support after launch?</span>
+        <span class="faq-icon">+</span>
+    </div>
+
+    <div class="faq-answer">
+        Yes. We provide maintenance, bug fixes, security updates, performance monitoring, and ongoing technical support after deployment.
+    </div>
+
+</div>
+
+<div class="faq-item">
+
+    <div class="faq-question">
+        <span>Do you sign NDAs?</span>
+        <span class="faq-icon">+</span>
+    </div>
+
+    <div class="faq-answer">
+        Yes. We are happy to sign a Non-Disclosure Agreement before discussing confidential project details or business information.
+    </div>
+
+</div>
+
+<div class="faq-item">
+
+    <div class="faq-question">
+        <span>Can you take over a project someone else built?</span>
+        <span class="faq-icon">+</span>
+    </div>
+
+    <div class="faq-answer">
+        Yes. We can audit existing codebases, identify issues, improve performance, fix bugs, and continue development from the current stage.
+    </div>
+
+</div>
+
+</section>
+<section class="testimonials-section">
+
+    <div class="curve-top"></div>
+
+    <div class="testimonial-container">
+
+        <h2>What Clients Say</h2>
+
+        <div class="testimonial-bar">
+            Trusted by businesses across industries
+        </div>
+
+        <div class="testimonial-grid">
+
+            <div class="testimonial-box">
+                <div class="client-number">1</div>
+
+                <h4>Ravi Kumar</h4>
+                <span>CEO, RK Solutions</span>
+
+                <p>
+                    KK Digital delivered our website ahead of schedule.
+                    Their team was professional and responsive throughout.
+                </p>
+            </div>
+
+            <div class="testimonial-box">
+                <div class="client-number">2</div>
+
+                <h4>Priya Sharma</h4>
+                <span>Founder, Startup Hub</span>
+
+                <p>
+                    Excellent communication and technical expertise.
+                    We highly recommend their services.
+                </p>
+            </div>
+
+            <div class="testimonial-box">
+                <div class="client-number">3</div>
+
+                <h4>Arjun Reddy</h4>
+                <span>Director, AR Enterprises</span>
+
+                <p>
+                    The mobile application exceeded our expectations
+                    and improved our business operations.
+                </p>
+            </div>
+
+            <div class="testimonial-box">
+                <div class="client-number">4</div>
+
+                <h4>Sneha Patel</h4>
+                <span>Manager, Smart Tech</span>
+
+                <p>
+                    Reliable team with great project management.
+                    Everything was delivered on time.
+                </p>
+            </div>
+
+            <div class="testimonial-box">
+                <div class="client-number">5</div>
+
+                <h4>Vikram Singh</h4>
+                <span>CEO, VS Group</span>
+
+                <p>
+                    Outstanding software development support.
+                    The final product was exactly what we needed.
+                </p>
+            </div>
+
+            <div class="testimonial-box">
+                <div class="client-number">6</div>
+
+                <h4>Ananya Rao</h4>
+                <span>Founder, Digital Vision</span>
+
+                <p>
+                    Their creativity and technical skills helped
+                    us launch successfully.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+{% include 'footer.html' %}
+<script>
+
+document.querySelectorAll('.faq-question').forEach(question => {
+
+    question.addEventListener('click', () => {
+
+        const item = question.parentElement;
+
+        const icon = question.querySelector('.faq-icon');
+
+        item.classList.toggle('active');
+
+        if(item.classList.contains('active')){
+            icon.textContent='-';
+        }else{
+            icon.textContent='+';
+        }
+
+    });
+
+});
+
+</script>
+</body>
+</html>

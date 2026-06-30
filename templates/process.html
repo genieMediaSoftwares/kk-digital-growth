@@ -1,0 +1,698 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Process</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2.1">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+{% include 'header.html' %}
+
+<section class="process-hero">
+
+    <div class="process-badge">
+        ● TRANSPARENT • STRUCTURED • PROVEN
+    </div>
+
+    <h1>
+        A process built for
+        <span class="highlight-group"><span>real</span> <span>results,</span></span>
+        <br>
+        not just deliverables
+    </h1>
+
+    <p>
+
+        From the first call to post-launch support —
+        every step is clear, structured and designed
+        to keep your project on track.
+
+    </p>
+
+    <div class="process-buttons">
+
+        <a href="{% url 'consultation' %}" class="process-consult-btn">
+            Book a Free Consultation
+        </a>
+
+        <a href="{% url 'services' %}" class="process-service-btn">
+            See Our Services
+        </a>
+
+    </div>
+
+</section>
+<section class="process-steps">
+
+    <div class="process-grid">
+
+        <div class="step-card active-step">
+
+            <div class="step-icon discovery">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <h3>Discovery</h3>
+
+            <p>
+                We deeply understand your business goals,
+                workflows, and technical requirements before
+                writing a single line of code.
+            </p>
+
+        </div>
+
+        <div class="step-card">
+
+            <div class="step-icon planning">
+                <i class="fa-regular fa-square-check"></i>
+            </div>
+
+            <h3>Planning</h3>
+
+            <p>
+                A clear roadmap, fixed timeline, and transparent
+                pricing — agreed before development begins,
+                with zero surprises.
+            </p>
+
+        </div>
+
+        <div class="step-card">
+
+            <div class="step-icon development">
+                <i class="fa-solid fa-code"></i>
+            </div>
+
+            <h3>Development</h3>
+
+            <p>
+                Agile sprints, real-time visibility,
+                and weekly updates. Most clients see
+                their first working build within 30 days.
+            </p>
+
+        </div>
+
+        <div class="step-card">
+
+            <div class="step-icon delivery">
+                <i class="fa-regular fa-circle-check"></i>
+            </div>
+
+            <h3>Delivery & Support</h3>
+
+            <p>
+                Tested, deployed and monitored.
+                We stay with you after launch —
+                bug fixes, updates and ongoing
+                growth support.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="process-details">
+
+    <!-- PHASE 1 -->
+     <div class="phase-row phase1">
+
+        <div class="phase-content">
+
+            <span class="phase-tag">PHASE 01 — DISCOVERY</span>
+
+            <h2>We start by understanding your business</h2>
+
+            <p>
+                Every successful project begins with a thorough discovery phase.
+                We meet with your stakeholders, study your workflows,
+                and define the exact scope.
+            </p>
+
+            <div class="phase-list">
+
+                <span>✓ Stakeholder interviews</span>
+                <span>✓ Workflow analysis</span>
+                <span>✓ Requirements documentation</span>
+                <span>✓ Project scope definition</span>
+                <span>✓ Feature list and priorities</span>
+                <span>✓ Timeline estimation</span>
+
+            </div>
+
+        </div>
+
+        <div class="phase-card">
+
+            <small>DELIVERABLES</small>
+
+            <h3>Discovery Package</h3>
+
+            <p>
+                Requirements doc, roadmap,
+                feature list and timeline.
+            </p>
+
+            <div class="phase-pills">
+
+                <span>Requirements Doc</span>
+                <span>Roadmap</span>
+                <span>Feature List</span>
+                <span>Timeline</span>
+
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="phase-row phase2 reverse">
+
+        <div class="phase-card chart-card">
+
+            <small>OUTPUT</small>
+
+            <h3>Blueprint & Designs</h3>
+
+            <p>
+                Architecture and design approval before development.
+            </p>
+
+            <div class="planning-bars">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+        <div class="phase-content">
+
+            <span class="phase-tag">PHASE 02 — PLANNING & DESIGN</span>
+
+            <h2>Strategy, architecture and UI/UX design</h2>
+
+            <p>
+                We build a complete development strategy,
+                architecture and user experience plan.
+            </p>
+
+            <div class="phase-list">
+
+                <span>✓ Technology stack selection</span>
+                <span>✓ System architecture</span>
+                <span>✓ Database planning</span>
+                <span>✓ Wireframing</span>
+                <span>✓ UI/UX design</span>
+                <span>✓ Interactive prototypes</span>
+
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+    <!-- PHASE 3 -->
+    <div class="phase-row phase3">
+
+        <div class="phase-content">
+
+            <span class="phase-tag">PHASE 03 — DEVELOPMENT</span>
+
+            <h2>Built fast. Built right. Built to last.</h2>
+
+            <p>
+                Agile sprints with real-time visibility,
+                weekly updates and client demos.
+            </p>
+
+            <div class="phase-list">
+
+                <span>✓ Agile sprint development</span>
+                <span>✓ Weekly progress updates</span>
+                <span>✓ Client demos every sprint</span>
+                <span>✓ Front-end and back-end</span>
+                <span>✓ API integrations</span>
+                <span>✓ Database development</span>
+
+            </div>
+
+        </div>
+
+        <div class="phase-card">
+
+            <small>DEVELOPMENT CYCLE</small>
+
+            <h3>Agile Sprints</h3>
+
+            <div class="sprint-bars">
+
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+
+            </div>
+
+            <div class="phase-pills">
+
+                <span>React / Django</span>
+                <span>REST APIs</span>
+                <span>PostgreSQL</span>
+
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+    <!-- PHASE 4 -->
+    <div class="phase-row phase4 reverse">
+
+        <div class="phase-card">
+
+            <small>QA CHECKLIST</small>
+
+            <h3>Ready to Ship</h3>
+
+            <ul class="checklist">
+
+                <li>Functional tests passed</li>
+                <li>Security scan cleared</li>
+                <li>Load testing complete</li>
+                <li>UAT signed off</li>
+                <li>SSL configured</li>
+
+            </ul>
+
+        </div>
+
+        <div class="phase-content">
+
+            <span class="phase-tag">PHASE 04 — TESTING & DELIVERY</span>
+
+            <h2>Tested thoroughly. Launched confidently.</h2>
+
+            <p>
+                Before launch we perform testing,
+                benchmarking and deployment preparation.
+            </p>
+
+            <div class="phase-list">
+
+                <span>✓ Functional testing</span>
+                <span>✓ Security audit</span>
+                <span>✓ Performance testing</span>
+                <span>✓ User acceptance testing</span>
+                <span>✓ Cloud deployment</span>
+                <span>✓ SSL setup</span>
+
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+    <!-- PHASE 5 -->
+    <div class="phase-row phase5">
+    
+
+        <div class="phase-content">
+
+            <span class="phase-tag">PHASE 05 — ONGOING SUPPORT</span>
+
+            <h2>We don't disappear after launch</h2>
+
+            <p>
+                Monitoring, updates, maintenance
+                and continuous growth support.
+            </p>
+
+            <div class="phase-list">
+
+                <span>✓ Bug fixes</span>
+                <span>✓ Performance monitoring</span>
+                <span>✓ Security updates</span>
+                <span>✓ Feature enhancements</span>
+                <span>✓ Technical support</span>
+                <span>✓ System monitoring</span>
+
+            </div>
+
+        </div>
+
+        <div class="phase-card dark-card">
+
+            <small>POST-LAUNCH</small>
+
+            <h3>Ongoing Growth</h3>
+
+            <p>
+                Keeping your product fast,
+                secure and evolving.
+            </p>
+
+            <div class="phase-pills">
+
+                <span>Monitoring</span>
+                <span>Updates</span>
+                <span>Support</span>
+                <span>Scaling</span>
+
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+</section>
+<section class="why-us-section">
+
+    <div class="section-heading">
+
+        <h2>
+            Why businesses
+            <span>choose KK Digital Growth</span>
+        </h2>
+
+        <p>
+            Our process isn't just a workflow —
+            it's a commitment to your success at every stage.
+        </p>
+
+    </div>
+
+    <div class="why-grid">
+
+        <!-- Card 1 -->
+
+        <div class="why-card active">
+
+            <div class="why-icon orange">
+                <i class="fa-solid fa-check"></i>
+            </div>
+
+            <h3>Fixed Scope, Fixed Price</h3>
+
+            <p>
+                No surprise invoices. Every milestone is agreed before development starts.
+            </p>
+
+        </div>
+
+        <!-- Card 2 -->
+
+        <div class="why-card">
+
+            <div class="why-icon cyan">
+                <i class="fa-solid fa-display"></i>
+            </div>
+
+            <h3>Real-Time Visibility</h3>
+
+            <p>
+                Live dashboards, sprint updates and weekly demos keep you informed.
+            </p>
+
+        </div>
+
+        <!-- Card 3 -->
+
+        <div class="why-card">
+
+            <div class="why-icon blue">
+                <i class="fa-regular fa-clock"></i>
+            </div>
+
+            <h3>On-Time Delivery</h3>
+
+            <p>
+                Fixed timelines with agile execution ensure timely project completion.
+            </p>
+
+        </div>
+
+        <!-- Card 4 -->
+
+        <div class="why-card">
+
+            <div class="why-icon cyan">
+
+                <i class="fa-solid fa-house"></i>
+
+            </div>
+
+            <h3>100% Custom Built</h3>
+
+            <p>
+                Every website, ERP and application is built specifically for your business.
+            </p>
+
+        </div>
+
+        <!-- Card 5 -->
+
+        <div class="why-card">
+
+            <div class="why-icon orange">
+
+                <i class="fa-solid fa-user-group"></i>
+
+            </div>
+
+            <h3>One Dedicated Team</h3>
+
+            <p>
+                Designers, developers and QA engineers work together from start to finish.
+            </p>
+
+        </div>
+
+        <!-- Card 6 -->
+
+        <div class="why-card">
+
+            <div class="why-icon blue">
+
+                <i class="fa-regular fa-star"></i>
+
+            </div>
+
+            <h3>End-to-End Service</h3>
+
+            <p>
+                From idea to launch and beyond,
+                we support your business continuously.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="tech-section">
+
+    <div class="tech-heading">
+
+        <h2>
+            Technologies We
+            <span>Build With</span>
+        </h2>
+
+        <p>
+            Modern, scalable stacks — chosen for your project's needs,
+            not our convenience.
+        </p>
+
+    </div>
+
+    <div class="tech-grid">
+
+        <!-- Frontend -->
+
+        <div class="tech-card">
+
+            <h4>FRONT-END</h4>
+
+            <ul>
+
+                <li><i class="fab fa-react"></i> React.js</li>
+
+                <li><i class="fab fa-js"></i> Next.js</li>
+
+                <li><i class="fab fa-html5"></i> HTML5 / CSS3</li>
+
+                <li><i class="fas fa-wind"></i> Tailwind CSS</li>
+
+                <li><i class="fab fa-bootstrap"></i> Bootstrap</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Backend -->
+
+        <div class="tech-card">
+
+            <h4>BACK-END</h4>
+
+            <ul>
+
+                <li><i class="fab fa-python"></i> Python / Django</li>
+
+                <li><i class="fab fa-node-js"></i> Node.js</li>
+
+                <li><i class="fas fa-server"></i> Express.js</li>
+
+                <li><i class="fas fa-plug"></i> REST APIs</li>
+
+                <li><i class="fab fa-php"></i> PHP</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Mobile -->
+
+        <div class="tech-card">
+
+            <h4>MOBILE</h4>
+
+            <ul>
+
+                <li><i class="fas fa-mobile-alt"></i> Flutter</li>
+
+                <li><i class="fab fa-react"></i> React Native</li>
+
+                <li><i class="fab fa-android"></i> Android</li>
+
+                <li><i class="fab fa-apple"></i> iOS</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Database -->
+
+        <div class="tech-card">
+
+            <h4>DATABASES</h4>
+
+            <ul>
+
+                <li><i class="fas fa-database"></i> PostgreSQL</li>
+
+                <li><i class="fas fa-database"></i> MySQL</li>
+
+                <li><i class="fas fa-leaf"></i> MongoDB</li>
+
+                <li><i class="fas fa-fire"></i> Firebase</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Cloud -->
+
+        <div class="tech-card">
+
+            <h4>CLOUD & DEVOPS</h4>
+
+            <ul>
+
+                <li><i class="fab fa-aws"></i> AWS</li>
+
+                <li><i class="fab fa-microsoft"></i> Azure</li>
+
+                <li><i class="fab fa-docker"></i> Docker</li>
+
+                <li><i class="fas fa-code-branch"></i> CI/CD</li>
+
+                <li><i class="fab fa-github"></i> GitHub</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="process-cta">
+
+    <div class="process-cta-content">
+
+        <h2>Ready to start your project?</h2>
+
+        <p>
+            Book a free 30-minute discovery call. We'll scope your
+            requirements, give you a realistic timeline, and tell you
+            exactly what it'll take to build it.
+        </p>
+
+        <div class="process-cta-buttons">
+
+            <a href="{% url 'consultation' %}" class="cta-primary">
+                Book a Free Consultation →
+            </a>
+
+            <a href="{% url 'clients' %}" class="cta-secondary">
+    See Our Client Work
+</a>
+
+        </div>
+
+    </div>
+
+</section>
+{% include 'footer.html' %}
+<script>
+
+const phases =
+document.querySelectorAll(".phase-row");
+
+const observer =
+new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},{
+threshold:0.3
+});
+
+phases.forEach(phase=>{
+
+observer.observe(phase);
+
+});
+
+</script>
+</body>
+</html>
