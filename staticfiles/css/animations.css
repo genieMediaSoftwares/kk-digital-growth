@@ -1,0 +1,93 @@
+
+@keyframes floating{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+@keyframes growBars{
+    from{
+        transform:scaleY(.7);
+    }
+    to{
+        transform:scaleY(1);
+    }
+}
+
+@keyframes fadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeCard{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes up{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes floatGlow{
+0%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(20px);
+}
+100%{
+transform:translateY(0);
+}
+}
+
+@keyframes floatGlow2{
+0%{
+transform:translateX(0);
+}
+50%{
+transform:translateX(25px);
+}
+100%{
+transform:translateX(0);
+}
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes glow1{
+50%{
+transform:translateY(30px);
+}
+}
+
+@keyframes glow2{
+50%{
+transform:translateX(-35px);
+}
+}

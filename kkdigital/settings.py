@@ -82,7 +82,8 @@ WSGI_APPLICATION = 'kkdigital.wsgi.application'
 
 DATABASES = {
     "default": dj_database_url.config(
-        default=os.getenv("DATABASE_URL")
+        default="postgresql://postgres:1993@localhost:5432/kkdigital_db",
+        conn_max_age=600
     )
 }
 # Password validation
