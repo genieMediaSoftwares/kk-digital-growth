@@ -1,259 +1,173 @@
-
-.trusted-brands{
-    background:#f8fcff;
-    padding:40px 0;
+.trusted-brands {
+    background: #f7f8fc;
+    padding: 50px 0;
+    overflow: hidden;
 }
 
 .trusted-brands,
 .results-section,
-.comparison-section{
-    border-top:1px solid rgba(15,80,120,.05);
-}
-/* TRUSTED BRANDS SECTION */
-
-.trusted-brands{
-    padding:50px 0;
-   background:#f7f8fc;
+.comparison-section {
+    border-top: 1px solid rgba(15,80,120,.05);
 }
 
-.trusted-brands .home-container{
-    display:flex;
-    justify-content:space-between;
-   align-items:center;
+.trusted-brands .home-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.brands-left{
-    width:65%;
+/* LEFT SIDE: HEADING */
+.brands-left {
+    width: 40%;
 }
 
-.brands-left h2{
-    font-size:42px;
-    line-height:1.5;
-    color:#123F6B;
-    font-weight:700;
+.brands-left h2 {
+    font-size: 42px;
+    line-height: 1.5;
+    color: #123F6B;
+    font-weight: 700;
+    margin: 0;
 }
 
-.brands-left span{
-    background:#C9861E;
-    color:white;
-    padding:4px 12px;
-   border-radius:4px;
+.brands-left span {
+    background: #C9861E;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 4px 0;
 }
 
-.brands-right{
-    width:25%;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-   gap:30px;
+/* RIGHT SIDE: SCROLLING MARQUEE */
+.brands-right-marquee {
+    width: 56%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    /* Smooth fading mask on edges */
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
 
-.brand-item{
-    color:#6b7280;
-    font-size:18px;
-    font-weight:600;
-    transition:.3s ease;
-   cursor:pointer;
+.brands-marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Spacing between brand items */
+    width: max-content;
+    animation: scroll-brands-right 22s linear infinite;
+    will-change: transform;
 }
 
-.brand-item:hover{
-    color:#123F6B;
-    transform:translateX(5px);
+/* Pause on Hover */
+.brands-right-marquee:hover .brands-marquee-track,
+.brands-marquee-track:hover {
+    animation-play-state: paused;
 }
 
-.brands-right{
-    width:30%;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:28px;
+/* Auto-scroll animation from right to left */
+@keyframes scroll-brands-right {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
-.brand-item{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    transition:0.3s ease;
-    cursor:pointer;
+/* INDIVIDUAL BRAND ITEMS (Original theme colors, icons, & typography preserved) */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+    cursor: pointer;
+    user-select: none;
+    transition: all .3s ease;
 }
 
-.brand-item:hover{
-    transform:translateX(5px);
+.brand:hover {
+    transform: translateY(-3px);
 }
 
-.brand-item h4{
-    font-size:18px;
-    font-weight:700;
-    margin:0;
+.brand h4 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
 }
 
-.brand-item p{
-    margin:0;
-    font-size:11px;
-    color:#888;
-}
-/* ICONS */
-
-.brand-dot{
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    border:2px solid currentColor;
+.brand p {
+    margin: 2px 0 0;
+    font-size: 14px;
+    color: #8a8a8a;
+    margin-top: 4px;
 }
 
-.brand-square{
-    width:10px;
-    height:10px;
-    border:2px solid currentColor;
-}
+/* BRAND CUSTOM COLORS & ICONS */
 
-.brand-circle{
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    border:2px solid currentColor;
-}
-
-.brand-letter{
-    font-size:22px;
-    font-weight:700;
-}
-/* COLORS */
-
-.green{
-    color:#56B947;
-}
-
-.teal{
-    color:#2DBF9F;
-}
-
-.red{
-    color:#D95C4A;
-}
-
-.blue{
-    color:#4563A5;
-}
-
-.navy{
-    color:#1B3B78;
-}
-
-.orange{
-    color:#E58C52;
-}
-
-
-.dark{
-    color:#25364F;
-}
-
-.brands-right{
-    width:28%;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:28px 40px;
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-.brand h4{
-    margin:0;
-    font-size:28px;
-    font-weight:700;
-    line-height:1.1;
-}
-
-.brand p{
-    margin:2px 0 0;
-    font-size:14px;
-    color:#8a8a8a;
-    margin-top:4px
-
-}
 /* Nimbus */
-
-.nimbus{
-    color:#66bb33;
+.nimbus {
+    color: #66bb33;
 }
-
-.icon-circle{
-    width:10px;
-    height:10px;
-    border:2px solid #66bb33;
-    border-radius:50%;
-     border:3px solid currentColor;
-    border-radius:50%;
+.icon-circle {
+    width: 18px;
+    height: 18px;
+    border: 3px solid currentColor;
+    border-radius: 50%;
 }
-
 .icon-circle,
-.icon-square{
-    width:18px;
-    height:18px;
-    flex-shrink:0;
+.icon-square {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+.icon-diamond {
+    font-size: 20px;
+    font-weight: 700;
 }
 
-.icon-diamond{
-    font-size:20px;
-    font-weight:700;
-}
 /* Cartly */
-
-.cartly{
-    color:#2cbfae;
+.cartly {
+    color: #2cbfae;
 }
+
 /* Fleet */
-
-.fleet{
-    color:#d65a47;
+.fleet {
+    color: #d65a47;
+}
+.icon-square {
+    width: 18px;
+    height: 18px;
+    border: 3px solid currentColor;
 }
 
-.icon-square{
-    width:10px;
-    height:10px;
-    border:2px solid #d65a47;
-     border:3px solid currentColor;
-}
 /* Clinic */
-
-.clinic{
-    color:#4563a7;
+.clinic {
+    color: #4563a7;
+}
+.icon-circle-sm {
+    font-size: 12px;
+    font-weight: 700;
 }
 
-.icon-circle-sm{
-    font-size:12px;
-     font-weight:700;
-}
 /* ERP */
-
-.erp{
-    color:#163f8f;
+.erp {
+    color: #163f8f;
+}
+.erp-a {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
 }
 
-.erp-a{
-    font-size:28px;
-    font-weight:500;
-    line-height:1;
-}
 /* PetDesk */
-
-.petdesk{
-    color:#ea9652;
+.petdesk {
+    color: #ea9652;
 }
+
 /* Stax */
-
-.stax{
-    color:#2c3952;
-}
-/* Hover */
-
-.brand{
-    transition:all .3s ease;
-}
-
-.brand:hover{
-    transform:translateY(-3px);
+.stax {
+    color: #2c3952;
 }

@@ -287,6 +287,26 @@ padding:28px;
         justify-content: center;
         width: 100%;
     }
+    .hero-slider-container {
+        width: 100%;
+        max-width: 594px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-slider-container {
+        padding: 30px 40px;
+        height: auto;
+        min-height: 450px;
+    }
+    .service-slide-features {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .service-slide-desc {
+        font-size: 14.5px;
+    }
 }
 
 @media (max-width: 640px) {
@@ -300,20 +320,30 @@ padding:28px;
     .highlight {
         font-size: 38px;
     }
-    .hero-cards {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        gap: 20px;
-        width: 100%;
-        max-width: 320px;
+    .hero-slider-container {
+        padding: 25px 25px;
+        min-height: 470px;
     }
-    .hero-card {
-        width: 100%;
-        height: auto;
-        min-height: 220px;
-        transform: none !important;
-        margin: 0 !important;
-        padding: 24px;
+    .service-slide-header {
+        gap: 14px;
+    }
+    .service-slide-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+        border-radius: 12px;
+    }
+    .service-slide-header h3 {
+        font-size: 20px;
+    }
+    .service-slide-subtitle {
+        font-size: 11.5px;
+    }
+    .slider-arrow {
+        display: none;
+    }
+    .slider-dots {
+        bottom: 8px;
     }
 }
 
@@ -384,24 +414,31 @@ padding:28px;
 @media (max-width: 992px) {
     .trusted-brands .home-container {
         flex-direction: column;
-        align-items: stretch;
-        gap: 40px;
+        align-items: center;
+        gap: 35px;
     }
     .brands-left {
         width: 100%;
         text-align: center;
     }
-    .brands-right {
+    .brands-right-marquee {
         width: 100%;
-        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-        justify-items: center;
-        gap: 30px;
+        padding: 5px 0;
+    }
+    .brands-marquee-track {
+        gap: 40px;
     }
 }
 
 @media (max-width: 768px) {
     .brands-left h2 {
         font-size: 28px;
+    }
+    .brand h4 {
+        font-size: 22px;
+    }
+    .brand p {
+        font-size: 12px;
     }
 }
 
@@ -454,5 +491,31 @@ padding:28px;
     .comparison-card li {
         font-size: 15px;
         padding: 12px 0;
+    }
+}
+
+/* Hero Testimonial Slider Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-testimonial-slider {
+        margin: 30px auto 0 auto;
+    }
+    .hero-review-quote {
+        font-size: 14px;
+        line-height: 1.45;
+    }
+}
+@media (max-width: 480px) {
+    .hero-testimonial-slide {
+        padding: 15px;
+    }
+    .hero-client-logo-wrap {
+        width: 45px;
+        height: 45px;
+    }
+    .hero-review-content h4 {
+        font-size: 13.5px;
+    }
+    .hero-review-content h4 span {
+        font-size: 11.5px;
     }
 }

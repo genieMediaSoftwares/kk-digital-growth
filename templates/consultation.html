@@ -8,7 +8,8 @@
 
 <title>Consultation</title>
 
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}?v=2.2">
+<link rel="stylesheet" href="{% static 'css/clients.css' %}?v=2.2">
 
 </head>
 
@@ -224,95 +225,59 @@
 
 </section>
 <section class="testimonials-section">
-
     <div class="curve-top"></div>
-
     <div class="testimonial-container">
-
         <h2>What Clients Say</h2>
-
         <div class="testimonial-bar">
             Trusted by businesses across industries
         </div>
-
-        <div class="testimonial-grid">
-
-            <div class="testimonial-box">
-                <div class="client-number">1</div>
-
-                <h4>Ravi Kumar</h4>
-                <span>CEO, RK Solutions</span>
-
-                <p>
-                    KK Digital delivered our website ahead of schedule.
-                    Their team was professional and responsive throughout.
-                </p>
-            </div>
-
-            <div class="testimonial-box">
-                <div class="client-number">2</div>
-
-                <h4>Priya Sharma</h4>
-                <span>Founder, Startup Hub</span>
-
-                <p>
-                    Excellent communication and technical expertise.
-                    We highly recommend their services.
-                </p>
-            </div>
-
-            <div class="testimonial-box">
-                <div class="client-number">3</div>
-
-                <h4>Arjun Reddy</h4>
-                <span>Director, AR Enterprises</span>
-
-                <p>
-                    The mobile application exceeded our expectations
-                    and improved our business operations.
-                </p>
-            </div>
-
-            <div class="testimonial-box">
-                <div class="client-number">4</div>
-
-                <h4>Sneha Patel</h4>
-                <span>Manager, Smart Tech</span>
-
-                <p>
-                    Reliable team with great project management.
-                    Everything was delivered on time.
-                </p>
-            </div>
-
-            <div class="testimonial-box">
-                <div class="client-number">5</div>
-
-                <h4>Vikram Singh</h4>
-                <span>CEO, VS Group</span>
-
-                <p>
-                    Outstanding software development support.
-                    The final product was exactly what we needed.
-                </p>
-            </div>
-
-            <div class="testimonial-box">
-                <div class="client-number">6</div>
-
-                <h4>Ananya Rao</h4>
-                <span>Founder, Digital Vision</span>
-
-                <p>
-                    Their creativity and technical skills helped
-                    us launch successfully.
-                </p>
-            </div>
-
-        </div>
-
     </div>
 
+    <div class="feedback-marquee-container">
+        <div class="feedback-marquee-track">
+            <!-- Set 1 -->
+            {% for item in testimonials %}
+            <div class="feedback-card">
+                <div class="feedback-header">
+                    <img src="{% static item.logo_image %}" alt="{{ item.client_name }}" class="feedback-logo">
+                    <div class="feedback-client-info">
+                        <h4>{{ item.client_name }}</h4>
+                        <span>{{ item.author }} — {{ item.designation }}</span>
+                    </div>
+                </div>
+                <div class="feedback-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="feedback-text">"{{ item.feedback_text }}"</p>
+            </div>
+            {% endfor %}
+
+            <!-- Set 2 (Duplicated for seamless looping) -->
+            {% for item in testimonials %}
+            <div class="feedback-card">
+                <div class="feedback-header">
+                    <img src="{% static item.logo_image %}" alt="{{ item.client_name }}" class="feedback-logo">
+                    <div class="feedback-client-info">
+                        <h4>{{ item.client_name }}</h4>
+                        <span>{{ item.author }} — {{ item.designation }}</span>
+                    </div>
+                </div>
+                <div class="feedback-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="feedback-text">"{{ item.feedback_text }}"</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </section>
 {% include 'footer.html' %}
 <script>

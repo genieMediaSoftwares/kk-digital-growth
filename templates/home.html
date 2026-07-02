@@ -24,9 +24,11 @@
 
     <!-- Your CSS -->
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.8">
-
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2.0">
+    <link rel="stylesheet" href="{% static 'css/hero.css' %}?v=2.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=2.0">
     <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/clients.css' %}?v=2.3">
 
 </head>
 
@@ -86,97 +88,202 @@
             </a>
 
         </div>
-        <div class="client-review-card">
+        <div class="hero-testimonial-slider">
+            <div class="hero-testimonial-track-wrapper">
+                <div class="hero-testimonial-track">
+                    {% for item in testimonials %}
+                    <div class="hero-testimonial-slide {% if forloop.first %}active{% endif %}">
+                        <div class="hero-review-top">
+                            <!-- Client Logo (using exact logo of the website) -->
+                            <div class="hero-client-logo-wrap">
+                                <img src="{% static item.logo_image %}" alt="{{ item.client_name }}" class="hero-client-logo">
+                            </div>
 
-    <div class="review-top">
+                            <div class="hero-review-content">
+                                <div class="hero-review-meta">
+                                    <span class="hero-review-industry">{{ item.industry | upper }}</span>
+                                    <div class="hero-review-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="hero-review-quote">"{{ item.feedback_text }}"</p>
+                                <h4>
+                                    {{ item.author }}
+                                    <span>{{ item.designation }}, {{ item.client_name }}</span>
+                                </h4>
+                            </div>
 
-        <img src="{% static 'images/client-avatar' %}"
-             alt="Client"
-             class="client-avatar">
+                            <div class="hero-review-badge">
+                                G
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
 
-        <div class="review-content">
-
-            <p class="review-quote">
-                "They didn't just write code — they understood our
-                business and shipped a platform that actually works,
-                on time and on budget."
-            </p>
-
-            <h4>
-                Bryan Taylor
-                <span>CTO, Morphio</span>
-            </h4>
-
+            <!-- Slide Dots -->
+            <div class="hero-testimonial-dots">
+                {% for item in testimonials %}
+                <span class="hero-testimonial-dot {% if forloop.first %}active{% endif %}" data-slide="{{ forloop.counter0 }}"></span>
+                {% endfor %}
+            </div>
         </div>
-
-        <div class="review-badge">
-            G
-        </div>
-
-    </div>
-
-</div>
 
     </div>
 
     <div class="hero-right">
+        <div class="hero-slider-container">
+            <!-- Navigation Arrows -->
+            <button class="slider-arrow prev-btn" aria-label="Previous Slide">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="slider-arrow next-btn" aria-label="Next Slide">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
 
-    <div class="hero-cards">
+            <!-- Slides Track Wrapper -->
+            <div class="slider-track-wrapper">
+                <div class="slider-track">
+                    <!-- Slide 1: Web Development -->
+                    <div class="slider-slide">
+                        <div class="service-slide-card web-service">
+                            <div class="service-slide-header">
+                                <div class="service-slide-icon icon-web">
+                                    <i class="fa-regular fa-window-maximize"></i>
+                                </div>
+                                <div class="service-slide-title-info">
+                                    <span class="service-slide-tag">SERVICES</span>
+                                    <h3>Website Development</h3>
+                                    <p class="service-slide-subtitle">Custom • Responsive • Performance-first</p>
+                                </div>
+                            </div>
+                            <div class="service-slide-body">
+                                <p class="service-slide-desc">We build fast, scalable, conversion-focused websites that look great and perform even better.</p>
+                                <div class="service-slide-features">
+                                    <span><i class="fa-regular fa-image"></i> Custom Website Design</span>
+                                    <span><i class="fa-solid fa-cart-shopping"></i> E-commerce Development</span>
+                                    <span><i class="fa-regular fa-file"></i> CMS Integration</span>
+                                    <span><i class="fa-solid fa-arrow-trend-up"></i> SEO & Performance</span>
+                                </div>
+                            </div>
+                            <div class="service-slide-footer">
+                                <a href="{% url 'consultation' %}" class="service-slide-btn">
+                                    <span>Start Your Website Project</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Card 1 -->
-        <div class="hero-card card-partner">
-            <p class="card-tag">PARTNER</p>
-            <h3>Reliable Growth</h3>
-            <div class="stars">★★★★★</div>
-            <p class="card-text">
-                Fixed-scope & fixed-timeline delivery with no hidden surprises.
-            </p>
-            <div class="verified">✔ Verified Partner</div>
-        </div>
+                    <!-- Slide 2: Mobile App -->
+                    <div class="slider-slide">
+                        <div class="service-slide-card mobile-service">
+                            <div class="service-slide-header">
+                                <div class="service-slide-icon icon-mobile">
+                                    <i class="fa-solid fa-mobile-screen"></i>
+                                </div>
+                                <div class="service-slide-title-info">
+                                    <span class="service-slide-tag">SERVICES</span>
+                                    <h3>Mobile App Development</h3>
+                                    <p class="service-slide-subtitle">iOS • Android • Cross-platform</p>
+                                </div>
+                            </div>
+                            <div class="service-slide-body">
+                                <p class="service-slide-desc">Native and cross-platform mobile apps designed for user growth and high engagement.</p>
+                                <div class="service-slide-features">
+                                    <span><i class="fa-brands fa-apple"></i> iOS Development</span>
+                                    <span><i class="fa-brands fa-android"></i> Android Development</span>
+                                    <span><i class="fa-solid fa-code"></i> Cross-platform Apps</span>
+                                    <span><i class="fa-solid fa-link"></i> API Integration</span>
+                                </div>
+                            </div>
+                            <div class="service-slide-footer">
+                                <a href="{% url 'consultation' %}" class="service-slide-btn">
+                                    <span>Start Your App Project</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Card 2 -->
-        <div class="hero-card card-services">
-            <p class="card-tag">SERVICES</p>
-            <h3>Tech Stack</h3>
-            <ul class="card-list">
-                <li><i class="fa-solid fa-code"></i> Web & ERP Systems</li>
-                <li><i class="fa-solid fa-mobile-screen"></i> Mobile Apps</li>
-                <li><i class="fa-solid fa-robot"></i> AI Automations</li>
-                <li><i class="fa-solid fa-headset"></i> Dedicated Support</li>
-            </ul>
-        </div>
+                    <!-- Slide 3: ERP -->
+                    <div class="slider-slide">
+                        <div class="service-slide-card erp-service">
+                            <div class="service-slide-header">
+                                <div class="service-slide-icon icon-erp">
+                                    <i class="fa-solid fa-boxes-stacked"></i>
+                                </div>
+                                <div class="service-slide-title-info">
+                                    <span class="service-slide-tag">SERVICES</span>
+                                    <h3>ERP Development</h3>
+                                    <p class="service-slide-subtitle">Inventory • Finance • HR • Operations</p>
+                                </div>
+                            </div>
+                            <div class="service-slide-body">
+                                <p class="service-slide-desc">Custom ERP systems that connect every part of your business operations under one platform.</p>
+                                <div class="service-slide-features">
+                                    <span><i class="fa-solid fa-box"></i> Inventory Management</span>
+                                    <span><i class="fa-solid fa-money-bill"></i> Finance & Billing</span>
+                                    <span><i class="fa-solid fa-users"></i> HR & Payroll</span>
+                                    <span><i class="fa-solid fa-chart-line"></i> Operations Reporting</span>
+                                </div>
+                            </div>
+                            <div class="service-slide-footer">
+                                <a href="{% url 'consultation' %}" class="service-slide-btn">
+                                    <span>Start Your ERP Project</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Card 3 -->
-        <div class="hero-card card-metrics-details">
-            <p class="card-tag">METRICS</p>
-            <h3>Proven Success</h3>
-            <div class="card-metrics">
-                <div class="metric-box">
-                    <strong>50+</strong>
-                    <span>Delivered</span>
-                </div>
-                <div class="metric-box">
-                    <strong>99%</strong>
-                    <span>Satisfaction</span>
+                    <!-- Slide 4: Custom Apps -->
+                    <div class="slider-slide">
+                        <div class="service-slide-card custom-service">
+                            <div class="service-slide-header">
+                                <div class="service-slide-icon icon-custom">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+                                <div class="service-slide-title-info">
+                                    <span class="service-slide-tag">SERVICES</span>
+                                    <h3>Custom Development</h3>
+                                    <p class="service-slide-subtitle">Internal Tools • SaaS • Automation</p>
+                                </div>
+                            </div>
+                            <div class="service-slide-body">
+                                <p class="service-slide-desc">Tailor-made software applications and internal tools designed specifically for your workflows.</p>
+                                <div class="service-slide-features">
+                                    <span><i class="fa-solid fa-toolbox"></i> Internal Tools</span>
+                                    <span><i class="fa-solid fa-star"></i> SaaS Platforms</span>
+                                    <span><i class="fa-solid fa-gear"></i> AI & Automation</span>
+                                    <span><i class="fa-solid fa-puzzle-piece"></i> Third-party APIs</span>
+                                </div>
+                            </div>
+                            <div class="service-slide-footer">
+                                <a href="{% url 'consultation' %}" class="service-slide-btn">
+                                    <span>Start Your Project</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="verified"><i class="fa-solid fa-star"></i> 4.9/5 Google Rated</div>
-        </div>
 
-        <!-- Card 4 -->
-        <div class="hero-card card-transparency">
-            <p class="card-tag">TRANSPARENCY</p>
-            <h3>Our Promise</h3>
-            <ul class="card-list">
-                <li><i class="fa-regular fa-circle-check"></i> Milestone billing</li>
-                <li><i class="fa-regular fa-circle-check"></i> Real-time tracking</li>
-                <li><i class="fa-regular fa-circle-check"></i> In-house QA & Dev</li>
-            </ul>
+            <!-- Slide Dots -->
+            <div class="slider-dots">
+                <span class="slider-dot active" data-slide="0"></span>
+                <span class="slider-dot" data-slide="1"></span>
+                <span class="slider-dot" data-slide="2"></span>
+                <span class="slider-dot" data-slide="3"></span>
+            </div>
         </div>
-
     </div>
-
-</div>
 
         
 
@@ -198,50 +305,91 @@
 
         </div>
 
-        <div class="brands-right">
+        <div class="brands-right-marquee">
+            <div class="brands-marquee-track">
+                <!-- Set 1 -->
+                <div class="brand nimbus">
+                    <span class="icon-circle"></span>
+                    <div>
+                        <h4>NimbusERP</h4>
+                        <p>by Nimbus Manufacturing</p>
+                    </div>
+                </div>
 
-        <div class="brand nimbus">
-            <span class="icon-circle"></span>
-            <div>
-                <h4>NimbusERP</h4>
-                <p>by Nimbus Manufacturing</p>
+                <div class="brand cartly">
+                    <span class="icon-diamond">✦</span>
+                    <h4>cartly</h4>
+                </div>
+
+                <div class="brand fleet">
+                    <span class="icon-square"></span>
+                    <h4>FLEET<br>BOSS</h4>
+                </div>
+
+                <div class="brand clinic">
+                    <span class="icon-circle-sm">⊖</span>
+                    <h4>clinicsync</h4>
+                </div>
+
+                <div class="brand erp">
+                    <span class="erp-a">A</span>
+                    <div>
+                        <h4>ERP²</h4>
+                        <p>Vantix Systems</p>
+                    </div>
+                </div>
+
+                <div class="brand petdesk">
+                    <span class="icon-circle-sm">⊖</span>
+                    <h4>PetDesk</h4>
+                </div>
+
+                <div class="brand stax">
+                    <h4>stax ➜</h4>
+                </div>
+
+                <!-- Set 2 (Duplicated for seamless looping) -->
+                <div class="brand nimbus">
+                    <span class="icon-circle"></span>
+                    <div>
+                        <h4>NimbusERP</h4>
+                        <p>by Nimbus Manufacturing</p>
+                    </div>
+                </div>
+
+                <div class="brand cartly">
+                    <span class="icon-diamond">✦</span>
+                    <h4>cartly</h4>
+                </div>
+
+                <div class="brand fleet">
+                    <span class="icon-square"></span>
+                    <h4>FLEET<br>BOSS</h4>
+                </div>
+
+                <div class="brand clinic">
+                    <span class="icon-circle-sm">⊖</span>
+                    <h4>clinicsync</h4>
+                </div>
+
+                <div class="brand erp">
+                    <span class="erp-a">A</span>
+                    <div>
+                        <h4>ERP²</h4>
+                        <p>Vantix Systems</p>
+                    </div>
+                </div>
+
+                <div class="brand petdesk">
+                    <span class="icon-circle-sm">⊖</span>
+                    <h4>PetDesk</h4>
+                </div>
+
+                <div class="brand stax">
+                    <h4>stax ➜</h4>
+                </div>
             </div>
         </div>
-
-        <div class="brand cartly">
-            <span class="icon-diamond">✦</span>
-            <h4>cartly</h4>
-        </div>
-
-        <div class="brand fleet">
-            <span class="icon-square"></span>
-            <h4>FLEET<br>BOSS</h4>
-        </div>
-
-        <div class="brand clinic">
-            <span class="icon-circle-sm">⊖</span>
-            <h4>clinicsync</h4>
-        </div>
-
-        <div class="brand erp">
-            <span class="erp-a">A</span>
-
-            <div>
-                <h4>ERP²</h4>
-                <p>Vantix Systems</p>
-            </div>
-        </div>
-
-        <div class="brand petdesk">
-            <span class="icon-circle-sm">⊖</span>
-            <h4>PetDesk</h4>
-        </div>
-
-        <div class="brand stax">
-            <h4>stax ➜</h4>
-        </div>
-
-    </div>
     </div>
 </section>
 <section class="results-section">
@@ -466,6 +614,185 @@
 
 </section>
 </section>
+
 {% include 'footer.html' %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const track = document.querySelector('.hero-testimonial-track');
+        const slides = document.querySelectorAll('.hero-testimonial-slide');
+        const dots = document.querySelectorAll('.hero-testimonial-dots .hero-testimonial-dot');
+        const container = document.querySelector('.hero-testimonial-slider');
+        
+        let currentIndex = 0;
+        let slideInterval = null;
+        const intervalTime = 3000; // Rotate every 3 seconds
+
+        function updateSlider(index) {
+            if (index < 0) {
+                currentIndex = slides.length - 1;
+            } else if (index >= slides.length) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+
+            // Slide translation
+            if (track) {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            // Active Slide active class for scale/opacity fade
+            slides.forEach((slide, i) => {
+                if (i === currentIndex) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            // Active dot highlight
+            dots.forEach((dot, i) => {
+                if (i === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function startAutoPlay() {
+            stopAutoPlay();
+            slideInterval = setInterval(() => {
+                const isHovered = (container && container.matches(':hover')) || 
+                                  Array.from(slides).some(slide => slide.matches(':hover'));
+                if (!isHovered) {
+                    updateSlider(currentIndex + 1);
+                }
+            }, intervalTime);
+        }
+
+        function stopAutoPlay() {
+            if (slideInterval) {
+                clearInterval(slideInterval);
+                slideInterval = null;
+            }
+        }
+
+        // Dot indicators
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                const targetIndex = parseInt(e.target.getAttribute('data-slide'));
+                updateSlider(targetIndex);
+                startAutoPlay();
+            });
+        });
+
+        // Hover pause
+        if (container) {
+            container.addEventListener('mouseenter', stopAutoPlay);
+            container.addEventListener('mouseleave', startAutoPlay);
+        }
+
+        // Initialize
+        updateSlider(0);
+        startAutoPlay();
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const track = document.querySelector('.slider-track');
+        const slides = document.querySelectorAll('.slider-slide');
+        const dots = document.querySelectorAll('.slider-dots .slider-dot');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const container = document.querySelector('.hero-slider-container');
+        
+        let currentIndex = 0;
+        let slideInterval = null;
+        let isHovered = false;
+        const intervalTime = 3500; // Auto-slide every 3.5 seconds
+
+        function updateSlider(index) {
+            if (index < 0) {
+                currentIndex = slides.length - 1;
+            } else if (index >= slides.length) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+
+            // Slide translation
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            // Active Slide opacity/scale styling class
+            slides.forEach((slide, i) => {
+                if (i === currentIndex) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            // Active Dot highlight class
+            dots.forEach((dot, i) => {
+                if (i === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function startAutoSlide() {
+            stopAutoSlide();
+            if (isHovered) return; // Do not schedule a new interval if currently hovered
+            slideInterval = setInterval(() => {
+                updateSlider(currentIndex + 1);
+            }, intervalTime);
+        }
+
+        function stopAutoSlide() {
+            if (slideInterval) {
+                clearInterval(slideInterval);
+                slideInterval = null;
+            }
+        }
+
+        // Action controls
+        prevBtn.addEventListener('click', () => {
+            updateSlider(currentIndex - 1);
+            startAutoSlide();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            updateSlider(currentIndex + 1);
+            startAutoSlide();
+        });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                const targetIndex = parseInt(e.target.getAttribute('data-slide'));
+                updateSlider(targetIndex);
+                startAutoSlide();
+            });
+        });
+
+        // Hover pause and play
+        if (container) {
+            container.addEventListener('mouseenter', () => {
+                isHovered = true;
+                stopAutoSlide();
+            });
+            container.addEventListener('mouseleave', () => {
+                isHovered = false;
+                startAutoSlide();
+            });
+        }
+
+        // Initialize Slider
+        updateSlider(0);
+        startAutoSlide();
+    });
+</script>
 </body>
 </html>

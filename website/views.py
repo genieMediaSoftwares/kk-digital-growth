@@ -3,8 +3,100 @@ from .models import Consultation
 from .forms import ContactForm
 
 
+TESTIMONIALS_DATA = [
+    {
+        "client_name": "Meera Basu Sarees",
+        "logo_image": "images/meerabasu-home.png",
+        "feedback_text": "KK Digital Growth transformed our boutique saree brand with a gorgeous, high-converting Shopify store. The elegant typography and seamless shopping experience perfectly reflect our heritage.",
+        "author": "Ananya Basu",
+        "designation": "Founder & Creative Director",
+        "industry": "E-commerce & Retail",
+    },
+    {
+        "client_name": "KNS Metal Solutions",
+        "logo_image": "images/kns-metal.png",
+        "feedback_text": "The custom lead generation website built by their team has significantly increased our quote requests. Professional communication, high performance, and robust industrial showcase.",
+        "author": "Marcus Vance",
+        "designation": "Managing Director",
+        "industry": "Industrial Manufacturing",
+    },
+    {
+        "client_name": "LaserFold Australia",
+        "logo_image": "images/laserfold.png",
+        "feedback_text": "Their developer team delivered a lightning-fast custom web app that lets our clients explore metal fabrication services with ease. Highly recommended tech partner.",
+        "author": "David Harrison",
+        "designation": "Director of Operations",
+        "industry": "Metal Fabrication",
+    },
+    {
+        "client_name": "GenieStudio",
+        "logo_image": "images/geniestudio.png",
+        "feedback_text": "A highly visual and modern site that showcases our podcast and creative photography studios perfectly. The UI/UX is outstanding and captures our studio's vibe.",
+        "author": "Kabir Mehta",
+        "designation": "Founder & Producer",
+        "industry": "Creative Media Studios",
+    },
+    {
+        "client_name": "Buildzon Projects",
+        "logo_image": "images/buildzon.png",
+        "feedback_text": "Our real estate property catalog has never looked better. The lead generation workflows and custom admin panel are smooth, intuitive, and extremely fast.",
+        "author": "Rohan Sharma",
+        "designation": "Managing Director",
+        "industry": "Real Estate & Construction",
+    },
+    {
+        "client_name": "Nucon Aerospace",
+        "logo_image": "images/nucon.png",
+        "feedback_text": "The custom corporate system developed by KK Digital Growth transformed our internal motion control documentation. Enterprise-grade execution and secure infrastructure.",
+        "author": "Rajesh K. Prasad",
+        "designation": "VP of Operations",
+        "industry": "Aerospace & Defense",
+    },
+    {
+        "client_name": "Synergene API",
+        "logo_image": "images/synergene.png",
+        "feedback_text": "A top-tier pharmaceutical product database and compliance website. Their team adhered to our strict documentation guidelines and delivered a stellar corporate presence.",
+        "author": "Dr. S. Srinivasan",
+        "designation": "Director of Quality Assurance",
+        "industry": "Pharmaceuticals",
+    },
+    {
+        "client_name": "Vivodyne",
+        "logo_image": "images/vivodyne.png",
+        "feedback_text": "An immersive web experience that explains our AI-powered biotech organ models to global partners. The advanced animations and performance are state-of-the-art.",
+        "author": "Dr. Andrei Georgescu",
+        "designation": "CEO & Chief Scientist",
+        "industry": "Biotechnology",
+    },
+    {
+        "client_name": "Decagon AI",
+        "logo_image": "images/decagon.png",
+        "feedback_text": "They built a clean, modern marketing website for our conversational AI customer agents. High performance, SEO-focused, and completely responsive on all platforms.",
+        "author": "Jesse Zhang",
+        "designation": "Head of Customer Experience",
+        "industry": "Artificial Intelligence & SaaS",
+    },
+    {
+        "client_name": "Freenome",
+        "logo_image": "images/freenome.png",
+        "feedback_text": "A highly secure, clean, and modern healthcare informational site for our cancer detection trials. Exceptional attention to detail, accessibility, and speed.",
+        "author": "Dr. Sarah Jenkins",
+        "designation": "Lead Clinical Researcher",
+        "industry": "Healthcare Research",
+    },
+    {
+        "client_name": "Naren Ultrasound",
+        "logo_image": "images/naren.png",
+        "feedback_text": "The patient booking site has streamlined our clinic's scan scheduling. Patients love the clean, simple interface, and our operational efficiency has doubled.",
+        "author": "Dr. N. Hemalatha",
+        "designation": "Founder & Head Sonologist",
+        "industry": "Medical Diagnostics",
+    },
+]
+
+
 def home(request):
-    return render(request, "home.html")
+    return render(request, "home.html", {"testimonials": TESTIMONIALS_DATA})
 
 
 def consultation(request):
@@ -23,10 +115,10 @@ def consultation(request):
         return render(
             request,
             "consultation.html",
-            {"success": True},
+            {"success": True, "testimonials": TESTIMONIALS_DATA},
         )
 
-    return render(request, "consultation.html")
+    return render(request, "consultation.html", {"testimonials": TESTIMONIALS_DATA})
 
 
 def services(request):
