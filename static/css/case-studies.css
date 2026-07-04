@@ -32,8 +32,8 @@ CASE STUDIES - LISTING & HERO
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(216, 147, 45, 0.15);
-    color: #f59e0b;
+    background: rgba(247, 148, 33, 0.15);
+    color: #F79421;
     padding: 8px 18px;
     border-radius: 30px;
     font-size: 13px;
@@ -67,20 +67,20 @@ CASE STUDIES - LISTING & HERO
 .btn-primary {
     display: inline-block;
     padding: 16px 36px;
-    background: #ff7300;
+    background: #F79421;
     color: #fff;
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
     border-radius: 50px;
-    box-shadow: 0 10px 25px rgba(255, 115, 0, 0.25);
+    box-shadow: 0 10px 25px rgba(247, 148, 33, 0.25);
     transition: all 0.35s ease;
 }
 
 .btn-primary:hover {
-    background: #ff851b;
+    background: #ff9e3b;
     transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(255, 115, 0, 0.35);
+    box-shadow: 0 15px 30px rgba(247, 148, 33, 0.35);
 }
 
 .btn-secondary {
@@ -175,7 +175,7 @@ LISTING CARDS GRID
 
 .case-project-type {
     display: block;
-    color: #ff7300;
+    color: #F79421;
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
@@ -369,7 +369,7 @@ DETAIL PAGE STYLING
 }
 
 .detail-card h2 i {
-    color: #ff7300;
+    color: #F79421;
 }
 
 .detail-card p {
@@ -401,7 +401,7 @@ DETAIL PAGE STYLING
     font-size: 20px;
     font-weight: 800;
     color: #fff;
-    background: #ff7300;
+    background: #F79421;
     width: 45px;
     height: 45px;
     display: flex;
@@ -500,7 +500,7 @@ DETAIL PAGE STYLING
 
 .quote-icon {
     font-size: 32px;
-    color: rgba(255, 115, 0, 0.4);
+    color: rgba(247, 148, 33, 0.4);
     position: absolute;
     top: 25px;
     left: 25px;
@@ -519,11 +519,11 @@ DETAIL PAGE STYLING
 .testimonial-author {
     font-size: 14px;
     font-weight: 700;
-    color: #f59e0b;
+    color: #F79421;
 }
 
 .cta-widget {
-    background: linear-gradient(135deg, #ff7300 0%, #e06500 100%);
+    background: #F79421;
     color: #fff;
     border: none;
     text-align: center;
@@ -546,7 +546,7 @@ DETAIL PAGE STYLING
     display: block;
     padding: 14px 24px;
     background: #fff;
-    color: #ff7300;
+    color: #F79421;
     font-size: 15px;
     font-weight: 700;
     text-decoration: none;
