@@ -4,19 +4,17 @@
 @import url("trusted-brands.css");
 @import url("results.css");
 @import url("comparison.css");
-@import url("about.css");
+@import url("about.css?v=2.2");
 @import url("services.css");
-@import url("clients.css");
-@import url("projects.css");
+@import url("clients.css?v=2.2");
 @import url("contact.css");
 @import url("footer.css");
 @import url("animations.css");
-@import url("case-studies.css");
+@import url("case-studies.css?v=2.2");
 @import url("responsive.css");
 
 /* Global Heading Overrides */
 h1, h2, h3, h4, h5, h6,
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-    font-size: 30px !important;
     color: #0c3b65;
 }

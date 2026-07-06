@@ -27,6 +27,14 @@
     border-radius:6px;
 }
 
+.results-title span.nowrap-brand {
+    background: transparent !important;
+    color: inherit !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
 .results-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);

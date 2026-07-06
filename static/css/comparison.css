@@ -13,7 +13,7 @@
 .comparison-title{
     text-align:center;
     font-size:32px;
-    line-height:1.25;
+    line-height:1.75;
     color:#123F6B;
     max-width:900px;
     margin:0 auto 40px;
@@ -22,8 +22,8 @@
 .comparison-title span{
     background:#F79421;
     color:white;
-    padding:4px 14px;
-   border-radius:6px;
+    padding:2px 8px;
+    border-radius:6px;
 }
 
 .comparison-grid{

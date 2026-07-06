@@ -2,14 +2,14 @@
 .hero-right{
     display:flex;
     justify-content:flex-end;
-    align-items:center;
+    align-items:flex-start;
 }
 
 .hero-slider-container {
     position: relative;
     width: 530px; /* decreased width */
     height: 310px; /* decreased height */
-    margin-top: 15px; /* aligns to the start of the hero content */
+    margin-top: 104px; /* aligned horizontally with hero heading */
     border-radius: 16px; /* matching feedback card */
     background: #ffffff; /* white background */
     border: 2px solid #A8F0F4; /* soft cyan border */
@@ -80,44 +80,188 @@
     justify-content: center;
     font-size: 24px;
     flex-shrink: 0;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 24px rgba(15, 62, 112, 0.08); /* soft professional shadow */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Colors for specific services */
+.service-slide-card:hover .service-slide-icon {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 12px 28px rgba(15, 62, 112, 0.12);
+}
+
+/* Colors for specific services with professional gradients */
 .icon-web {
-    background: rgba(56, 189, 248, 0.12);
-    color: #38bdf8;
-    border: 1px solid rgba(56, 189, 248, 0.2);
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(14, 165, 233, 0.2) 100%);
+    color: #0ea5e9;
+    border: 1px solid rgba(56, 189, 248, 0.3);
 }
 .web-service .service-slide-tag {
-    color: #38bdf8;
+    color: #0ea5e9;
 }
 
 .icon-mobile {
-    background: rgba(168, 85, 247, 0.12);
-    color: #a855f7;
-    border: 1px solid rgba(168, 85, 247, 0.2);
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(139, 92, 246, 0.2) 100%);
+    color: #8b5cf6;
+    border: 1px solid rgba(168, 85, 247, 0.3);
 }
 .mobile-service .service-slide-tag {
-    color: #a855f7;
+    color: #8b5cf6;
 }
 
 .icon-erp {
-    background: rgba(249, 115, 22, 0.12);
-    color: #f97316;
-    border: 1px solid rgba(249, 115, 22, 0.2);
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(234, 88, 12, 0.2) 100%);
+    color: #ea580c;
+    border: 1px solid rgba(249, 115, 22, 0.3);
 }
 .erp-service .service-slide-tag {
-    color: #f97316;
+    color: #ea580c;
 }
 
 .icon-custom {
-    background: rgba(34, 197, 94, 0.12);
-    color: #22c55e;
-    border: 1px solid rgba(34, 197, 94, 0.2);
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(22, 163, 74, 0.2) 100%);
+    color: #16a34a;
+    border: 1px solid rgba(34, 197, 94, 0.3);
 }
 .custom-service .service-slide-tag {
-    color: #22c55e;
+    color: #16a34a;
+}
+
+/* ================= CUSTOM ICON MOCKUPS ================= */
+
+/* Mini Phone / Mobile App Mockup */
+.mini-phone {
+    width: 26px;
+    height: 42px;
+    border: 2px solid currentColor;
+    border-radius: 6px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.mini-phone-notch {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 1px;
+    opacity: 0.8;
+}
+.mini-phone-screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mini-phone-screen i {
+    font-size: 13px !important;
+    color: inherit !important;
+}
+.mini-phone-home {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+}
+
+/* Mini Browser Mockup */
+.mini-browser {
+    width: 36px;
+    height: 28px;
+    border: 2px solid currentColor;
+    border-radius: 4px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.mini-browser-header {
+    height: 6px;
+    background: currentColor;
+    opacity: 0.15;
+    display: flex;
+    align-items: center;
+    padding-left: 2px;
+    gap: 1.5px;
+    flex-shrink: 0;
+}
+.mini-dot {
+    width: 1.5px;
+    height: 1.5px;
+    background: currentColor;
+    border-radius: 50%;
+}
+.mini-browser-screen {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mini-browser-screen i {
+    font-size: 11px !important;
+    color: inherit !important;
+}
+
+/* Mini ERP / Dashboard Mockup */
+.mini-dashboard {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.mini-db-header i {
+    font-size: 16px !important;
+    color: inherit !important;
+}
+.mini-db-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 12px;
+}
+.mini-bar {
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    opacity: 0.8;
+}
+.mini-bar.b-1 { width: 60%; }
+.mini-bar.b-2 { width: 100%; }
+.mini-bar.b-3 { width: 40%; }
+
+/* Mini Code Editor Mockup */
+.mini-code {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.mini-code-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 12px;
+}
+.code-line {
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    opacity: 0.7;
+}
+.code-line.l-1 { width: 80%; }
+.code-line.l-2 { width: 100%; }
+.code-line.l-3 { width: 60%; }
+.mini-code i {
+    font-size: 12px !important;
+    color: inherit !important;
 }
 
 .service-slide-title-info {
@@ -141,7 +285,7 @@
 }
 
 .service-slide-subtitle {
-    font-size: 12px; /* reduced from 13px */
+    font-size: 13px; /* increased to 13px */
     font-weight: 500;
     color: #667085; /* Medium gray */
     margin: 4px 0 0 0;
@@ -217,23 +361,23 @@
     transform: translateX(4px);
 }
 
-/* Arrows Navigation */
+/* Arrows Navigation - Repositioned to top-right to prevent overlap */
 .slider-arrow {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    top: 20px;
+    transform: none;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.9); /* Solid white */
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    color: #0c3b65; /* Deep blue arrow */
+    border: 1px solid rgba(15, 62, 112, 0.1);
+    color: #0F3E70; /* Deep blue arrow */
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 10;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     outline: none;
 }
 
@@ -241,15 +385,16 @@
     background: #0F3E70;
     border-color: #0F3E70;
     color: #ffffff;
-    box-shadow: 0 0 10px rgba(15, 62, 112, 0.2);
+    box-shadow: 0 4px 12px rgba(15, 62, 112, 0.15);
 }
 
 .prev-btn {
-    left: 8px;
+    right: 56px;
+    left: auto; /* Override absolute left */
 }
 
 .next-btn {
-    right: 8px;
+    right: 16px;
 }
 
 /* Dots Indicators */
@@ -296,7 +441,6 @@
     display: block;
     font-size: 10px;
     color: #718096;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: 700;
     margin-top: 3px;
@@ -483,7 +627,6 @@ font-weight:700;
 letter-spacing:1px;
 color:#23d5df;
 margin-bottom:35px;
-text-transform:uppercase;
 backdrop-filter:blur(10px);
 }
 

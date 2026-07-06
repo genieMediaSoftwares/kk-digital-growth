@@ -24,11 +24,11 @@
 
     <!-- Your CSS -->
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2.0">
-    <link rel="stylesheet" href="{% static 'css/hero.css' %}?v=2.0">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=2.0">
-    <link rel="stylesheet" href="{% static 'css/about.css' %}">
-    <link rel="stylesheet" href="{% static 'css/clients.css' %}?v=2.3">
+    <link rel="stylesheet" href="{% static 'css/hero.css' %}?v=2.4">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}?v=2.4">
+    <link rel="stylesheet" href="{% static 'css/clients.css' %}?v=2.4">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2.4">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=2.4">
 
 </head>
 
@@ -91,26 +91,35 @@
                         <div class="service-slide-card web-service">
                             <div class="service-slide-header">
                                 <div class="service-slide-icon icon-web">
-                                    <i class="fa-regular fa-window-maximize"></i>
+                                    <div class="mini-browser">
+                                        <div class="mini-browser-header">
+                                            <span class="mini-dot"></span>
+                                            <span class="mini-dot"></span>
+                                            <span class="mini-dot"></span>
+                                        </div>
+                                        <div class="mini-browser-screen">
+                                            <i class="fa-regular fa-window-maximize"></i>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="service-slide-title-info">
-                                    <span class="service-slide-tag">SERVICES</span>
-                                    <h3>Website Development</h3>
-                                    <p class="service-slide-subtitle">Custom • Responsive • Performance-first</p>
+                                    <span class="service-slide-tag">Services</span>
+                                    <h3>Website development</h3>
+                                    <p class="service-slide-subtitle">Custom • responsive • performance-first</p>
                                 </div>
                             </div>
                             <div class="service-slide-body">
                                  <p class="service-slide-desc">We build fast, scalable, and conversion-focused websites.</p>
                                 <div class="service-slide-features">
-                                    <span><i class="fa-regular fa-image"></i> Custom Website Design</span>
-                                    <span><i class="fa-solid fa-cart-shopping"></i> E-commerce Development</span>
-                                    <span><i class="fa-regular fa-file"></i> CMS Integration</span>
-                                    <span><i class="fa-solid fa-arrow-trend-up"></i> SEO & Performance</span>
+                                    <span><i class="fa-solid fa-palette"></i> Custom website design</span>
+                                    <span><i class="fa-solid fa-bag-shopping"></i> E-commerce development</span>
+                                    <span><i class="fa-solid fa-database"></i> CMS integration</span>
+                                    <span><i class="fa-solid fa-arrow-trend-up"></i> SEO & performance</span>
                                 </div>
                             </div>
                             <div class="service-slide-footer">
                                 <a href="{% url 'consultation' %}" class="service-slide-btn">
-                                    <span>Start Your Website Project</span>
+                                    <span>Start your website project</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             </div>
@@ -122,26 +131,32 @@
                         <div class="service-slide-card mobile-service">
                             <div class="service-slide-header">
                                 <div class="service-slide-icon icon-mobile">
-                                    <i class="fa-solid fa-mobile-screen"></i>
+                                    <div class="mini-phone">
+                                        <div class="mini-phone-notch"></div>
+                                        <div class="mini-phone-screen">
+                                            <i class="fa-solid fa-mobile-screen-button"></i>
+                                        </div>
+                                        <div class="mini-phone-home"></div>
+                                    </div>
                                 </div>
                                 <div class="service-slide-title-info">
-                                    <span class="service-slide-tag">SERVICES</span>
-                                    <h3>Mobile App Development</h3>
-                                    <p class="service-slide-subtitle">iOS • Android • Cross-platform</p>
+                                    <span class="service-slide-tag">Services</span>
+                                    <h3>Mobile app development</h3>
+                                    <p class="service-slide-subtitle">iOS • Android • cross-platform</p>
                                 </div>
                             </div>
                             <div class="service-slide-body">
                                  <p class="service-slide-desc">We build native and cross-platform apps designed for growth.</p>
                                 <div class="service-slide-features">
-                                    <span><i class="fa-brands fa-apple"></i> iOS Development</span>
-                                    <span><i class="fa-brands fa-android"></i> Android Development</span>
-                                    <span><i class="fa-solid fa-code"></i> Cross-platform Apps</span>
-                                    <span><i class="fa-solid fa-link"></i> API Integration</span>
+                                    <span><i class="fa-brands fa-apple"></i> iOS development</span>
+                                    <span><i class="fa-brands fa-android"></i> Android development</span>
+                                    <span><i class="fa-solid fa-layer-group"></i> Cross-platform apps</span>
+                                    <span><i class="fa-solid fa-circle-nodes"></i> API integration</span>
                                 </div>
                             </div>
                             <div class="service-slide-footer">
                                 <a href="{% url 'consultation' %}" class="service-slide-btn">
-                                    <span>Start Your App Project</span>
+                                    <span>Start your app project</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             </div>
@@ -153,26 +168,35 @@
                         <div class="service-slide-card erp-service">
                             <div class="service-slide-header">
                                 <div class="service-slide-icon icon-erp">
-                                    <i class="fa-solid fa-boxes-stacked"></i>
+                                    <div class="mini-dashboard">
+                                        <div class="mini-db-header">
+                                            <i class="fa-solid fa-server"></i>
+                                        </div>
+                                        <div class="mini-db-bars">
+                                            <span class="mini-bar b-1"></span>
+                                            <span class="mini-bar b-2"></span>
+                                            <span class="mini-bar b-3"></span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="service-slide-title-info">
-                                    <span class="service-slide-tag">SERVICES</span>
-                                    <h3>Erp Development</h3>
-                                    <p class="service-slide-subtitle">Inventory • Finance • HR • Operations</p>
+                                    <span class="service-slide-tag">Services</span>
+                                    <h3>ERP development</h3>
+                                    <p class="service-slide-subtitle">Inventory • finance • HR • operations</p>
                                 </div>
                             </div>
                             <div class="service-slide-body">
-                                 <p class="service-slide-desc">We build custom Erp systems to connect and automate operations.</p>
+                                 <p class="service-slide-desc">We build custom ERP systems to connect and automate operations.</p>
                                 <div class="service-slide-features">
-                                    <span><i class="fa-solid fa-box"></i> Inventory Management</span>
-                                    <span><i class="fa-solid fa-money-bill"></i> Finance & Billing</span>
-                                    <span><i class="fa-solid fa-users"></i> HR & Payroll</span>
-                                    <span><i class="fa-solid fa-chart-line"></i> Operations Reporting</span>
+                                    <span><i class="fa-solid fa-warehouse"></i> Inventory management</span>
+                                    <span><i class="fa-solid fa-credit-card"></i> Finance & billing</span>
+                                    <span><i class="fa-solid fa-users-gear"></i> HR & payroll</span>
+                                    <span><i class="fa-solid fa-chart-line"></i> Operations reporting</span>
                                 </div>
                             </div>
                             <div class="service-slide-footer">
                                 <a href="{% url 'consultation' %}" class="service-slide-btn">
-                                    <span>Start Your Erp Project</span>
+                                    <span>Start your ERP project</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             </div>
@@ -184,26 +208,33 @@
                         <div class="service-slide-card custom-service">
                             <div class="service-slide-header">
                                 <div class="service-slide-icon icon-custom">
-                                    <i class="fa-solid fa-code"></i>
+                                    <div class="mini-code">
+                                        <div class="mini-code-lines">
+                                            <span class="code-line l-1"></span>
+                                            <span class="code-line l-2"></span>
+                                            <span class="code-line l-3"></span>
+                                        </div>
+                                        <i class="fa-solid fa-code"></i>
+                                    </div>
                                 </div>
                                 <div class="service-slide-title-info">
-                                    <span class="service-slide-tag">SERVICES</span>
-                                    <h3>Custom Development</h3>
-                                    <p class="service-slide-subtitle">Internal Tools • SaaS • Automation</p>
+                                    <span class="service-slide-tag">Services</span>
+                                    <h3>Custom development</h3>
+                                    <p class="service-slide-subtitle">Internal tools • SaaS • automation</p>
                                 </div>
                             </div>
                             <div class="service-slide-body">
                                  <p class="service-slide-desc">We build custom software and tools designed for your workflows.</p>
                                 <div class="service-slide-features">
-                                    <span><i class="fa-solid fa-toolbox"></i> Internal Tools</span>
-                                    <span><i class="fa-solid fa-star"></i> SaaS Platforms</span>
-                                    <span><i class="fa-solid fa-gear"></i> AI & Automation</span>
+                                    <span><i class="fa-solid fa-toolbox"></i> Internal tools</span>
+                                    <span><i class="fa-solid fa-cloud-arrow-up"></i> SaaS platforms</span>
+                                    <span><i class="fa-solid fa-microchip"></i> AI & automation</span>
                                     <span><i class="fa-solid fa-puzzle-piece"></i> Third-party APIs</span>
                                 </div>
                             </div>
                             <div class="service-slide-footer">
                                 <a href="{% url 'consultation' %}" class="service-slide-btn">
-                                    <span>Start Your Project</span>
+                                    <span>Start your project</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             </div>
@@ -246,10 +277,12 @@
                                 </div>
                             </div>
                             <p class="hero-review-quote">"{{ item.feedback_text }}"</p>
-                            <h4>
-                                {{ item.author }}
-                                <span>{{ item.designation }}, {{ item.client_name }}</span>
-                            </h4>
+                            <div class="hero-review-designation-wrap">
+                                <span class="hero-review-designation-badge">
+                                    <i class="fa-solid fa-briefcase"></i>
+                                    {{ item.designation }}, {{ item.client_name }}
+                                </span>
+                            </div>
                         </div>
 
                         <div class="hero-review-badge">
@@ -343,7 +376,7 @@
 
                 <div class="brand fleet">
                     <span class="icon-square"></span>
-                    <h4>FLEET<br>BOSS</h4>
+                    <h4>Fleet<br>Boss</h4>
                 </div>
 
                 <div class="brand clinic">
@@ -390,7 +423,7 @@
 
             <h3>$1.4M</h3>
 
-            <p>New Online Revenue</p>
+            <p>New online revenue</p>
 
             <div class="chart-svg">
 
@@ -444,7 +477,7 @@
 
             <h3>300%</h3>
 
-            <p>Increase in App Bookings</p>
+            <p>Increase in app bookings</p>
 
             <div class="chart-svg">
 
@@ -498,7 +531,7 @@
 
             <h3>10x</h3>
 
-            <p>Faster Order Processing</p>
+            <p>Faster order processing</p>
 
             <div class="bars">
 
@@ -513,8 +546,8 @@
 
     </div>
 
-        <a href="#" class="case-btn">
-            More Case Studies →
+        <a href="{% url 'case_studies' %}" class="case-btn">
+            More case studies →
         </a>
     </div>
 </section>
@@ -585,7 +618,7 @@
     <div class="comparison-btn-wrap">
 
         <a href="{% url 'process' %}" class="comparison-btn">
-    See Why Businesses Choose Us
+    See why businesses choose us
 </a>
     </div>
     </div>

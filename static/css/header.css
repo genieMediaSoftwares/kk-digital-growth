@@ -112,7 +112,7 @@
 .hero-right{
     display:flex;
     justify-content:flex-end;
-    align-items:center;
+    align-items:flex-start;
 }
 
 .rating-badge{
@@ -129,7 +129,7 @@
 }
 
 .hero-heading{
-    font-size:42px; /* decreased from 48px */
+    font-size:35px !important; /* adjusted to 35px */
     line-height:1.25; /* increased slightly to 1.25 to prevent highlight overlaps */
     letter-spacing:-1px;
     font-weight:800;
@@ -149,7 +149,7 @@
 
 .hero-description{
     max-width:580px;
-    font-size:18px; /* increased from 16px */
+    font-size:20px; /* adjusted to 20px */
     line-height:1.65;
     color:#475467;
 }

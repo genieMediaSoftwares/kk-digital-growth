@@ -1,7 +1,7 @@
 /* === STYLES SPLIT FROM STYLE.CSS === */
 TECHNOLOGY SECTION
 .tech-section{
-    padding:40px 8% 40px 8%;
+    padding:40px 0;
     background:#f7f9fc;
 }
 
@@ -9,9 +9,8 @@ TECHNOLOGY SECTION
 text-align:center;
 margin-bottom:70px;
 }
-
 .tech-heading h2{
-font-size:32px;
+font-size:30px;
 font-weight:700;
 color:#173b72;
 margin-bottom:12px;
@@ -19,7 +18,7 @@ margin-bottom:12px;
 
 .tech-heading span{
 background:#F79421;
-padding:6px 18px;
+padding:3px 10px;
 color:white;
 border-radius:8px;
 }
@@ -69,7 +68,7 @@ box-shadow:0 22px 45px rgba(0,0,0,.12);
 }
 
 .tech-card h4{
-font-size:13px;
+font-size:13px !important;
 letter-spacing:2px;
 color:#9aa8bd;
 margin-bottom:28px;
@@ -99,10 +98,10 @@ color:#1fc8da;
 }
 
 .tech-card i{
-font-size:20px;
-color:#1fd2de;
-width:25px;
-transition:.4s;
+    font-size:16px; /* decreased from 20px */
+    color:#1fd2de;
+    width:25px;
+    transition:.4s;
 }
 
 .tech-card:hover i{
@@ -139,7 +138,7 @@ animation:up 1.3s ease forwards;
     --bg-light: #f8fafc;
     --bg-glow: rgba(18, 63, 107, 0.03);    
     /* Typography Colors */
-    --text-primary: #0f172a;
+    --text-primary: #1b3956;
     --text-secondary: #475569;
     --text-muted: #64748b;
     /* Borders & Spacing */
@@ -161,7 +160,7 @@ section {
     overflow: hidden;
 }
 .about-section-container {
-    max-width: 1560px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 80px;
     width: 100%;
@@ -182,7 +181,6 @@ section {
     font-size: 14px;
     font-weight: 800;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
     margin-bottom: 14px;
 }
 .section-title h2 {
@@ -238,7 +236,7 @@ section {
     right: -50px;
 }
 .about-container {
-    max-width: 1560px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 80px;
     position: relative;
@@ -277,7 +275,7 @@ section {
     color: var(--accent-orange);
 }
 .about-left p {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.65;
     color: var(--text-secondary);
     max-width: 580px;
@@ -312,14 +310,16 @@ section {
     box-shadow: 0 8px 20px rgba(18, 63, 107, 0.25);
 }
 .hero-btn.secondary {
-    background: var(--bg-white);
-    color: var(--primary-blue);
-    border: 2px solid var(--border-color);
+    background: #0c3b65; /* updated from white background */
+    color: #fff; /* updated from blue text */
+    border: none; /* removed border */
+    box-shadow: 0 6px 20px rgba(12, 59, 101, 0.3);
 }
 .hero-btn.secondary:hover {
-    background: var(--bg-light);
-    border-color: var(--primary-blue);
+    background: #11d6d5 !important; /* cyan glow hover */
+    color: #0c3b65 !important;
     transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(17, 214, 213, 0.45);
 }
 /* Statistics Floating Cards */
 .about-right {
@@ -413,7 +413,7 @@ section {
     letter-spacing: -0.01em;
 }
 .why-card p {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.6;
     color: var(--text-secondary);
     margin: 0;
@@ -540,7 +540,7 @@ section {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
-.tech-card {
+.technology-grid .tech-card {
     background: var(--bg-white);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-lg);
@@ -549,27 +549,27 @@ section {
     transition: var(--transition-smooth);
     box-shadow: var(--shadow-subtle);
 }
-.tech-card:hover {
+.technology-grid .tech-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-hover);
     border-color: var(--accent-orange);
 }
-.tech-card i {
+.technology-grid .tech-card i {
     font-size: 42px;
     margin-bottom: 12px;
     display: inline-block;
     transition: var(--transition-smooth);
 }
-.tech-card:hover i {
+.technology-grid .tech-card:hover i {
     transform: scale(1.15) rotate(8deg);
 }
-.tech-card h3 {
+.technology-grid .tech-card h3 {
     font-size: 22px;
     font-weight: 800;
     color: var(--text-primary);
     margin-bottom: 6px;
 }
-.tech-card p {
+.technology-grid .tech-card p {
     font-size: 15px;
     color: var(--text-muted);
     margin: 0;
@@ -637,12 +637,34 @@ section {
 .progress-fill {
     height: 100%;
     border-radius: 999px;
-    transition: var(--transition-smooth);
+    width: 0%; /* initial width */
+    transition: width 1.5s cubic-bezier(0.1, 0.76, 0.55, 0.94); /* dynamic transition */
+    background-size: 200% auto;
+    animation: shimmer-gradient 3s linear infinite;
 }
-.performance { width: 98%; background: linear-gradient(90deg, #3b82f6, var(--primary-blue)); }
-.seo { width: 95%; background: linear-gradient(90deg, #ffcc00, var(--accent-orange)); }
-.security { width: 100%; background: linear-gradient(90deg, #10b981, #059669); }
-.mobile { width: 100%; background: linear-gradient(90deg, #8b5cf6, #6366f1); }
+
+@keyframes shimmer-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Define target widths under active animation state */
+.animate-progress .performance { width: 98%; }
+.animate-progress .seo { width: 95%; }
+.animate-progress .security { width: 100%; }
+.animate-progress .mobile { width: 100%; }
+
+.performance { background: linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6); }
+.seo { background: linear-gradient(90deg, #ffcc00, #f97316, #ffcc00); }
+.security { background: linear-gradient(90deg, #10b981, #34d399, #10b981); }
+.mobile { background: linear-gradient(90deg, #8b5cf6, #a78bfa, #8b5cf6); }
+
+/* Hover glow effects for cards */
+.dashboard-card:hover .performance { box-shadow: 0 0 12px rgba(59, 130, 246, 0.6); }
+.dashboard-card:hover .seo { box-shadow: 0 0 12px rgba(249, 115, 22, 0.6); }
+.dashboard-card:hover .security { box-shadow: 0 0 12px rgba(16, 185, 129, 0.6); }
+.dashboard-card:hover .mobile { box-shadow: 0 0 12px rgba(139, 92, 246, 0.6); }
 .dashboard-right {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -782,6 +804,34 @@ section {
 .case-btn:hover {
     background: var(--accent-orange);
     transform: translateY(-2px);
+}
+
+.view-more-clients-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.view-more-clients-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    background: var(--accent-orange);
+    color: var(--bg-white);
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    box-shadow: 0 10px 25px rgba(247, 148, 33, 0.2);
+    gap: 8px;
+}
+
+.view-more-clients-btn:hover {
+    background: #ff9e3b;
+    color: var(--bg-white);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(247, 148, 33, 0.35);
 }
 /* 8. RESPONSIVE DESIGN*/
 @media (max-width: 1024px) {

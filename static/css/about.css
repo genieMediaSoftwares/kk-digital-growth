@@ -181,7 +181,6 @@ section {
     font-size: 14px;
     font-weight: 800;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
     margin-bottom: 14px;
 }
 .section-title h2 {
@@ -276,7 +275,7 @@ section {
     color: var(--accent-orange);
 }
 .about-left p {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.65;
     color: var(--text-secondary);
     max-width: 580px;
@@ -414,7 +413,7 @@ section {
     letter-spacing: -0.01em;
 }
 .why-card p {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.6;
     color: var(--text-secondary);
     margin: 0;
@@ -640,6 +639,14 @@ section {
     border-radius: 999px;
     width: 0%; /* initial width */
     transition: width 1.5s cubic-bezier(0.1, 0.76, 0.55, 0.94); /* dynamic transition */
+    background-size: 200% auto;
+    animation: shimmer-gradient 3s linear infinite;
+}
+
+@keyframes shimmer-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Define target widths under active animation state */
@@ -648,10 +655,16 @@ section {
 .animate-progress .security { width: 100%; }
 .animate-progress .mobile { width: 100%; }
 
-.performance { background: linear-gradient(90deg, #3b82f6, var(--primary-blue)); }
-.seo { background: linear-gradient(90deg, #ffcc00, var(--accent-orange)); }
-.security { background: linear-gradient(90deg, #10b981, #059669); }
-.mobile { background: linear-gradient(90deg, #8b5cf6, #6366f1); }
+.performance { background: linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6); }
+.seo { background: linear-gradient(90deg, #ffcc00, #f97316, #ffcc00); }
+.security { background: linear-gradient(90deg, #10b981, #34d399, #10b981); }
+.mobile { background: linear-gradient(90deg, #8b5cf6, #a78bfa, #8b5cf6); }
+
+/* Hover glow effects for cards */
+.dashboard-card:hover .performance { box-shadow: 0 0 12px rgba(59, 130, 246, 0.6); }
+.dashboard-card:hover .seo { box-shadow: 0 0 12px rgba(249, 115, 22, 0.6); }
+.dashboard-card:hover .security { box-shadow: 0 0 12px rgba(16, 185, 129, 0.6); }
+.dashboard-card:hover .mobile { box-shadow: 0 0 12px rgba(139, 92, 246, 0.6); }
 .dashboard-right {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -791,6 +804,34 @@ section {
 .case-btn:hover {
     background: var(--accent-orange);
     transform: translateY(-2px);
+}
+
+.view-more-clients-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.view-more-clients-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    background: var(--accent-orange);
+    color: var(--bg-white);
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    box-shadow: 0 10px 25px rgba(247, 148, 33, 0.2);
+    gap: 8px;
+}
+
+.view-more-clients-btn:hover {
+    background: #ff9e3b;
+    color: var(--bg-white);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(247, 148, 33, 0.35);
 }
 /* 8. RESPONSIVE DESIGN*/
 @media (max-width: 1024px) {

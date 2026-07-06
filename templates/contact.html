@@ -14,10 +14,10 @@
     <title>Contact Us</title>
 
     <link rel="stylesheet"
-          href="{% static 'css/style.css' %}">
+          href="{% static 'css/contact.css' %}?v=2.3">
 
     <link rel="stylesheet"
-          href="{% static 'css/contact.css' %}">
+          href="{% static 'css/style.css' %}?v=2.3">
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -35,8 +35,8 @@
     <div class="contact-title">
 
         <h2>
-            Let's Start a
-            <span>Conversation</span>
+            Let's start a
+            <span>conversation</span>
         </h2>
 
         <p>
@@ -50,85 +50,45 @@
     <div class="contact-info-grid">
 
         <!-- Phone -->
-
         <div class="contact-card">
-
             <div class="contact-icon phone">
-
                 <i class="fa-solid fa-phone"></i>
-
             </div>
-
             <h3>Phone</h3>
-
             <p>+91 9032845433</p>
-
         </div>
 
         <!-- Email -->
-
         <div class="contact-card">
-
             <div class="contact-icon email">
-
                 <i class="fa-regular fa-envelope"></i>
-
             </div>
-
             <h3>Email</h3>
-
-            <p>admin@geniemedia.in</p>
-
+            <p>admin@kkdigitalgrowth.in</p>
         </div>
 
         <!-- Office -->
-
         <div class="contact-card">
-
             <div class="contact-icon office">
-
                 <i class="fa-solid fa-location-dot"></i>
-
             </div>
-
             <h3>Office</h3>
-
             <p>
-
-                5A2 4th Floor KP Icon<br>
-
-                KP Infra<br>
-
-                Yendada,<br>
-
-                Visakhapatnam - 530045
-
+                5A2, 4th Floor, KK Digital Growth<br>
+                Yendada, Visakhapatnam - 530045
             </p>
-
         </div>
 
         <!-- Working Hours -->
-
         <div class="contact-card">
-
             <div class="contact-icon hours">
-
                 <i class="fa-regular fa-clock"></i>
-
             </div>
-
-            <h3>Working Hours</h3>
-
+            <h3>Working hours</h3>
             <p>
-
-                Monday - Friday : 10AM - 7PM
-
-                <br><br>
-
-                Saturday : 10AM - 4PM
-
+                <strong>Mon - Fri:</strong> 10AM - 7PM<br>
+                <strong>Saturday:</strong> 10AM - 4PM
             </p>
-
         </div>
 
     </div>
@@ -152,64 +112,46 @@ Your message has been sent successfully!
 {% endif %}
 
 <form method="POST">
-
-{% csrf_token %}
-
-<div class="input-row">
-
-<input
-type="text"
-name="full_name"
-placeholder="Full Name"
-required>
-
-<input
-type="email"
-name="email"
-placeholder="Email Address"
-required>
-
-</div>
-
-<div class="input-row">
-
-<input
-type="text"
-name="phone"
-placeholder="Phone Number"
-required>
-
-<select name="service" required>
-    <option value="" selected disabled>Select a Service</option>
-    <option value="Website Development">Website Development</option>
-    <option value="Mobile App Development">Mobile App Development</option>
-    <option value="ERP Development">ERP Development</option>
-    <option value="Custom Software">Custom Software</option>
-    <option value="UI / UX Design">UI / UX Design</option>
-</select>
-
-</div>
-
-<textarea
-
-name="message"
-
-rows="7"
-
-placeholder="Tell us about your project..."
-
-required>
-
-</textarea>
-
-<button
-type="submit"
-class="submit-btn">
-
-Send Message →
-
-</button>
-
+    {% csrf_token %}
+    <h2 class="form-title" style="font-size: 28px !important; font-weight: 800; color: #1e293b; margin-bottom: 25px; text-align: left;">Send us a Message</h2>
+    
+    <div class="form-grid">
+        <div class="form-group">
+            <label for="full_name">Full Name <span class="required-star">*</span></label>
+            <input type="text" id="full_name" name="full_name" placeholder="Enter Name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email Address <span class="required-star">*</span></label>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Phone Number <span class="required-star">*</span></label>
+            <input type="text" id="phone" name="phone" placeholder="Enter Mobile Number" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="service">Service Required <span class="required-star">*</span></label>
+            <select id="service" name="service" required>
+                <option value="" selected disabled>Select a Service</option>
+                <option value="Website Development">Website development</option>
+                <option value="Mobile App Development">Mobile app development</option>
+                <option value="ERP Development">ERP development</option>
+                <option value="Custom Software">Custom software</option>
+                <option value="UI / UX Design">UI/UX design</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="form-group full-width" style="margin-top: 5px;">
+        <label for="message">Your Message <span class="required-star">*</span></label>
+        <textarea id="message" name="message" rows="6" placeholder="Tell us about your project..." required></textarea>
+    </div>
+    
+    <button type="submit" class="submit-btn" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+        Send Message <i class="fa-regular fa-paper-plane" style="font-size: 18px;"></i>
+    </button>
 </form>
 
 </div>

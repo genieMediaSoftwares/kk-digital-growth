@@ -29,7 +29,6 @@
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 2px;
-    text-transform: uppercase;
     margin: 0;
 }
 
@@ -130,9 +129,10 @@ body{
     background:#F79421;
     color:white;
     text-decoration:none;
-    padding:16px 32px;
+    padding:12px 24px; /* decreased from 16px 32px */
     font-weight:600;
-    border-radius:12px 0 0 12px;
+    font-size:15px; /* added to match nav links */
+    border-radius:8px; /* symmetric border-radius */
     transition:0.3s;
 }
 
@@ -168,7 +168,6 @@ body{
     letter-spacing:2px;
     font-weight:700;
     margin-bottom:10px;
-    text-transform:uppercase;
 }
 
 .stars{
@@ -190,7 +189,7 @@ body{
     padding:80px 80px;
     background:#f7f7f7;
     width: 100%;
-    max-width: 1560px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
@@ -207,7 +206,7 @@ body{
 }
 
 .consult-left h1{
-    font-size:44px;
+    font-size:35px;
     line-height:1.2;
     color:#123F6B;
     margin-bottom:25px;
@@ -633,7 +632,8 @@ body{
 
 .process-hero h1 span{
     background:#F79421;
-    padding:0 12px;
+    padding:3px 6px;
+    border-radius:8px;
 }
 /* keep 'real results,' on one line, no wrap */
 
@@ -644,7 +644,8 @@ body{
 
 .highlight-group span {
     background:#F79421;
-    padding: 0 12px;
+    padding: 3px 6px;
+    border-radius: 8px;
 }
 
 .process-hero p{
@@ -663,7 +664,7 @@ body{
 }
 
 .process-consult-btn{
-    background:linear-gradient(135deg,#e09a2d,#c07a12);
+    background:#F79421;
     color:white;
     padding:14px 32px;
     border-radius:50px;
@@ -671,12 +672,12 @@ body{
     font-weight:700;
     font-size:15px;
     transition:all .35s cubic-bezier(0.4,0,0.2,1);
-    box-shadow:0 6px 20px rgba(224,154,45,.3);
+    box-shadow:0 6px 20px rgba(247,148,33,.3);
     z-index:2;
 }
 
 .process-service-btn{
-    background:linear-gradient(135deg,#153f6b,#0b2a4a);
+    background:#F79421;
     color:white;
     padding:14px 32px;
     border-radius:50px;
@@ -684,23 +685,23 @@ body{
     font-weight:700;
     font-size:15px;
     transition:all .35s cubic-bezier(0.4,0,0.2,1);
-    box-shadow:0 6px 20px rgba(21,63,107,.3);
+    box-shadow:0 6px 20px rgba(247,148,33,.3);
     z-index:2;
 }
 
 .process-consult-btn:hover{
     transform:translateY(-4px) scale(1.03);
-    box-shadow:0 14px 30px rgba(224,154,45,.45);
+    box-shadow:0 14px 30px rgba(247,148,33,.45);
 }
 
 .process-service-btn:hover{
     transform:translateY(-4px) scale(1.03);
-    box-shadow:0 14px 30px rgba(21,63,107,.45);
+    box-shadow:0 14px 30px rgba(247,148,33,.45);
 }
 /* PROCESS STEPS */
 
 .process-steps{
-    padding:70px 80px;
+    padding:70px 0;
     background:#f7f8fc;
 }
 
@@ -733,7 +734,7 @@ body{
     transition:transform .4s cubic-bezier(0.4,0,0.2,1);
 }
 
-.step-card:nth-child(1)::before { background:linear-gradient(90deg,#e09a2d,#c07a12); }
+.step-card:nth-child(1)::before { background:#F79421; }
 
 .step-card:nth-child(2)::before { background:linear-gradient(90deg,#3b82f6,#2563eb); }
 
@@ -743,18 +744,18 @@ body{
 
 .step-card:hover::before {
     transform:scaleX(1);
-    background:linear-gradient(90deg,#e09a2d,#c07a12);
+    background:#F79421;
 }
 
 .step-card:hover{
     transform:translateY(-8px) scale(1.02);
     background:linear-gradient(135deg, #ffffff, #fff5e6);
-    box-shadow:0 18px 40px rgba(224,154,45,.16);
-    border-color:rgba(224, 154, 45, 0.25);
+    box-shadow:0 18px 40px rgba(247,148,33,.16);
+    border-color:rgba(247, 148, 33, 0.25);
 }
 
 .step-card:hover .step-icon {
-    background:#e09a2d !important;
+    background:#F79421 !important;
     color:white !important;
 }
 
@@ -778,7 +779,7 @@ body{
     transform:rotate(-8deg) scale(1.12);
 }
 
-.discovery{ background:#fef3e2; color:#e09a2d; }
+.discovery{ background:#fef3e2; color:#F79421; }
 
 .planning{ background:#eef6ff; color:#3b82f6; }
 
@@ -800,7 +801,7 @@ body{
 }
 
 .process-details{
-    max-width:1560px;
+    max-width:1200px;
     margin:60px auto;
     padding:0 80px;
 }
@@ -811,12 +812,10 @@ body{
     gap:50px;
     align-items:center;
     margin:70px auto;
-    max-width:1560px;
+    max-width:1200px;
 }
 
-.phase-row.reverse{
-    grid-template-columns:0.9fr 1.1fr;
-}
+
 
 .phase-row.show{
     opacity:1;
@@ -833,14 +832,13 @@ body{
 
 .phase-tag{
     display:inline-block;
-    background:linear-gradient(135deg,#e09a2d,#c07a12);
+    background:#F79421;
     color:#fff;
     font-size:11px;
     font-weight:800;
     letter-spacing:2px;
     padding:5px 16px;
     border-radius:50px;
-    text-transform:uppercase;
 }
 
 .phase-content h2{
@@ -939,7 +937,6 @@ body{
     font-weight:800;
     font-size:10px;
     letter-spacing:1.5px;
-    text-transform:uppercase;
 }
 
 .phase-card h3{
@@ -970,9 +967,9 @@ body{
 }
 
 .phase-pills span:hover{
-    background:linear-gradient(135deg,#e09a2d,#c07a12);
+    background:#F79421;
     transform:translateY(-2px);
-    box-shadow:0 4px 12px rgba(224,154,45,.25);
+    box-shadow:0 4px 12px rgba(247,148,33,.25);
     border-color:transparent;
 }
 
@@ -1119,7 +1116,7 @@ body{
 =============================*/
 
 .why-us-section{
-padding:110px 8%;
+padding:110px 0;
 background:#f7f9fc;
 }
 

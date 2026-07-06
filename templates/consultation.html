@@ -8,8 +8,8 @@
 
 <title>Consultation</title>
 
-<link rel="stylesheet" href="{% static 'css/style.css' %}?v=2.2">
-<link rel="stylesheet" href="{% static 'css/clients.css' %}?v=2.2">
+<link rel="stylesheet" href="{% static 'css/clients.css' %}?v=2.3">
+<link rel="stylesheet" href="{% static 'css/style.css' %}?v=2.3">
 
 </head>
 
@@ -145,11 +145,11 @@
     <h2>Frequently Asked Questions</h2>
 
     <div class="faq-grid">
-    <div class="faq-item active">
+    <div class="faq-item">
 
     <div class="faq-question">
         <span>How long does a typical project take?</span>
-        <span class="faq-icon">-</span>
+        <span class="faq-icon">+</span>
     </div>
 
     <div class="faq-answer">
@@ -242,7 +242,10 @@
                     <img src="{% static item.logo_image %}" alt="{{ item.client_name }}" class="feedback-logo">
                     <div class="feedback-client-info">
                         <h4>{{ item.client_name }}</h4>
-                        <span>{{ item.author }} — {{ item.designation }}</span>
+                        <span class="feedback-designation">
+                            <i class="fa-solid fa-briefcase"></i>
+                            {{ item.designation }}
+                        </span>
                     </div>
                 </div>
                 <div class="feedback-stars">
@@ -263,7 +266,10 @@
                     <img src="{% static item.logo_image %}" alt="{{ item.client_name }}" class="feedback-logo">
                     <div class="feedback-client-info">
                         <h4>{{ item.client_name }}</h4>
-                        <span>{{ item.author }} — {{ item.designation }}</span>
+                        <span class="feedback-designation">
+                            <i class="fa-solid fa-briefcase"></i>
+                            {{ item.designation }}
+                        </span>
                     </div>
                 </div>
                 <div class="feedback-stars">

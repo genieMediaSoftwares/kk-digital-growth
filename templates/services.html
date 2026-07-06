@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | KK Digital Growth</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.8">
     <link rel="stylesheet" href="{% static 'css/services.css' %}?v=1.1">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -21,8 +21,8 @@
     <section class="services-section">
         <div class="services-section-container">
             <div class="section-title">
-                <span class="section-badge">OUR EXPERTISE</span>
-                <h2>Our Services</h2>
+                <span class="section-badge">Our expertise</span>
+                <h2>Our services</h2>
                 <p>Digital solutions built to help businesses grow faster.</p>
             </div>
 
@@ -31,11 +31,20 @@
                 <div class="service-card">
                     <div class="service-header">
                         <div class="service-icon website-icon">
-                            <i class="fa-regular fa-window-maximize"></i>
+                            <div class="mini-browser">
+                                <div class="mini-browser-header">
+                                    <span class="mini-dot"></span>
+                                    <span class="mini-dot"></span>
+                                    <span class="mini-dot"></span>
+                                </div>
+                                <div class="mini-browser-screen">
+                                    <i class="fa-regular fa-window-maximize"></i>
+                                </div>
+                            </div>
                         </div>
                         <div class="service-title-info">
-                            <h3>Website Development</h3>
-                            <p>Custom • Responsive • Performance-first</p>
+                            <h3>Website development</h3>
+                            <p>Custom • responsive • performance-first</p>
                         </div>
                         <span class="explore-btn">Explore →</span>
                     </div>
@@ -43,15 +52,15 @@
                     <div class="service-body">
                         <p>We build fast, scalable, conversion-focused websites that look great and perform even better.</p>
                         <div class="feature-grid">
-                            <span><i class="fa-regular fa-image"></i> Custom Website Design</span>
-                            <span><i class="fa-solid fa-cart-shopping"></i> E-commerce Development</span>
-                            <span><i class="fa-regular fa-file"></i> CMS Integration</span>
-                            <span><i class="fa-solid fa-arrow-trend-up"></i> SEO & Performance</span>
+                            <span><i class="fa-solid fa-palette"></i> Custom website design</span>
+                            <span><i class="fa-solid fa-bag-shopping"></i> E-commerce development</span>
+                            <span><i class="fa-solid fa-database"></i> CMS integration</span>
+                            <span><i class="fa-solid fa-arrow-trend-up"></i> SEO & performance</span>
                         </div>
                     </div>
 
                     <div class="service-footer">
-                        <a href="{% url 'consultation' %}" class="service-action">Start Your Website Project →</a>
+                        <a href="{% url 'consultation' %}" class="service-action">Start your website project →</a>
                     </div>
                 </div>
 
@@ -59,11 +68,17 @@
                 <div class="service-card">
                     <div class="service-header">
                         <div class="service-icon mobile-icon">
-                            <i class="fa-solid fa-mobile-screen"></i>
+                            <div class="mini-phone">
+                                <div class="mini-phone-notch"></div>
+                                <div class="mini-phone-screen">
+                                    <i class="fa-solid fa-mobile-screen-button"></i>
+                                </div>
+                                <div class="mini-phone-home"></div>
+                            </div>
                         </div>
                         <div class="service-title-info">
-                            <h3>Mobile App Development</h3>
-                            <p>iOS • Android • Cross-platform</p>
+                            <h3>Mobile app development</h3>
+                            <p>iOS • Android • cross-platform</p>
                         </div>
                         <span class="explore-btn">Explore →</span>
                     </div>
@@ -71,15 +86,15 @@
                     <div class="service-body">
                         <p>Native and cross-platform mobile apps designed for growth.</p>
                         <div class="feature-grid">
-                            <span><i class="fa-brands fa-apple"></i> iOS Development</span>
-                            <span><i class="fa-brands fa-android"></i> Android Development</span>
-                            <span><i class="fa-solid fa-code"></i> Cross-platform Apps</span>
-                            <span><i class="fa-solid fa-link"></i> API Integration</span>
+                            <span><i class="fa-brands fa-apple"></i> iOS development</span>
+                            <span><i class="fa-brands fa-android"></i> Android development</span>
+                            <span><i class="fa-solid fa-layer-group"></i> Cross-platform apps</span>
+                            <span><i class="fa-solid fa-circle-nodes"></i> API integration</span>
                         </div>
                     </div>
 
                     <div class="service-footer">
-                        <a href="{% url 'consultation' %}" class="service-action">Start Your App Project →</a>
+                        <a href="{% url 'consultation' %}" class="service-action">Start your app project →</a>
                     </div>
                 </div>
 
@@ -87,11 +102,20 @@
                 <div class="service-card">
                     <div class="service-header">
                         <div class="service-icon erp-icon">
-                            <i class="fa-solid fa-boxes-stacked"></i>
+                            <div class="mini-dashboard">
+                                <div class="mini-db-header">
+                                    <i class="fa-solid fa-server"></i>
+                                </div>
+                                <div class="mini-db-bars">
+                                    <span class="mini-bar b-1"></span>
+                                    <span class="mini-bar b-2"></span>
+                                    <span class="mini-bar b-3"></span>
+                                </div>
+                            </div>
                         </div>
                         <div class="service-title-info">
-                            <h3>ERP Development</h3>
-                            <p>Inventory • Finance • HR • Operations</p>
+                            <h3>ERP development</h3>
+                            <p>Inventory • finance • HR • operations</p>
                         </div>
                         <span class="explore-btn">Explore →</span>
                     </div>
@@ -99,15 +123,15 @@
                     <div class="service-body">
                         <p>Custom ERP systems that connect every part of your business.</p>
                         <div class="feature-grid">
-                            <span><i class="fa-solid fa-box"></i> Inventory Management</span>
-                            <span><i class="fa-solid fa-money-bill"></i> Finance & Billing</span>
-                            <span><i class="fa-solid fa-users"></i> HR & Payroll</span>
-                            <span><i class="fa-solid fa-chart-line"></i> Operations Reporting</span>
+                            <span><i class="fa-solid fa-warehouse"></i> Inventory management</span>
+                            <span><i class="fa-solid fa-credit-card"></i> Finance & billing</span>
+                            <span><i class="fa-solid fa-users-gear"></i> HR & payroll</span>
+                            <span><i class="fa-solid fa-chart-line"></i> Operations reporting</span>
                         </div>
                     </div>
 
                     <div class="service-footer">
-                        <a href="{% url 'consultation' %}" class="service-action">Start Your ERP Project →</a>
+                        <a href="{% url 'consultation' %}" class="service-action">Start your ERP project →</a>
                     </div>
                 </div>
 
@@ -115,11 +139,18 @@
                 <div class="service-card">
                     <div class="service-header">
                         <div class="service-icon software-icon">
-                            <i class="fa-solid fa-code"></i>
+                            <div class="mini-code">
+                                <div class="mini-code-lines">
+                                    <span class="code-line l-1"></span>
+                                    <span class="code-line l-2"></span>
+                                    <span class="code-line l-3"></span>
+                                </div>
+                                <i class="fa-solid fa-code"></i>
+                            </div>
                         </div>
                         <div class="service-title-info">
-                            <h3>Custom Application Development</h3>
-                            <p>Internal Tools • SaaS • Automation</p>
+                            <h3>Custom application development</h3>
+                            <p>Internal tools • SaaS • automation</p>
                         </div>
                         <span class="explore-btn">Explore →</span>
                     </div>
@@ -127,15 +158,15 @@
                     <div class="service-body">
                         <p>Tailor-made applications built around your workflow.</p>
                         <div class="feature-grid">
-                            <span><i class="fa-solid fa-toolbox"></i> Internal Tools</span>
-                            <span><i class="fa-solid fa-star"></i> SaaS Platforms</span>
-                            <span><i class="fa-solid fa-gear"></i> Automation</span>
+                            <span><i class="fa-solid fa-toolbox"></i> Internal tools</span>
+                            <span><i class="fa-solid fa-cloud-arrow-up"></i> SaaS platforms</span>
+                            <span><i class="fa-solid fa-microchip"></i> Automation</span>
                             <span><i class="fa-solid fa-puzzle-piece"></i> Integrations</span>
                         </div>
                     </div>
 
                     <div class="service-footer">
-                        <a href="{% url 'consultation' %}" class="service-action">Start Your Project →</a>
+                        <a href="{% url 'consultation' %}" class="service-action">Start your project →</a>
                     </div>
                 </div>
 
@@ -143,11 +174,13 @@
                 <div class="service-card">
                     <div class="service-header">
                         <div class="service-icon design-icon">
-                            <i class="fa-regular fa-star"></i>
+                            <div class="mini-design">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
                         </div>
                         <div class="service-title-info">
-                            <h3>UI/UX Design & QA Testing</h3>
-                            <p>Research • Wireframing • Testing • Launch</p>
+                            <h3>UI/UX design & QA testing</h3>
+                            <p>Research • wireframing • testing • launch</p>
                         </div>
                         <span class="explore-btn">Explore →</span>
                     </div>
@@ -155,54 +188,22 @@
                     <div class="service-body">
                         <p>User-focused design backed by testing and research.</p>
                         <div class="feature-grid">
-                            <span><i class="fa-regular fa-user"></i> User Research</span>
-                            <span><i class="fa-regular fa-square"></i> Wireframing</span>
-                            <span><i class="fa-solid fa-shield"></i> QA Testing</span>
-                            <span><i class="fa-solid fa-gauge-high"></i> Performance Audits</span>
+                            <span><i class="fa-solid fa-user-gear"></i> User research</span>
+                            <span><i class="fa-solid fa-bezier-curve"></i> Wireframing</span>
+                            <span><i class="fa-solid fa-bug-slash"></i> QA testing</span>
+                            <span><i class="fa-solid fa-gauge-high"></i> Performance audits</span>
                         </div>
                     </div>
 
                     <div class="service-footer">
-                        <a href="{% url 'consultation' %}" class="service-action">Start Your Design Project →</a>
+                        <a href="{% url 'consultation' %}" class="service-action">Start your design project →</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ================= PROCESS SECTION ================= -->
-    <section class="process-section">
-        <div class="services-section-container">
-            <div class="section-title">
-                <span class="section-badge">OUR METHODOLOGY</span>
-                <h2>How We <span>Work</span></h2>
-                <p class="process-subtitle">A clear, proven process from first call to final launch</p>
-            </div>
-
-            <div class="process-grid">
-                <div class="process-card">
-                    <div class="process-icon orange">🔍</div>
-                    <h3>Discovery</h3>
-                    <p>Understand goals and requirements</p>
-                </div>
-                <div class="process-card">
-                    <div class="process-icon cyan">☑</div>
-                    <h3>Planning</h3>
-                    <p>Roadmap and project strategy</p>
-                </div>
-                <div class="process-card">
-                    <div class="process-icon blue">&lt;/&gt;</div>
-                    <h3>Development</h3>
-                    <p>Building your solution</p>
-                </div>
-                <div class="process-card">
-                    <div class="process-icon orange">✓</div>
-                    <h3>Delivery</h3>
-                    <p>Testing, launch and support</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- ================= CTA SECTION ================= -->
     <section class="services-cta-section">
@@ -211,7 +212,7 @@
                 <h2>Not sure which service you need?</h2>
                 <h3>Let's talk it through.</h3>
                 <p>Book a free 30-minute call and we'll point you in the right direction.</p>
-                <a href="{% url 'consultation' %}" class="cta-btn">Book a Free Consultation</a>
+                 <a href="{% url 'consultation' %}" class="cta-btn">Book a free consultation</a>
             </div>
         </div>
     </section>

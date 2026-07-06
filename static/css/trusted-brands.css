@@ -23,7 +23,7 @@
 
 .brands-left h2 {
     font-size: 25px; /* decreased from 32px */
-    line-height: 1.35; /* increased from 1.25 for clean spacing */
+    line-height: 1.65; /* increased to prevent background overlap */
     color: #123F6B;
     font-weight: 700;
     margin: 0;
@@ -32,9 +32,10 @@
 .brands-left span.brand-highlight {
     background: #F79421;
     color: white;
-    padding: 2px 6px;
+    padding: 2px 8px;
     border-radius: 4px;
-    display: inline; /* wraps exactly to text width */
+    display: inline-block; /* changed to inline-block for margin support */
+    margin: 3px 0;
 }
 
 /* RIGHT SIDE: SCROLLING MARQUEE */
