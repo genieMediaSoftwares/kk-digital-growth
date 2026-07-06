@@ -194,7 +194,30 @@ CASE_STUDIES_DATA = {
         "deployment": "Deployed to secure cloud staging, ran staff onboarding workshops, and successfully transitioned operations to the live environment, monitoring error metrics and offering ongoing post-launch scaling services.",
         "testimonial": "The ERP system developed by KK Digital Growth transformed our business operations. Everything is now centralized, faster and easier to manage.",
         "testimonial_author": "Operations & Logistics Team, Nucon Aerospace",
-        "duration": "6 Months"
+        "duration": "6 Months",
+        "objectives": [
+            "Replace paper logs and manual spreadsheets with high-integrity database tracking.",
+            "Improve multi-facility stock visibility and warehouse inventory reconciliation.",
+            "Automate Request for Quote (RFQ) distributions and approval hierarchies.",
+            "Enable real-time production status reports and cost-center accounting analysis."
+        ],
+        "erp_modules": [
+            {
+                "name": "Engineering & Production Planning",
+                "features": ["Bill of Materials (BOM) Control", "Work Order & Assembly Routing", "Shop Floor Routing Logs", "CAD Version Tracking"]
+            },
+            {
+                "name": "Procurement & Vendor Ledger",
+                "features": ["Automated RFQ Matrices", "Purchase Requisition Workflow", "Vendor Evaluator Dashboards", "Billing & Purchase Orders"]
+            },
+            {
+                "name": "Multi-Warehouse Inventory",
+                "features": ["Batch Tracking & Serializations", "Real-Time Reorder Alerts", "Reconciliation Adjustments", "Stock Level Forecasting"]
+            }
+        ],
+        "system_workflow": [
+            "Design BOM", "Procurement RFQ", "Material Ingestion", "Quality Gate", "Manufacturing Floor", "Fulfillment"
+        ]
     },
     "business-website": {
         "slug": "business-website",
@@ -223,7 +246,30 @@ CASE_STUDIES_DATA = {
         "deployment": "Configured SSL certifications and hosted the website on a secure VPS server for maximum uptime, connecting Google Search Console metrics for indexing checks.",
         "testimonial": "KK Digital Growth delivered exactly what we needed. The website reflects our company professionally and has significantly improved our online visibility.",
         "testimonial_author": "Management Team, KNS Metal Solutions",
-        "duration": "2 Months"
+        "duration": "2 Months",
+        "objectives": [
+            "Modernize brand presentation and establish custom sheet metal showcase.",
+            "Build custom lead pipeline with secure CAD design drawing ingestion.",
+            "Enhance organic discovery using targeted SEO search configurations.",
+            "Improve loading speed and responsive usability across mobile viewports."
+        ],
+        "erp_modules": [
+            {
+                "name": "CAD File Ingestion Vault",
+                "features": ["Ingest PDF, STEP, DWG files securely", "Sales Team Alert Configurations", "Upload Status Indicators", "Large File Support"]
+            },
+            {
+                "name": "Interactive Capability Catalog",
+                "features": ["Laser Cutting Showroom", "CNC Forming Showcase", "High-Resolution Fabrication Galleries", "Dynamic Capability Filters"]
+            },
+            {
+                "name": "SEO & Indexing Management",
+                "features": ["Google Analytics Event Tracking", "Keyword Optimized Meta Schemas", "Fast Content Delivery Network CDN Setup", "Search Console Mapping"]
+            }
+        ],
+        "system_workflow": [
+            "User Landing", "Capabilities Review", "CAD Upload & RFQ Form", "Engineering Review", "Custom Estimation Delivery"
+        ]
     },
     "mobile-application": {
         "slug": "mobile-application",
@@ -250,7 +296,34 @@ CASE_STUDIES_DATA = {
         "deployment": "Configured App Store and Play Store metadata and launched the application, setting up automated CI/CD update workflows and server crash logging triggers.",
         "testimonial": "The mobile application streamlined our legal services and made communication with clients much easier.",
         "testimonial_author": "Legal Operations Team, Law App",
-        "duration": "4 Months"
+        "duration": "4 Months",
+        "objectives": [
+            "Develop secure attorney-client portal compatible with iOS and Android.",
+            "Minimize client communication lag via dynamic push updates and chats.",
+            "Simplify consultation coordination with automated booking synchronization.",
+            "Ensure compliance and security for all attorney-client file uploads."
+        ],
+        "erp_modules": [
+            {
+                "name": "Secure Messaging & Alerts",
+                "features": ["Token-based Chat Rooms", "Real-time Push Alerts via Firebase", "Unread Message Counters", "Typing Indicators"]
+            },
+            {
+                "name": "Encrypted Document Vault",
+                "features": ["Encrypted PDF File Storage", "Folder Organization Trees", "Secure Share Matrices", "Direct File Uploads"]
+            },
+            {
+                "name": "Appointment Planner",
+                "features": ["Integrated Booking Calendar", "Automatic Invitation Notifications", "Cancellation & Reschedule Triggers", "Attorney Availability Check"]
+            },
+            {
+                "name": "Case Progress Map",
+                "features": ["Milestone Progress Timelines", "Hearing Date Calendar Integration", "Legal Action Checklists", "Status Change Alerts"]
+            }
+        ],
+        "system_workflow": [
+            "App Store Install", "Profile Setup", "Attorney Connection", "Case Progression Ingestion", "Secure Chat & Vault Uploads"
+        ]
     },
     "skyroot-aerospace": {
         "slug": "skyroot-aerospace",
