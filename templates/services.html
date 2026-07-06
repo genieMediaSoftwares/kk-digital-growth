@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | KK Digital Growth</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/services.css' %}?v=1.1">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.8">
+    <link rel="stylesheet" href="{% static 'css/services.css' %}?v=2.5">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2.5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -17,15 +17,18 @@
     <!-- Header -->
     {% include 'header.html' %}
 
-    <!-- ================= SERVICES HERO/GRID ================= -->
+    <!-- ================= SERVICES HERO ================= -->
+    <section class="services-hero">
+        <div class="services-hero-container home-container">
+            <span class="hero-tag"><i class="fa-solid fa-gears"></i> Our expertise</span>
+            <h1>Our services</h1>
+            <p>Digital solutions built to help businesses grow faster.</p>
+        </div>
+    </section>
+
+    <!-- ================= SERVICES GRID ================= -->
     <section class="services-section">
         <div class="services-section-container">
-            <div class="section-title">
-                <span class="section-badge">Our expertise</span>
-                <h2>Our services</h2>
-                <p>Digital solutions built to help businesses grow faster.</p>
-            </div>
-
             <div class="services-grid">
                 <!-- Website Development -->
                 <div class="service-card">

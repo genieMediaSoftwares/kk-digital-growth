@@ -186,7 +186,7 @@ body{
     display:flex;
     justify-content:space-between;
     gap:80px;
-    padding:80px 80px;
+    padding:80px 80px 30px 80px;
     background:#f7f7f7;
     width: 100%;
     max-width: 1200px;
@@ -420,7 +420,7 @@ body{
 /* FAQ SECTION */
 
 .faq-section{
-    padding:100px 120px;
+    padding:30px 120px 100px 120px;
    background:#f7f7f7;
 }
 
@@ -582,7 +582,6 @@ body{
 }
 
 .process-hero{
-    min-height:90vh;
     background:#112B4D;
     display:flex;
     flex-direction:column;
@@ -591,7 +590,8 @@ body{
     text-align:center;
     padding:100px 20px;
     position:relative;
-   overflow:hidden;
+    overflow:hidden;
+    border-bottom: 4px solid #F79421;
 }
 
 .process-hero::before{
@@ -622,7 +622,7 @@ body{
 
 .process-hero h1{
     color:white;
-    font-size:44px;
+    font-size:42px;
     font-weight:800;
     line-height:1.25;
     margin:24px 0;
@@ -701,7 +701,7 @@ body{
 /* PROCESS STEPS */
 
 .process-steps{
-    padding:70px 0;
+    padding:60px 0 40px 0;
     background:#f7f8fc;
 }
 
@@ -802,7 +802,7 @@ body{
 
 .process-details{
     max-width:1200px;
-    margin:60px auto;
+    margin:20px auto;
     padding:0 80px;
 }
 
@@ -811,7 +811,7 @@ body{
     grid-template-columns: 55% 45%;
     gap:50px;
     align-items:center;
-    margin:70px auto;
+    margin:40px auto;
     max-width:1200px;
 }
 
@@ -1116,7 +1116,7 @@ body{
 =============================*/
 
 .why-us-section{
-padding:110px 0;
+padding:70px 0;
 background:#f7f9fc;
 }
 

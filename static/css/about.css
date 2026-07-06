@@ -200,6 +200,7 @@ section {
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
+    text-align: center;
 }
 /* 1. HERO SECTION*/
 .about-hero {

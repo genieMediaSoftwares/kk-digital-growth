@@ -195,11 +195,12 @@ section {
        color: var(--accent-orange);
 }
 .section-title p {
-    font-size: 19px;
+    font-size: 20px;
     line-height: 1.6;
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
+    text-align: center;
 }
 /* 1. HERO SECTION*/
 .about-hero {

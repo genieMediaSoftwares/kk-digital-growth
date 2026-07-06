@@ -259,3 +259,68 @@ document.addEventListener("click", (e) => {
 });
 
 </script>
+
+<!-- ================= DYNAMIC SCROLL REVEAL SCRIPT ================= -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Define layouts/cards to animate dynamically
+    const revealSelectors = [
+        { selector: ".service-slide-card", effect: "reveal-scale" },
+        { selector: ".results-card, .result-card", effect: "reveal-scale" },
+        { selector: ".comparison-card", effect: "reveal-scale" },
+        { selector: ".why-card", effect: "reveal" },
+        { selector: ".tech-card", effect: "reveal-scale" },
+        { selector: ".about-left", effect: "reveal-left" },
+        { selector: ".about-right", effect: "reveal-right" },
+        { selector: ".process-step, .phase-card", effect: "reveal" },
+        { selector: ".platform-card", effect: "reveal-scale" },
+        { selector: ".portfolio-card", effect: "reveal" },
+        { selector: ".case-card", effect: "reveal-scale" },
+        { selector: ".contact-card", effect: "reveal-scale" },
+        { selector: ".faq-card, .faq-box", effect: "reveal" },
+        { selector: ".section-heading", effect: "reveal" },
+        { selector: ".feedback-card", effect: "reveal-scale" },
+        { selector: ".detail-card", effect: "reveal" }
+    ];
+
+    // 2. Attach transition classes
+    revealSelectors.forEach(({ selector, effect }) => {
+        document.querySelectorAll(selector).forEach(el => {
+            el.classList.add(effect);
+        });
+    });
+
+    // 3. Stagger children rendering delays
+    const containers = [
+        ".why-grid", ".tech-grid", ".platform-icons", ".portfolio-grid", 
+        ".case-grid", ".faq-grid", ".results-grid", ".services-grid",
+        ".process-grid"
+    ];
+    containers.forEach(cs => {
+        document.querySelectorAll(cs).forEach(cont => {
+            cont.classList.add("reveal-stagger");
+            const children = cont.children;
+            Array.from(children).forEach((child, index) => {
+                child.style.transitionDelay = `${index * 0.1}s`;
+            });
+        });
+    });
+
+    // 4. Create IntersectionObserver to add revealed classes
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("revealed");
+                obs.unobserve(entry.target); // only animate once
+            }
+        });
+    }, {
+        threshold: 0.05,
+        rootMargin: "0px 0px -20px 0px"
+    });
+
+    // 5. Observe elements
+    const revealables = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-stagger");
+    revealables.forEach(el => observer.observe(el));
+});
+</script>
