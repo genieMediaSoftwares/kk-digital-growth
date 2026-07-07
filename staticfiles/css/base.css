@@ -202,7 +202,7 @@ body{
 /* LEFT SIDE */
 
 .consult-left{
-    width:50%;
+    flex: 1;
 }
 
 .consult-left h1{
@@ -237,7 +237,7 @@ body{
 /* RIGHT SIDE */
 
 .consult-right{
-    width:50%;
+    flex: 1;
     background:#fff;
     padding:45px;
     border-radius:20px;
@@ -247,11 +247,13 @@ body{
 
 .consult-right form{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
    gap:20px;
 }
 
 .consult-right input{
+    width: 100%;
+    box-sizing: border-box;
     padding:16px;
     border:1px solid #ddd;
     border-radius:10px;
@@ -260,6 +262,8 @@ body{
 
 .consult-right button{
     grid-column:span 2;
+    width: 100%;
+    box-sizing: border-box;
     background:#F79421;
     color:white;
     border:none;
