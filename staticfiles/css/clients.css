@@ -430,7 +430,7 @@ CLIENTS HERO
 
 .clients-hero{
 position:relative;
-height:90vh;
+padding:100px 20px;
 background:#112b4d;
 display:flex;
 align-items:center;
@@ -448,7 +448,7 @@ padding:0 20px;
 /* Heading */
 
 .clients-hero h1{
-font-size:46px;
+font-size:42px;
 line-height:1.2;
 font-weight:800;
 color:#fff;

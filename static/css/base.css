@@ -591,7 +591,6 @@ body{
     padding:100px 20px;
     position:relative;
     overflow:hidden;
-    border-bottom: 4px solid #F79421;
 }
 
 .process-hero::before{

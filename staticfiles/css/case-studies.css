@@ -3,11 +3,10 @@ CASE STUDIES - LISTING & HERO
 =========================================*/
 
 .case-hero {
-    background: linear-gradient(135deg, #16365c 0%, #0f243e 100%);
+    background: #112b4d;
     padding: 100px 0;
     color: #fff;
     text-align: center;
-    border-bottom: 4px solid #F79421;
     position: relative;
     overflow: hidden;
 }
@@ -324,7 +323,6 @@ DETAIL PAGE STYLING
     background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     padding: 80px 0;
     color: #fff;
-    border-bottom: 4px solid #F79421;
 }
 
 .detail-industry {

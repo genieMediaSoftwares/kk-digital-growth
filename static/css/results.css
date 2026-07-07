@@ -17,14 +17,17 @@
     font-size:32px;
     color:#123F6B;
     margin-bottom:45px;
-    line-height:1.25;
+    line-height:1.45;
 }
 
 .results-title span{
     background:#F79421;
     color:#fff;
-    padding:6px 14px;
-    border-radius:6px;
+    padding:3px 8px;
+    border-radius:4px;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: baseline;
 }
 
 .results-title span.nowrap-brand {
