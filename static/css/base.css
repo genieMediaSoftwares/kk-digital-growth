@@ -183,16 +183,16 @@ body{
 /* CONSULTATION PAGE */
 
 .consultation-section{
+    background:#f7f7f7;
+    padding:80px 0 30px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.consult-container{
     display:flex;
     justify-content:space-between;
     gap:80px;
-    padding:80px 80px 30px 80px;
-    background:#f7f7f7;
-    width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    box-sizing: border-box;
 }
 
 .consultation-section .orange {
@@ -420,8 +420,8 @@ body{
 /* FAQ SECTION */
 
 .faq-section{
-    padding:30px 120px 100px 120px;
-   background:#f7f7f7;
+    padding:30px 0 100px 0;
+    background:#f7f7f7;
 }
 
 .faq-section h2{
