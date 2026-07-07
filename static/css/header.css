@@ -130,7 +130,7 @@
 
 .hero-heading{
     font-size:35px !important; /* adjusted to 35px */
-    line-height:1.25; /* increased slightly to 1.25 to prevent highlight overlaps */
+    line-height:1.4; /* increased to 1.4 to prevent highlight overlaps and make upper line descenders fully visible */
     letter-spacing:-1px;
     font-weight:800;
     color:#143d72;
@@ -138,12 +138,14 @@
 }
 
 .highlight{
-    display:inline; /* inline flow */
+    display: inline-block;
     background:#F79421;
     color:#fff;
-    padding:1px 6px; /* shortened vertical padding */
-    border-radius:6px;
+    padding:1px 8px;
+    border-radius:4px;
     font-weight:800;
+    line-height: 1.05;
+    vertical-align: baseline;
     box-shadow: 0 4px 12px rgba(247, 148, 33, 0.15);
 }
 

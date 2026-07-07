@@ -547,26 +547,26 @@ margin-bottom:35px;
 .platform-btn{
 display:inline-flex;
 align-items:center;
-gap:14px;
-padding:22px 60px;
+gap:10px;
+padding:12px 30px;
 background:#ff7300;
 color:white;
-font-size:24px;
+font-size:16px;
 font-weight:600;
 text-decoration:none;
-border-radius:60px;
+border-radius:30px;
 transition:.45s;
 box-shadow:0 15px 35px rgba(255,115,0,.30);
 }
 
 .platform-btn:hover{
-transform:translateY(-8px);
+transform:translateY(-4px);
 background:#ff8618;
 box-shadow:0 25px 45px rgba(255,115,0,.45);
 }
 
 .platform-btn span{
-font-size:30px;
+font-size:20px;
 transition:.35s;
 }
 

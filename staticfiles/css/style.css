@@ -1,17 +1,17 @@
 @import url("base.css?v=2.6");
-@import url("header.css");
+@import url("header.css?v=3.0");
 @import url("hero.css");
 @import url("trusted-brands.css");
 @import url("results.css?v=2.6");
 @import url("comparison.css");
 @import url("about.css?v=2.2");
 @import url("services.css?v=2.6");
-@import url("clients.css?v=2.6");
+@import url("clients.css?v=2.9");
 @import url("contact.css?v=2.6");
 @import url("footer.css");
 @import url("animations.css");
 @import url("case-studies.css?v=2.6");
-@import url("responsive.css");
+@import url("responsive.css?v=2.9");
 
 /* Global Heading Overrides */
 h1, h2, h3, h4, h5, h6,
