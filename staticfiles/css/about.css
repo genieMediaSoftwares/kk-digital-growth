@@ -194,8 +194,23 @@ section {
 .section-title h2 span {
        color: var(--accent-orange);
 }
+.why-section .section-title h2 {
+    color: #143d72 !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: #143d72 !important;
+}
+
+.why-section .section-title h2 span.brand-highlight-bg {
+    background: #F79421 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    padding: 4px 16px;
+    border-radius: 8px;
+    display: inline-block;
+}
 .section-title p {
-    font-size: 20px;
+    font-size: 19px;
     line-height: 1.6;
     color: var(--text-secondary);
     max-width: 600px;
@@ -204,7 +219,7 @@ section {
 }
 /* 1. HERO SECTION*/
 .about-hero {
-    padding: 70px 0 50px 0;
+    padding: 30px 0 50px 0;
     background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
 }
 .hero-bg-grid {

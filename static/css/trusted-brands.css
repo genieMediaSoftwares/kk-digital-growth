@@ -54,7 +54,7 @@
 .brands-marquee-track {
     display: flex;
     align-items: center;
-    gap: 60px; /* Spacing between brand items */
+    gap: 40px; /* Spacing between brand items */
     width: max-content;
     animation: scroll-brands-right 22s linear infinite;
     will-change: transform;
@@ -80,7 +80,7 @@
 .brand {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
     flex-shrink: 0;
     cursor: pointer;
     user-select: none;
@@ -93,16 +93,16 @@
 
 .brand h4 {
     margin: 0;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 1.1;
 }
 
 .brand p {
     margin: 2px 0 0;
-    font-size: 14px;
+    font-size: 11px;
     color: #8a8a8a;
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
 /* BRAND CUSTOM COLORS & ICONS */
@@ -112,19 +112,19 @@
     color: #66bb33;
 }
 .icon-circle {
-    width: 18px;
-    height: 18px;
-    border: 3px solid currentColor;
+    width: 14px;
+    height: 14px;
+    border: 2px solid currentColor;
     border-radius: 50%;
 }
 .icon-circle,
 .icon-square {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
     flex-shrink: 0;
 }
 .icon-diamond {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 700;
 }
 
@@ -138,9 +138,9 @@
     color: #d65a47;
 }
 .icon-square {
-    width: 18px;
-    height: 18px;
-    border: 3px solid currentColor;
+    width: 14px;
+    height: 14px;
+    border: 2px solid currentColor;
 }
 
 /* Clinic */
@@ -148,7 +148,7 @@
     color: #4563a7;
 }
 .icon-circle-sm {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
 }
 
@@ -157,7 +157,7 @@
     color: #163f8f;
 }
 .erp-a {
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 500;
     line-height: 1;
 }
