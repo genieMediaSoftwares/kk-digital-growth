@@ -587,7 +587,7 @@ padding-right: 80px;
 box-sizing: border-box;
 }
 
-.section-heading h2{
+.portfolio-section .section-heading h2{
 font-size:38px !important;
 color:#f79421 !important;
 margin-bottom:12px;

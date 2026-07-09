@@ -141,10 +141,10 @@
     display: inline-block;
     background:#F79421;
     color:#fff;
-    padding:1px 8px;
+    padding:4px 10px 7px 10px;
     border-radius:4px;
     font-weight:800;
-    line-height: 1.05;
+    line-height: 1.1;
     vertical-align: baseline;
     box-shadow: 0 4px 12px rgba(247, 148, 33, 0.15);
 }
