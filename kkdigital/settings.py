@@ -31,8 +31,7 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 ALLOWED_HOSTS = [
     "kkdigitalgrowth.com",
     "www.kkdigitalgrowth.com",
-    "kk-digital-growth-git-main-kkdigitalsoftwaregrowth-s-projects.vercel.app"
-    "kk-digital-growth-66hrl8bw7-kkdigitalsoftwaregrowth-s-projects.vercel.app"
+    
 ]
 CSRF_TRUSTED_ORIGINS = [
     "https://*.vercel.app",
