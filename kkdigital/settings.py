@@ -32,13 +32,12 @@ ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     ".vercel.app",
-    "kk-digital-growth-66hrl8bw7-kkdigitalsoftwaregrowth-s-projects.vercel.app",
     "kkdigitalgrowth.com",
     "www.kkdigitalgrowth.com"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.vercel.app",
+    "https://kk-digital-growth-66hrl8bw7-kkdigitalsoftwaregrowth-s-projects.vercel.app",
 ]
 
 # Application definition
