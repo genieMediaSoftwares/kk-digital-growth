@@ -29,10 +29,12 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
 ALLOWED_HOSTS = [
-    "kkdigitalgrowth.com",
-    "www.kkdigitalgrowth.com",
-    
+    "localhost",
+    "127.0.0.1",
+    ".vercel.app",
+    "kk-digital-growth-66hrl8bw7-kkdigitalsoftwaregrowth-s-projects.vercel.app",
 ]
+
 CSRF_TRUSTED_ORIGINS = [
     "https://*.vercel.app",
 ]
