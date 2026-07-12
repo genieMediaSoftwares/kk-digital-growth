@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.generic import RedirectView
 from . import views
 
 urlpatterns = [
@@ -11,4 +12,6 @@ urlpatterns = [
      path("about/", views.about, name="about"),
      path('case-studies/', views.case_studies, name='case_studies'),
      path('case-studies/<slug:slug>/', views.case_study_detail, name='case_study_detail'),
+     path('sitemap.xml', views.sitemap, name='sitemap'),
+     path('favicon.ico', RedirectView.as_view(url='/static/images/kk-logo.png')),
 ]

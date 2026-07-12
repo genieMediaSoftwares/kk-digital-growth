@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.urls import reverse
 from .models import Consultation
 from .forms import ContactForm
 
@@ -409,3 +411,34 @@ def case_study_detail(request, slug):
         from django.http import Http404
         raise Http404("Case study not found")
     return render(request, "case-study-detail.html", {"case": case_study})
+
+def sitemap(request):
+    urls = [
+        reverse('home'),
+        reverse('about'),
+        reverse('services'),
+        reverse('process'),
+        reverse('clients'),
+        reverse('contact'),
+        reverse('consultation'),
+        reverse('case_studies'),
+    ]
+    
+    for slug in CASE_STUDIES_DATA.keys():
+        urls.append(reverse('case_study_detail', kwargs={'slug': slug}))
+        
+    domain = request.build_absolute_uri('/')[:-1]
+    if "localhost" in domain or "127.0.0.1" in domain or "testserver" in domain:
+        domain = "https://kkdigitalgrowth.com"
+        
+    xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    for url in urls:
+        xml_content += '  <url>\n'
+        xml_content += f'    <loc>{domain}{url}</loc>\n'
+        xml_content += '    <changefreq>monthly</changefreq>\n'
+        xml_content += '    <priority>0.8</priority>\n'
+        xml_content += '  </url>\n'
+    xml_content += '</urlset>\n'
+    
+    return HttpResponse(xml_content, content_type='application/xml')
