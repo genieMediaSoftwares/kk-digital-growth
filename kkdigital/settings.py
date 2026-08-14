@@ -15,19 +15,36 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config("SECRET_KEY", default="django-insecure-90#6nbusl%x&!ebwo08@%g9(!e*j&ld(2)4-=8!yi(ggbqpa8#")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG", default=False, cast=bool)
+IS_VERCEL = bool(os.environ.get("VERCEL"))
+DEBUG = config("DEBUG", default=not IS_VERCEL, cast=bool)
 
+# Allowed Hosts Configuration
 ALLOWED_HOSTS = config(
     "ALLOWED_HOSTS",
-    default="kkdigitalgrowth.com,www.kkdigitalgrowth.com,localhost,127.0.0.1",
+    default="kkdigitalgrowth.com,www.kkdigitalgrowth.com,localhost,127.0.0.1,.vercel.app",
     cast=lambda v: [s.strip() for s in v.split(",") if s.strip()]
 )
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://kkdigitalgrowth.com",
-    "https://kkdigitalgrowth.com",
-    "https://kk-digital-growth-66hrl8bw7-kkdigitalsoftwaregrowth-s-projects.vercel.app"
-]
+# Dynamically handle VERCEL_URL environment variable if provided by Vercel
+VERCEL_URL = config("VERCEL_URL", default=None) or os.environ.get("VERCEL_URL")
+if VERCEL_URL:
+    vercel_host = VERCEL_URL.replace("https://", "").replace("http://", "").split("/")[0].strip()
+    if vercel_host and vercel_host not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(vercel_host)
+
+# CSRF Trusted Origins Configuration
+CSRF_TRUSTED_ORIGINS = config(
+    "CSRF_TRUSTED_ORIGINS",
+    default="https://kkdigitalgrowth.com,https://www.kkdigitalgrowth.com,https://*.vercel.app",
+    cast=lambda v: [s.strip() for s in v.split(",") if s.strip()]
+)
+
+if VERCEL_URL:
+    vercel_host = VERCEL_URL.replace("https://", "").replace("http://", "").split("/")[0].strip()
+    if vercel_host:
+        vercel_origin = f"https://{vercel_host}"
+        if vercel_origin not in CSRF_TRUSTED_ORIGINS:
+            CSRF_TRUSTED_ORIGINS.append(vercel_origin)
 
 SITE_DOMAIN = config("SITE_DOMAIN", default="https://kkdigitalgrowth.com")
 
