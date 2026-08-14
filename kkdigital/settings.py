@@ -192,8 +192,18 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 EMAIL_HOST = config("EMAIL_HOST", default="smtp.hostinger.com")
 EMAIL_PORT = config("EMAIL_PORT", default=465, cast=int)
-EMAIL_USE_TLS = config("EMAIL_USE_TLS", default=False, cast=bool)
-EMAIL_USE_SSL = config("EMAIL_USE_SSL", default=True, cast=bool)
+
+_raw_tls = config("EMAIL_USE_TLS", default=False, cast=bool)
+_raw_ssl = config("EMAIL_USE_SSL", default=True, cast=bool)
+
+# Enforce mutual exclusivity to prevent Django ValueError ("EMAIL_USE_TLS/EMAIL_USE_SSL are mutually exclusive")
+if EMAIL_PORT == 587 or (_raw_tls and not _raw_ssl):
+    EMAIL_USE_TLS = True
+    EMAIL_USE_SSL = False
+else:
+    EMAIL_USE_SSL = True
+    EMAIL_USE_TLS = False
+
 EMAIL_TIMEOUT = config("EMAIL_TIMEOUT", default=15, cast=int)
 
 EMAIL_HOST_USER = config(
