@@ -209,21 +209,21 @@ EMAIL_TIMEOUT = config("EMAIL_TIMEOUT", default=15, cast=int)
 EMAIL_HOST_USER = config(
     "EMAIL_HOST_USER",
     default="admin@kkdigitalgrowth.com"
-)
+).strip().strip('"').strip("'")
 
 EMAIL_HOST_PASSWORD = config(
     "EMAIL_HOST_PASSWORD",
     default=""
-)
+).strip().strip('"').strip("'")
 
 DEFAULT_FROM_EMAIL = config(
     "DEFAULT_FROM_EMAIL",
     default="admin@kkdigitalgrowth.com"
-)
+).strip().strip('"').strip("'")
 
 CONTACT_NOTIFICATION_EMAIL = config(
     "CONTACT_NOTIFICATION_EMAIL",
     default="admin@kkdigitalgrowth.com"
-)
+).strip().strip('"').strip("'")
 HOSTINGER_MEDIA_DOMAIN = config("HOSTINGER_MEDIA_DOMAIN", default="https://www.kkdigitalgrowth.com")
 HOSTINGER_UPLOAD_MAX_BYTES = config("HOSTINGER_UPLOAD_MAX_BYTES", default=5 * 1024 * 1024, cast=int)

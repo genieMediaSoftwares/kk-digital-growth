@@ -113,6 +113,90 @@ def home(request):
     return render(request, "home.html", {"testimonials": TESTIMONIALS_DATA})
 
 
+from django.core.mail import EmailMessage, get_connection
+
+
+def send_notification_email(subject, email_body, visitor_email):
+    """
+    Sends email notification using Hostinger SMTP.
+    Sanitizes credentials and retries on alternate port (587 TLS vs 465 SSL) if primary fails.
+    """
+    host = getattr(settings, 'EMAIL_HOST', 'smtp.hostinger.com')
+    if isinstance(host, str):
+        host = host.strip().strip('"').strip("'")
+
+    user = getattr(settings, 'EMAIL_HOST_USER', '')
+    if isinstance(user, str):
+        user = user.strip().strip('"').strip("'")
+
+    pwd = getattr(settings, 'EMAIL_HOST_PASSWORD', '')
+    if isinstance(pwd, str):
+        pwd = pwd.strip().strip('"').strip("'")
+
+    from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', user)
+    if isinstance(from_email, str):
+        from_email = from_email.strip().strip('"').strip("'")
+
+    to_email = getattr(settings, 'CONTACT_NOTIFICATION_EMAIL', user)
+    if isinstance(to_email, str):
+        to_email = to_email.strip().strip('"').strip("'")
+
+    primary_port = getattr(settings, 'EMAIL_PORT', 465)
+    primary_use_ssl = getattr(settings, 'EMAIL_USE_SSL', True)
+    primary_use_tls = getattr(settings, 'EMAIL_USE_TLS', False)
+
+    # Primary attempt
+    try:
+        conn = get_connection(
+            host=host,
+            port=primary_port,
+            username=user,
+            password=pwd,
+            use_tls=primary_use_tls,
+            use_ssl=primary_use_ssl,
+            timeout=15,
+        )
+        email = EmailMessage(
+            subject=subject,
+            body=email_body,
+            from_email=from_email,
+            to=[to_email],
+            reply_to=[visitor_email] if visitor_email else None,
+            connection=conn,
+        )
+        res = email.send(fail_silently=False)
+        print(f"SMTP Primary (Port {primary_port}) Succeeded!")
+        return res
+    except Exception as primary_err:
+        print(f"SMTP Primary (Port {primary_port}) Failed: {type(primary_err).__name__} {primary_err}")
+
+        # Fallback attempt on alternate port (if 465 tried, try 587 TLS; if 587 tried, try 465 SSL)
+        fallback_port = 587 if primary_port == 465 else 465
+        fallback_use_ssl = (fallback_port == 465)
+        fallback_use_tls = (fallback_port == 587)
+
+        conn_fb = get_connection(
+            host=host,
+            port=fallback_port,
+            username=user,
+            password=pwd,
+            use_tls=fallback_use_tls,
+            use_ssl=fallback_use_ssl,
+            timeout=15,
+        )
+        email_fb = EmailMessage(
+            subject=subject,
+            body=email_body,
+            from_email=from_email,
+            to=[to_email],
+            reply_to=[visitor_email] if visitor_email else None,
+            connection=conn_fb,
+        )
+        res_fb = email_fb.send(fail_silently=False)
+        print(f"SMTP Fallback (Port {fallback_port}) Succeeded!")
+        return res_fb
+
+
 def consultation(request):
 
     success = False
@@ -129,16 +213,6 @@ def consultation(request):
         )
 
         try:
-            print("--- SMTP DIAGNOSTICS (CONSULTATION FORM) ---")
-            print("SMTP HOST:", getattr(settings, "EMAIL_HOST", None))
-            print("SMTP PORT:", getattr(settings, "EMAIL_PORT", None))
-            print("SMTP TLS:", getattr(settings, "EMAIL_USE_TLS", None))
-            print("SMTP SSL:", getattr(settings, "EMAIL_USE_SSL", None))
-            print("SMTP USER CONFIGURED:", bool(getattr(settings, "EMAIL_HOST_USER", None)))
-            print("SMTP PASSWORD CONFIGURED:", bool(getattr(settings, "EMAIL_HOST_PASSWORD", None)))
-            print("DEFAULT FROM CONFIGURED:", bool(getattr(settings, "DEFAULT_FROM_EMAIL", None)))
-            print("CONTACT RECIPIENT CONFIGURED:", bool(getattr(settings, "CONTACT_NOTIFICATION_EMAIL", None)))
-
             first_name = consultation_obj.first_name or ""
             last_name = consultation_obj.last_name or ""
             company_name = consultation_obj.company_name or ""
@@ -167,15 +241,7 @@ https://www.kkdigitalgrowth.com/consultation/
 ----------------------------------------
 """
 
-            email = EmailMessage(
-                subject=subject,
-                body=email_body,
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                to=[settings.CONTACT_NOTIFICATION_EMAIL],
-                reply_to=[visitor_email] if visitor_email else None,
-            )
-
-            email.send(fail_silently=False)
+            send_notification_email(subject, email_body, visitor_email)
 
             print("CONSULTATION EMAIL SENT SUCCESSFULLY")
 
@@ -264,25 +330,7 @@ Website Contact Form
 """
 
             try:
-                print("--- SMTP DIAGNOSTICS (CONTACT FORM) ---")
-                print("SMTP HOST:", getattr(settings, "EMAIL_HOST", None))
-                print("SMTP PORT:", getattr(settings, "EMAIL_PORT", None))
-                print("SMTP TLS:", getattr(settings, "EMAIL_USE_TLS", None))
-                print("SMTP SSL:", getattr(settings, "EMAIL_USE_SSL", None))
-                print("SMTP USER CONFIGURED:", bool(getattr(settings, "EMAIL_HOST_USER", None)))
-                print("SMTP PASSWORD CONFIGURED:", bool(getattr(settings, "EMAIL_HOST_PASSWORD", None)))
-                print("DEFAULT FROM CONFIGURED:", bool(getattr(settings, "DEFAULT_FROM_EMAIL", None)))
-                print("CONTACT RECIPIENT CONFIGURED:", bool(getattr(settings, "CONTACT_NOTIFICATION_EMAIL", None)))
-
-                email = EmailMessage(
-                    subject=subject,
-                    body=email_body,
-                    from_email=settings.DEFAULT_FROM_EMAIL,
-                    to=[settings.CONTACT_NOTIFICATION_EMAIL],
-                    reply_to=[visitor_email],
-                )
-
-                email.send(fail_silently=False)
+                send_notification_email(subject, email_body, visitor_email)
 
                 print("CONTACT EMAIL SENT SUCCESSFULLY")
 
