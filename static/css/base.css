@@ -5,6 +5,90 @@
     font-family:'Plus Jakarta Sans',sans-serif;
 }
 
+:root {
+    --container-max-width: 1240px;
+    --container-padding: 32px;
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --container-max-width: 100%;
+        --container-padding: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --container-padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --container-padding: 16px;
+    }
+}
+
+html, body {
+    overflow-x: hidden !important;
+    width: 100%;
+}
+
+/* REUSABLE GLOBAL SITE CONTAINER SYSTEM */
+.site-container,
+.container,
+.home-container,
+.hero-container,
+.navbar-container,
+.about-container,
+.about-section-container,
+.services-hero-container,
+.services-section-container,
+.contact-hero-container,
+.contact-form-container,
+.consult-container,
+.case-hero-container,
+.case-grid,
+.case-detail-hero-container,
+.case-detail-grid,
+.testimonial-container,
+.process-details,
+.footer-container,
+.footer-bottom-container {
+    width: 90% !important;
+    max-width: var(--container-max-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: var(--container-padding) !important;
+    padding-right: var(--container-padding) !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 1024px) {
+    .site-container,
+    .container,
+    .home-container,
+    .hero-container,
+    .navbar-container,
+    .about-container,
+    .about-section-container,
+    .services-hero-container,
+    .services-section-container,
+    .contact-hero-container,
+    .contact-form-container,
+    .consult-container,
+    .case-hero-container,
+    .case-grid,
+    .case-detail-hero-container,
+    .case-detail-grid,
+    .testimonial-container,
+    .process-details,
+    .footer-container,
+    .footer-bottom-container {
+        width: 100% !important;
+    }
+}
+
 .card-partner:hover {
     border-color: #F79421;
     box-shadow: 0 20px 40px rgba(247, 148, 33, 0.15);
@@ -592,9 +676,23 @@ body{
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:50px 20px 80px 20px;
+    padding:60px 0;
     position:relative;
     overflow:hidden;
+}
+
+.process-hero .site-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    position: relative;
+    z-index: 5;
+    width: 90% !important;
+    max-width: var(--container-max-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 .process-hero::before{
@@ -621,6 +719,9 @@ body{
     font-weight:700;
     letter-spacing:1.5px;
     z-index:2;
+    display: inline-block !important;
+    width: fit-content !important;
+    margin: 0 auto 24px auto !important;
 }
 
 .process-hero h1{
@@ -629,23 +730,27 @@ body{
     color:#fff;
     line-height:1.4;
     margin-bottom:24px;
+    text-align: center !important;
     z-index:2;
 }
-
-
 
 .process-hero p{
     color:#B7C4D5;
     font-size:17px;
     max-width:640px;
     line-height:1.7;
+    margin: 0 auto 30px auto !important;
+    text-align: center !important;
     z-index:2;
 }
 
 .process-buttons{
-    margin-top:40px;
-    display:flex;
+    margin-top:10px;
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
     gap:20px;
+    width: 100%;
     z-index:2;
 }
 

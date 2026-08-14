@@ -6,8 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Studies - KK Digital Growth</title>
-    <link rel="icon" type="image/png" href="{% static 'images/kk-logo.png' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2.8">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=6.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -16,7 +17,7 @@
 
 <!-- ================= HERO SECTION ================= -->
 <section class="case-hero">
-    <div class="case-hero-container home-container">
+    <div class="case-hero-container home-container site-container">
         <span class="hero-tag"><i class="fa-solid fa-chart-line"></i> Our track record</span>
         <h1>Case studies</h1>
         <p>Discover how KK Digital Growth helps businesses build scalable ERP systems, professional websites and powerful mobile applications that solve real business problems.</p>
@@ -29,7 +30,7 @@
 
 <!-- ================= LISTING SECTION ================= -->
 <section class="case-listing-section">
-    <div class="case-grid home-container">
+    <div class="case-grid home-container site-container">
         {% for case in case_studies %}
         <div class="case-card">
             <a href="{% url 'case_study_detail' slug=case.slug %}" class="case-card-link-wrapper">

@@ -442,8 +442,13 @@ overflow:hidden;
 position:relative;
 z-index:10;
 text-align:center;
-max-width:950px;
-padding:0 20px;
+width: 100%;
+max-width: var(--container-max-width);
+margin-left: auto;
+margin-right: auto;
+padding-left: var(--container-padding);
+padding-right: var(--container-padding);
+box-sizing: border-box;
 }
 /* Heading */
 
@@ -579,11 +584,11 @@ background:#f8fbff;
 text-align:center;
 margin-bottom:70px;
 width: 100%;
-max-width: 1200px; /* decreased from 1560px */
+max-width: 100%;
 margin-left: auto;
 margin-right: auto;
-padding-left: 80px;
-padding-right: 80px;
+padding-left: 0;
+padding-right: 0;
 box-sizing: border-box;
 }
 
@@ -774,11 +779,11 @@ box-shadow:0 6px 15px rgba(247, 148, 33, 0.25);
     gap:40px;
     margin-top:50px;
     width: 100%;
-    max-width: 1200px; /* decreased from 1560px */
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 0;
+    padding-right: 0;
     box-sizing: border-box;
 }
 

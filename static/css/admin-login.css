@@ -1,0 +1,364 @@
+/* ==========================================================================
+   KK Digital Growth - Corporate Admin Theme CSS (High Contrast & Visible Text)
+   Branding: Primary Blue (#0F3D75), Primary Orange (#FF9F1C)
+   ========================================================================== */
+
+:root {
+    --brand-blue: #0F3D75;
+    --brand-blue-hover: #0B2E59;
+    --brand-blue-light: #EBF3FA;
+    --brand-orange: #FF9F1C;
+    --brand-orange-hover: #E0880B;
+    --brand-orange-light: #FFF7ED;
+    
+    --bg-page: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --text-dark: #0F172A;
+    --text-body: #1E293B;
+    --text-muted: #475569;
+    --border-color: #CBD5E1;
+    
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    
+    --shadow-soft: 0 10px 30px rgba(15, 61, 117, 0.07);
+    --shadow-card: 0 12px 32px rgba(15, 61, 117, 0.08);
+    --shadow-orange: 0 4px 15px rgba(255, 159, 28, 0.35);
+}
+
+body.admin-body {
+    background-color: var(--bg-page);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    color: var(--text-body);
+}
+
+/* Form Controls & Inputs - High Visibility Text */
+.form-control,
+.form-select,
+textarea {
+    color: #0F172A !important;
+    background-color: #FFFFFF !important;
+    border: 1.5px solid #CBD5E1 !important;
+}
+
+.form-control::placeholder,
+textarea::placeholder {
+    color: #94A3B8 !important;
+    opacity: 1;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+    border-color: var(--brand-orange) !important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 159, 28, 0.2) !important;
+    outline: none !important;
+    color: #0F172A !important;
+}
+
+/* Background Animation Wrapper */
+.admin-login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 10%, rgba(15, 61, 117, 0.08) 0%, rgba(248, 250, 252, 1) 70%), var(--bg-page);
+    padding: 2rem 1rem;
+}
+
+/* Admin Login Card */
+.admin-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    max-width: 440px;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.admin-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--brand-blue) 0%, var(--brand-orange) 100%);
+}
+
+.admin-card:hover {
+    box-shadow: 0 20px 45px rgba(15, 61, 117, 0.14);
+    transform: translateY(-2px);
+}
+
+.admin-card-header {
+    padding: 2.5rem 2rem 1rem 2rem;
+    text-align: center;
+}
+
+.admin-brand-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--brand-orange-light);
+    border: 2px solid var(--brand-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem auto;
+    color: var(--brand-orange);
+    font-size: 1.75rem;
+    box-shadow: 0 4px 14px rgba(255, 159, 28, 0.25);
+}
+
+.admin-card-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    letter-spacing: -0.5px;
+    margin-bottom: 0.35rem;
+}
+
+.admin-card-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.admin-card-body {
+    padding: 1.5rem 2rem 2.5rem 2rem;
+}
+
+/* Custom Form Groups & Input Icons */
+.input-group-custom {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group-custom .form-control {
+    height: 52px;
+    padding-left: 48px;
+    padding-right: 48px;
+}
+
+.input-icon-left {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748B;
+    font-size: 1.1rem;
+    z-index: 10;
+    pointer-events: none;
+    transition: color 0.25s ease;
+}
+
+.input-group-custom .form-control:focus ~ .input-icon-left,
+.input-group-custom:focus-within .input-icon-left {
+    color: var(--brand-orange);
+}
+
+/* Password Toggle Icon */
+.password-toggle-btn {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #64748B;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 10;
+    padding: 4px;
+    border-radius: 50%;
+    transition: color 0.2s ease;
+}
+
+.password-toggle-btn:hover {
+    color: var(--brand-orange);
+}
+
+/* ==========================================================================
+   BUTTON CLICK / FOCUS / ACTIVE VISIBILITY FIXES
+   ========================================================================== */
+
+.btn-gold-gradient,
+.btn-orange-primary,
+.btn-warning {
+    background-color: var(--brand-orange) !important;
+    background-image: linear-gradient(135deg, #FF9F1C 0%, #FF8800 100%) !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 1rem;
+    height: 52px;
+    border: none !important;
+    border-radius: var(--radius-md);
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-orange);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.btn-gold-gradient:hover,
+.btn-gold-gradient:focus,
+.btn-gold-gradient:active,
+.btn-gold-gradient:focus-visible,
+.btn-gold-gradient.active,
+.btn-orange-primary:hover,
+.btn-orange-primary:focus,
+.btn-orange-primary:active,
+.btn-orange-primary:focus-visible,
+.btn-orange-primary.active,
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:active,
+.btn-warning:focus-visible,
+.btn-warning.active {
+    background-color: var(--brand-orange-hover) !important;
+    background-image: linear-gradient(135deg, #FFA933 0%, #E07B00 100%) !important;
+    box-shadow: 0 6px 20px rgba(255, 159, 28, 0.5) !important;
+    color: #FFFFFF !important;
+    outline: none !important;
+}
+
+.btn-outline-light {
+    color: #FFFFFF !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus,
+.btn-outline-light:active,
+.btn-outline-light:focus-visible,
+.btn-outline-light.active {
+    background-color: #FFFFFF !important;
+    color: var(--brand-blue) !important;
+    border-color: #FFFFFF !important;
+}
+
+.btn-outline-warning {
+    color: var(--brand-orange) !important;
+    border-color: var(--brand-orange) !important;
+}
+
+.btn-outline-warning:hover,
+.btn-outline-warning:focus,
+.btn-outline-warning:active,
+.btn-outline-warning:focus-visible,
+.btn-outline-warning.active {
+    background-color: var(--brand-orange) !important;
+    color: #FFFFFF !important;
+    border-color: var(--brand-orange) !important;
+}
+
+.btn-outline-primary {
+    color: var(--brand-blue) !important;
+    border-color: var(--brand-blue) !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active,
+.btn-outline-primary:focus-visible,
+.btn-outline-primary.active {
+    background-color: var(--brand-blue) !important;
+    color: #FFFFFF !important;
+    border-color: var(--brand-blue) !important;
+}
+
+/* Custom Alert Message */
+.alert-custom-danger {
+    background-color: #FEF2F2;
+    border: 1.5px solid #FCA5A5;
+    color: #991B1B;
+    border-radius: var(--radius-md);
+    padding: 0.9rem 1.1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* Navbar & Header Styles */
+.admin-nav {
+    background: var(--brand-blue) !important;
+    border-bottom: 3px solid var(--brand-orange);
+}
+
+.admin-nav-brand {
+    color: #FFFFFF !important;
+    font-weight: 700;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.admin-nav-brand span {
+    color: var(--brand-orange) !important;
+}
+
+.badge-gold,
+.badge-orange {
+    background: var(--brand-orange-light) !important;
+    color: #C2410C !important;
+    border: 1px solid rgba(255, 159, 28, 0.5);
+    font-weight: 700;
+    padding: 0.4em 0.85em;
+    border-radius: 20px;
+}
+
+.dashboard-stat-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-soft);
+    padding: 1.5rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dashboard-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--brand-orange);
+}
+
+.stat-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    background: var(--brand-blue-light);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+/* Tables High Contrast Text */
+.table {
+    color: #1E293B !important;
+}
+
+.table th {
+    color: #0F3D75 !important;
+    font-weight: 700 !important;
+    background-color: #F1F5F9 !important;
+    border-bottom: 2px solid #CBD5E1 !important;
+}
+
+.table td {
+    color: #334155 !important;
+}

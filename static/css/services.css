@@ -96,11 +96,12 @@ SERVICES HERO
 }
 
 .services-section-container {
-    max-width: 1200px;
+    max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 0 80px; /* updated from 24px */
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
     width: 100%;
-    box-sizing: border-box; /* added */
+    box-sizing: border-box;
 }
 
 .services-grid {
@@ -705,11 +706,11 @@ box-shadow:0 18px 35px rgba(247,148,33,.45);
 /* Container — matches header/footer/home */
 .services-section-container {
     width: 100%;
-    max-width: 1200px; /* decreased from 1560px */
+    max-width: var(--container-max-width);
     margin-left: auto;
     margin-right: auto;
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
     box-sizing: border-box;
 }
 /* ── Section Spacing ── */

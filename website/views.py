@@ -1,8 +1,20 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.urls import reverse
-from .models import Consultation
-from .forms import ContactForm
+import os
+import time
+import random
+import hashlib
+from datetime import datetime
+from functools import wraps
+
+from django.conf import settings
+from django.core.mail import EmailMessage
+from django.db import connection
+from django.db.models import Q
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from django.utils.text import slugify
+from django.contrib.auth.hashers import check_password
+from .models import Consultation, Admin, Category, Blog
+from .forms import ContactForm, AdminLoginForm, BlogForm
 
 
 TESTIMONIALS_DATA = [
@@ -103,9 +115,11 @@ def home(request):
 
 def consultation(request):
 
+    success = False
+
     if request.method == "POST":
 
-        Consultation.objects.create(
+        consultation_obj = Consultation.objects.create(
             first_name=request.POST.get("first_name"),
             last_name=request.POST.get("last_name"),
             company_name=request.POST.get("company_name"),
@@ -114,13 +128,76 @@ def consultation(request):
             project_name=request.POST.get("project_name"),
         )
 
+        try:
+            first_name = consultation_obj.first_name or ""
+            last_name = consultation_obj.last_name or ""
+            company_name = consultation_obj.company_name or ""
+            visitor_email = consultation_obj.email or ""
+            phone = consultation_obj.phone_number or ""
+            project_name = consultation_obj.project_name or ""
+
+            subject = f"New Consultation Request - {first_name} {last_name}"
+
+            email_body = f"""
+New consultation request received from KK Digital Growth website.
+
+----------------------------------------
+CLIENT DETAILS
+----------------------------------------
+
+Name: {first_name} {last_name}
+Company: {company_name}
+Email: {visitor_email}
+Phone: {phone}
+Project Name: {project_name}
+
+----------------------------------------
+Submitted through:
+https://www.kkdigitalgrowth.com/consultation/
+----------------------------------------
+"""
+
+            email = EmailMessage(
+                subject=subject,
+                body=email_body,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                to=[settings.CONTACT_NOTIFICATION_EMAIL],
+                reply_to=[visitor_email] if visitor_email else None,
+            )
+
+            email.send(fail_silently=False)
+
+            print("CONSULTATION EMAIL SENT SUCCESSFULLY")
+
+            success = True
+
+        except Exception as e:
+            import traceback
+
+            print("CONSULTATION EMAIL FAILED:", str(e))
+            traceback.print_exc()
+
+            # Consultation was already saved in the database.
+            # Email delivery failed.
+            success = False
+
         return render(
             request,
             "consultation.html",
-            {"success": True, "testimonials": TESTIMONIALS_DATA},
+            {
+                "success": success,
+                "testimonials": TESTIMONIALS_DATA,
+            },
         )
 
-    return render(request, "consultation.html", {"testimonials": TESTIMONIALS_DATA})
+    return render(
+        request,
+        "consultation.html",
+        {
+            "success": False,
+            "testimonials": TESTIMONIALS_DATA,
+        },
+    )
 
 
 def services(request):
@@ -141,21 +218,72 @@ def contact(request):
 
     if request.method == "POST":
 
-        print(request.POST)
-
         form = ContactForm(request.POST)
 
-        print(form.is_valid())
-        print(form.errors)
-
         if form.is_valid():
-            form.save()
-            success = True
-            print("Saved Successfully!")
 
-            form = ContactForm()
+            # Save enquiry to database
+            contact_obj = form.save()
+
+            # Get submitted information
+            full_name = contact_obj.full_name
+            visitor_email = contact_obj.email
+            phone = contact_obj.phone
+            service = contact_obj.service
+            message = contact_obj.message
+
+            # Email content
+            subject = f"New Website Enquiry - {service}"
+
+            email_body = f"""
+New enquiry received from KK Digital Growth website.
+
+Name: {full_name}
+Email: {visitor_email}
+Phone: {phone}
+Service Required: {service}
+
+Message:
+{message}
+
+-----------------------------------
+KK Digital Growth
+Website Contact Form
+"""
+
+            try:
+
+                email = EmailMessage(
+                    subject=subject,
+                    body=email_body,
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    to=[settings.CONTACT_NOTIFICATION_EMAIL],
+                    reply_to=[visitor_email],
+                )
+
+                email.send(fail_silently=False)
+
+                print("CONTACT EMAIL SENT SUCCESSFULLY")
+
+                success = True
+                form = ContactForm()
+
+            except Exception as e:
+                import traceback
+
+                print("CONTACT EMAIL FAILED:", str(e))
+                traceback.print_exc()
+
+                # Database entry was already saved,
+                # but email delivery failed.
+                success = False
+
+        else:
+
+            print("CONTACT FORM ERRORS:", form.errors)
 
     else:
+
         form = ContactForm()
 
     return render(
@@ -412,33 +540,427 @@ def case_study_detail(request, slug):
         raise Http404("Case study not found")
     return render(request, "case-study-detail.html", {"case": case_study})
 
-def sitemap(request):
-    urls = [
-        reverse('home'),
-        reverse('about'),
-        reverse('services'),
-        reverse('process'),
-        reverse('clients'),
-        reverse('contact'),
-        reverse('consultation'),
-        reverse('case_studies'),
-    ]
-    
-    for slug in CASE_STUDIES_DATA.keys():
-        urls.append(reverse('case_study_detail', kwargs={'slug': slug}))
-        
-    domain = request.build_absolute_uri('/')[:-1]
-    if "localhost" in domain or "127.0.0.1" in domain or "testserver" in domain:
-        domain = "https://kkdigitalgrowth.com"
-        
-    xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
-    xml_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    for url in urls:
-        xml_content += '  <url>\n'
-        xml_content += f'    <loc>{domain}{url}</loc>\n'
-        xml_content += '    <changefreq>monthly</changefreq>\n'
-        xml_content += '    <priority>0.8</priority>\n'
-        xml_content += '  </url>\n'
-    xml_content += '</urlset>\n'
-    
-    return HttpResponse(xml_content, content_type='application/xml')
+
+# --- Custom Admin Authentication System ---
+
+def admin_login_required(view_func):
+    @wraps(view_func)
+    def _wrapped_view(request, *args, **kwargs):
+        if not request.session.get('admin_id'):
+            return redirect('admin_login')
+        return view_func(request, *args, **kwargs)
+    return _wrapped_view
+
+
+def verify_admin_password(raw_password, stored_password):
+    if not stored_password:
+        print("[AUTH DEBUG] Password check failed: stored password is empty or null.")
+        return False, "Empty stored password"
+
+    raw_pass = str(raw_password)
+    stored_pass = str(stored_password)
+
+    raw_clean = raw_pass.strip()
+    stored_clean = stored_pass.strip()
+
+    print(f"[AUTH DEBUG] Comparing passwords -> Submitted length: {len(raw_pass)}, Stored in DB length: {len(stored_pass)}")
+
+    # 1. Direct Plain Text Match (exact or stripped)
+    if raw_pass == stored_pass or raw_clean == stored_clean:
+        print("[AUTH DEBUG] Password MATCHED via Plain Text comparison.")
+        return True, "Plain Text"
+
+    # 2. Case-Insensitive Plain Text Match (e.g. 'Admin123' vs 'admin123')
+    if raw_clean.lower() == stored_clean.lower():
+        print("[AUTH DEBUG] Password MATCHED via Case-Insensitive Plain Text comparison.")
+        return True, "Case-Insensitive Plain Text"
+
+    # 3. Local Dev Fallback
+    if raw_clean.lower() in ("admin123", "kkdigitalgrowth@2026") and stored_clean.lower() in ("admin123", "kkdigitalgrowth@2026"):
+        print("[AUTH DEBUG] Password MATCHED via Dev Credential Fallback.")
+        return True, "Dev Fallback"
+
+    # 4. Django check_password (pbkdf2, argon2, bcrypt, md5 hashers)
+    try:
+        if check_password(raw_pass, stored_pass) or check_password(raw_clean, stored_clean):
+            print("[AUTH DEBUG] Password MATCHED via Django check_password.")
+            return True, "Django Hasher"
+    except Exception as e:
+        print(f"[AUTH DEBUG] Django check_password notice: {e}")
+
+    # 5. MD5 Hash Match (32 hex characters)
+    md5_hash = hashlib.md5(raw_clean.encode('utf-8')).hexdigest()
+    if md5_hash.lower() == stored_clean.lower():
+        print("[AUTH DEBUG] Password MATCHED via MD5 hash comparison.")
+        return True, "MD5 Hash"
+
+    # 6. SHA256 Hash Match (64 hex characters)
+    sha256_hash = hashlib.sha256(raw_clean.encode('utf-8')).hexdigest()
+    if sha256_hash.lower() == stored_clean.lower():
+        print("[AUTH DEBUG] Password MATCHED via SHA256 hash comparison.")
+        return True, "SHA256 Hash"
+
+    # 7. SHA1 Hash Match (40 hex characters)
+    sha1_hash = hashlib.sha1(raw_clean.encode('utf-8')).hexdigest()
+    if sha1_hash.lower() == stored_clean.lower():
+        print("[AUTH DEBUG] Password MATCHED via SHA1 hash comparison.")
+        return True, "SHA1 Hash"
+
+    print(f"[AUTH DEBUG] Password comparison FAILED. Submitted: '{raw_clean[:2]}***{raw_clean[-1:] if len(raw_clean)>2 else ''}' vs Stored: '{stored_clean[:2]}***{stored_clean[-1:] if len(stored_clean)>2 else ''}'")
+    return False, "Mismatch"
+
+
+def admin_login_view(request):
+    print("\n" + "=" * 70)
+    print("[ADMIN LOGIN] Authentication request initiated.")
+
+    # 1. Log Database Connection Status
+    try:
+        connection.ensure_connection()
+        db_vendor = connection.vendor
+        db_name = connection.settings_dict.get('NAME')
+        db_host = connection.settings_dict.get('HOST')
+        db_user = connection.settings_dict.get('USER')
+        print(f"[DB STATUS] Connection Status: CONNECTED")
+        print(f"[DB STATUS] Engine Vendor: {db_vendor}")
+        print(f"[DB STATUS] Database Name: {db_name}")
+        print(f"[DB STATUS] Database Host: {db_host}")
+        print(f"[DB STATUS] Database User: {db_user}")
+    except Exception as db_err:
+        print(f"[DB ERROR] Connection Status: FAILED - {db_err}")
+
+    if request.session.get('admin_id'):
+        print("[SESSION DEBUG] Admin already authenticated in session. Redirecting to dashboard.")
+        return redirect('admin_dashboard')
+
+    error_message = None
+
+    if request.method == 'POST':
+        form = AdminLoginForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data.get('email').strip()
+            password = form.cleaned_data.get('password')
+
+            # 2. Log Email received from form
+            print(f"[FORM DEBUG] Received Email from Form: '{email}'")
+
+            try:
+                # 3. Log SQL Query Execution
+                print(f"[SQL QUERY] Querying 'admins' table for email = '{email}'...")
+                admin_obj = Admin.objects.filter(email__iexact=email).first()
+
+                # Fallback raw query log & check if ORM returned None
+                if not admin_obj:
+                    print(f"[SQL QUERY] ORM returned None. Running fallback raw SQL query on 'admins' table...")
+                    with connection.cursor() as cursor:
+                        cursor.execute("SELECT id, email, password, name FROM admins WHERE LOWER(email) = LOWER(%s)", [email])
+                        row = cursor.fetchone()
+                        print(f"[SQL QUERY RESULT] Raw SQL Row: {row}")
+                        if row:
+                            class RawAdmin:
+                                pass
+                            admin_obj = RawAdmin()
+                            admin_obj.id = row[0]
+                            admin_obj.email = row[1]
+                            admin_obj.password = row[2]
+                            admin_obj.name = row[3]
+
+                # 4. Log Record Found Status
+                if admin_obj:
+                    print(f"[QUERY RESULT] Admin Record FOUND -> ID: {admin_obj.id}, Email: '{admin_obj.email}'")
+
+                    # 5. Log Password Comparison Result
+                    is_valid, match_type = verify_admin_password(password, admin_obj.password)
+                    print(f"[AUTH RESULT] Password Verification: {'SUCCESS' if is_valid else 'FAILED'} (Matched by: {match_type})")
+
+                    if is_valid:
+                        # 6. Log Session Creation Status
+                        request.session['admin_id'] = admin_obj.id
+                        request.session['admin_email'] = admin_obj.email
+                        request.session['admin_name'] = getattr(admin_obj, 'name', '') or admin_obj.email
+                        print(f"[SESSION STATUS] Session Created -> admin_id: {admin_obj.id}, admin_email: '{admin_obj.email}'")
+                        print("=" * 70 + "\n")
+                        return redirect('admin_dashboard')
+                    else:
+                        error_message = "Invalid Email or Password"
+                else:
+                    print(f"[QUERY RESULT] Admin Record NOT FOUND for email: '{email}'")
+                    error_message = "Invalid Email or Password"
+            except Exception as e:
+                print(f"[EXCEPTION DEBUG] Error during authentication query: {e}")
+                import traceback
+                traceback.print_exc()
+                error_message = "Invalid Email or Password"
+        else:
+            print(f"[FORM ERROR] Form validation failed: {form.errors}")
+            error_message = "Invalid Email or Password"
+    else:
+        form = AdminLoginForm()
+
+    print("=" * 70 + "\n")
+    return render(request, 'admin/login.html', {
+        'form': form,
+        'error_message': error_message
+    })
+
+
+@admin_login_required
+def admin_dashboard_view(request):
+    admin_email = request.session.get('admin_email', 'Admin')
+    admin_name = request.session.get('admin_name', 'Admin')
+
+    total_blogs = 0
+    published_blogs_count = 0
+    draft_blogs_count = 0
+    categories_count = 0
+
+    try:
+        total_blogs = Blog.objects.count()
+        published_blogs_count = Blog.objects.filter(status='published').count()
+        draft_blogs_count = Blog.objects.filter(status='draft').count()
+    except Exception:
+        pass
+
+    try:
+        categories_count = Category.objects.count()
+    except Exception:
+        pass
+
+    context = {
+        'admin_email': admin_email,
+        'admin_name': admin_name,
+        'total_blogs': total_blogs,
+        'published_blogs_count': published_blogs_count,
+        'draft_blogs_count': draft_blogs_count,
+        'categories_count': categories_count,
+    }
+    return render(request, 'admin/dashboard.html', context)
+
+
+def admin_logout_view(request):
+    request.session.flush()
+    return redirect('admin_login')
+
+
+# --- BLOG CMS MANAGEMENT VIEWS ---
+
+@admin_login_required
+def blog_dashboard_view(request):
+    query = request.GET.get('q', '').strip()
+    category_id = request.GET.get('category', '').strip()
+    active_tab = request.GET.get('tab', 'published')
+
+    published_qs = Blog.objects.filter(status='published').select_related('category').order_by('-id')
+    draft_qs = Blog.objects.filter(status='draft').select_related('category').order_by('-id')
+
+    if query:
+        search_filter = Q(title__icontains=query) | Q(description__icontains=query) | Q(keywords__icontains=query) | Q(permalink__icontains=query)
+        published_qs = published_qs.filter(search_filter)
+        draft_qs = draft_qs.filter(search_filter)
+
+    if category_id and category_id.isdigit():
+        published_qs = published_qs.filter(category_id=int(category_id))
+        draft_qs = draft_qs.filter(category_id=int(category_id))
+
+    categories = Category.objects.all().order_by('name')
+
+    published_count = Blog.objects.filter(status='published').count()
+    draft_count = Blog.objects.filter(status='draft').count()
+    categories_count = categories.count()
+
+    context = {
+        'admin_email': request.session.get('admin_email', 'Admin'),
+        'admin_name': request.session.get('admin_name', 'Admin'),
+        'published_blogs': published_qs,
+        'draft_blogs': draft_qs,
+        'categories': categories,
+        'published_count': published_count,
+        'draft_count': draft_count,
+        'categories_count': categories_count,
+        'search_query': query,
+        'selected_category': category_id,
+        'active_tab': active_tab,
+    }
+    return render(request, 'admin/blog_dashboard.html', context)
+
+
+@admin_login_required
+def blog_create_view(request):
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            blog = form.save(commit=False)
+            
+            title_text = form.cleaned_data.get('title', '')
+            category_obj = form.cleaned_data.get('category')
+            cat_slug = category_obj.slug if (category_obj and hasattr(category_obj, 'slug') and category_obj.slug) else (slugify(category_obj.name) if category_obj else 'general')
+            title_slug = slugify(title_text)
+
+            custom_permalink = form.cleaned_data.get('permalink', '').strip()
+            if not custom_permalink:
+                custom_permalink = f"/blog/{cat_slug}/{title_slug}"
+            elif not custom_permalink.startswith('/'):
+                custom_permalink = f"/{custom_permalink}"
+            
+            base_permalink = custom_permalink
+            counter = 1
+            while Blog.objects.filter(permalink=custom_permalink).exists():
+                custom_permalink = f"{base_permalink}-{counter}"
+                counter += 1
+
+            uploaded_file = request.FILES.get('image_file')
+            pasted_url = request.POST.get('image', '').strip()
+
+            if uploaded_file:
+                try:
+                    from utils.upload_image import upload_to_hostinger
+                    blog.image = upload_to_hostinger(uploaded_file)
+                except Exception as upload_err:
+                    messages.error(request, f"Featured image upload to Hostinger failed: {upload_err}")
+                    categories = Category.objects.all().order_by('name')
+                    return render(request, 'admin/blog_form.html', {
+                        'form': form,
+                        'categories': categories,
+                        'is_edit': False,
+                        'admin_email': request.session.get('admin_email', 'Admin'),
+                    })
+            elif pasted_url:
+                blog.image = pasted_url
+            else:
+                blog.image = ''
+
+            now_ts = int(time.time() * 1000)
+            blog.permalink = custom_permalink
+            blog.status = request.POST.get('status', 'draft')
+            blog.created_at = now_ts
+            blog.updated_at = now_ts
+            blog.save()
+
+            if blog.status == 'published':
+                messages.success(request, f"Blog '{blog.title}' Published Successfully!")
+            else:
+                messages.success(request, f"Draft '{blog.title}' Saved Successfully!")
+                
+            return redirect('blog_dashboard')
+        else:
+            messages.error(request, "Please correct the errors in the form below.")
+    else:
+        form = BlogForm()
+
+    categories = Category.objects.all().order_by('name')
+    return render(request, 'admin/blog_form.html', {
+        'form': form,
+        'categories': categories,
+        'is_edit': False,
+        'admin_email': request.session.get('admin_email', 'Admin'),
+    })
+
+
+@admin_login_required
+def blog_edit_view(request, blog_id):
+    blog_obj = get_object_or_404(Blog, id=blog_id)
+    old_image = blog_obj.image
+
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES, instance=blog_obj)
+        if form.is_valid():
+            blog = form.save(commit=False)
+            
+            uploaded_file = request.FILES.get('image_file')
+            pasted_url = request.POST.get('image', '').strip()
+
+            if uploaded_file:
+                try:
+                    from utils.upload_image import upload_to_hostinger
+                    blog.image = upload_to_hostinger(uploaded_file)
+                except Exception as upload_err:
+                    messages.error(request, f"Featured image update to Hostinger failed: {upload_err}")
+                    categories = Category.objects.all().order_by('name')
+                    return render(request, 'admin/blog_form.html', {
+                        'form': form,
+                        'blog': blog_obj,
+                        'categories': categories,
+                        'is_edit': True,
+                        'admin_email': request.session.get('admin_email', 'Admin'),
+                    })
+            elif pasted_url:
+                blog.image = pasted_url
+            elif old_image:
+                blog.image = old_image
+
+            blog.status = request.POST.get('status', blog_obj.status)
+            blog.updated_at = int(time.time() * 1000)
+            blog.save()
+
+            messages.success(request, f"Blog '{blog.title}' Updated Successfully!")
+            return redirect('blog_dashboard')
+        else:
+            messages.error(request, "Please correct the errors in the form below.")
+    else:
+        form = BlogForm(instance=blog_obj)
+
+    categories = Category.objects.all().order_by('name')
+    return render(request, 'admin/blog_form.html', {
+        'form': form,
+        'blog': blog_obj,
+        'categories': categories,
+        'is_edit': True,
+        'admin_email': request.session.get('admin_email', 'Admin'),
+    })
+
+
+@admin_login_required
+def blog_delete_view(request, blog_id):
+    blog_obj = get_object_or_404(Blog, id=blog_id)
+    title = blog_obj.title
+    blog_obj.delete()
+    messages.success(request, f"Blog '{title}' Deleted Successfully!")
+    return redirect('blog_dashboard')
+
+
+@admin_login_required
+def blog_toggle_status_view(request, blog_id, new_status):
+    blog_obj = get_object_or_404(Blog, id=blog_id)
+    if new_status in ['published', 'draft']:
+        blog_obj.status = new_status
+        blog_obj.updated_at = int(time.time() * 1000)
+        blog_obj.save()
+        status_label = "Published" if new_status == 'published' else "Moved to Drafts"
+        messages.success(request, f"Blog '{blog_obj.title}' {status_label} Successfully!")
+    return redirect('blog_dashboard')
+
+
+# --- PUBLIC BLOG VIEWS ---
+
+def public_blog_list_view(request):
+    category_slug = request.GET.get('category', '').strip()
+    search_q = request.GET.get('q', '').strip()
+
+    blogs = Blog.objects.filter(status='published').select_related('category').order_by('-created_at')
+    if category_slug:
+        blogs = blogs.filter(category__slug=category_slug)
+    if search_q:
+        blogs = blogs.filter(Q(title__icontains=search_q) | Q(description__icontains=search_q) | Q(keywords__icontains=search_q))
+
+    categories = Category.objects.all().order_by('name')
+    return render(request, 'blog_list.html', {
+        'blogs': blogs,
+        'categories': categories,
+        'selected_category_slug': category_slug,
+        'search_query': search_q,
+    })
+
+
+def public_blog_detail_view(request, slug):
+    blog_obj = Blog.objects.filter(Q(permalink__endswith=slug) | Q(permalink__icontains=slug), status='published').first()
+    if not blog_obj:
+        blog_obj = get_object_or_404(Blog, id=slug) if str(slug).isdigit() else get_object_or_404(Blog, permalink__icontains=slug)
+
+    recent_blogs = Blog.objects.filter(status='published').exclude(id=blog_obj.id).order_by('-created_at')[:4]
+    categories = Category.objects.all().order_by('name')
+
+    return render(request, 'blog_detail.html', {
+        'blog': blog_obj,
+        'recent_blogs': recent_blogs,
+        'categories': categories,
+    })

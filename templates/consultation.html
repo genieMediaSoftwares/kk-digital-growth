@@ -9,15 +9,17 @@
 <title>Consultation</title>
 <link rel="icon" type="image/png" href="{% static 'images/kk-logo.png' %}">
 
-<link rel="stylesheet" href="{% static 'css/clients.css' %}?v=3.0">
-<link rel="stylesheet" href="{% static 'css/style.css' %}?v=4.0">
-
+<link rel="stylesheet" href="{% static 'css/base.css' %}?v=10.0">
+<link rel="stylesheet" href="{% static 'css/clients.css' %}?v=10.0">
+<link rel="stylesheet" href="{% static 'css/style.css' %}?v=10.0">
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=10.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 {% include 'header.html' %}
 <section class="consultation-section">
-    <div class="home-container consult-container">
+    <div class="home-container consult-container site-container">
 
         <div class="consult-left">
 
@@ -144,7 +146,7 @@
     </div>
 </section>
 <section class="faq-section">
-    <div class="home-container">
+    <div class="home-container site-container">
 
         <h2>Frequently Asked Questions</h2>
 
@@ -232,7 +234,7 @@
 </section>
 <section class="testimonials-section">
     <div class="curve-top"></div>
-    <div class="testimonial-container">
+    <div class="testimonial-container site-container">
         <h2>What Clients Say</h2>
         <div class="testimonial-bar">
             Trusted by businesses across industries

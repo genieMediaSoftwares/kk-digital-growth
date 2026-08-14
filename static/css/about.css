@@ -160,9 +160,10 @@ section {
     overflow: hidden;
 }
 .about-section-container {
-    max-width: 1200px;
+    max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 0 80px;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
     width: 100%;
     box-sizing: border-box;
 }
@@ -252,9 +253,10 @@ section {
     right: -50px;
 }
 .about-container {
-    max-width: 1200px;
+    max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 0 80px;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
     position: relative;
     z-index: 2;
     display: grid;

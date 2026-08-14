@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /blog/admin/
+Disallow: /blog/new/
+Disallow: /blog/edit/
+Disallow: /blog/delete/
+Disallow: /blog/publish/
+Disallow: /blog/draft/
+
+Sitemap: https://www.kkdigitalgrowth.com/sitemap.xml

@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights & Industry Articles - KK Digital Growth</title>
+    <link rel="icon" type="image/png" href="{% static 'images/kk-logo.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/case-studies.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=6.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Shared Header Navigation -->
+    {% include 'header.html' %}
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="case-hero blog-hero">
+        <div class="case-hero-container home-container site-container">
+            <span class="hero-tag"><i class="fa-solid fa-book-open"></i> 📚 Latest Articles</span>
+            <h1>Insights & Industry Articles</h1>
+            <p>Explore expert articles on ERP systems, website development, Shopify, automation, AI and digital transformation.</p>
+            <div class="case-hero-buttons">
+                <a href="#articles-grid" class="btn-primary">Explore Articles →</a>
+                <a href="{% url 'contact' %}" class="btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= LISTING SECTION ================= -->
+    <section class="case-listing-section blog-listing-section">
+        <div class="home-container site-container">
+
+            <!-- Filter Buttons -->
+            <div class="blog-filter-wrapper">
+                <a href="{% url 'public_blog_list' %}" class="blog-filter-btn {% if not selected_category_slug %}active{% endif %}">
+                    All
+                </a>
+                {% for cat in categories %}
+                <a href="{% url 'public_blog_list' %}?category={{ cat.slug|default:cat.name|slugify }}" class="blog-filter-btn {% if selected_category_slug == cat.slug or selected_category_slug == cat.name|slugify %}active{% endif %}">
+                    {{ cat.name }}
+                </a>
+                {% endfor %}
+            </div>
+
+            <!-- Blog Grid (2 Columns on Desktop, Laptop, Tablet, 1 Column on Mobile) -->
+            <div class="case-grid blog-grid" id="articles-grid">
+                {% for blog in blogs %}
+                <div class="case-card blog-card">
+                    <a href="{{ blog.get_absolute_url }}" class="case-card-link-wrapper">
+                        <div class="case-card-image">
+                            {% if blog.image %}
+                            <img src="{{ blog.display_image }}" alt="{{ blog.title }}" loading="lazy">
+                            {% else %}
+                            <img src="{% static 'images/kk-logo.png' %}" alt="{{ blog.title }}" style="padding: 45px; object-fit: contain; background: #112b4d;">
+                            {% endif %}
+                            <span class="case-industry">{{ blog.category.name|default:"Article" }}</span>
+                        </div>
+                    </a>
+                    
+                    <div class="case-card-content">
+                        <div class="blog-card-meta-line">
+                            <span class="case-project-type"><i class="fa-regular fa-calendar me-1"></i> {{ blog.updated_at|date:"M d, Y"|default:blog.created_at|date:"M d, Y" }}</span>
+                            <span class="blog-read-time"><i class="fa-regular fa-clock me-1"></i> 5 min read</span>
+                        </div>
+                        <h2><a href="{{ blog.get_absolute_url }}" class="case-title-link">{{ blog.title }}</a></h2>
+                        
+                        <p class="case-card-summary">{{ blog.metaDescription|default:blog.description|striptags|truncatewords:22 }}</p>
+                        
+                        <div class="case-card-footer">
+                            <a href="{{ blog.get_absolute_url }}" class="view-case-btn">
+                                Read Article →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="no-blogs-found">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <h3>No Articles Found</h3>
+                    <p>Check back soon for latest insights and tech news.</p>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Shared Footer Navigation -->
+    {% include 'footer.html' %}
+
+</body>
+</html>

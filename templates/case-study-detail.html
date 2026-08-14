@@ -6,24 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ case.title }} Case Study - KK Digital Growth</title>
-    <link rel="icon" type="image/png" href="{% static 'images/kk-logo.png' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2.7">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=6.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
 {% include 'header.html' %}
 
-<!-- ================= BACK BAR ================= -->
-<div class="case-back-bar">
-    <div class="home-container">
-        <a href="{% url 'case_studies' %}" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to case studies</a>
-    </div>
-</div>
-
 <!-- ================= DETAIL HERO ================= -->
 <section class="case-detail-hero">
-    <div class="case-detail-hero-container home-container">
+    <div class="case-detail-hero-container home-container site-container">
+        <div style="margin-bottom: 15px;">
+            <a href="{% url 'case_studies' %}" class="hero-back-link">
+                <i class="fa-solid fa-arrow-left" style="color: #F79421;"></i> Back to case studies
+            </a>
+        </div>
         <span class="detail-industry">{{ case.industry }}</span>
         <h1>{{ case.title }}</h1>
         <p class="detail-subtitle">{{ case.project }}</p>
@@ -32,7 +31,7 @@
 
 <!-- ================= CONTENT GRID ================= -->
 <section class="case-detail-content-section">
-    <div class="case-detail-grid home-container">
+    <div class="case-detail-grid home-container site-container">
         <!-- Left Side: Narrative process -->
         <div class="case-detail-main">
             <div class="detail-card">

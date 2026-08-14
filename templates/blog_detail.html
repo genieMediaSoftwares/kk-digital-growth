@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ blog.title }} - KK Digital Growth</title>
+    <meta name="description" content="{{ blog.metaDescription|default:blog.title }}">
+    <meta name="keywords" content="{{ blog.keywords|default:'' }}">
+    <link rel="icon" type="image/png" href="{% static 'images/kk-logo.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/case-studies.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=6.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Shared Header Navigation -->
+    {% include 'header.html' %}
+
+    <!-- ================= DETAIL HERO ================= -->
+    <section class="case-detail-hero">
+        <div class="case-detail-hero-container home-container site-container">
+            <div style="margin-bottom: 15px;">
+                <a href="{% url 'public_blog_list' %}" class="hero-back-link">
+                    <i class="fa-solid fa-arrow-left" style="color: #F79421;"></i> Back to all articles
+                </a>
+            </div>
+            <span class="detail-industry">{{ blog.category.name|default:"Tech Insights" }}</span>
+            <h1>{{ blog.title }}</h1>
+            <p class="detail-subtitle">
+                <i class="fa-regular fa-user me-1" style="color: #F79421;"></i> KK Digital Growth &nbsp;|&nbsp;
+                <i class="fa-regular fa-calendar-days me-1" style="color: #F79421;"></i> {{ blog.updated_at|date:"F d, Y"|default:blog.created_at|date:"F d, Y" }}
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= CONTENT GRID ================= -->
+    <section class="case-detail-content-section">
+        <div class="case-detail-grid home-container site-container">
+            
+            <!-- Left Main Content Card -->
+            <div class="case-detail-main">
+                <div class="detail-card">
+                    {% if blog.image %}
+                    <img src="{{ blog.display_image }}" alt="{{ blog.title }}" class="blog-detail-featured-img">
+                    {% endif %}
+
+                    <div class="blog-article-content">
+                        {{ blog.description|safe }}
+                    </div>
+
+                    {% if blog.keywords %}
+                    <div style="margin-top: 35px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
+                        <h3 style="font-size: 15px; color: #17375d; font-weight: 700; margin-bottom: 12px;"><i class="fa-solid fa-tags" style="color: #F79421; margin-right: 6px;"></i> Article Tags:</h3>
+                        <div class="case-tech-badges">
+                            {% for tag in blog.keywords.split %}
+                            <span class="tech-pill">#{{ tag|cut:"," }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Right Sidebar Widgets -->
+            <aside class="case-detail-sidebar">
+                <div class="sidebar-widget duration-widget">
+                    <h3>Publication Info</h3>
+                    <p style="font-size: 14.5px; font-weight: 600; color: #475569; margin-bottom: 8px;">
+                        <i class="fa-regular fa-calendar-days" style="color: #F79421; font-size: 16px; margin-right: 8px;"></i>
+                        Published: {{ blog.created_at|date:"M d, Y" }}
+                    </p>
+                    <p style="font-size: 14.5px; font-weight: 600; color: #475569; margin: 0;">
+                        <i class="fa-regular fa-clock" style="color: #F79421; font-size: 16px; margin-right: 8px;"></i>
+                        Read time: ~5 mins
+                    </p>
+                </div>
+
+                <div class="sidebar-widget tech-widget">
+                    <h3>Category</h3>
+                    <div class="tech-pills">
+                        <span class="tech-pill" style="background: #F79421; color: #fff; border-color: #F79421; font-weight: 700;">{{ blog.category.name|default:"Tech Insights" }}</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget cta-widget">
+                    <h3>Need custom software for your business?</h3>
+                    <p>Let's map out a customized digital solution for your business.</p>
+                    <a href="{% url 'consultation' %}" class="sidebar-cta-btn">Start your project →</a>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+    <!-- ================= RELATED ARTICLES GRID ================= -->
+    {% if recent_blogs %}
+    <section class="case-listing-section" style="padding: 70px 0; background: #ffffff; border-top: 1px solid #e2e8f0;">
+        <div class="home-container site-container">
+            <h2 style="font-size: 28px; font-weight: 800; color: #17375d; text-align: center; margin-bottom: 40px;">Related Articles</h2>
+            
+            <div class="case-grid blog-grid">
+                {% for item in recent_blogs %}
+                <div class="case-card blog-card">
+                    <a href="{{ item.get_absolute_url }}" class="case-card-link-wrapper">
+                        <div class="case-card-image" style="height: 190px;">
+                            {% if item.image %}
+                            <img src="{{ item.display_image }}" alt="{{ item.title }}" loading="lazy">
+                            {% else %}
+                            <img src="{% static 'images/kk-logo.png' %}" alt="{{ item.title }}" style="padding: 30px; object-fit: contain; background: #112b4d;">
+                            {% endif %}
+                            <span class="case-industry">{{ item.category.name|default:"Article" }}</span>
+                        </div>
+                    </a>
+                    
+                    <div class="case-card-content" style="padding: 22px;">
+                        <span class="case-project-type"><i class="fa-regular fa-calendar me-1"></i> {{ item.created_at|date:"M d, Y" }}</span>
+                        <h2 style="font-size: 19px;"><a href="{{ item.get_absolute_url }}" class="case-title-link">{{ item.title|truncatewords:8 }}</a></h2>
+                        
+                        <div class="case-card-footer" style="padding-top: 15px; margin-top: auto;">
+                            <a href="{{ item.get_absolute_url }}" class="view-case-btn" style="padding: 10px 20px; font-size: 13px;">
+                                Read Article →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Shared Footer Navigation -->
+    {% include 'footer.html' %}
+
+</body>
+</html>

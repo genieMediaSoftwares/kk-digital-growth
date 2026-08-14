@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Management Studio | KK Digital Growth</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/static/css/base.css?v=10.0">
+    <link rel="stylesheet" href="/static/css/admin-login.css">
+    <link rel="stylesheet" href="/static/css/blog-admin.css">
+
+    <style>
+        :root {
+            --brand-navy: #0B192C;
+            --brand-blue: #0F3D75;
+            --brand-orange: #F79421;
+            --brand-orange-hover: #ff9e3b;
+        }
+        body.admin-body {
+            background-color: #F1F5F9;
+            font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+            color: #0F172A;
+            overflow-x: hidden;
+        }
+        /* Top Navigation Bar */
+        .admin-nav {
+            background: #0B192C !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            padding: 12px 24px;
+        }
+        .admin-nav-brand {
+            color: #FFFFFF !important;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Stat Overview Cards */
+        .dashboard-stat-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 8px 24px rgba(15, 61, 117, 0.04);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .dashboard-stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 32px rgba(15, 61, 117, 0.08);
+        }
+        .stat-icon-wrapper {
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        /* Filter Toolbar Card */
+        .filter-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 6px 20px rgba(15, 61, 117, 0.03);
+            margin-bottom: 28px;
+        }
+
+        /* Segmented Navigation Tabs */
+        .custom-blog-tabs {
+            border: none;
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .custom-blog-tab-btn {
+            border-radius: 50px !important;
+            padding: 10px 24px !important;
+            font-weight: 700 !important;
+            font-size: 14.5px !important;
+            border: 1.5px solid #CBD5E1 !important;
+            background: #FFFFFF !important;
+            color: #0F3D75 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            transition: all 0.25s ease !important;
+        }
+        .custom-blog-tab-btn:hover {
+            border-color: #F79421 !important;
+            color: #F79421 !important;
+            background: #FFFBF5 !important;
+        }
+        .custom-blog-tab-btn.active-pub {
+            background: #0F3D75 !important;
+            border-color: #0F3D75 !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 6px 18px rgba(15, 61, 117, 0.25) !important;
+        }
+        .custom-blog-tab-btn.active-draft {
+            background: linear-gradient(135deg, #F79421 0%, #ff9e3b 100%) !important;
+            border-color: #F79421 !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 6px 18px rgba(247, 148, 33, 0.3) !important;
+        }
+
+        /* Admin Blog Card Component */
+        .admin-blog-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(15, 61, 117, 0.04);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        .admin-blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px rgba(15, 61, 117, 0.09);
+        }
+        .admin-blog-card-img {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background-color: #0B192C;
+        }
+        .admin-blog-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .admin-blog-card:hover .admin-blog-card-img img {
+            transform: scale(1.04);
+        }
+        .admin-blog-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: linear-gradient(135deg, #F79421 0%, #ff9e3b 100%);
+            color: #FFFFFF;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            z-index: 2;
+        }
+        .admin-blog-card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .admin-blog-card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #0F3D75;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+        .admin-blog-card-meta {
+            margin-top: auto;
+            padding-top: 14px;
+            border-top: 1px solid #F1F5F9;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #64748B;
+        }
+
+        .btn-orange-primary {
+            background: linear-gradient(135deg, #F79421 0%, #ff9e3b 100%) !important;
+            border: none !important;
+            color: #FFFFFF !important;
+            font-weight: 700 !important;
+            border-radius: 50px !important;
+            box-shadow: 0 8px 20px rgba(247, 148, 33, 0.3) !important;
+            transition: all 0.35s ease !important;
+        }
+        .btn-orange-primary:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 12px 28px rgba(247, 148, 33, 0.4) !important;
+        }
+    </style>
+</head>
+<body class="admin-body">
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-expand-lg admin-nav sticky-top">
+        <div class="container-fluid px-4">
+            <a class="admin-nav-brand" href="{% url 'blog_dashboard' %}">
+                <img src="/static/images/kk-logo.png" alt="KK Digital Growth" style="height: 36px; width: auto; object-fit: contain;">
+                <span>KKdigital <span style="color: #F79421;">growth</span></span>
+            </a>
+            
+            <div class="d-flex align-items-center gap-2 gap-md-3 flex-wrap ms-auto">
+                <a href="{% url 'admin_dashboard' %}" class="btn btn-outline-light btn-sm rounded-pill px-3 fw-semibold">
+                    <i class="fa-solid fa-gauge me-1"></i> Main Admin
+                </a>
+                <a href="{% url 'public_blog_list' %}" target="_blank" class="btn btn-outline-light btn-sm rounded-pill px-3 fw-semibold">
+                    <i class="fa-solid fa-globe me-1"></i> Live Blog
+                </a>
+                <span class="text-white small d-none d-lg-inline-block px-2">
+                    <i class="fa-solid fa-circle-user me-1 text-warning"></i> {{ admin_email }}
+                </span>
+                <a href="{% url 'admin_logout' %}" class="btn btn-outline-light btn-sm px-3 rounded-pill fw-semibold">
+                    <i class="fa-solid fa-right-from-bracket me-1"></i> Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Workspace Container -->
+    <div class="container-fluid px-4 py-4" style="max-width: 1360px;">
+
+        <!-- Notification Alerts -->
+        {% if messages %}
+        <div class="row mb-3">
+            <div class="col-12">
+                {% for message in messages %}
+                <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show shadow-sm rounded-3" role="alert">
+                    <i class="fa-solid {% if message.tags == 'error' %}fa-triangle-exclamation{% else %}fa-circle-check{% endif %} me-2"></i>
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Dashboard Header & Action Controls -->
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <div>
+                <h2 class="fw-extrabold mb-1" style="color: #0F3D75; font-size: 26px; font-weight: 800;">
+                    Blog Management Studio
+                </h2>
+                <p class="text-muted mb-0 small">Oversee published articles, write content drafts, and optimize corporate SEO.</p>
+            </div>
+            <div>
+                <a href="{% url 'blog_create' %}" class="btn btn-orange-primary px-4 py-2.5 text-white font-weight-bold d-inline-flex align-items-center gap-2">
+                    <i class="fa-solid fa-plus fs-6"></i> Create New Article
+                </a>
+            </div>
+        </div>
+
+        <!-- Statistics KPI Cards Grid -->
+        <div class="row g-4 mb-4">
+            <div class="col-md-4">
+                <div class="dashboard-stat-card d-flex align-items-center justify-content-between">
+                    <div>
+                        <h6 class="text-muted fw-semibold small mb-1">Published Articles</h6>
+                        <h2 class="fw-bold mb-0 text-success" style="font-size: 32px;">{{ published_count }}</h2>
+                    </div>
+                    <div class="stat-icon-wrapper bg-success-subtle text-success">
+                        <i class="fa-solid fa-file-circle-check"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="dashboard-stat-card d-flex align-items-center justify-content-between">
+                    <div>
+                        <h6 class="text-muted fw-semibold small mb-1">Draft Articles</h6>
+                        <h2 class="fw-bold mb-0" style="color: #F79421; font-size: 32px;">{{ draft_count }}</h2>
+                    </div>
+                    <div class="stat-icon-wrapper bg-warning-subtle text-warning">
+                        <i class="fa-solid fa-file-pen"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="dashboard-stat-card d-flex align-items-center justify-content-between">
+                    <div>
+                        <h6 class="text-muted fw-semibold small mb-1">Total Categories</h6>
+                        <h2 class="fw-bold mb-0" style="color: #0F3D75; font-size: 32px;">{{ categories_count }}</h2>
+                    </div>
+                    <div class="stat-icon-wrapper bg-primary-subtle text-primary">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter & Search Toolbar Card -->
+        <div class="filter-card">
+            <form method="GET" action="{% url 'blog_dashboard' %}" id="filterForm" class="row g-3 align-items-center">
+                <input type="hidden" name="tab" id="activeTabInput" value="{{ active_tab }}">
+
+                <!-- Search Field -->
+                <div class="col-md-6 col-lg-7">
+                    <div class="input-group" style="border: 1.5px solid #CBD5E1; border-radius: 10px; overflow: hidden;">
+                        <span class="input-group-text bg-white border-0 text-muted ps-3">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <input type="text" name="q" value="{{ search_query }}" class="form-control border-0 ps-1" placeholder="Search articles by title, keywords, or URL permalink..." id="searchInput">
+                    </div>
+                </div>
+
+                <!-- Category Filter Dropdown -->
+                <div class="col-md-4 col-lg-3">
+                    <select name="category" class="form-select" id="categorySelect" style="border: 1.5px solid #CBD5E1; border-radius: 10px;" onchange="document.getElementById('filterForm').submit();">
+                        <option value="">All Categories</option>
+                        {% for cat in categories %}
+                        <option value="{{ cat.id }}" {% if selected_category == cat.id|stringformat:"s" %}selected{% endif %}>{{ cat.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- Filter Action Button -->
+                <div class="col-md-2 col-lg-2">
+                    <button type="submit" class="btn btn-outline-primary w-100 fw-bold rounded-pill" style="border-color: #0F3D75; color: #0F3D75;">
+                        <i class="fa-solid fa-filter me-1"></i> Filter
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Navigation Tabs: Published vs Drafts -->
+        <ul class="nav custom-blog-tabs" id="blogTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="custom-blog-tab-btn {% if active_tab != 'draft' %}active-pub{% endif %}" 
+                        id="published-tab" 
+                        data-bs-toggle="tab" 
+                        data-bs-target="#published-pane" 
+                        type="button" 
+                        role="tab" 
+                        onclick="setActiveTab('published')">
+                    <i class="fa-solid fa-globe"></i>
+                    <span>Published Articles</span>
+                    <span class="badge rounded-pill {% if active_tab != 'draft' %}bg-white text-dark{% else %}bg-secondary text-white{% endif %}">{{ published_count }}</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="custom-blog-tab-btn {% if active_tab == 'draft' %}active-draft{% endif %}" 
+                        id="drafts-tab" 
+                        data-bs-toggle="tab" 
+                        data-bs-target="#drafts-pane" 
+                        type="button" 
+                        role="tab" 
+                        onclick="setActiveTab('draft')">
+                    <i class="fa-solid fa-file-pen"></i>
+                    <span>Draft Articles</span>
+                    <span class="badge rounded-pill {% if active_tab == 'draft' %}bg-white text-dark{% else %}bg-secondary text-white{% endif %}">{{ draft_count }}</span>
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tab Contents -->
+        <div class="tab-content" id="blogTabsContent">
+            
+            <!-- PUBLISHED TAB -->
+            <div class="tab-pane fade {% if active_tab != 'draft' %}show active{% endif %}" id="published-pane" role="tabpanel">
+                <div class="row g-4 blog-grid" id="publishedContainer">
+                    {% for blog in published_blogs %}
+                    <div class="col-md-6 col-lg-4 blog-item-card">
+                        <div class="admin-blog-card">
+                            <div class="admin-blog-card-img">
+                                {% if blog.image %}
+                                <img src="{{ blog.display_image }}" alt="{{ blog.title }}" loading="lazy">
+                                {% else %}
+                                <img src="/static/images/kk-logo.png" alt="{{ blog.title }}" class="p-4 object-fit-contain bg-dark">
+                                {% endif %}
+                                <span class="admin-blog-badge">{{ blog.category.name|default:"General" }}</span>
+                            </div>
+                            <div class="admin-blog-card-body">
+                                <h5 class="admin-blog-card-title">{{ blog.title }}</h5>
+                                <p class="text-muted small mb-2 text-truncate">
+                                    <i class="fa-solid fa-link text-warning me-1"></i> {{ blog.permalink }}
+                                </p>
+                                
+                                <div class="admin-blog-card-meta">
+                                    <span>
+                                        <i class="fa-regular fa-calendar-check me-1 text-success"></i>
+                                        {{ blog.updated_at|date:"M d, Y"|default:blog.created_at|date:"M d, Y" }}
+                                    </span>
+
+                                    <!-- 3-Dot Action Dropdown -->
+                                    <div class="dropdown">
+                                        <button class="btn btn-light btn-sm rounded-circle shadow-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3">
+                                            <li>
+                                                <a class="dropdown-item fw-semibold" href="{% url 'blog_edit' blog.id %}">
+                                                    <i class="fa-solid fa-pen-to-square me-2" style="color: #0F3D75;"></i> Edit Article
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item text-warning fw-semibold" href="{% url 'blog_draft' blog.id %}">
+                                                    <i class="fa-solid fa-file-pen me-2"></i> Unpublish (Move to Draft)
+                                                </a>
+                                            </li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li>
+                                                <a class="dropdown-item text-danger fw-semibold" href="{% url 'blog_delete' blog.id %}" onclick="return confirm('Are you sure you want to delete this blog post permanently?');">
+                                                    <i class="fa-solid fa-trash me-2"></i> Delete Article
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-12">
+                        <div class="text-center py-5 bg-white rounded-4 border">
+                            <i class="fa-solid fa-newspaper text-muted display-4 mb-3"></i>
+                            <h4 class="fw-bold" style="color: #0F3D75;">No Published Articles Found</h4>
+                            <p class="text-muted mb-3">No published articles match your current search or category filter criteria.</p>
+                            <a href="{% url 'blog_create' %}" class="btn btn-orange-primary px-4">Create Your First Article</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- DRAFTS TAB -->
+            <div class="tab-pane fade {% if active_tab == 'draft' %}show active{% endif %}" id="drafts-pane" role="tabpanel">
+                <div class="row g-4 blog-grid" id="draftsContainer">
+                    {% for blog in draft_blogs %}
+                    <div class="col-md-6 col-lg-4 blog-item-card">
+                        <div class="admin-blog-card">
+                            <div class="admin-blog-card-img">
+                                {% if blog.image %}
+                                <img src="{{ blog.display_image }}" alt="{{ blog.title }}" loading="lazy">
+                                {% else %}
+                                <img src="/static/images/kk-logo.png" alt="{{ blog.title }}" class="p-4 object-fit-contain bg-dark">
+                                {% endif %}
+                                <span class="admin-blog-badge" style="background: #0F3D75;">{{ blog.category.name|default:"General" }}</span>
+                            </div>
+                            <div class="admin-blog-card-body">
+                                <h5 class="admin-blog-card-title">{{ blog.title }}</h5>
+                                <p class="text-muted small mb-2 text-truncate">
+                                    <i class="fa-solid fa-link text-warning me-1"></i> {{ blog.permalink }}
+                                </p>
+
+                                <div class="admin-blog-card-meta">
+                                    <span>
+                                        <i class="fa-regular fa-clock me-1 text-warning"></i>
+                                        Saved {{ blog.updated_at|date:"M d, Y"|default:blog.created_at|date:"M d, Y" }}
+                                    </span>
+
+                                    <!-- Action Buttons for Draft -->
+                                    <div class="d-flex gap-2">
+                                        <a href="{% url 'blog_edit' blog.id %}" class="btn btn-sm btn-outline-secondary rounded-circle" title="Edit Draft">
+                                            <i class="fa-solid fa-pen"></i>
+                                        </a>
+                                        <a href="{% url 'blog_publish' blog.id %}" class="btn btn-sm btn-success rounded-pill px-3 fw-bold" title="Publish Now">
+                                            <i class="fa-solid fa-paper-plane me-1"></i> Publish
+                                        </a>
+                                        <a href="{% url 'blog_delete' blog.id %}" class="btn btn-sm btn-outline-danger rounded-circle" title="Delete Draft" onclick="return confirm('Delete this draft permanently?');">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-12">
+                        <div class="text-center py-5 bg-white rounded-4 border">
+                            <i class="fa-solid fa-file-signature text-muted display-4 mb-3"></i>
+                            <h4 class="fw-bold" style="color: #0F3D75;">No Draft Articles</h4>
+                            <p class="text-muted mb-0">All articles are currently published or no draft items exist.</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Tab Switcher Script -->
+    <script>
+        function setActiveTab(tabName) {
+            document.getElementById('activeTabInput').value = tabName;
+            
+            const pubTabBtn = document.getElementById('published-tab');
+            const draftTabBtn = document.getElementById('drafts-tab');
+
+            if (tabName === 'published') {
+                pubTabBtn.classList.add('active-pub');
+                draftTabBtn.classList.remove('active-draft');
+            } else {
+                draftTabBtn.classList.add('active-draft');
+                pubTabBtn.classList.remove('active-pub');
+            }
+        }
+    </script>
+</body>
+</html>

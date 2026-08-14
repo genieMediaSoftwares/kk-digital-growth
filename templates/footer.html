@@ -2,81 +2,77 @@
 
 <footer class="footer">
 
-    <div class="footer-container">
+    <div class="footer-container site-container">
 
-        <!-- Logo Section -->
-
-        <div class="footer-col footer-logo">
-
+        <!-- Column 1: Company Information -->
+        <div class="footer-col footer-logo footer-company">
             <a href="{% url 'home' %}">
-                <img src="{% static 'images/kk-logo.png' %}" alt="KK Digital">
+                <img src="{% static 'images/kk-logo.png' %}" alt="KK Digital Growth">
             </a>
-
             <p>
-                Building digital solutions that help businesses grow,
-                scale and succeed.
+                Building digital solutions that help businesses grow, scale and succeed.
             </p>
-
         </div>
 
-        <!-- Services -->
-
-        <div class="footer-col">
-
+        <!-- Column 2: Services -->
+        <div class="footer-col footer-services">
             <h3>Services</h3>
-
             <ul>
                 <li><a href="{% url 'services' %}">Website Development</a></li>
                 <li><a href="{% url 'services' %}">Mobile App Development</a></li>
                 <li><a href="{% url 'services' %}">ERP Development</a></li>
                 <li><a href="{% url 'services' %}">Custom Applications</a></li>
-                <li><a href="{% url 'services' %}">UI/UX Design & QA</a></li>
+                <li><a href="{% url 'public_blog_list' %}">Blog & Insights</a></li>
             </ul>
-
         </div>
 
-        <!-- Case Studies -->
-
-        <div class="footer-col">
-
-            <h3><a href="{% url 'case_studies' %}" style="color: inherit; text-decoration: none;">Case studies</a></h3>
-
+        <!-- Column 3: Case Studies -->
+        <div class="footer-col footer-case">
+            <h3><a href="{% url 'case_studies' %}">Case studies</a></h3>
             <ul>
                 <li><a href="{% url 'case_study_detail' slug='custom-erp-system' %}">Building a custom ERP</a></li>
                 <li><a href="{% url 'case_study_detail' slug='business-website' %}">Scaling an e-commerce website</a></li>
                 <li><a href="{% url 'case_study_detail' slug='mobile-application' %}">From idea to app</a></li>
             </ul>
-
         </div>
 
-        <!-- Copyright -->
-
-        <div class="footer-col">
-
-            <h3>Copyright</h3>
-
-            <p>
-                KK Digital Growth. All rights reserved 2026.
-            </p>
-
-            <div class="footer-badges">
-
-                <span>100+ projects</span>
-
-                <span>Clutch top developer</span>
-
-                <span>G2 high performer</span>
-
-                <span>5-star reviews</span>
-
+        <!-- Column 4: Contact Information & Badges -->
+        <div class="footer-col footer-contact-col footer-contact">
+            <h3>Contact Us</h3>
+            <ul class="footer-contact-list">
+                <li><i class="fa-solid fa-location-dot"></i> Visakhapatnam, Andhra Pradesh</li>
+                <li><a href="mailto:admin@kkdigitalgrowth.in"><i class="fa-solid fa-envelope"></i> admin@kkdigitalgrowth.in</a></li>
+                <li><a href="tel:+919032845433"><i class="fa-solid fa-phone"></i> +91 9032845433</a></li>
+            </ul>
+            <div class="footer-social-icons">
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
             </div>
-
+            <div class="footer-badges">
+                <span>100+ projects</span>
+                <span>Clutch top developer</span>
+                <span>5-star reviews</span>
+            </div>
         </div>
 
     </div>
 
+    <!-- Bottom Footer Bar -->
     <div class="footer-bottom">
-        © 2026 KK Digital Growth. All Rights Reserved.
+        <div class="footer-bottom-container site-container">
+            <div class="footer-bottom-copyright">
+                © 2026 KK Digital Growth. All Rights Reserved.
+            </div>
+            <div class="footer-bottom-links">
+                <a href="{% url 'home' %}">Privacy Policy</a>
+                <span>|</span>
+                <a href="{% url 'home' %}">Terms & Conditions</a>
+                <span>|</span>
+                <span>Designed by <strong>KK Digital Growth</strong></span>
+            </div>
+        </div>
     </div>
 
 </footer>

@@ -319,6 +319,23 @@ DETAIL PAGE STYLING
     color: #F79421;
 }
 
+.hero-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 600;
+    margin-bottom: 22px;
+    transition: all 0.25s ease;
+}
+
+.hero-back-link:hover {
+    color: #F79421;
+    transform: translateX(-4px);
+}
+
 .case-detail-hero {
     background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
     padding: 80px 0;

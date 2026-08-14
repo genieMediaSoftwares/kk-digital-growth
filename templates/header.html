@@ -1,7 +1,7 @@
 {% load static %}
 
 <header class="navbar">
-    <div class="navbar-container home-container">
+    <div class="navbar-container home-container site-container">
 
     <!-- ================= LOGO ================= -->
 
@@ -60,6 +60,13 @@
                 <a href="{% url 'case_studies' %}"
                    class="{% if request.path == '/case-studies/' or '/case-studies/' in request.path %}active-link{% endif %}">
                     Case studies
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'public_blog_list' %}"
+                   class="{% if request.path == '/blog/' or '/blog/' in request.path %}active-link{% endif %}">
+                    Blog
                 </a>
             </li>
 
@@ -134,6 +141,8 @@
         <li><a href="{% url 'clients' %}"><i class="fa-solid fa-building"></i> Clients</a></li>
 
         <li><a href="{% url 'case_studies' %}"><i class="fa-solid fa-chart-line"></i> Case studies</a></li>
+
+        <li><a href="{% url 'public_blog_list' %}"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
 
         <li><a href="{% url 'contact' %}"><i class="fa-solid fa-phone"></i> Contact</a></li>
 

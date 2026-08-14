@@ -2,12 +2,14 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="iJNvMrcm4xMMLIBgo6_W9PbW0uff01uLDYSQNZIN860" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="br5bSIgAE-2pQx13J-BGYoLdyI9ATxp5UGi2CSl5OeE" />
 
     <title>KK Digital Growth</title>
     <link rel="icon" type="image/png" href="{% static 'images/kk-logo.png' %}">
@@ -16,484 +18,488 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome -->
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Your CSS -->
 
-    <link rel="stylesheet" href="{% static 'css/hero.css' %}?v=2.4">
-    <link rel="stylesheet" href="{% static 'css/about.css' %}?v=2.4">
-    <link rel="stylesheet" href="{% static 'css/clients.css' %}?v=2.4">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=4.5">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=2.5">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/hero.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/clients.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=6.0">
 
 </head>
 
 <body>
-{% include 'header.html' %}
-<section class="hero">
-    <div class="hero-container">
-    <div class="hero-left">
+    {% include 'header.html' %}
+    <section class="hero">
+        <div class="hero-container site-container">
+            <div class="hero-left">
 
-        <div class="rating-badge">
-            ⭐ 4.9/5 - Highly reviewed on G2
-        </div>
+                <div class="rating-badge">
+                    ⭐ 4.9/5 - Highly reviewed on G2
+                </div>
 
-        <h1 class="hero-heading">
+                <h1 class="hero-heading">
 
-            Building digital solutions
+                    Building digital solutions
 
-            <br>
+                    <br>
 
-            that <span class="highlight">scale your business.</span>
+                    that <span class="highlight">scale your business.</span>
 
-        </h1>
+                </h1>
 
-        <p class="hero-description">
-            KK Digital Growth builds custom websites, mobile apps, and Erp systems your business actually needs—with transparent pricing and fixed timelines.
-        </p>
+                <p class="hero-description">
+                    KK Digital Growth builds custom websites, mobile apps, and Erp systems your business actually
+                    needs—with transparent pricing and fixed timelines.
+                </p>
 
-        <div class="hero-buttons">
+                <div class="hero-buttons">
 
-            <a href="{% url 'consultation' %}" class="hero-btn primary">
-               <span>Free Consultation</span>
-               <i class="fa-regular fa-calendar-check btn-icon"></i>
-            </a>  
+                    <a href="{% url 'consultation' %}" class="hero-btn primary">
+                        <span>Free Consultation</span>
+                        <i class="fa-regular fa-calendar-check btn-icon"></i>
+                    </a>
 
-            <a href="{% url 'services' %}" class="hero-btn secondary">
-               <span>Our Services</span>
-               <i class="fa-solid fa-arrow-right btn-icon"></i>
-            </a>
+                    <a href="{% url 'services' %}" class="hero-btn secondary">
+                        <span>Our Services</span>
+                        <i class="fa-solid fa-arrow-right btn-icon"></i>
+                    </a>
 
-        </div>
+                </div>
 
-    
-    </div>
 
-    <div class="hero-right">
-        <div class="hero-slider-container">
-            <!-- Navigation Arrows -->
-            <button class="slider-arrow prev-btn" aria-label="Previous Slide">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <button class="slider-arrow next-btn" aria-label="Next Slide">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
+            </div>
 
-            <!-- Slides Track Wrapper -->
-            <div class="slider-track-wrapper">
-                <div class="slider-track">
-                    <!-- Slide 1: Web Development -->
-                    <div class="slider-slide">
-                        <div class="service-slide-card web-service">
-                            <div class="service-slide-header">
-                                <div class="service-slide-icon icon-web">
-                                    <div class="mini-browser">
-                                        <div class="mini-browser-header">
-                                            <span class="mini-dot"></span>
-                                            <span class="mini-dot"></span>
-                                            <span class="mini-dot"></span>
+            <div class="hero-right">
+                <div class="hero-slider-container">
+                    <!-- Navigation Arrows -->
+                    <button class="slider-arrow prev-btn" aria-label="Previous Slide">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-arrow next-btn" aria-label="Next Slide">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <!-- Slides Track Wrapper -->
+                    <div class="slider-track-wrapper">
+                        <div class="slider-track">
+                            <!-- Slide 1: Web Development -->
+                            <div class="slider-slide">
+                                <div class="service-slide-card web-service">
+                                    <div class="service-slide-header">
+                                        <div class="service-slide-icon icon-web">
+                                            <div class="mini-browser">
+                                                <div class="mini-browser-header">
+                                                    <span class="mini-dot"></span>
+                                                    <span class="mini-dot"></span>
+                                                    <span class="mini-dot"></span>
+                                                </div>
+                                                <div class="mini-browser-screen">
+                                                    <i class="fa-regular fa-window-maximize"></i>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="mini-browser-screen">
-                                            <i class="fa-regular fa-window-maximize"></i>
+                                        <div class="service-slide-title-info">
+                                            <span class="service-slide-tag">Services</span>
+                                            <h3>Website development</h3>
+                                            <p class="service-slide-subtitle">Custom • responsive • performance-first
+                                            </p>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="service-slide-title-info">
-                                    <span class="service-slide-tag">Services</span>
-                                    <h3>Website development</h3>
-                                    <p class="service-slide-subtitle">Custom • responsive • performance-first</p>
+                                    <div class="service-slide-body">
+                                        <p class="service-slide-desc">We build fast, scalable, and conversion-focused
+                                            websites.</p>
+                                        <div class="service-slide-features">
+                                            <span><i class="fa-solid fa-palette"></i> Custom website design</span>
+                                            <span><i class="fa-solid fa-bag-shopping"></i> E-commerce development</span>
+                                            <span><i class="fa-solid fa-database"></i> CMS integration</span>
+                                            <span><i class="fa-solid fa-arrow-trend-up"></i> SEO & performance</span>
+                                        </div>
+                                    </div>
+                                    <div class="service-slide-footer">
+                                        <a href="{% url 'consultation' %}" class="service-slide-btn">
+                                            <span>Start your website project</span>
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="service-slide-body">
-                                 <p class="service-slide-desc">We build fast, scalable, and conversion-focused websites.</p>
-                                <div class="service-slide-features">
-                                    <span><i class="fa-solid fa-palette"></i> Custom website design</span>
-                                    <span><i class="fa-solid fa-bag-shopping"></i> E-commerce development</span>
-                                    <span><i class="fa-solid fa-database"></i> CMS integration</span>
-                                    <span><i class="fa-solid fa-arrow-trend-up"></i> SEO & performance</span>
+
+                            <!-- Slide 2: Mobile App -->
+                            <div class="slider-slide">
+                                <div class="service-slide-card mobile-service">
+                                    <div class="service-slide-header">
+                                        <div class="service-slide-icon icon-mobile">
+                                            <div class="mini-phone">
+                                                <div class="mini-phone-notch"></div>
+                                                <div class="mini-phone-screen">
+                                                    <i class="fa-solid fa-mobile-screen-button"></i>
+                                                </div>
+                                                <div class="mini-phone-home"></div>
+                                            </div>
+                                        </div>
+                                        <div class="service-slide-title-info">
+                                            <span class="service-slide-tag">Services</span>
+                                            <h3>Mobile app development</h3>
+                                            <p class="service-slide-subtitle">iOS • Android • cross-platform</p>
+                                        </div>
+                                    </div>
+                                    <div class="service-slide-body">
+                                        <p class="service-slide-desc">We build native and cross-platform apps designed
+                                            for growth.</p>
+                                        <div class="service-slide-features">
+                                            <span><i class="fa-brands fa-apple"></i> iOS development</span>
+                                            <span><i class="fa-brands fa-android"></i> Android development</span>
+                                            <span><i class="fa-solid fa-layer-group"></i> Cross-platform apps</span>
+                                            <span><i class="fa-solid fa-circle-nodes"></i> API integration</span>
+                                        </div>
+                                    </div>
+                                    <div class="service-slide-footer">
+                                        <a href="{% url 'consultation' %}" class="service-slide-btn">
+                                            <span>Start your app project</span>
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="service-slide-footer">
-                                <a href="{% url 'consultation' %}" class="service-slide-btn">
-                                    <span>Start your website project</span>
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
+
+                            <!-- Slide 3: ERP -->
+                            <div class="slider-slide">
+                                <div class="service-slide-card erp-service">
+                                    <div class="service-slide-header">
+                                        <div class="service-slide-icon icon-erp">
+                                            <div class="mini-dashboard">
+                                                <div class="mini-db-header">
+                                                    <i class="fa-solid fa-server"></i>
+                                                </div>
+                                                <div class="mini-db-bars">
+                                                    <span class="mini-bar b-1"></span>
+                                                    <span class="mini-bar b-2"></span>
+                                                    <span class="mini-bar b-3"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="service-slide-title-info">
+                                            <span class="service-slide-tag">Services</span>
+                                            <h3>ERP development</h3>
+                                            <p class="service-slide-subtitle">Inventory • finance • HR • operations</p>
+                                        </div>
+                                    </div>
+                                    <div class="service-slide-body">
+                                        <p class="service-slide-desc">We build custom ERP systems to connect and
+                                            automate operations.</p>
+                                        <div class="service-slide-features">
+                                            <span><i class="fa-solid fa-warehouse"></i> Inventory management</span>
+                                            <span><i class="fa-solid fa-credit-card"></i> Finance & billing</span>
+                                            <span><i class="fa-solid fa-users-gear"></i> HR & payroll</span>
+                                            <span><i class="fa-solid fa-chart-line"></i> Operations reporting</span>
+                                        </div>
+                                    </div>
+                                    <div class="service-slide-footer">
+                                        <a href="{% url 'consultation' %}" class="service-slide-btn">
+                                            <span>Start your ERP project</span>
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 4: Custom Apps -->
+                            <div class="slider-slide">
+                                <div class="service-slide-card custom-service">
+                                    <div class="service-slide-header">
+                                        <div class="service-slide-icon icon-custom">
+                                            <div class="mini-code">
+                                                <div class="mini-code-lines">
+                                                    <span class="code-line l-1"></span>
+                                                    <span class="code-line l-2"></span>
+                                                    <span class="code-line l-3"></span>
+                                                </div>
+                                                <i class="fa-solid fa-code"></i>
+                                            </div>
+                                        </div>
+                                        <div class="service-slide-title-info">
+                                            <span class="service-slide-tag">Services</span>
+                                            <h3>Custom development</h3>
+                                            <p class="service-slide-subtitle">Internal tools • SaaS • automation</p>
+                                        </div>
+                                    </div>
+                                    <div class="service-slide-body">
+                                        <p class="service-slide-desc">We build custom software and tools designed for
+                                            your workflows.</p>
+                                        <div class="service-slide-features">
+                                            <span><i class="fa-solid fa-toolbox"></i> Internal tools</span>
+                                            <span><i class="fa-solid fa-cloud-arrow-up"></i> SaaS platforms</span>
+                                            <span><i class="fa-solid fa-microchip"></i> AI & automation</span>
+                                            <span><i class="fa-solid fa-puzzle-piece"></i> Third-party APIs</span>
+                                        </div>
+                                    </div>
+                                    <div class="service-slide-footer">
+                                        <a href="{% url 'consultation' %}" class="service-slide-btn">
+                                            <span>Start your project</span>
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Slide 2: Mobile App -->
-                    <div class="slider-slide">
-                        <div class="service-slide-card mobile-service">
-                            <div class="service-slide-header">
-                                <div class="service-slide-icon icon-mobile">
-                                    <div class="mini-phone">
-                                        <div class="mini-phone-notch"></div>
-                                        <div class="mini-phone-screen">
-                                            <i class="fa-solid fa-mobile-screen-button"></i>
-                                        </div>
-                                        <div class="mini-phone-home"></div>
-                                    </div>
-                                </div>
-                                <div class="service-slide-title-info">
-                                    <span class="service-slide-tag">Services</span>
-                                    <h3>Mobile app development</h3>
-                                    <p class="service-slide-subtitle">iOS • Android • cross-platform</p>
-                                </div>
-                            </div>
-                            <div class="service-slide-body">
-                                 <p class="service-slide-desc">We build native and cross-platform apps designed for growth.</p>
-                                <div class="service-slide-features">
-                                    <span><i class="fa-brands fa-apple"></i> iOS development</span>
-                                    <span><i class="fa-brands fa-android"></i> Android development</span>
-                                    <span><i class="fa-solid fa-layer-group"></i> Cross-platform apps</span>
-                                    <span><i class="fa-solid fa-circle-nodes"></i> API integration</span>
-                                </div>
-                            </div>
-                            <div class="service-slide-footer">
-                                <a href="{% url 'consultation' %}" class="service-slide-btn">
-                                    <span>Start your app project</span>
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3: ERP -->
-                    <div class="slider-slide">
-                        <div class="service-slide-card erp-service">
-                            <div class="service-slide-header">
-                                <div class="service-slide-icon icon-erp">
-                                    <div class="mini-dashboard">
-                                        <div class="mini-db-header">
-                                            <i class="fa-solid fa-server"></i>
-                                        </div>
-                                        <div class="mini-db-bars">
-                                            <span class="mini-bar b-1"></span>
-                                            <span class="mini-bar b-2"></span>
-                                            <span class="mini-bar b-3"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="service-slide-title-info">
-                                    <span class="service-slide-tag">Services</span>
-                                    <h3>ERP development</h3>
-                                    <p class="service-slide-subtitle">Inventory • finance • HR • operations</p>
-                                </div>
-                            </div>
-                            <div class="service-slide-body">
-                                 <p class="service-slide-desc">We build custom ERP systems to connect and automate operations.</p>
-                                <div class="service-slide-features">
-                                    <span><i class="fa-solid fa-warehouse"></i> Inventory management</span>
-                                    <span><i class="fa-solid fa-credit-card"></i> Finance & billing</span>
-                                    <span><i class="fa-solid fa-users-gear"></i> HR & payroll</span>
-                                    <span><i class="fa-solid fa-chart-line"></i> Operations reporting</span>
-                                </div>
-                            </div>
-                            <div class="service-slide-footer">
-                                <a href="{% url 'consultation' %}" class="service-slide-btn">
-                                    <span>Start your ERP project</span>
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 4: Custom Apps -->
-                    <div class="slider-slide">
-                        <div class="service-slide-card custom-service">
-                            <div class="service-slide-header">
-                                <div class="service-slide-icon icon-custom">
-                                    <div class="mini-code">
-                                        <div class="mini-code-lines">
-                                            <span class="code-line l-1"></span>
-                                            <span class="code-line l-2"></span>
-                                            <span class="code-line l-3"></span>
-                                        </div>
-                                        <i class="fa-solid fa-code"></i>
-                                    </div>
-                                </div>
-                                <div class="service-slide-title-info">
-                                    <span class="service-slide-tag">Services</span>
-                                    <h3>Custom development</h3>
-                                    <p class="service-slide-subtitle">Internal tools • SaaS • automation</p>
-                                </div>
-                            </div>
-                            <div class="service-slide-body">
-                                 <p class="service-slide-desc">We build custom software and tools designed for your workflows.</p>
-                                <div class="service-slide-features">
-                                    <span><i class="fa-solid fa-toolbox"></i> Internal tools</span>
-                                    <span><i class="fa-solid fa-cloud-arrow-up"></i> SaaS platforms</span>
-                                    <span><i class="fa-solid fa-microchip"></i> AI & automation</span>
-                                    <span><i class="fa-solid fa-puzzle-piece"></i> Third-party APIs</span>
-                                </div>
-                            </div>
-                            <div class="service-slide-footer">
-                                <a href="{% url 'consultation' %}" class="service-slide-btn">
-                                    <span>Start your project</span>
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
+                    <!-- Slide Dots -->
+                    <div class="slider-dots">
+                        <span class="slider-dot active" data-slide="0"></span>
+                        <span class="slider-dot" data-slide="1"></span>
+                        <span class="slider-dot" data-slide="2"></span>
+                        <span class="slider-dot" data-slide="3"></span>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide Dots -->
-            <div class="slider-dots">
-                <span class="slider-dot active" data-slide="0"></span>
-                <span class="slider-dot" data-slide="1"></span>
-                <span class="slider-dot" data-slide="2"></span>
-                <span class="slider-dot" data-slide="3"></span>
-            </div>
-        </div>
-    </div>
+            <!-- Full-width testimonial slider aligned with page layout -->
+            <div class="hero-testimonial-slider">
+                <div class="hero-testimonial-track-wrapper">
+                    <div class="hero-testimonial-track">
+                        {% for item in testimonials %}
+                        <div class="hero-testimonial-slide {% if forloop.first %}active{% endif %}">
+                            <div class="hero-review-top">
+                                <!-- Client Logo (using exact logo of the website) -->
+                                <div class="hero-client-logo-wrap">
+                                    <img src="{% static item.logo_image %}" alt="{{ item.client_name }}"
+                                        class="hero-client-logo">
+                                </div>
 
-    <!-- Full-width testimonial slider aligned with page layout -->
-    <div class="hero-testimonial-slider">
-        <div class="hero-testimonial-track-wrapper">
-            <div class="hero-testimonial-track">
-                {% for item in testimonials %}
-                <div class="hero-testimonial-slide {% if forloop.first %}active{% endif %}">
-                    <div class="hero-review-top">
-                        <!-- Client Logo (using exact logo of the website) -->
-                        <div class="hero-client-logo-wrap">
-                            <img src="{% static item.logo_image %}" alt="{{ item.client_name }}" class="hero-client-logo">
-                        </div>
+                                <div class="hero-review-content">
+                                    <div class="hero-review-meta">
+                                        <span class="hero-review-industry">{{ item.industry | upper }}</span>
+                                        <div class="hero-review-stars">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <p class="hero-review-quote">"{{ item.feedback_text }}"</p>
+                                    <div class="hero-review-designation-wrap">
+                                        <span class="hero-review-designation-badge">
+                                            <i class="fa-solid fa-briefcase"></i>
+                                            {{ item.designation }}, {{ item.client_name }}
+                                        </span>
+                                    </div>
+                                </div>
 
-                        <div class="hero-review-content">
-                            <div class="hero-review-meta">
-                                <span class="hero-review-industry">{{ item.industry | upper }}</span>
-                                <div class="hero-review-stars">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
+                                <div class="hero-review-badge">
+                                    G
                                 </div>
                             </div>
-                            <p class="hero-review-quote">"{{ item.feedback_text }}"</p>
-                            <div class="hero-review-designation-wrap">
-                                <span class="hero-review-designation-badge">
-                                    <i class="fa-solid fa-briefcase"></i>
-                                    {{ item.designation }}, {{ item.client_name }}
-                                </span>
-                            </div>
                         </div>
-
-                        <div class="hero-review-badge">
-                            G
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
-                {% endfor %}
+
+                <!-- Slide Dots -->
+                <div class="hero-testimonial-dots">
+                    {% for item in testimonials %}
+                    <span class="hero-testimonial-dot {% if forloop.first %}active{% endif %}"
+                        data-slide="{{ forloop.counter0 }}"></span>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <section class="trusted-brands">
+        <div class="home-container site-container">
+            <div class="brands-left">
+                <h2>
+                    Startups, retailers and growing businesses
+                    <br>
+                    building <span class="brand-highlight" style="white-space: nowrap;">scalable software</span>
+                    <br>
+                    through <span class="brand-highlight" style="white-space: nowrap;">custom development.</span>
+                </h2>
+            </div>
+
+            <div class="brands-right-marquee">
+                <div class="brands-marquee-track">
+                    <!-- Set 1 -->
+                    <div class="brand nimbus">
+                        <span class="icon-circle"></span>
+                        <div>
+                            <h4>NimbusERP</h4>
+                            <p>by Nimbus Manufacturing</p>
+                        </div>
+                    </div>
+
+                    <div class="brand cartly">
+                        <span class="icon-diamond">✦</span>
+                        <h4>cartly</h4>
+                    </div>
+
+                    <div class="brand fleet">
+                        <span class="icon-square"></span>
+                        <h4>FLEET<br>BOSS</h4>
+                    </div>
+
+                    <div class="brand clinic">
+                        <span class="icon-circle-sm">⊖</span>
+                        <h4>clinicsync</h4>
+                    </div>
+
+                    <div class="brand erp">
+                        <span class="erp-a">A</span>
+                        <div>
+                            <h4>ERP²</h4>
+                            <p>Vantix Systems</p>
+                        </div>
+                    </div>
+
+                    <div class="brand petdesk">
+                        <span class="icon-circle-sm">⊖</span>
+                        <h4>PetDesk</h4>
+                    </div>
+
+                    <div class="brand stax">
+                        <h4>stax ➜</h4>
+                    </div>
+
+                    <!-- Set 2 (Duplicated for seamless looping) -->
+                    <div class="brand nimbus">
+                        <span class="icon-circle"></span>
+                        <div>
+                            <h4>NimbusERP</h4>
+                            <p>by Nimbus Manufacturing</p>
+                        </div>
+                    </div>
+
+                    <div class="brand cartly">
+                        <span class="icon-diamond">✦</span>
+                        <h4>cartly</h4>
+                    </div>
+
+                    <div class="brand fleet">
+                        <span class="icon-square"></span>
+                        <h4>Fleet<br>Boss</h4>
+                    </div>
+
+                    <div class="brand clinic">
+                        <span class="icon-circle-sm">⊖</span>
+                        <h4>clinicsync</h4>
+                    </div>
+
+                    <div class="brand erp">
+                        <span class="erp-a">A</span>
+                        <div>
+                            <h4>ERP²</h4>
+                            <p>Vantix Systems</p>
+                        </div>
+                    </div>
+
+                    <div class="brand petdesk">
+                        <span class="icon-circle-sm">⊖</span>
+                        <h4>PetDesk</h4>
+                    </div>
+
+                    <div class="brand stax">
+                        <h4>stax ➜</h4>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <!-- Slide Dots -->
-        <div class="hero-testimonial-dots">
-            {% for item in testimonials %}
-            <span class="hero-testimonial-dot {% if forloop.first %}active{% endif %}" data-slide="{{ forloop.counter0 }}"></span>
-            {% endfor %}
-        </div>
-    </div>
-
-    </div>
-
-</section>
-<section class="trusted-brands">
-    <div class="home-container">
-        <div class="brands-left">
-            <h2>
-                Startups, retailers and growing businesses
-                <br>
-                building <span class="brand-highlight" style="white-space: nowrap;">scalable software</span>
-                <br>
-                through <span class="brand-highlight" style="white-space: nowrap;">custom development.</span>
+    </section>
+    <section class="results-section">
+        <div class="home-container site-container">
+            <h2 class="results-title">
+                <span>Over 100+ businesses</span>
+                have launched and scaled with <span class="nowrap-brand" style="white-space: nowrap;">KK Digital
+                    Growth</span>
             </h2>
-        </div>
 
-        <div class="brands-right-marquee">
-            <div class="brands-marquee-track">
-                <!-- Set 1 -->
-                <div class="brand nimbus">
-                    <span class="icon-circle"></span>
-                    <div>
-                        <h4>NimbusERP</h4>
-                        <p>by Nimbus Manufacturing</p>
-                    </div>
-                </div>
+            <div class="results-grid">
 
-                <div class="brand cartly">
-                    <span class="icon-diamond">✦</span>
-                    <h4>cartly</h4>
-                </div>
+                <!-- CARD 1 -->
 
-                <div class="brand fleet">
-                    <span class="icon-square"></span>
-                    <h4>FLEET<br>BOSS</h4>
-                </div>
+                <div class="result-card">
 
-                <div class="brand clinic">
-                    <span class="icon-circle-sm">⊖</span>
-                    <h4>clinicsync</h4>
-                </div>
+                    <p class="brand-name">
+                        cartly website redesign
+                    </p>
 
-                <div class="brand erp">
-                    <span class="erp-a">A</span>
-                    <div>
-                        <h4>ERP²</h4>
-                        <p>Vantix Systems</p>
-                    </div>
-                </div>
+                    <h3>$1.4M</h3>
 
-                <div class="brand petdesk">
-                    <span class="icon-circle-sm">⊖</span>
-                    <h4>PetDesk</h4>
-                </div>
+                    <p>New online revenue</p>
 
-                <div class="brand stax">
-                    <h4>stax ➜</h4>
-                </div>
+                    <div class="chart-svg">
 
-                <!-- Set 2 (Duplicated for seamless looping) -->
-                <div class="brand nimbus">
-                    <span class="icon-circle"></span>
-                    <div>
-                        <h4>NimbusERP</h4>
-                        <p>by Nimbus Manufacturing</p>
-                    </div>
-                </div>
+                        <svg viewBox="0 0 400 180">
 
-                <div class="brand cartly">
-                    <span class="icon-diamond">✦</span>
-                    <h4>cartly</h4>
-                </div>
+                            <defs>
+                                <linearGradient id="revenueFill" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#27d3d3" stop-opacity="0.35" />
+                                    <stop offset="100%" stop-color="#27d3d3" stop-opacity="0" />
+                                </linearGradient>
+                            </defs>
 
-                <div class="brand fleet">
-                    <span class="icon-square"></span>
-                    <h4>Fleet<br>Boss</h4>
-                </div>
-
-                <div class="brand clinic">
-                    <span class="icon-circle-sm">⊖</span>
-                    <h4>clinicsync</h4>
-                </div>
-
-                <div class="brand erp">
-                    <span class="erp-a">A</span>
-                    <div>
-                        <h4>ERP²</h4>
-                        <p>Vantix Systems</p>
-                    </div>
-                </div>
-
-                <div class="brand petdesk">
-                    <span class="icon-circle-sm">⊖</span>
-                    <h4>PetDesk</h4>
-                </div>
-
-                <div class="brand stax">
-                    <h4>stax ➜</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="results-section">
-    <div class="home-container">
-        <h2 class="results-title">
-            <span>Over 100+ businesses</span>
-            have launched and scaled with <span class="nowrap-brand" style="white-space: nowrap;">KK Digital Growth</span>
-        </h2>
-
-    <div class="results-grid">
-
-        <!-- CARD 1 -->
-
-        <div class="result-card">
-
-            <p class="brand-name">
-                cartly website redesign
-            </p>
-
-            <h3>$1.4M</h3>
-
-            <p>New online revenue</p>
-
-            <div class="chart-svg">
-
-                <svg viewBox="0 0 400 180">
-
-                    <defs>
-                        <linearGradient id="revenueFill" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#27d3d3" stop-opacity="0.35"/>
-                            <stop offset="100%" stop-color="#27d3d3" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
-
-                    <path
-                        d="
+                            <path d="
                         M20 150
                         C80 120 110 130 140 95
                         C180 70 220 90 260 65
                         C300 45 340 25 380 20
                         L380 180
                         L20 180
-                        Z"
-                        fill="url(#revenueFill)"
-                    />
+                        Z" fill="url(#revenueFill)" />
 
-                    <path
-                        d="
+                            <path d="
                         M20 150
                         C80 120 110 130 140 95
                         C180 70 220 90 260 65
-                        C300 45 340 25 380 20"
-                        class="revenue-line"
-                    />
+                        C300 45 340 25 380 20" class="revenue-line" />
 
-                    <circle cx="130" cy="95" r="8" class="chart-dot"/>
-                    <circle cx="235" cy="72" r="8" class="chart-dot"/>
-                    <circle cx="350" cy="32" r="8" class="chart-dot"/>
+                            <circle cx="130" cy="95" r="8" class="chart-dot" />
+                            <circle cx="235" cy="72" r="8" class="chart-dot" />
+                            <circle cx="350" cy="32" r="8" class="chart-dot" />
 
-                </svg>
+                        </svg>
 
-            </div>
+                    </div>
 
-        </div>
+                </div>
 
-        <!-- CARD 2 -->
+                <!-- CARD 2 -->
 
-        <div class="result-card">
+                <div class="result-card">
 
-            <p class="brand-name">
-                clinicsync mobile app
-            </p>
+                    <p class="brand-name">
+                        clinicsync mobile app
+                    </p>
 
-            <h3>300%</h3>
+                    <h3>300%</h3>
 
-            <p>Increase in app bookings</p>
+                    <p>Increase in app bookings</p>
 
-            <div class="chart-svg">
+                    <div class="chart-svg">
 
-                <svg viewBox="0 0 400 180">
+                        <svg viewBox="0 0 400 180">
 
-                    <defs>
-                        <linearGradient id="growthFill" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#27d3d3" stop-opacity="0.35"/>
-                            <stop offset="100%" stop-color="#27d3d3" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
+                            <defs>
+                                <linearGradient id="growthFill" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#27d3d3" stop-opacity="0.35" />
+                                    <stop offset="100%" stop-color="#27d3d3" stop-opacity="0" />
+                                </linearGradient>
+                            </defs>
 
-                    <path
-                        d="
+                            <path d="
                         M20 170
                         L120 135
                         L140 80
@@ -502,311 +508,319 @@
                         L380 65
                         L380 180
                         L20 180
-                        Z"
-                        fill="url(#growthFill)"
-                    />
+                        Z" fill="url(#growthFill)" />
 
-                    <path
-                        d="
+                            <path d="
                         M20 170
                         L120 135
                         L140 80
                         L260 70
                         L280 20
-                        L380 65"
-                        class="growth-line"
-                    />
+                        L380 65" class="growth-line" />
 
-                </svg>
+                        </svg>
 
-            </div>
+                    </div>
 
-        </div>
+                </div>
 
-        <!-- CARD 3 -->
+                <!-- CARD 3 -->
 
-        <div class="result-card">
+                <div class="result-card">
 
-            <p class="brand-name">
-                NimbusERP
-            </p>
+                    <p class="brand-name">
+                        NimbusERP
+                    </p>
 
-            <h3>10x</h3>
+                    <h3>10x</h3>
 
-            <p>Faster order processing</p>
+                    <p>Faster order processing</p>
 
-            <div class="bars">
+                    <div class="bars">
 
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
 
-            </div>
+                    </div>
 
-        </div>
-
-    </div>
-
-        <a href="{% url 'case_studies' %}" class="case-btn">
-            More case studies →
-        </a>
-    </div>
-</section>
-<section class="comparison-section">
-    <div class="home-container">
-        <h2 class="comparison-title">
-            Most dev agencies aren't built for long-term partnership.
-            <span style="white-space: nowrap;">KK Digital Growth</span>
-            <span>puts you first.</span>
-        </h2>
-
-    <div class="comparison-grid">
-
-        <!-- LEFT CARD -->
-
-        <div class="comparison-card bad-card">
-
-            <h3>Other software development agencies</h3>
-
-            <ul>
-
-                <li><i class="fa-regular fa-circle-xmark bad-icon"></i> Vague project scopes that spike in cost</li>
-
-                <li><i class="fa-regular fa-circle-xmark bad-icon"></i> Hidden costs and unclear development timelines</li>
-
-                <li><i class="fa-regular fa-circle-xmark bad-icon"></i> Little to no visibility into project progress</li>
-
-                <li><i class="fa-regular fa-circle-xmark bad-icon"></i> Generic templates instead of custom-built solutions</li>
-
-                <li><i class="fa-regular fa-circle-xmark bad-icon"></i> No support once the project goes live</li>
-
-                <li><i class="fa-regular fa-circle-xmark bad-icon"></i> Slow turnaround on bug fixes and feature requests</li>
-
-            </ul>
-
-        </div>
-
-        <!-- RIGHT CARD -->
-
-        <div class="comparison-card good-card">
-
-            <div class="kk-logo-wrap">
-
-                <img src="{% static 'images/kk-logo.png' %}" alt="KK Digital">
+                </div>
 
             </div>
 
-            <ul>
+            <a href="{% url 'case_studies' %}" class="case-btn">
+                More case studies →
+            </a>
+        </div>
+    </section>
+    <section class="comparison-section">
+        <div class="home-container site-container">
+            <h2 class="comparison-title">
+                Most dev agencies aren't built for long-term partnership.
+                <span style="white-space: nowrap;">KK Digital Growth</span>
+                <span>puts you first.</span>
+            </h2>
 
-                <li><i class="fa-regular fa-circle-check good-icon"></i> Fixed-scope, fixed-timeline projects with no surprises</li>
+            <div class="comparison-grid">
 
-                <li><i class="fa-regular fa-circle-check good-icon"></i> 100% transparent pricing and milestone-based billing</li>
+                <!-- LEFT CARD -->
 
-                <li><i class="fa-regular fa-circle-check good-icon"></i> Real-time project dashboards and weekly progress updates</li>
+                <div class="comparison-card bad-card">
 
-                <li><i class="fa-regular fa-circle-check good-icon"></i> Fully custom-built websites, apps and ERPs — no templates</li>
+                    <h3>Other software development agencies</h3>
 
-                <li><i class="fa-regular fa-circle-check good-icon"></i> Free post-launch support and continuous optimisation</li>
+                    <ul>
 
-                <li><i class="fa-regular fa-circle-check good-icon"></i> In-house design, development and QA team under one roof</li>
+                        <li><i class="fa-regular fa-circle-xmark bad-icon"></i> Vague project scopes that spike in cost
+                        </li>
 
-            </ul>
+                        <li><i class="fa-regular fa-circle-xmark bad-icon"></i> Hidden costs and unclear development
+                            timelines</li>
 
+                        <li><i class="fa-regular fa-circle-xmark bad-icon"></i> Little to no visibility into project
+                            progress</li>
+
+                        <li><i class="fa-regular fa-circle-xmark bad-icon"></i> Generic templates instead of
+                            custom-built solutions</li>
+
+                        <li><i class="fa-regular fa-circle-xmark bad-icon"></i> No support once the project goes live
+                        </li>
+
+                        <li><i class="fa-regular fa-circle-xmark bad-icon"></i> Slow turnaround on bug fixes and feature
+                            requests</li>
+
+                    </ul>
+
+                </div>
+
+                <!-- RIGHT CARD -->
+
+                <div class="comparison-card good-card">
+
+                    <div class="kk-logo-wrap">
+
+                        <img src="{% static 'images/kk-logo.png' %}" alt="KK Digital">
+
+                    </div>
+
+                    <ul>
+
+                        <li><i class="fa-regular fa-circle-check good-icon"></i> Fixed-scope, fixed-timeline projects
+                            with no surprises</li>
+
+                        <li><i class="fa-regular fa-circle-check good-icon"></i> 100% transparent pricing and
+                            milestone-based billing</li>
+
+                        <li><i class="fa-regular fa-circle-check good-icon"></i> Real-time project dashboards and weekly
+                            progress updates</li>
+
+                        <li><i class="fa-regular fa-circle-check good-icon"></i> Fully custom-built websites, apps and
+                            ERPs — no templates</li>
+
+                        <li><i class="fa-regular fa-circle-check good-icon"></i> Free post-launch support and continuous
+                            optimisation</li>
+
+                        <li><i class="fa-regular fa-circle-check good-icon"></i> In-house design, development and QA
+                            team under one roof</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="comparison-btn-wrap">
+
+                <a href="{% url 'process' %}" class="comparison-btn">
+                    See why businesses choose us
+                </a>
+            </div>
+        </div>
         </div>
 
-    </div>
+    </section>
+    </section>
 
-    <div class="comparison-btn-wrap">
+    {% include 'footer.html' %}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.querySelector('.hero-testimonial-track');
+            const slides = document.querySelectorAll('.hero-testimonial-slide');
+            const dots = document.querySelectorAll('.hero-testimonial-dots .hero-testimonial-dot');
+            const container = document.querySelector('.hero-testimonial-slider');
 
-        <a href="{% url 'process' %}" class="comparison-btn">
-    See why businesses choose us
-</a>
-    </div>
-    </div>
-    </div>
+            let currentIndex = 0;
+            let slideInterval = null;
+            const intervalTime = 3000; // Rotate every 3 seconds
 
-</section>
-</section>
+            function updateSlider(index) {
+                if (index < 0) {
+                    currentIndex = slides.length - 1;
+                } else if (index >= slides.length) {
+                    currentIndex = 0;
+                } else {
+                    currentIndex = index;
+                }
 
-{% include 'footer.html' %}
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const track = document.querySelector('.hero-testimonial-track');
-        const slides = document.querySelectorAll('.hero-testimonial-slide');
-        const dots = document.querySelectorAll('.hero-testimonial-dots .hero-testimonial-dot');
-        const container = document.querySelector('.hero-testimonial-slider');
-        
-        let currentIndex = 0;
-        let slideInterval = null;
-        const intervalTime = 3000; // Rotate every 3 seconds
+                // Slide translation
+                if (track) {
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }
 
-        function updateSlider(index) {
-            if (index < 0) {
-                currentIndex = slides.length - 1;
-            } else if (index >= slides.length) {
-                currentIndex = 0;
-            } else {
-                currentIndex = index;
+                // Active Slide active class for scale/opacity fade
+                slides.forEach((slide, i) => {
+                    if (i === currentIndex) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+
+                // Active dot highlight
+                dots.forEach((dot, i) => {
+                    if (i === currentIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
             }
 
-            // Slide translation
-            if (track) {
+            function startAutoPlay() {
+                stopAutoPlay();
+                slideInterval = setInterval(() => {
+                    const isHovered = (container && container.matches(':hover')) ||
+                        Array.from(slides).some(slide => slide.matches(':hover'));
+                    if (!isHovered) {
+                        updateSlider(currentIndex + 1);
+                    }
+                }, intervalTime);
+            }
+
+            function stopAutoPlay() {
+                if (slideInterval) {
+                    clearInterval(slideInterval);
+                    slideInterval = null;
+                }
+            }
+
+            // Dot indicators
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    const targetIndex = parseInt(e.target.getAttribute('data-slide'));
+                    updateSlider(targetIndex);
+                    startAutoPlay();
+                });
+            });
+
+            // Hover pause
+            if (container) {
+                container.addEventListener('mouseenter', stopAutoPlay);
+                container.addEventListener('mouseleave', startAutoPlay);
+            }
+
+            // Initialize
+            updateSlider(0);
+            startAutoPlay();
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.querySelector('.slider-track');
+            const slides = document.querySelectorAll('.slider-slide');
+            const dots = document.querySelectorAll('.slider-dots .slider-dot');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const container = document.querySelector('.hero-slider-container');
+
+            let currentIndex = 0;
+            let slideInterval = null;
+            let isHovered = false;
+            const intervalTime = 3500; // Auto-slide every 3.5 seconds
+
+            function updateSlider(index) {
+                if (index < 0) {
+                    currentIndex = slides.length - 1;
+                } else if (index >= slides.length) {
+                    currentIndex = 0;
+                } else {
+                    currentIndex = index;
+                }
+
+                // Slide translation
                 track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                // Active Slide opacity/scale styling class
+                slides.forEach((slide, i) => {
+                    if (i === currentIndex) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+
+                // Active Dot highlight class
+                dots.forEach((dot, i) => {
+                    if (i === currentIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
             }
 
-            // Active Slide active class for scale/opacity fade
-            slides.forEach((slide, i) => {
-                if (i === currentIndex) {
-                    slide.classList.add('active');
-                } else {
-                    slide.classList.remove('active');
-                }
-            });
-
-            // Active dot highlight
-            dots.forEach((dot, i) => {
-                if (i === currentIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        }
-
-        function startAutoPlay() {
-            stopAutoPlay();
-            slideInterval = setInterval(() => {
-                const isHovered = (container && container.matches(':hover')) || 
-                                  Array.from(slides).some(slide => slide.matches(':hover'));
-                if (!isHovered) {
-                    updateSlider(currentIndex + 1);
-                }
-            }, intervalTime);
-        }
-
-        function stopAutoPlay() {
-            if (slideInterval) {
-                clearInterval(slideInterval);
-                slideInterval = null;
-            }
-        }
-
-        // Dot indicators
-        dots.forEach(dot => {
-            dot.addEventListener('click', (e) => {
-                const targetIndex = parseInt(e.target.getAttribute('data-slide'));
-                updateSlider(targetIndex);
-                startAutoPlay();
-            });
-        });
-
-        // Hover pause
-        if (container) {
-            container.addEventListener('mouseenter', stopAutoPlay);
-            container.addEventListener('mouseleave', startAutoPlay);
-        }
-
-        // Initialize
-        updateSlider(0);
-        startAutoPlay();
-    });
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const track = document.querySelector('.slider-track');
-        const slides = document.querySelectorAll('.slider-slide');
-        const dots = document.querySelectorAll('.slider-dots .slider-dot');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        const container = document.querySelector('.hero-slider-container');
-        
-        let currentIndex = 0;
-        let slideInterval = null;
-        let isHovered = false;
-        const intervalTime = 3500; // Auto-slide every 3.5 seconds
-
-        function updateSlider(index) {
-            if (index < 0) {
-                currentIndex = slides.length - 1;
-            } else if (index >= slides.length) {
-                currentIndex = 0;
-            } else {
-                currentIndex = index;
-            }
-
-            // Slide translation
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-            // Active Slide opacity/scale styling class
-            slides.forEach((slide, i) => {
-                if (i === currentIndex) {
-                    slide.classList.add('active');
-                } else {
-                    slide.classList.remove('active');
-                }
-            });
-
-            // Active Dot highlight class
-            dots.forEach((dot, i) => {
-                if (i === currentIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        }
-
-        function startAutoSlide() {
-            stopAutoSlide();
-            if (isHovered) return; // Do not schedule a new interval if currently hovered
-            slideInterval = setInterval(() => {
-                updateSlider(currentIndex + 1);
-            }, intervalTime);
-        }
-
-        function stopAutoSlide() {
-            if (slideInterval) {
-                clearInterval(slideInterval);
-                slideInterval = null;
-            }
-        }
-
-        // Action controls
-        prevBtn.addEventListener('click', () => {
-            updateSlider(currentIndex - 1);
-            startAutoSlide();
-        });
-
-        nextBtn.addEventListener('click', () => {
-            updateSlider(currentIndex + 1);
-            startAutoSlide();
-        });
-
-        dots.forEach(dot => {
-            dot.addEventListener('click', (e) => {
-                const targetIndex = parseInt(e.target.getAttribute('data-slide'));
-                updateSlider(targetIndex);
-                startAutoSlide();
-            });
-        });
-
-        // Hover pause and play
-        if (container) {
-            container.addEventListener('mouseenter', () => {
-                isHovered = true;
+            function startAutoSlide() {
                 stopAutoSlide();
-            });
-            container.addEventListener('mouseleave', () => {
-                isHovered = false;
+                if (isHovered) return; // Do not schedule a new interval if currently hovered
+                slideInterval = setInterval(() => {
+                    updateSlider(currentIndex + 1);
+                }, intervalTime);
+            }
+
+            function stopAutoSlide() {
+                if (slideInterval) {
+                    clearInterval(slideInterval);
+                    slideInterval = null;
+                }
+            }
+
+            // Action controls
+            prevBtn.addEventListener('click', () => {
+                updateSlider(currentIndex - 1);
                 startAutoSlide();
             });
-        }
 
-        // Initialize Slider
-        updateSlider(0);
-        startAutoSlide();
-    });
-</script>
+            nextBtn.addEventListener('click', () => {
+                updateSlider(currentIndex + 1);
+                startAutoSlide();
+            });
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    const targetIndex = parseInt(e.target.getAttribute('data-slide'));
+                    updateSlider(targetIndex);
+                    startAutoSlide();
+                });
+            });
+
+            // Hover pause and play
+            if (container) {
+                container.addEventListener('mouseenter', () => {
+                    isHovered = true;
+                    stopAutoSlide();
+                });
+                container.addEventListener('mouseleave', () => {
+                    isHovered = false;
+                    startAutoSlide();
+                });
+            }
+
+            // Initialize Slider
+            updateSlider(0);
+            startAutoSlide();
+        });
+    </script>
 </body>
+
 </html>
