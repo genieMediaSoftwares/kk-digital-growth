@@ -35,16 +35,21 @@ if VERCEL_URL:
 # CSRF Trusted Origins Configuration
 CSRF_TRUSTED_ORIGINS = config(
     "CSRF_TRUSTED_ORIGINS",
-    default="https://kkdigitalgrowth.com,https://www.kkdigitalgrowth.com,https://*.vercel.app",
+    default="https://kkdigitalgrowth.com,https://www.kkdigitalgrowth.com,https://*.vercel.app,http://localhost:8000,http://127.0.0.1:8000",
     cast=lambda v: [s.strip() for s in v.split(",") if s.strip()]
 )
 
 if VERCEL_URL:
     vercel_host = VERCEL_URL.replace("https://", "").replace("http://", "").split("/")[0].strip()
     if vercel_host:
-        vercel_origin = f"https://{vercel_host}"
-        if vercel_origin not in CSRF_TRUSTED_ORIGINS:
-            CSRF_TRUSTED_ORIGINS.append(vercel_origin)
+        for proto in ["https", "http"]:
+            v_origin = f"{proto}://{vercel_host}"
+            if v_origin not in CSRF_TRUSTED_ORIGINS:
+                CSRF_TRUSTED_ORIGINS.append(v_origin)
+
+# Reverse Proxy & SSL Header settings (required for Vercel / HTTPS reverse proxies)
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+USE_X_FORWARDED_HOST = True
 
 SITE_DOMAIN = config("SITE_DOMAIN", default="https://kkdigitalgrowth.com")
 
