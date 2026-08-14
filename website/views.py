@@ -225,6 +225,8 @@ def clients(request):
 def contact(request):
 
     success = False
+    email_error = None
+    form_errors = None
 
     if request.method == "POST":
 
@@ -290,16 +292,16 @@ Website Contact Form
             except Exception as e:
                 import traceback
 
-                print("CONTACT EMAIL FAILED:", str(e))
+                print("CONTACT EMAIL FAILED:", type(e).__name__, str(e))
                 traceback.print_exc()
 
-                # Database entry was already saved,
-                # but email delivery failed.
                 success = False
+                email_error = f"{type(e).__name__}: {str(e)} (Host: {getattr(settings, 'EMAIL_HOST', None)}, Port: {getattr(settings, 'EMAIL_PORT', None)}, PassConfigured: {bool(getattr(settings, 'EMAIL_HOST_PASSWORD', None))})"
 
         else:
 
             print("CONTACT FORM ERRORS:", form.errors)
+            form_errors = form.errors.as_text()
 
     else:
 
@@ -311,6 +313,8 @@ Website Contact Form
         {
             "form": form,
             "success": success,
+            "email_error": email_error,
+            "form_errors": form_errors,
         },
     )
 def about(request):

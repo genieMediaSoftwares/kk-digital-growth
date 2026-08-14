@@ -97,6 +97,20 @@
             </div>
             {% endif %}
 
+            {% if email_error %}
+            <div class="email-error-message" role="alert" style="background: #fee2e2; color: #991b1b; padding: 14px 18px; border-radius: 10px; margin-bottom: 20px; font-weight: 600; border: 1px solid #fca5a5;">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span>Email Notice: {{ email_error }}</span>
+            </div>
+            {% endif %}
+
+            {% if form_errors %}
+            <div class="form-error-message" role="alert" style="background: #fff7ed; color: #c2410c; padding: 14px 18px; border-radius: 10px; margin-bottom: 20px; font-weight: 600; border: 1px solid #ffedd5;">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span>Form Validation Error: {{ form_errors }}</span>
+            </div>
+            {% endif %}
+
             <form method="POST">
                 {% csrf_token %}
                 <h2 class="form-title"
