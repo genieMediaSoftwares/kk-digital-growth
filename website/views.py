@@ -129,6 +129,16 @@ def consultation(request):
         )
 
         try:
+            print("--- SMTP DIAGNOSTICS (CONSULTATION FORM) ---")
+            print("SMTP HOST:", getattr(settings, "EMAIL_HOST", None))
+            print("SMTP PORT:", getattr(settings, "EMAIL_PORT", None))
+            print("SMTP TLS:", getattr(settings, "EMAIL_USE_TLS", None))
+            print("SMTP SSL:", getattr(settings, "EMAIL_USE_SSL", None))
+            print("SMTP USER CONFIGURED:", bool(getattr(settings, "EMAIL_HOST_USER", None)))
+            print("SMTP PASSWORD CONFIGURED:", bool(getattr(settings, "EMAIL_HOST_PASSWORD", None)))
+            print("DEFAULT FROM CONFIGURED:", bool(getattr(settings, "DEFAULT_FROM_EMAIL", None)))
+            print("CONTACT RECIPIENT CONFIGURED:", bool(getattr(settings, "CONTACT_NOTIFICATION_EMAIL", None)))
+
             first_name = consultation_obj.first_name or ""
             last_name = consultation_obj.last_name or ""
             company_name = consultation_obj.company_name or ""
@@ -252,6 +262,15 @@ Website Contact Form
 """
 
             try:
+                print("--- SMTP DIAGNOSTICS (CONTACT FORM) ---")
+                print("SMTP HOST:", getattr(settings, "EMAIL_HOST", None))
+                print("SMTP PORT:", getattr(settings, "EMAIL_PORT", None))
+                print("SMTP TLS:", getattr(settings, "EMAIL_USE_TLS", None))
+                print("SMTP SSL:", getattr(settings, "EMAIL_USE_SSL", None))
+                print("SMTP USER CONFIGURED:", bool(getattr(settings, "EMAIL_HOST_USER", None)))
+                print("SMTP PASSWORD CONFIGURED:", bool(getattr(settings, "EMAIL_HOST_PASSWORD", None)))
+                print("DEFAULT FROM CONFIGURED:", bool(getattr(settings, "DEFAULT_FROM_EMAIL", None)))
+                print("CONTACT RECIPIENT CONFIGURED:", bool(getattr(settings, "CONTACT_NOTIFICATION_EMAIL", None)))
 
                 email = EmailMessage(
                     subject=subject,

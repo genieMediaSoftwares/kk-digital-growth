@@ -190,10 +190,11 @@ BLOG_IMAGE_LOCAL_FALLBACK = config("BLOG_IMAGE_LOCAL_FALLBACK", default=True, ca
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
-EMAIL_HOST = "smtp.hostinger.com"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
+EMAIL_HOST = config("EMAIL_HOST", default="smtp.hostinger.com")
+EMAIL_PORT = config("EMAIL_PORT", default=465, cast=int)
+EMAIL_USE_TLS = config("EMAIL_USE_TLS", default=False, cast=bool)
+EMAIL_USE_SSL = config("EMAIL_USE_SSL", default=True, cast=bool)
+EMAIL_TIMEOUT = config("EMAIL_TIMEOUT", default=15, cast=int)
 
 EMAIL_HOST_USER = config(
     "EMAIL_HOST_USER",
