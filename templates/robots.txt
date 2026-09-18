@@ -1,3 +1,10 @@
+# robots.txt for https://www.kkdigitalgrowth.com/
+# All public pages are open to every crawler, including AI/LLM crawlers
+# (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, CCBot, Google-Extended).
+# They are covered by the User-agent: * group below. Do NOT add per-bot
+# groups: a named group makes that bot ignore this group entirely, which
+# would expose the CMS paths listed here.
+
 User-agent: *
 Allow: /
 
@@ -10,3 +17,5 @@ Disallow: /blog/publish/
 Disallow: /blog/draft/
 
 Sitemap: https://www.kkdigitalgrowth.com/sitemap.xml
+
+# AI/LLM guidance: https://www.kkdigitalgrowth.com/llms.txt
