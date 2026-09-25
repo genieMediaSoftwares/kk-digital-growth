@@ -14,10 +14,12 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}?v=10.0">
 <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=10.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+{% include "partials/google_tag_manager_head.html" %}
 {% include "partials/meta_pixel.html" %}
 </head>
 
 <body>
+{% include "partials/google_tag_manager_body.html" %}
 {% include 'header.html' %}
 <section class="consultation-section">
     <div class="home-container consult-container site-container">
