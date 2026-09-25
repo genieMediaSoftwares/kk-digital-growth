@@ -231,13 +231,13 @@ img {
 }
 
 .footer-bottom-links a {
-    color: #cbd5e1 !important;
+    color: #DCE6F2 !important;
     text-decoration: none;
     transition: color 0.25s ease;
 }
 
 .footer-bottom-links a:hover {
-    color: #F79421 !important;
+    color: #FFFFFF !important;
 }
 
 .footer-bottom-links span {

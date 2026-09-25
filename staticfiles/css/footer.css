@@ -171,3 +171,11 @@
     border-top:1px solid #e5e7eb;
     color:#667085;
 }
+
+.footer-bottom-links a {
+    color: #DCE6F2 !important;
+}
+
+.footer-bottom-links a:hover {
+    color: #FFFFFF !important;
+}
