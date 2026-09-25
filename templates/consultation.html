@@ -125,18 +125,12 @@
 </div>
         <form method="POST">
             {% csrf_token %}
-            <input type="text" name="first_name" placeholder="First Name">
+            <input type="text" name="full_name" placeholder="Full Name" required>
 
-            <input type="text" name="last_name" placeholder="Last Name">
+            <input type="email" name="email" placeholder="Email Address" required>
 
-            <input type="text" name="company_name" placeholder="Company Name">
+            <input type="text" name="phone_number" placeholder="Phone Number" required>
 
-            <input type="email" name="email" placeholder="Email Address">
-
-            <input type="text" name="phone_number" placeholder="Phone Number">
-
-            <input type="text" name="project_name" placeholder="Project Name (Optional)">
-            
 
             <button type="submit">
                 Let's Talk!

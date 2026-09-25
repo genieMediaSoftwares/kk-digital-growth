@@ -203,13 +203,15 @@ def consultation(request):
 
     if request.method == "POST":
 
+        # The form sends a single full_name; it is stored in first_name so the
+        # existing Consultation table needs no migration.
         consultation_obj = Consultation.objects.create(
-            first_name=request.POST.get("first_name"),
-            last_name=request.POST.get("last_name"),
-            company_name=request.POST.get("company_name"),
+            first_name=(request.POST.get("full_name") or "").strip(),
+            last_name="",
+            company_name="",
             email=request.POST.get("email"),
             phone_number=request.POST.get("phone_number"),
-            project_name=request.POST.get("project_name"),
+            project_name="",
         )
 
         try:

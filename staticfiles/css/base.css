@@ -247,7 +247,7 @@ body{
 
 .consult-right form{
     display:grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
    gap:20px;
 }
 
@@ -261,7 +261,7 @@ body{
 }
 
 .consult-right button{
-    grid-column:span 2;
+    grid-column:span 1;
     width: 100%;
     box-sizing: border-box;
     background:#F79421;
