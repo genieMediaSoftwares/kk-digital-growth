@@ -21,7 +21,7 @@ TESTIMONIALS_DATA = [
     {
         "client_name": "Meera Basu Sarees",
         "logo_image": "images/meerabasu-home.png",
-        "feedback_text": "KK Digital Growth transformed our boutique saree brand with a gorgeous, high-converting Shopify store. The elegant typography and seamless shopping experience perfectly reflect our heritage.",
+        "feedback_text": "The team at KK Digital Growth understood our brand and created a beautiful Shopify website that reflects the elegance of our sarees. The website is easy to navigate, works smoothly across devices, and gives our customers a much better shopping experience.",
         "author": "Ananya Basu",
         "designation": "Founder & Creative Director",
         "industry": "E-commerce & Retail",
@@ -29,7 +29,7 @@ TESTIMONIALS_DATA = [
     {
         "client_name": "KNS Metal Solutions",
         "logo_image": "images/kns-metal.png",
-        "feedback_text": "The custom lead generation website built by their team has significantly increased our quote requests. Professional communication, high performance, and robust industrial showcase.",
+        "feedback_text": "KK Digital Growth gave our business a professional online presence that clearly showcases our products and services. The website is easy for our customers to navigate, and the team was responsive throughout the development process.",
         "author": "Marcus Vance",
         "designation": "Managing Director",
         "industry": "Industrial Manufacturing",
@@ -37,7 +37,7 @@ TESTIMONIALS_DATA = [
     {
         "client_name": "LaserFold Australia",
         "logo_image": "images/laserfold.png",
-        "feedback_text": "Their developer team delivered a lightning-fast custom web app that lets our clients explore metal fabrication services with ease. Highly recommended tech partner.",
+        "feedback_text": "We were impressed with the way KK Digital Growth translated our requirements into a clean and easy-to-use website. The team understood our industry and built an experience that makes it simple for customers to explore our fabrication services.",
         "author": "David Harrison",
         "designation": "Director of Operations",
         "industry": "Metal Fabrication",
@@ -45,7 +45,7 @@ TESTIMONIALS_DATA = [
     {
         "client_name": "GenieStudio",
         "logo_image": "images/geniestudio.png",
-        "feedback_text": "A highly visual and modern site that showcases our podcast and creative photography studios perfectly. The UI/UX is outstanding and captures our studio's vibe.",
+        "feedback_text": "KK Digital Growth created a modern website that represents the creative identity of GenieStudio really well. The visual design, layout and user experience make it easy for visitors to explore our podcast and photography services.",
         "author": "Kabir Mehta",
         "designation": "Founder & Producer",
         "industry": "Creative Media Studios",
@@ -53,7 +53,7 @@ TESTIMONIALS_DATA = [
     {
         "client_name": "Buildzon Projects",
         "logo_image": "images/buildzon.png",
-        "feedback_text": "Our real estate property catalog has never looked better. The lead generation workflows and custom admin panel are smooth, intuitive, and extremely fast.",
+        "feedback_text": "The team built a professional and easy-to-use website for our real estate business. Our property listings are presented clearly, and the overall experience makes it easier for potential customers to explore our projects and get in touch with us.",
         "author": "Rohan Sharma",
         "designation": "Managing Director",
         "industry": "Real Estate & Construction",
@@ -61,7 +61,7 @@ TESTIMONIALS_DATA = [
     {
         "client_name": "Nucon Aerospace",
         "logo_image": "images/nucon.png",
-        "feedback_text": "The custom corporate system developed by KK Digital Growth transformed our internal motion control documentation. Enterprise-grade execution and secure infrastructure.",
+        "feedback_text": "KK Digital Growth understood the requirements of our business and delivered a professional digital solution around our workflow. The team maintained clear communication throughout the project and paid close attention to the functionality and security requirements.",
         "author": "Rajesh K. Prasad",
         "designation": "VP of Operations",
         "industry": "Aerospace & Defense",
@@ -69,7 +69,7 @@ TESTIMONIALS_DATA = [
     {
         "client_name": "Synergene API",
         "logo_image": "images/synergene.png",
-        "feedback_text": "A top-tier pharmaceutical product database and compliance website. Their team adhered to our strict documentation guidelines and delivered a stellar corporate presence.",
+        "feedback_text": "The KK Digital Growth team delivered a professional digital platform aligned with our pharmaceutical and documentation requirements. They were attentive to our requirements and worked closely with us to create a clear and reliable online experience.",
         "author": "Dr. S. Srinivasan",
         "designation": "Director of Quality Assurance",
         "industry": "Pharmaceuticals",
@@ -77,7 +77,7 @@ TESTIMONIALS_DATA = [
     {
         "client_name": "Vivodyne",
         "logo_image": "images/vivodyne.png",
-        "feedback_text": "An immersive web experience that explains our AI-powered biotech organ models to global partners. The advanced animations and performance are state-of-the-art.",
+        "feedback_text": "KK Digital Growth helped us create an engaging digital experience for communicating our technology and research. The website combines strong visual presentation with a smooth user experience and makes our work easier to understand for visitors and partners.",
         "author": "Dr. Andrei Georgescu",
         "designation": "CEO & Chief Scientist",
         "industry": "Biotechnology",
@@ -85,7 +85,7 @@ TESTIMONIALS_DATA = [
     {
         "client_name": "Decagon AI",
         "logo_image": "images/decagon.png",
-        "feedback_text": "They built a clean, modern marketing website for our conversational AI customer agents. High performance, SEO-focused, and completely responsive on all platforms.",
+        "feedback_text": "The team at KK Digital Growth delivered a clean and modern website that presents our AI solutions clearly. They paid attention to performance, responsiveness and the overall user experience, and were easy to work with throughout the project.",
         "author": "Jesse Zhang",
         "designation": "Head of Customer Experience",
         "industry": "Artificial Intelligence & SaaS",
@@ -93,7 +93,7 @@ TESTIMONIALS_DATA = [
     {
         "client_name": "Freenome",
         "logo_image": "images/freenome.png",
-        "feedback_text": "A highly secure, clean, and modern healthcare informational site for our cancer detection trials. Exceptional attention to detail, accessibility, and speed.",
+        "feedback_text": "KK Digital Growth delivered a clean, professional and accessible website for our healthcare-related work. The team paid close attention to usability, responsive design and the details that matter when presenting important information online.",
         "author": "Dr. Sarah Jenkins",
         "designation": "Lead Clinical Researcher",
         "industry": "Healthcare Research",
@@ -101,7 +101,7 @@ TESTIMONIALS_DATA = [
     {
         "client_name": "Naren Ultrasound",
         "logo_image": "images/naren.png",
-        "feedback_text": "The patient booking site has streamlined our clinic's scan scheduling. Patients love the clean, simple interface, and our operational efficiency has doubled.",
+        "feedback_text": "KK Digital Growth created a simple and user-friendly website that makes it easier for our patients to find information and schedule their scans. The team understood our requirements well and delivered a website that is practical for both our patients and our staff.",
         "author": "Dr. N. Hemalatha",
         "designation": "Founder & Head Sonologist",
         "industry": "Medical Diagnostics",
