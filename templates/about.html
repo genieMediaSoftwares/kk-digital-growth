@@ -1,4 +1,5 @@
 {% load static %}
+{% load image_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -370,7 +371,7 @@
                 <!-- Meera Basu -->
                 <div class="success-card">
                     <div class="success-image">
-                        <img src="{% static 'images/meerabasu-home.png' %}" alt="Meera Basu">
+                        {% card_image 'images/meerabasu-home.png' "Meera Basu" %}
                     </div>
                     <div class="success-content">
                         <span class="client-name">Meera Basu</span>
@@ -388,7 +389,7 @@
                 <!-- KNS -->
                 <div class="success-card">
                     <div class="success-image">
-                        <img src="{% static 'images/kns-metal.png' %}" alt="KNS">
+                        {% card_image 'images/kns-metal.png' "KNS" %}
                     </div>
                     <div class="success-content">
                         <span class="client-name">KNS Metal Solutions</span>
@@ -406,7 +407,7 @@
                 <!-- Laserfold -->
                 <div class="success-card">
                     <div class="success-image">
-                        <img src="{% static 'images/laserfold.png' %}" alt="Laserfold">
+                        {% card_image 'images/laserfold.png' "Laserfold" %}
                     </div>
                     <div class="success-content">
                         <span class="client-name">Laserfold</span>
@@ -424,7 +425,7 @@
                 <!-- Genie -->
                 <div class="success-card">
                     <div class="success-image">
-                        <img src="{% static 'images/geniestudio.png' %}" alt="Genie">
+                        {% card_image 'images/geniestudio.png' "Genie" %}
                     </div>
                     <div class="success-content">
                         <span class="client-name">Genie Studio</span>

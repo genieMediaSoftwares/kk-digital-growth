@@ -41,3 +41,45 @@ def testimonial_thumb(path, alt, css_class):
         "</picture>",
         static(webp), static(png), alt, css_class, width, height,
     )
+
+
+# Original static path -> (1x WebP, 2x WebP or None, PNG fallback, width, height).
+# 1x is 1000px wide and 2x is 1600px wide (omitted when the original is not wider
+# than 1600px); width/height are the real 1x/PNG pixel sizes, same aspect ratio as
+# the original, so object-fit: cover crops the same area as before.
+CARD_IMAGES = {
+    "images/meerabasu-home.png": ("images/opt/meerabasu-home-card.webp", "images/opt/meerabasu-home-card-1600.webp", "images/opt/meerabasu-home-card.png", 1000, 469),
+    "images/kns-metal.png": ("images/opt/kns-metal-card.webp", "images/opt/kns-metal-card-1600.webp", "images/opt/kns-metal-card.png", 1000, 477),
+    "images/laserfold.png": ("images/opt/laserfold-card.webp", "images/opt/laserfold-card-1600.webp", "images/opt/laserfold-card.png", 1000, 461),
+    "images/geniestudio.png": ("images/opt/geniestudio-card.webp", "images/opt/geniestudio-card-1600.webp", "images/opt/geniestudio-card.png", 1000, 483),
+    "images/buildzon.png": ("images/opt/buildzon-card.webp", "images/opt/buildzon-card-1600.webp", "images/opt/buildzon-card.png", 1000, 482),
+    "images/nucon.png": ("images/opt/nucon-card.webp", "images/opt/nucon-card-1600.webp", "images/opt/nucon-card.png", 1000, 477),
+    "images/synergene.png": ("images/opt/synergene-card.webp", "images/opt/synergene-card-1600.webp", "images/opt/synergene-card.png", 1000, 474),
+    "images/vivodyne.png": ("images/opt/vivodyne-card.webp", "images/opt/vivodyne-card-1600.webp", "images/opt/vivodyne-card.png", 1000, 476),
+    "images/decagon.png": ("images/opt/decagon-card.webp", "images/opt/decagon-card-1600.webp", "images/opt/decagon-card.png", 1000, 485),
+    "images/freenome.png": ("images/opt/freenome-card.webp", "images/opt/freenome-card-1600.webp", "images/opt/freenome-card.png", 1000, 479),
+    "images/naren.png": ("images/opt/naren-card.webp", None, "images/opt/naren-card.png", 1000, 481),
+}
+
+
+@register.simple_tag
+def card_image(path, alt):
+    """Render a large screenshot card image as WebP (1x/2x) with a PNG fallback.
+
+    Used for the About success cards and Clients portfolio cards, whose <img>
+    has no class of its own. Like testimonial_thumb, the <picture> uses
+    display:contents so the <img> keeps its parent box and CSS sizing, and
+    paths without a card variant fall back to the original <img> markup.
+    """
+    card = CARD_IMAGES.get(path)
+    if card is None:
+        return format_html('<img src="{}" alt="{}">', static(path), alt)
+    webp_1x, webp_2x, png, width, height = card
+    srcset = f"{static(webp_1x)} 1x, {static(webp_2x)} 2x" if webp_2x else static(webp_1x)
+    return format_html(
+        '<picture style="display:contents">'
+        '<source srcset="{}" type="image/webp">'
+        '<img src="{}" alt="{}" width="{}" height="{}">'
+        "</picture>",
+        srcset, static(png), alt, width, height,
+    )
