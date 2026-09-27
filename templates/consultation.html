@@ -1,4 +1,5 @@
 {% load static %}
+{% load image_tags %}
 
 <!DOCTYPE html>
 <html>
@@ -245,7 +246,7 @@
             {% for item in testimonials %}
             <div class="feedback-card">
                 <div class="feedback-header">
-                    <img src="{% static item.logo_image %}" alt="{{ item.client_name }}" class="feedback-logo">
+                    {% testimonial_thumb item.logo_image item.client_name "feedback-logo" %}
                     <div class="feedback-client-info">
                         <h4>{{ item.client_name }}</h4>
                         <span class="feedback-designation">
@@ -269,7 +270,7 @@
             {% for item in testimonials %}
             <div class="feedback-card">
                 <div class="feedback-header">
-                    <img src="{% static item.logo_image %}" alt="{{ item.client_name }}" class="feedback-logo">
+                    {% testimonial_thumb item.logo_image item.client_name "feedback-logo" %}
                     <div class="feedback-client-info">
                         <h4>{{ item.client_name }}</h4>
                         <span class="feedback-designation">

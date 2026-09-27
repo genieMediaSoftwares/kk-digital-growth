@@ -1,4 +1,5 @@
 {% load static %}
+{% load image_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -278,8 +279,7 @@
                             <div class="hero-review-top">
                                 <!-- Client Logo (using exact logo of the website) -->
                                 <div class="hero-client-logo-wrap">
-                                    <img src="{% static item.logo_image %}" alt="{{ item.client_name }}"
-                                        class="hero-client-logo">
+                                    {% testimonial_thumb item.logo_image item.client_name "hero-client-logo" %}
                                 </div>
 
                                 <div class="hero-review-content">
