@@ -47,5 +47,5 @@ urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain'), name='robots_txt'),
     path('llms.txt', TemplateView.as_view(template_name='llms.txt', content_type='text/plain; charset=utf-8'), name='llms_txt'),
-    path('favicon.ico', RedirectView.as_view(url='/static/images/kk-logo.png')),
+    path('favicon.ico', RedirectView.as_view(url='/static/images/opt/favicon-48.png')),
 ]
