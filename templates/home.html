@@ -12,7 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="br5bSIgAE-2pQx13J-BGYoLdyI9ATxp5UGi2CSl5OeE" />
 
-    <title>KK Digital Growth</title>
+    {% include "partials/seo_meta.html" with seo_title="Web Development Company in Visakhapatnam | KK Digital Growth" seo_description="KK Digital Growth is a web and software development company in Visakhapatnam, Andhra Pradesh, building custom websites, mobile apps and ERP systems for growing businesses." seo_path="/" %}
+    {% include "partials/schema-organization.html" %}
     <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
 
     <!-- Google Font -->
@@ -26,7 +27,7 @@
         rel="stylesheet">
     <!-- Font Awesome -->
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
 
     <!-- Your CSS -->
 

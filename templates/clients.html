@@ -7,14 +7,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Clients</title>
+    {% include "partials/seo_meta.html" with seo_title="Clients and Portfolio | KK Digital Growth, Visakhapatnam" seo_description="Client projects delivered by KK Digital Growth across e-commerce, manufacturing, healthcare, real estate and technology, built on WordPress, Shopify and custom development." seo_path="/clients/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Clients" crumb_path="/clients/" %}
     <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
 
     <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
     <link rel="stylesheet" href="{% static 'css/clients.css' %}?v=6.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=6.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
 {% include "partials/google_tag_manager_head.html" %}
 {% include "partials/meta_pixel.html" %}
 {% include "partials/google_ads_tag.html" %}
@@ -81,7 +83,7 @@
 
             <div class="platform-card">
 
-                <img src="{% static 'images/wordpress.png' %}" alt="WordPress">
+                <picture style="display:contents"><source srcset="{% static 'images/opt/wordpress-512.webp' %}" type="image/webp"><img src="{% static 'images/wordpress.png' %}" alt="WordPress"></picture>
 
                 <h3>WordPress</h3>
 
@@ -89,7 +91,7 @@
 
             <div class="platform-card">
 
-                <img src="{% static 'images/shopify.png' %}" alt="Shopify">
+                <picture style="display:contents"><source srcset="{% static 'images/opt/shopify-256.webp' %}" type="image/webp"><img src="{% static 'images/shopify.png' %}" alt="Shopify"></picture>
 
                 <h3>Shopify</h3>
 
@@ -97,7 +99,7 @@
 
             <div class="platform-card">
 
-                <img src="{% static 'images/web-development.png' %}" alt="Custom development">
+                <picture style="display:contents"><source srcset="{% static 'images/opt/web-development-530.webp' %}" type="image/webp"><img src="{% static 'images/web-development.png' %}" alt="Custom development"></picture>
 
                 <h3>Custom development</h3>
 

@@ -162,6 +162,17 @@ STATICFILES_DIRS = [
 ]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+
+# Static file URLs are not content-hashed (a changed file keeps its URL), so browsers
+# keep WhiteNoise's short max-age. Vercel's CDN cache key includes the deployment URL,
+# so its edge can hold static files for the life of a deployment and never serves a
+# previous deployment's file; Vercel-CDN-Cache-Control is not forwarded to browsers.
+def _cache_static_on_vercel_cdn(headers, path, url):
+    headers["Vercel-CDN-Cache-Control"] = "public, max-age=31536000"
+
+
+WHITENOISE_ADD_HEADERS_FUNCTION = _cache_static_on_vercel_cdn
+
 # Blog images. MEDIA_URL matches the /uploads/ path used by Hostinger's
 # public_html/uploads/, so a stored image URL is identical whichever of the two
 # actually holds the file.

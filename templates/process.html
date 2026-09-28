@@ -1,19 +1,21 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Our Process</title>
+    {% include "partials/seo_meta.html" with seo_title="Our Software Development Process | KK Digital Growth" seo_description="How KK Digital Growth delivers web, mobile app and ERP projects: discovery, design, development, testing and launch, followed by post-launch support." seo_path="/process/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Process" crumb_path="/process/" %}
     <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=6.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
 {% include "partials/google_tag_manager_head.html" %}
 {% include "partials/meta_pixel.html" %}
 {% include "partials/google_ads_tag.html" %}

@@ -7,13 +7,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | KK Digital Growth</title>
+    {% include "partials/seo_meta.html" with seo_title="About KK Digital Growth | Software Development Company in Visakhapatnam" seo_description="About KK Digital Growth, a software development company in Visakhapatnam, Andhra Pradesh: industries served, technology stack and client work." seo_path="/about/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="About" crumb_path="/about/" %}
     <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
     <link rel="stylesheet" href="{% static 'css/about.css' %}?v=6.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
 {% include "partials/google_tag_manager_head.html" %}
 {% include "partials/meta_pixel.html" %}
 {% include "partials/google_ads_tag.html" %}

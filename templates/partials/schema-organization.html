@@ -1,0 +1,78 @@
+{% load static %}{% comment %}Canonical business entity for KK Digital Growth (JSON-LD).
+
+   Included on every public page except /services/, which declares the same @id together
+   with its own hasOfferCatalog; two nodes with one @id on the same page would conflict.
+
+   Every value is published on the site: address and opening hours on /contact/,
+   phone/email in the footer, technologies on /about/ and /process/, services on /services/.
+   Deliberately absent: aggregateRating, review, award, priceRange and sameAs. The project
+   counts, satisfaction figures and review badges shown on the site are self-reported and
+   the footer social icons have no real profile URLs, so none of them are encoded here.{% endcomment %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.kkdigitalgrowth.com/#organization",
+          "name": "KK Digital Growth",
+          "url": "https://www.kkdigitalgrowth.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.kkdigitalgrowth.com{% static 'images/kk-logo.png' %}"
+          },
+          "image": "https://www.kkdigitalgrowth.com{% static 'images/kk-logo.png' %}",
+          "description": "KK Digital Growth is a software development company in Visakhapatnam, Andhra Pradesh, India, building custom websites, mobile applications, ERP systems and custom business software, with UI/UX design and QA testing.",
+          "telephone": "+91-9032845433",
+          "email": "admin@kkdigitalgrowth.in",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "5A2, 4th Floor, Yendada",
+            "addressLocality": "Visakhapatnam",
+            "addressRegion": "Andhra Pradesh",
+            "postalCode": "530045",
+            "addressCountry": "IN"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "10:00",
+              "closes": "19:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Saturday",
+              "opens": "10:00",
+              "closes": "16:00"
+            }
+          ],
+          "areaServed": [
+            { "@type": "City", "name": "Visakhapatnam" },
+            { "@type": "State", "name": "Andhra Pradesh" },
+            { "@type": "Country", "name": "India" }
+          ],
+          "knowsAbout": [
+            "Web development", "Website design", "E-commerce development", "Mobile app development",
+            "ERP development", "Custom software development", "UI/UX design", "QA testing",
+            "React.js", "Python", "Django", "PostgreSQL", "WordPress", "Shopify", "AWS"
+          ],
+          "makesOffer": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website design and development", "url": "https://www.kkdigitalgrowth.com/services/#website-development" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile app development", "url": "https://www.kkdigitalgrowth.com/services/#mobile-app-development" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ERP development", "url": "https://www.kkdigitalgrowth.com/services/#erp-development" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom application and software development", "url": "https://www.kkdigitalgrowth.com/services/#custom-application-development" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "UI/UX design and QA testing", "url": "https://www.kkdigitalgrowth.com/services/#ui-ux-design" } }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.kkdigitalgrowth.com/#website",
+          "url": "https://www.kkdigitalgrowth.com/",
+          "name": "KK Digital Growth",
+          "inLanguage": "en-IN",
+          "publisher": { "@id": "https://www.kkdigitalgrowth.com/#organization" }
+        }
+      ]
+    }
+    </script>

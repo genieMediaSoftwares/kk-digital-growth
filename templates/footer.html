@@ -18,10 +18,10 @@
         <div class="footer-col footer-services">
             <h3>Services</h3>
             <ul>
-                <li><a href="{% url 'services' %}">Website Development</a></li>
-                <li><a href="{% url 'services' %}">Mobile App Development</a></li>
-                <li><a href="{% url 'services' %}">ERP Development</a></li>
-                <li><a href="{% url 'services' %}">Custom Applications</a></li>
+                <li><a href="{% url 'services' %}#website-development">Website Development</a></li>
+                <li><a href="{% url 'services' %}#mobile-app-development">Mobile App Development</a></li>
+                <li><a href="{% url 'services' %}#erp-development">ERP Development</a></li>
+                <li><a href="{% url 'services' %}#custom-application-development">Custom Applications</a></li>
                 <li><a href="{% url 'public_blog_list' %}">Blog & Insights</a></li>
             </ul>
         </div>
@@ -31,7 +31,7 @@
             <h3><a href="{% url 'case_studies' %}">Case studies</a></h3>
             <ul>
                 <li><a href="{% url 'case_study_detail' slug='custom-erp-system' %}">Building a custom ERP</a></li>
-                <li><a href="{% url 'case_study_detail' slug='business-website' %}">Scaling an e-commerce website</a></li>
+                <li><a href="{% url 'case_study_detail' slug='business-website' %}">Building a corporate website</a></li>
                 <li><a href="{% url 'case_study_detail' slug='mobile-application' %}">From idea to app</a></li>
             </ul>
         </div>

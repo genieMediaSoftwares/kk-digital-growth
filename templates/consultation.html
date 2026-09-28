@@ -2,19 +2,21 @@
 {% load image_tags %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Consultation</title>
+    {% include "partials/seo_meta.html" with seo_title="Request a Free Consultation | KK Digital Growth, Visakhapatnam" seo_description="Book a free discovery call with KK Digital Growth, a software development company in Visakhapatnam, to discuss your website, mobile app or ERP project." seo_path="/consultation/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Consultation" crumb_path="/consultation/" %}
 <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
 
 <link rel="stylesheet" href="{% static 'css/base.css' %}?v=10.0">
 <link rel="stylesheet" href="{% static 'css/clients.css' %}?v=10.0">
 <link rel="stylesheet" href="{% static 'css/style.css' %}?v=10.0">
 <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=10.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
 {% include "partials/google_tag_manager_head.html" %}
 {% include "partials/meta_pixel.html" %}
 {% include "partials/google_ads_tag.html" %}

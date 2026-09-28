@@ -1,0 +1,12 @@
+{# BreadcrumbList JSON-LD: Home > crumb_name (crumb_path) [> crumb2_name (crumb2_path)]. #}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.kkdigitalgrowth.com/" },
+        { "@type": "ListItem", "position": 2, "name": "{{ crumb_name|escapejs }}", "item": "https://www.kkdigitalgrowth.com{{ crumb_path }}" }{% if crumb2_name %},
+        { "@type": "ListItem", "position": 3, "name": "{{ crumb2_name|escapejs }}", "item": "https://www.kkdigitalgrowth.com{{ crumb2_path }}" }{% endif %}
+      ]
+    }
+    </script>
