@@ -3,12 +3,13 @@ from django.urls import path
 from django.views.generic import RedirectView, TemplateView
 from django.views.static import serve as serve_media
 from django.contrib.sitemaps.views import sitemap
-from website.sitemaps import StaticViewSitemap, CaseStudySitemap
+from website.sitemaps import StaticViewSitemap, CaseStudySitemap, BlogSitemap
 from website import views
 
 sitemaps = {
     'static': StaticViewSitemap,
     'case_studies': CaseStudySitemap,
+    'blogs': BlogSitemap,
 }
 
 urlpatterns = [

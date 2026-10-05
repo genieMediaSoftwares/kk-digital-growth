@@ -1009,13 +1009,18 @@ def public_blog_list_view(request):
     category_slug = request.GET.get('category', '').strip()
     search_q = request.GET.get('q', '').strip()
 
-    blogs = Blog.objects.filter(status='published').select_related('category').order_by('-created_at')
-    if category_slug:
-        blogs = blogs.filter(category__slug=category_slug)
-    if search_q:
-        blogs = blogs.filter(Q(title__icontains=search_q) | Q(description__icontains=search_q) | Q(keywords__icontains=search_q))
+    try:
+        blogs_qs = Blog.objects.filter(status='published').select_related('category').order_by('-created_at')
+        if category_slug:
+            blogs_qs = blogs_qs.filter(category__slug=category_slug)
+        if search_q:
+            blogs_qs = blogs_qs.filter(Q(title__icontains=search_q) | Q(description__icontains=search_q) | Q(keywords__icontains=search_q))
+        categories = list(Category.objects.all().order_by('name'))
+        blogs = list(blogs_qs)
+    except Exception:
+        blogs = []
+        categories = []
 
-    categories = Category.objects.all().order_by('name')
     return render(request, 'blog_list.html', {
         'blogs': blogs,
         'categories': categories,

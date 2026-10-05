@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if case.project in case.title %}{% include "partials/seo_meta.html" with seo_title=case.title|add:" | Case Study | KK Digital Growth" seo_description=case.summary|truncatechars:160 seo_path="/case-studies/"|add:case.slug|add:"/" %}{% else %}{% include "partials/seo_meta.html" with seo_title=case.title|add:" for "|add:case.project|add:" | Case Study | KK Digital Growth" seo_description=case.summary|truncatechars:160 seo_path="/case-studies/"|add:case.slug|add:"/" %}{% endif %}
+    {% if case.project in case.title %}{% include "partials/seo_meta.html" with seo_title=case.title|add:" | KK Digital" seo_description=case.summary|truncatechars:160 seo_path="/case-studies/"|add:case.slug|add:"/" %}{% else %}{% include "partials/seo_meta.html" with seo_title=case.title|add:" | "|add:case.project|add:" | KK Digital" seo_description=case.summary|truncatechars:160 seo_path="/case-studies/"|add:case.slug|add:"/" %}{% endif %}
     {% include "partials/schema-organization.html" %}
     {% include "partials/schema-breadcrumb.html" with crumb_name="Case studies" crumb_path="/case-studies/" crumb2_name=case.title crumb2_path="/case-studies/"|add:case.slug|add:"/" %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
