@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found (404) | KK Digital Growth</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    <style>
+        .error-404-section {
+            background: #112b4d;
+            padding: 100px 20px;
+            color: #ffffff;
+            text-align: center;
+            min-height: 65vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .error-card {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .error-code {
+            font-size: 80px;
+            font-weight: 800;
+            color: #F79421;
+            line-height: 1;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+        .error-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+        .error-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 35px;
+        }
+        .error-nav-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .error-btn-primary {
+            background: #F79421;
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .error-btn-primary:hover {
+            background: #e28212;
+            transform: translateY(-2px);
+            color: #ffffff;
+        }
+        .error-btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 1.5px solid rgba(255,255,255,0.3);
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .error-btn-secondary:hover {
+            border-color: #ffffff;
+            background: rgba(255,255,255,0.08);
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <main class="error-404-section">
+        <div class="error-card site-container">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-description">
+                The page you are looking for may have been moved, renamed, or is temporarily unavailable. Use the links below to find what you need.
+            </p>
+            <div class="error-nav-links">
+                <a href="{% url 'home' %}" class="error-btn-primary">Return Home</a>
+                <a href="{% url 'services' %}" class="error-btn-secondary">Our Services</a>
+                <a href="{% url 'case_studies' %}" class="error-btn-secondary">Case Studies</a>
+                <a href="{% url 'contact' %}" class="error-btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </main>
+
+    {% include 'footer.html' %}
+</body>
+</html>

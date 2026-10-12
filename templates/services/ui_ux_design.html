@@ -1,0 +1,301 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "partials/seo_meta.html" with seo_title="UI/UX Design & Front-End QA Services | KK Digital Growth" seo_description="User experience research, wireframing, modern interface design, design systems, and functional QA testing for web and mobile products by KK Digital Growth." seo_path="/services/ui-ux-design/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Services" crumb_path="/services/" crumb2_name="UI/UX Design" crumb2_path="/services/ui-ux-design/" %}
+
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "partials/google_tag_manager_head.html" %}
+    {% include "partials/meta_pixel.html" %}
+    {% include "partials/google_ads_tag.html" %}
+</head>
+<body>
+{% include "partials/google_tag_manager_body.html" %}
+    {% include 'header.html' %}
+
+    <main id="main-content">
+        <!-- ================= HERO ================= -->
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator">/</span>
+                    <a href="{% url 'services' %}">Services</a>
+                    <span class="separator">/</span>
+                    <span class="current">UI/UX Design &amp; QA</span>
+                </nav>
+
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-palette" aria-hidden="true"></i> Interface Design &amp; Quality Assurance
+                </span>
+
+                <h1>UI/UX Design &amp; Quality Assurance (QA) Testing Services</h1>
+                <p class="hero-lead">
+                    We create intuitive, high-conversion user interfaces backed by user journey research, wireframes, component design systems, and rigorous front-end QA testing across web and mobile platforms.
+                </p>
+
+                <div class="service-hero-actions">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Schedule a Design Consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'clients' %}" class="btn-outline-light">
+                        Explore Our Portfolio
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= WHO IT IS FOR & PROBLEMS SOLVED ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Human-Centered Engineering</span>
+                    <h2>Design Systems Engineered for Real Users</h2>
+                    <p>Digital products fail when complex functionality is hidden behind confusing navigation. We bridge human psychology with clean front-end code.</p>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> Who This Service Is For</h3>
+                        <p>Our UI/UX design and QA testing capabilities support:</p>
+                        <ul>
+                            <li><strong>Product Founders &amp; Startups:</strong> Teams turning conceptual specifications into interactive clickable prototypes before committing engineering capital.</li>
+                            <li><strong>Enterprises Redesigning Complex Portals:</strong> Organizations streamlining complicated administrative tools, employee dashboards, or high-SKU catalogs.</li>
+                            <li><strong>E-Commerce Brands:</strong> Retailers looking to reduce checkout abandonment, optimize mobile product browsing, and elevate visual brand perception.</li>
+                            <li><strong>Software Companies Preparing for Launch:</strong> Engineering teams needing independent functional QA, cross-browser validation, and accessibility audits.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-bug-slash" aria-hidden="true"></i> Critical Design &amp; QA Bottlenecks Solved</h3>
+                        <p>We eliminate friction points that hurt retention and user satisfaction:</p>
+                        <ul>
+                            <li><strong>High User Drop-off &amp; Confusion:</strong> We map user journeys that minimize the number of clicks required to complete core actions (inquiring, checking out, approving).</li>
+                            <li><strong>Inconsistent UI Patterns:</strong> We build reusable design token libraries ensuring unified typography, button states, and spacing across all screens.</li>
+                            <li><strong>Unresponsive Layout Breakages:</strong> We rigorously test fluid responsive layouts across extreme viewport sizes from small smartphones to 4K monitors.</li>
+                            <li><strong>Silent Functional Bugs:</strong> Our QA engineers perform edge-case verification on forms, checkout pipelines, authentication sessions, and API error states.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CAPABILITIES & DELIVERABLES ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Scope &amp; Deliverables</span>
+                    <h2>UI/UX Design &amp; QA Capabilities</h2>
+                    <p>We deliver production-ready design assets and structured test logs that speed up development cycles.</p>
+                </div>
+
+                <div class="cards-3col-grid">
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-bezier-curve" aria-hidden="true"></i></div>
+                        <h3>UX Research &amp; Wireframing</h3>
+                        <p>Detailed user flow diagrams, low-fidelity wireframes, and information architecture blueprints that clarify product journeys before styling.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> User persona &amp; workflow mapping</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Interactive low-fidelity wireframes</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Information architecture &amp; menu models</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Usability testing validation</li>
+                        </ul>
+                    </article>
+
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></div>
+                        <h3>High-Fidelity UI &amp; Design Systems</h3>
+                        <p>Pixel-perfect visual interfaces, design tokens, responsive component libraries, and interactive prototypes ready for development handoff.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Figma design systems &amp; UI component kits</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Interactive clickable prototypes</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Accessible color contrast &amp; typography rules</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Micro-interaction and hover state specs</li>
+                        </ul>
+                    </article>
+
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></div>
+                        <h3>Comprehensive QA &amp; Usability Audits</h3>
+                        <p>Methodical testing matrices validating functional forms, cross-device rendering, web performance scores, and user accessibility.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Cross-browser testing (Chrome, Safari, Firefox, Edge)</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Mobile responsive device matrix audits</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Form submission &amp; edge case validation</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Core Web Vitals &amp; performance checks</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VERIFIED TECH STACK ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Tested Tooling</span>
+                    <h2>Our Design &amp; QA Tooling Environment</h2>
+                    <p>We work in industry-standard design tools and testing environments ensuring seamless developer collaboration.</p>
+                </div>
+
+                <div class="tech-stack-container">
+                    <div class="tech-stack-row">
+                        <span class="tech-stack-category">Design &amp; Prototyping</span>
+                        <div class="tech-stack-badges">
+                            <span class="tech-badge-item">Figma</span>
+                            <span class="tech-badge-item">Interactive Component Sets</span>
+                            <span class="tech-badge-item">Wireframing Tools</span>
+                            <span class="tech-badge-item">Design Token Libraries</span>
+                        </div>
+                    </div>
+                    <div class="tech-stack-row">
+                        <span class="tech-stack-category">Front-End Translation</span>
+                        <div class="tech-stack-badges">
+                            <span class="tech-badge-item">HTML5 Semantic Elements</span>
+                            <span class="tech-badge-item">Modern CSS (Flexbox &amp; Grid)</span>
+                            <span class="tech-badge-item">React UI Components</span>
+                            <span class="tech-badge-item">Flutter UI Widgets</span>
+                        </div>
+                    </div>
+                    <div class="tech-stack-row">
+                        <span class="tech-stack-category">Testing &amp; Auditing</span>
+                        <div class="tech-stack-badges">
+                            <span class="tech-badge-item">Google Lighthouse Audits</span>
+                            <span class="tech-badge-item">Chrome DevTools Performance Profiling</span>
+                            <span class="tech-badge-item">Cross-Browser Matrix Testing</span>
+                            <span class="tech-badge-item">Responsive Device Simulators</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROCESS METHODOLOGY ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Design Discipline</span>
+                    <h2>Our 4-Stage UI/UX &amp; QA Lifecycle</h2>
+                    <p>A systematic framework translating user requirements into validated production interfaces.</p>
+                </div>
+
+                <div class="process-flow-grid">
+                    <div class="flow-step-card">
+                        <div class="step-number">01</div>
+                        <h3>Research &amp; Journey Mapping</h3>
+                        <p>We analyze user goals, review competing digital products, and chart the ideal navigation paths for maximum engagement.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">02</div>
+                        <h3>Wireframing &amp; Structural Architecture</h3>
+                        <p>We construct structural wireframes to validate layout balance, hierarchy, and content placement before applying brand styling.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">03</div>
+                        <h3>Visual Design &amp; Prototype Assembly</h3>
+                        <p>We craft high-fidelity mockups with real design systems, color tokens, and responsive component libraries.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">04</div>
+                        <h3>Functional QA &amp; Dev Verification</h3>
+                        <p>We verify the implemented code matches the design specifications, checking interactive states, cross-browser consistency, and load speed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQS ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Frequently Asked Questions</span>
+                    <h2>Frequently Asked Questions on UI/UX &amp; QA</h2>
+                    <p>Pragmatic answers on design handoff, developer collaboration, and testing scope.</p>
+                </div>
+
+                <div class="faq-structured-container">
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Can we hire you for UI/UX design only without development?</h3>
+                        <p>Yes. We frequently deliver standalone UI/UX design engagements where we provide complete Figma design systems, interactive prototypes, exportable assets, and design handoff documentation for your internal engineering team to implement.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> How do you guarantee the final coded website matches the design?</h3>
+                        <p>Because our agency provides both design and full-stack development, our designers collaborate directly with frontend engineers during the build. We conduct visual QA audits during staging to ensure spacing, fonts, animations, and responsive breakpoints match the approved Figma specs exactly.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> What devices and screen sizes do you test against?</h3>
+                        <p>We test across major desktop viewports (1920px, 1440px, 1280px), tablet dimensions (iPad / 768px-1024px), and common mobile screen widths (360px to 430px) across iOS Safari, Android Chrome, and major desktop browsers.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> How do you test for accessibility (a11y)?</h3>
+                        <p>We design with WCAG AA compliance in mind, maintaining sufficient color contrast ratios between text and backgrounds, clear visual focus indicators for keyboard navigation, logical heading hierarchies, and descriptive alt text for images.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CTA BANNER ================= -->
+        <section class="site-container">
+            <div class="service-cta-block">
+                <h2>Ready to Elevate Your Digital User Experience?</h2>
+                <p>Discuss your user flows, wireframes, and design requirements with our product design team in a free consultation.</p>
+                <div class="cta-button-group">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Book a Design Consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn-outline-light">
+                        Contact Our Design Office
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Structured Data: Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "UI/UX Design",
+      "name": "UI/UX Design and Quality Assurance (QA) Testing Services",
+      "description": "User experience research, wireframing, high-fidelity UI design systems, and functional QA testing by KK Digital Growth.",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.kkdigitalgrowth.com/#organization"
+      },
+      "url": "https://www.kkdigitalgrowth.com/services/ui-ux-design/",
+      "areaServed": [
+        { "@type": "City", "name": "Visakhapatnam" },
+        { "@type": "State", "name": "Andhra Pradesh" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "UI/UX & QA Capabilities",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "UX Research and Wireframing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "High-Fidelity Interface Design" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cross-Browser and Responsive QA Testing" } }
+        ]
+      }
+    }
+    </script>
+</body>
+</html>

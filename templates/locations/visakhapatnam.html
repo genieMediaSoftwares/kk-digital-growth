@@ -1,0 +1,338 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "partials/seo_meta.html" with seo_title="Software & Web Development Company in Visakhapatnam | KK Digital Growth" seo_description="KK Digital Growth is a software, web, and ERP development company based in Yendada, Visakhapatnam. Delivering custom websites, mobile applications, and enterprise systems." seo_path="/locations/visakhapatnam/" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Locations" crumb_path="/contact/" crumb2_name="Visakhapatnam" crumb2_path="/locations/visakhapatnam/" %}
+
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "partials/google_tag_manager_head.html" %}
+    {% include "partials/meta_pixel.html" %}
+    {% include "partials/google_ads_tag.html" %}
+</head>
+<body>
+{% include "partials/google_tag_manager_body.html" %}
+    {% include 'header.html' %}
+
+    <main id="main-content">
+        <!-- ================= HERO ================= -->
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator">/</span>
+                    <a href="{% url 'contact' %}">Locations</a>
+                    <span class="separator">/</span>
+                    <span class="current">Visakhapatnam</span>
+                </nav>
+
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Visakhapatnam, Andhra Pradesh
+                </span>
+
+                <h1>Software, Web &amp; ERP Development Company in Visakhapatnam</h1>
+                <p class="hero-lead">
+                    Based in Yendada, Visakhapatnam, KK Digital Growth partners with local enterprises, growing startups, and industrial leaders across Andhra Pradesh to engineer custom websites, cross-platform mobile apps, and robust ERP solutions.
+                </p>
+
+                <div class="service-hero-actions">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Schedule a Local Consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="tel:+919032845433" class="btn-outline-light">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i> Call +91 9032845433
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= LOCAL ADVANTAGE & ADDRESS SPLIT ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="location-contact-split">
+                    <!-- Left: Local Context -->
+                    <div>
+                        <div class="section-header-block" style="text-align: left; margin: 0 0 30px;">
+                            <span class="section-tag">Direct Local Collaboration</span>
+                            <h2>Serving Businesses Across Visakhapatnam &amp; Andhra Pradesh</h2>
+                            <p style="margin: 0;">
+                                While we deliver digital solutions for clients nationwide across India, our roots and physical engineering office are firmly in Visakhapatnam. This gives regional businesses the advantage of direct face-to-face scoping sessions, shared working hours, and rapid on-site workshops.
+                            </p>
+                        </div>
+
+                        <div class="dual-column-grid" style="margin-top: 0;">
+                            <div class="feature-box">
+                                <h3><i class="fa-solid fa-handshake" aria-hidden="true"></i> In-Person Collaboration</h3>
+                                <p>Meet our engineering team at our Yendada office or schedule an on-site workflow audit at your facility to scope complex manufacturing or business processes.</p>
+                            </div>
+                            <div class="feature-box">
+                                <h3><i class="fa-solid fa-clock" aria-hidden="true"></i> Real-Time Working Hours</h3>
+                                <p>Collaborate during standard IST business hours with dedicated technical project managers, regular sprint reviews, and direct developer communication.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Office Card -->
+                    <div class="location-address-box">
+                        <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-building" style="color: #F79421;"></i> Office Details
+                        </h3>
+
+                        <div class="address-item-row">
+                            <div class="icon-bubble"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="details">
+                                <h4>Physical Address</h4>
+                                <p>
+                                    5A2, 4th Floor, KK Digital Growth<br>
+                                    Yendada, Visakhapatnam<br>
+                                    Andhra Pradesh — 530045, India
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="address-item-row">
+                            <div class="icon-bubble"><i class="fa-solid fa-clock"></i></div>
+                            <div class="details">
+                                <h4>Working Hours (IST)</h4>
+                                <p>
+                                    <strong>Monday – Friday:</strong> 10:00 AM – 7:00 PM<br>
+                                    <strong>Saturday:</strong> 10:00 AM – 4:00 PM<br>
+                                    <strong>Sunday:</strong> Closed
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="address-item-row">
+                            <div class="icon-bubble"><i class="fa-solid fa-phone"></i></div>
+                            <div class="details">
+                                <h4>Direct Phone</h4>
+                                <p><a href="tel:+919032845433">+91 9032845433</a></p>
+                            </div>
+                        </div>
+
+                        <div class="address-item-row">
+                            <div class="icon-bubble"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="details">
+                                <h4>Email Inquiries</h4>
+                                <p><a href="mailto:admin@kkdigitalgrowth.in">admin@kkdigitalgrowth.in</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SERVICES DELIVERED IN VIZAG ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Core Services</span>
+                    <h2>Software Services We Deliver from Visakhapatnam</h2>
+                    <p>End-to-end engineering capabilities delivered locally and scaled nationwide.</p>
+                </div>
+
+                <div class="cards-3col-grid">
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></div>
+                        <h3>Custom Website Development</h3>
+                        <p>Corporate business portals, e-commerce storefronts, and performance-tuned web applications built with modern frameworks.</p>
+                        <a href="{% url 'service_web_development' %}" class="spotlight-link" style="margin-top: 15px;">
+                            Explore Web Development →
+                        </a>
+                    </article>
+
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></div>
+                        <h3>Mobile App Development</h3>
+                        <p>Cross-platform Flutter mobile applications for iOS and Android with secure backend APIs, push notifications, and store deployment.</p>
+                        <a href="{% url 'service_mobile_app_development' %}" class="spotlight-link" style="margin-top: 15px;">
+                            Explore Mobile Apps →
+                        </a>
+                    </article>
+
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-server" aria-hidden="true"></i></div>
+                        <h3>Custom ERP &amp; Operations Systems</h3>
+                        <p>Enterprise Resource Planning platforms connecting multi-facility inventory, procurement matrices, BOMs, and finance.</p>
+                        <a href="{% url 'service_erp_development' %}" class="spotlight-link" style="margin-top: 15px;">
+                            Explore ERP Development →
+                        </a>
+                    </article>
+
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-gears" aria-hidden="true"></i></div>
+                        <h3>Custom Business Software</h3>
+                        <p>Bespoke internal tools, operations dashboards, workflow automation, and SaaS applications built around your business rules.</p>
+                        <a href="{% url 'service_custom_software' %}" class="spotlight-link" style="margin-top: 15px;">
+                            Explore Custom Software →
+                        </a>
+                    </article>
+
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-palette" aria-hidden="true"></i></div>
+                        <h3>UI/UX Design &amp; Testing</h3>
+                        <p>User journey research, Figma wireframing, high-fidelity UI kits, and front-end cross-browser quality assurance audits.</p>
+                        <a href="{% url 'service_ui_ux_design' %}" class="spotlight-link" style="margin-top: 15px;">
+                            Explore UI/UX Design →
+                        </a>
+                    </article>
+
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+                        <h3>Case Studies &amp; Portfolio</h3>
+                        <p>Review documented project outcomes delivered for industrial leaders including Nucon Aerospace, KNS Metal Solutions, and Law App.</p>
+                        <a href="{% url 'case_studies' %}" class="spotlight-link" style="margin-top: 15px;">
+                            Browse Case Studies →
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= LOCAL INDUSTRY EXPERIENCE ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Industry Context</span>
+                    <h2>Supporting Regional Industry Sectors</h2>
+                    <p>Our engineering work spans key sectors driving growth in Visakhapatnam and coastal Andhra Pradesh.</p>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-industry" aria-hidden="true"></i> Manufacturing &amp; Industrial Engineering</h3>
+                        <p>
+                            From sheet metal fabrication and precision manufacturing to aerospace operations, we build CAD inquiry vaults, shop floor routing logs, and multi-warehouse stock ledgers that streamline supply chains.
+                        </p>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-hospital" aria-hidden="true"></i> Healthcare, Diagnostics &amp; Pharma</h3>
+                        <p>
+                            We build accessible patient diagnostic portals, laboratory appointment systems, and compliance-ready documentation platforms tailored to healthcare and diagnostic centers.
+                        </p>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-building-user" aria-hidden="true"></i> Real Estate &amp; Construction</h3>
+                        <p>
+                            We engineer high-speed property project showcases, interactive unit catalogs, and inquiry pipelines that capture qualified commercial buyer interest.
+                        </p>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Retail &amp; E-Commerce Brands</h3>
+                        <p>
+                            We create customized Shopify storefronts and bespoke retail platforms with frictionless checkout, payment gateway integration, and high-SKU catalog organization.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= LOCAL FAQS ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Local Questions</span>
+                    <h2>Frequently Asked Questions for Visakhapatnam Clients</h2>
+                    <p>Pragmatic details regarding local meetings, remote collaboration, and scoping.</p>
+                </div>
+
+                <div class="faq-structured-container">
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Can we schedule an in-person meeting at your Visakhapatnam office?</h3>
+                        <p>Yes. Our office is located at 5A2, 4th Floor, Yendada, Visakhapatnam. We welcome clients for in-person consultations by appointment Monday through Saturday. You can book an appointment via our consultation form or call us directly at +91 9032845433.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Do you only serve businesses located in Visakhapatnam?</h3>
+                        <p>No. While our primary development office is in Visakhapatnam, we deliver software, mobile apps, and ERP systems for enterprises and startups throughout Andhra Pradesh, Telangana, and across India via structured remote sprints and staging servers.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> How do you manage project communication and delivery?</h3>
+                        <p>We work in transparent agile sprints with direct access to your lead engineer. We provide staging server links where you can interactively test features as they are built, supplemented by scheduled video or in-person progress reviews.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CTA BANNER ================= -->
+        <section class="site-container">
+            <div class="service-cta-block">
+                <h2>Looking for a Trusted Software Partner in Visakhapatnam?</h2>
+                <p>Visit our Yendada office or schedule a call to review your software project requirements with our engineering team.</p>
+                <div class="cta-button-group">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Book a Consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn-outline-light">
+                        View Contact &amp; Directions
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Structured Data: LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": "https://www.kkdigitalgrowth.com/#organization",
+      "name": "KK Digital Growth",
+      "url": "https://www.kkdigitalgrowth.com/",
+      "logo": "https://www.kkdigitalgrowth.com{% static 'images/kk-logo.png' %}",
+      "image": "https://www.kkdigitalgrowth.com{% static 'images/kk-logo.png' %}",
+      "description": "Software, web development, mobile app development, and ERP development company based in Yendada, Visakhapatnam, Andhra Pradesh.",
+      "telephone": "+91-9032845433",
+      "email": "admin@kkdigitalgrowth.in",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5A2, 4th Floor, Yendada",
+        "addressLocality": "Visakhapatnam",
+        "addressRegion": "Andhra Pradesh",
+        "postalCode": "530045",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 17.7816,
+        "longitude": 83.3768
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "10:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "16:00"
+        }
+      ],
+      "areaServed": [
+        { "@type": "City", "name": "Visakhapatnam" },
+        { "@type": "State", "name": "Andhra Pradesh" },
+        { "@type": "Country", "name": "India" }
+      ]
+    }
+    </script>
+</body>
+</html>

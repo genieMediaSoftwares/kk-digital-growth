@@ -29,12 +29,12 @@
     <!-- ================= HERO SECTION ================= -->
     <section class="case-hero blog-hero">
         <div class="case-hero-container home-container site-container">
-            <span class="hero-tag"><i class="fa-solid fa-book-open"></i> 📚 Latest Articles</span>
-            <h1>Insights & Industry Articles</h1>
-            <p>Explore expert articles on ERP systems, website development, Shopify, automation, AI and digital transformation.</p>
+            <span class="hero-tag"><i class="fa-solid fa-book-open"></i> Technical Insights &amp; Architecture</span>
+            <h1>Engineering Insights &amp; Architecture Notes</h1>
+            <p>Practical guides, architectural blueprints, and engineering notes on ERP systems, custom web applications, mobile platforms, and business automation.</p>
             <div class="case-hero-buttons">
-                <a href="#articles-grid" class="btn-primary">Explore Articles →</a>
-                <a href="{% url 'contact' %}" class="btn-secondary">Contact Us</a>
+                <a href="{% url 'case_studies' %}" class="btn-primary">Browse Case Studies →</a>
+                <a href="{% url 'consultation' %}" class="btn-secondary">Request Consultation</a>
             </div>
         </div>
     </section>
@@ -43,6 +43,7 @@
     <section class="case-listing-section blog-listing-section">
         <div class="home-container site-container">
 
+            {% if categories %}
             <!-- Filter Buttons -->
             <div class="blog-filter-wrapper">
                 <a href="{% url 'public_blog_list' %}" class="blog-filter-btn {% if not selected_category_slug %}active{% endif %}">
@@ -54,6 +55,7 @@
                 </a>
                 {% endfor %}
             </div>
+            {% endif %}
 
             <!-- Blog Grid (2 Columns on Desktop, Laptop, Tablet, 1 Column on Mobile) -->
             <div class="case-grid blog-grid" id="articles-grid">
@@ -87,10 +89,16 @@
                     </div>
                 </div>
                 {% empty %}
-                <div class="no-blogs-found">
-                    <i class="fa-solid fa-folder-open"></i>
-                    <h3>No Articles Found</h3>
-                    <p>Check back soon for latest insights and tech news.</p>
+                <div class="no-blogs-found" style="background:#ffffff; border:1px solid #e2e8f0; border-radius:16px; padding:50px 30px; text-align:center; max-width:700px; margin:30px auto; grid-column: 1 / -1;">
+                    <i class="fa-solid fa-pen-ruler" style="font-size:42px; color:#F79421; margin-bottom:18px;"></i>
+                    <h2 style="font-size:24px; font-weight:800; color:#0f172a; margin-bottom:12px;">Technical Guides in Preparation</h2>
+                    <p style="font-size:16px; line-height:1.6; color:#64748b; margin-bottom:28px;">
+                        Our engineering team is currently documenting practical guides covering ERP multi-warehouse architectures, Django REST API scalability, and custom web performance. In the meantime, explore our verified case studies or speak directly with our engineering team.
+                    </p>
+                    <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+                        <a href="{% url 'case_studies' %}" class="btn-primary" style="padding:12px 24px; font-size:15px; text-decoration:none;">View Case Studies</a>
+                        <a href="{% url 'consultation' %}" class="btn-secondary" style="padding:12px 24px; font-size:15px; text-decoration:none;">Book a Consultation</a>
+                    </div>
                 </div>
                 {% endfor %}
             </div>

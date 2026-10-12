@@ -1,0 +1,334 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "partials/seo_meta.html" with seo_title="Web Development Services | Custom Websites & E-Commerce | KK Digital Growth" seo_description="Custom website design, corporate business portals, and e-commerce development by KK Digital Growth. Performance-tuned, mobile-first web engineering built to scale." seo_path="/services/web-development/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Services" crumb_path="/services/" crumb2_name="Web Development" crumb2_path="/services/web-development/" %}
+
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "partials/google_tag_manager_head.html" %}
+    {% include "partials/meta_pixel.html" %}
+    {% include "partials/google_ads_tag.html" %}
+</head>
+<body>
+{% include "partials/google_tag_manager_body.html" %}
+    {% include 'header.html' %}
+
+    <main id="main-content">
+        <!-- ================= HERO ================= -->
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator">/</span>
+                    <a href="{% url 'services' %}">Services</a>
+                    <span class="separator">/</span>
+                    <span class="current">Web Development</span>
+                </nav>
+
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-code" aria-hidden="true"></i> Engineering &amp; Architecture
+                </span>
+
+                <h1>Custom Website Design &amp; Web Development Services</h1>
+                <p class="hero-lead">
+                    We engineer high-speed, secure, and conversion-focused business websites, corporate portals, and e-commerce platforms. From responsive frontends to robust Django and database backends, every web solution is architected around your commercial workflow.
+                </p>
+
+                <div class="service-hero-actions">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Schedule a Web Consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'case_study_detail' slug='business-website' %}" class="btn-outline-light">
+                        View KNS Metal Case Study
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= WHO IT IS FOR & PROBLEMS SOLVED ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Strategic Clarity</span>
+                    <h2>Engineered for Growing Enterprises &amp; Product Brands</h2>
+                    <p>Generic website builders and bloated off-the-shelf templates frequently fail under real commercial demands. We build purpose-driven web architecture tailored to your audience.</p>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-users-gear" aria-hidden="true"></i> Who This Service Is For</h3>
+                        <p>Our custom web development services are built specifically for:</p>
+                        <ul>
+                            <li><strong>B2B &amp; Industrial Firms:</strong> Companies needing professional corporate credibility, technical capability showcases, and secure quotation pipelines (e.g. CAD/PDF drawing ingestion).</li>
+                            <li><strong>Growing E-Commerce Businesses:</strong> Brands scaling past standard theme limitations that require custom Shopify setups or bespoke catalog filters.</li>
+                            <li><strong>Service Companies &amp; Consultancies:</strong> Organizations needing seamless inquiry funnels, appointment scheduling, and CRM integrations.</li>
+                            <li><strong>Enterprises Modernizing Legacy Sites:</strong> Businesses replacing slow, unmaintained WordPress sites with modern, high-speed architectures.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Critical Problems We Solve</h3>
+                        <p>We eliminate the common structural bottlenecks that restrict online growth:</p>
+                        <ul>
+                            <li><strong>Slow Load Speeds &amp; Poor Core Web Vitals:</strong> We eliminate heavy template bloat, optimizing assets and server response times for instant page loads.</li>
+                            <li><strong>Low Mobile Conversion Rates:</strong> Every layout is built mobile-first, ensuring smooth navigation across smartphones, tablets, and desktop displays.</li>
+                            <li><strong>Fragmented Lead Routing:</strong> We engineer automated server-side email dispatch, database inquiry logging, and CRM webhooks.</li>
+                            <li><strong>Vulnerable CMS Plugins:</strong> We build clean, lightweight codebases with strict security headers, CSRF protection, and minimal plugin reliance.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CAPABILITIES & DELIVERABLES ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Scope &amp; Deliverables</span>
+                    <h2>Comprehensive Web Development Capabilities</h2>
+                    <p>Every project follows strict technical specifications and production-ready milestones from initial wireframe to server deployment.</p>
+                </div>
+
+                <div class="cards-3col-grid">
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></div>
+                        <h3>Corporate Business Websites</h3>
+                        <p>Custom-built corporate portals establishing brand authority, presenting industrial capabilities, and capturing qualified enterprise inquiries.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Bespoke UI/UX layout design</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Interactive capability showcases</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Secure quotation &amp; file upload forms</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Cross-browser and responsive testing</li>
+                        </ul>
+                    </article>
+
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></div>
+                        <h3>E-Commerce Storefronts</h3>
+                        <p>High-conversion retail platforms built on Shopify or custom Django engines, tailored for intuitive catalog browsing and frictionless checkout.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Custom Shopify theme customization</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Payment gateway integration (Razorpay, Stripe)</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> High-SKU inventory organization</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Optimized mobile checkout flows</li>
+                        </ul>
+                    </article>
+
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></div>
+                        <h3>Performance &amp; Technical SEO</h3>
+                        <p>Server-side rendering, semantic HTML5 structure, structured data schema, and asset compression that maximize discoverability and speed.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Server-side rendered initial HTML</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> JSON-LD Schema (Organization, Service)</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> WebP responsive image optimization</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Clean canonical and sitemap architecture</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VERIFIED TECH STACK ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Tested Technologies</span>
+                    <h2>Our Verified Web Technology Stack</h2>
+                    <p>We deploy proven, production-tested languages and frameworks aligned with long-term maintainability.</p>
+                </div>
+
+                <div class="tech-stack-container">
+                    <div class="tech-stack-row">
+                        <span class="tech-stack-category">Backend &amp; Logic</span>
+                        <div class="tech-stack-badges">
+                            <span class="tech-badge-item">Python</span>
+                            <span class="tech-badge-item">Django</span>
+                            <span class="tech-badge-item">REST API Architecture</span>
+                            <span class="tech-badge-item">Node.js</span>
+                        </div>
+                    </div>
+                    <div class="tech-stack-row">
+                        <span class="tech-stack-category">Frontend &amp; UI</span>
+                        <div class="tech-stack-badges">
+                            <span class="tech-badge-item">HTML5 Semantic</span>
+                            <span class="tech-badge-item">Modern Vanilla CSS</span>
+                            <span class="tech-badge-item">JavaScript (ES6+)</span>
+                            <span class="tech-badge-item">React.js</span>
+                        </div>
+                    </div>
+                    <div class="tech-stack-row">
+                        <span class="tech-stack-category">Data &amp; Platforms</span>
+                        <div class="tech-stack-badges">
+                            <span class="tech-badge-item">PostgreSQL</span>
+                            <span class="tech-badge-item">MySQL</span>
+                            <span class="tech-badge-item">Shopify</span>
+                            <span class="tech-badge-item">WordPress / CMS</span>
+                        </div>
+                    </div>
+                    <div class="tech-stack-row">
+                        <span class="tech-stack-category">Deployment &amp; Cloud</span>
+                        <div class="tech-stack-badges">
+                            <span class="tech-badge-item">WhiteNoise Asset Pipeline</span>
+                            <span class="tech-badge-item">Linux VPS / Gunicorn</span>
+                            <span class="tech-badge-item">SSL / TLS Encryption</span>
+                            <span class="tech-badge-item">Git Version Control</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROCESS METHODOLOGY ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Engineering Discipline</span>
+                    <h2>Our Methodical 4-Stage Web Delivery Lifecycle</h2>
+                    <p>We work in transparent sprints with tangible deliverables at each phase, keeping stakeholders updated without surprises.</p>
+                </div>
+
+                <div class="process-flow-grid">
+                    <div class="flow-step-card">
+                        <div class="step-number">01</div>
+                        <h3>Discovery &amp; Information Architecture</h3>
+                        <p>We audit existing digital touchpoints, define audience user journeys, map technical specifications, and establish page hierarchies.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">02</div>
+                        <h3>UI/UX Prototyping &amp; Brand Systems</h3>
+                        <p>We craft responsive wireframes and interactive mockups focusing on clear visual hierarchy, accessible contrast, and mobile ergonomic flows.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">03</div>
+                        <h3>Full-Stack Development &amp; Integration</h3>
+                        <p>Our engineers write clean, standards-compliant markup, implement secure form handlers, configure databases, and link third-party APIs.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">04</div>
+                        <h3>Quality Assurance, Launch &amp; Handover</h3>
+                        <p>We run cross-browser validations, automated link audits, SSL checks, and Search Console indexing setup prior to production handover.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= AUTHENTIC CASE STUDY SPOTLIGHT ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Verified Project Evidence</span>
+                    <h2>Real-World Web Implementation Proof</h2>
+                    <p>Review how our web development approach delivers documented operational outcomes for industrial leaders.</p>
+                </div>
+
+                <div class="proof-spotlight-box">
+                    <div class="spotlight-info">
+                        <span class="spotlight-tag">Manufacturing &amp; Engineering Case Study</span>
+                        <h3>Corporate Web Platform &amp; CAD Inquiry Portal for KNS Metal Solutions</h3>
+                        <p>
+                            KNS Metal Solutions required a modern corporate web presence with an interactive sheet metal fabrication catalog and an integrated quotation pipeline capable of ingesting engineering CAD drawings (STEP, DWG, PDF). KK Digital Growth engineered a high-speed corporate platform that elevated commercial brand credibility, streamlined quotation handoffs for their sales team, and reinforced organic search discovery.
+                        </p>
+                        <a href="{% url 'case_study_detail' slug='business-website' %}" class="spotlight-link">
+                            Read the complete KNS Metal Solutions Case Study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQS ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Frequently Asked Questions</span>
+                    <h2>Common Web Development Inquiries</h2>
+                    <p>Transparent technical guidance on project scoping, ownership, and maintenance.</p>
+                </div>
+
+                <div class="faq-structured-container">
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Do you build custom web applications or use pre-made templates?</h3>
+                        <p>We build tailor-made web solutions designed specifically for your brand and business logic. While we can leverage platforms like Shopify or WordPress when appropriate for straightforward e-commerce or blogs, the user interface, styling, and database pipelines are custom-coded to ensure maximum speed, security, and brand differentiation.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Who owns the source code and digital assets after project launch?</h3>
+                        <p>You retain 100% full ownership of all custom code, graphic design assets, database schemas, and intellectual property upon project completion and final settlement. We provide full Git repository access or deployment packages during project handover.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> How do you optimize web pages for search engines and performance?</h3>
+                        <p>We engineer every page with server-side rendered semantic HTML5, accurate metadata tags, canonical URLs, valid schema structured data, WebP image compression, and minimal render-blocking scripts. This delivers excellent Core Web Vitals and ensures search engines and AI crawlers can index every word on initial HTTP load.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> What post-launch support and warranty do you provide?</h3>
+                        <p>All web builds include a structured post-launch warranty period where our engineering team resolves any technical anomalies, tests form delivery, and verifies uptime. We also provide ongoing maintenance retainers covering security updates, server backups, and feature iterations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CTA BANNER ================= -->
+        <section class="site-container">
+            <div class="service-cta-block">
+                <h2>Ready to Build a High-Performing Web Platform?</h2>
+                <p>Discuss your technical requirements, design goals, and timeline with our engineering team in a free scoping consultation.</p>
+                <div class="cta-button-group">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Request a Free Consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn-outline-light">
+                        Contact Our Office
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Structured Data: Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Web Development",
+      "name": "Custom Website Design and Web Development Services",
+      "description": "Custom business website design, corporate portals, e-commerce storefronts, and performance engineering by KK Digital Growth.",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.kkdigitalgrowth.com/#organization"
+      },
+      "url": "https://www.kkdigitalgrowth.com/services/web-development/",
+      "areaServed": [
+        { "@type": "City", "name": "Visakhapatnam" },
+        { "@type": "State", "name": "Andhra Pradesh" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web Development Capabilities",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corporate Website Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-Commerce Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technical SEO and Web Performance" } }
+        ]
+      }
+    }
+    </script>
+</body>
+</html>

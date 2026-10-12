@@ -29,7 +29,15 @@
                 <i class="fa-solid fa-arrow-left" style="color: #F79421;"></i> Back to case studies
             </a>
         </div>
+        {% if case.slug == 'custom-erp-system' or case.slug == 'skyroot-aerospace' %}
+        <a href="{% url 'service_erp_development' %}" style="text-decoration:none;"><span class="detail-industry">{{ case.industry }}</span></a>
+        {% elif case.slug == 'business-website' %}
+        <a href="{% url 'service_web_development' %}" style="text-decoration:none;"><span class="detail-industry">{{ case.industry }}</span></a>
+        {% elif case.slug == 'mobile-application' %}
+        <a href="{% url 'service_mobile_app_development' %}" style="text-decoration:none;"><span class="detail-industry">{{ case.industry }}</span></a>
+        {% else %}
         <span class="detail-industry">{{ case.industry }}</span>
+        {% endif %}
         <h1>{{ case.title }}</h1>
         <p class="detail-subtitle">{{ case.project }}</p>
     </div>
@@ -189,6 +197,30 @@
                 <p class="testimonial-author">— {{ case.testimonial_author }}</p>
             </div>
             
+            <div class="sidebar-widget service-link-widget" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:22px; margin-bottom:20px;">
+                <h3 style="font-size:16px; font-weight:700; color:#0f172a; margin-bottom:8px;">Related Service</h3>
+                {% if case.slug == 'custom-erp-system' or case.slug == 'skyroot-aerospace' %}
+                <p style="font-size:14px; color:#64748b; line-height:1.5; margin-bottom:12px;">Explore our custom Enterprise Resource Planning architectures and modules.</p>
+                <a href="{% url 'service_erp_development' %}" style="color:#F79421; font-weight:700; font-size:14.5px; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+                    ERP Development Services →
+                </a>
+                {% elif case.slug == 'business-website' %}
+                <p style="font-size:14px; color:#64748b; line-height:1.5; margin-bottom:12px;">Explore our corporate website design and web development capabilities.</p>
+                <a href="{% url 'service_web_development' %}" style="color:#F79421; font-weight:700; font-size:14.5px; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+                    Web Development Services →
+                </a>
+                {% elif case.slug == 'mobile-application' %}
+                <p style="font-size:14px; color:#64748b; line-height:1.5; margin-bottom:12px;">Explore our cross-platform Flutter and iOS/Android mobile capabilities.</p>
+                <a href="{% url 'service_mobile_app_development' %}" style="color:#F79421; font-weight:700; font-size:14.5px; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+                    Mobile App Services →
+                </a>
+                {% else %}
+                <a href="{% url 'services' %}" style="color:#F79421; font-weight:700; font-size:14.5px; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+                    Explore All Services →
+                </a>
+                {% endif %}
+            </div>
+
             <div class="sidebar-widget cta-widget">
                 <h3>Ready to achieve similar results?</h3>
                 <p>Let's map out a customized digital solution for your business.</p>

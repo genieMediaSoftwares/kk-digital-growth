@@ -282,6 +282,30 @@ def services(request):
     return render(request, "services.html")
 
 
+def service_web_development(request):
+    return render(request, "services/web_development.html")
+
+
+def service_mobile_app_development(request):
+    return render(request, "services/mobile_app_development.html")
+
+
+def service_custom_software(request):
+    return render(request, "services/custom_software.html")
+
+
+def service_erp_development(request):
+    return render(request, "services/erp_development.html")
+
+
+def service_ui_ux_design(request):
+    return render(request, "services/ui_ux_design.html")
+
+
+def location_visakhapatnam(request):
+    return render(request, "locations/visakhapatnam.html")
+
+
 def process(request):
     return render(request, "process.html")
 

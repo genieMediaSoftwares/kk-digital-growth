@@ -1,0 +1,334 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "partials/seo_meta.html" with seo_title="Custom Software Development Services | Business Tools & SaaS | KK Digital Growth" seo_description="Tailor-made business software engineering, internal operational tools, workflow automation, and SaaS product platforms by KK Digital Growth. High-integrity database architectures." seo_path="/services/custom-software-development/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Services" crumb_path="/services/" crumb2_name="Custom Software" crumb2_path="/services/custom-software-development/" %}
+
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "partials/google_tag_manager_head.html" %}
+    {% include "partials/meta_pixel.html" %}
+    {% include "partials/google_ads_tag.html" %}
+</head>
+<body>
+{% include "partials/google_tag_manager_body.html" %}
+    {% include 'header.html' %}
+
+    <main id="main-content">
+        <!-- ================= HERO ================= -->
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator">/</span>
+                    <a href="{% url 'services' %}">Services</a>
+                    <span class="separator">/</span>
+                    <span class="current">Custom Software Development</span>
+                </nav>
+
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-gears" aria-hidden="true"></i> Custom Engineering &amp; SaaS
+                </span>
+
+                <h1>Custom Software Development &amp; Business Automation</h1>
+                <p class="hero-lead">
+                    We build bespoke business software, internal operations portals, automated approval pipelines, and scalable SaaS platforms. Engineered around your proprietary business workflows rather than forcing your operations into rigid off-the-shelf software.
+                </p>
+
+                <div class="service-hero-actions">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Schedule a Software Consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'case_study_detail' slug='custom-erp-system' %}" class="btn-outline-light">
+                        View Nucon Operational System
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= WHO IT IS FOR & PROBLEMS SOLVED ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Custom Architecture</span>
+                    <h2>Software Tailored to Your Exact Operational Model</h2>
+                    <p>Commercial off-the-shelf SaaS applications often introduce recurring licensing fees while forcing compromises on your core operating processes.</p>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Who Needs Custom Software</h3>
+                        <p>Our custom software engineering services solve operational bottlenecks for:</p>
+                        <ul>
+                            <li><strong>Growing Businesses Outgrowing Spreadsheets:</strong> Organizations where manual Excel sheets and shared Google Docs cause data duplication, version errors, and reconciliation delays.</li>
+                            <li><strong>Multi-Department Enterprises:</strong> Companies that need unified data handoffs between procurement, engineering, inventory, and executive reporting.</li>
+                            <li><strong>Software Product Founders:</strong> Startups building proprietary multi-tenant B2B SaaS web applications requiring scalable backends.</li>
+                            <li><strong>Industrial &amp; Logistics Companies:</strong> Operations requiring specialized status dashboards, dispatch tracking, and custom approval workflows.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-wrench" aria-hidden="true"></i> Key Operational Bottlenecks Solved</h3>
+                        <p>We eliminate repetitive administrative overhead and information silos across organizations:</p>
+                        <ul>
+                            <li><strong>Disconnected Legacy Systems:</strong> We build unified API bridges and data consolidation layers that synchronize legacy records with modern web dashboards.</li>
+                            <li><strong>Uncontrolled Data Access:</strong> We implement granular Role-Based Access Controls (RBAC), ensuring team members view and edit only authorized modules.</li>
+                            <li><strong>Manual Approval Delays:</strong> We automate multi-level approval hierarchies for purchase requisitions, quotations, and client milestones.</li>
+                            <li><strong>High Per-Seat Subscription Costs:</strong> Custom-built software provides complete intellectual property ownership with zero recurring per-user licensing fees.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CAPABILITIES & DELIVERABLES ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Scope &amp; Deliverables</span>
+                    <h2>Custom Software Engineering Capabilities</h2>
+                    <p>We engineer reliable, data-driven software platforms built for high transaction concurrency and long-term maintainability.</p>
+                </div>
+
+                <div class="cards-3col-grid">
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-table-columns" aria-hidden="true"></i></div>
+                        <h3>Internal Operations Dashboards</h3>
+                        <p>Clean administrative interfaces consolidating live KPIs, team task queues, inventory statuses, and executive financial summaries in real time.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Fast, responsive data tables &amp; filters</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Interactive charts and KPI metrics</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Role-based permission matrices</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Automated PDF and CSV report generation</li>
+                        </ul>
+                    </article>
+
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></div>
+                        <h3>Workflow Automation Pipelines</h3>
+                        <p>Systemized logic loops that replace manual handoffs with automated trigger events, email/SMS alerts, and transactional audit trails.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Multi-step approval state machines</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Automated email &amp; webhook dispatch</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Digital audit logging and compliance traces</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Third-party API synchronization</li>
+                        </ul>
+                    </article>
+
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-cloud" aria-hidden="true"></i></div>
+                        <h3>SaaS &amp; Multi-Tenant Platforms</h3>
+                        <p>Scalable web applications built to serve multiple client organizations with secure database isolation, subscription logic, and billing APIs.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Tenant data partitioning and security</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Token authentication and user invitations</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Subscription management &amp; billing webhooks</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Containerized cloud deployment (Docker)</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VERIFIED TECH STACK ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Tested Technologies</span>
+                    <h2>Verified Software Engineering Stack</h2>
+                    <p>We build on enterprise-grade open-source foundations known for stability, security, and developer ecosystem support.</p>
+                </div>
+
+                <div class="tech-stack-container">
+                    <div class="tech-stack-row">
+                        <span class="tech-stack-category">Backend Core</span>
+                        <div class="tech-stack-badges">
+                            <span class="tech-badge-item">Python 3</span>
+                            <span class="tech-badge-item">Django Framework</span>
+                            <span class="tech-badge-item">Django REST Framework</span>
+                            <span class="tech-badge-item">Node.js / Express</span>
+                        </div>
+                    </div>
+                    <div class="tech-stack-row">
+                        <span class="tech-stack-category">Frontend &amp; Dashboards</span>
+                        <div class="tech-stack-badges">
+                            <span class="tech-badge-item">React.js</span>
+                            <span class="tech-badge-item">TypeScript</span>
+                            <span class="tech-badge-item">Vanilla Modern CSS</span>
+                            <span class="tech-badge-item">HTML5 / Web Components</span>
+                        </div>
+                    </div>
+                    <div class="tech-stack-row">
+                        <span class="tech-stack-category">Relational Databases</span>
+                        <div class="tech-stack-badges">
+                            <span class="tech-badge-item">PostgreSQL (Indexed Relational)</span>
+                            <span class="tech-badge-item">MySQL</span>
+                            <span class="tech-badge-item">SQLite (Dev / Embedded)</span>
+                            <span class="tech-badge-item">Redis (Caching / Queues)</span>
+                        </div>
+                    </div>
+                    <div class="tech-stack-row">
+                        <span class="tech-stack-category">Infrastructure &amp; DevOps</span>
+                        <div class="tech-stack-badges">
+                            <span class="tech-badge-item">Docker Containers</span>
+                            <span class="tech-badge-item">Linux / Ubuntu Servers</span>
+                            <span class="tech-badge-item">AWS Cloud Services</span>
+                            <span class="tech-badge-item">Nginx / Gunicorn Reverse Proxy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROCESS METHODOLOGY ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Software Lifecycle</span>
+                    <h2>Our Structured 4-Stage Software Development Lifecycle</h2>
+                    <p>We translate business processes into high-integrity software schemas through systematic engineering stages.</p>
+                </div>
+
+                <div class="process-flow-grid">
+                    <div class="flow-step-card">
+                        <div class="step-number">01</div>
+                        <h3>Process Mapping &amp; Schema Design</h3>
+                        <p>We document your team's real workflows, identify data dependencies, and draft normalized relational database schemas.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">02</div>
+                        <h3>API Modeling &amp; Interface Layout</h3>
+                        <p>We develop RESTful API contracts and clean administrative dashboard wireframes optimized for rapid data entry and clarity.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">03</div>
+                        <h3>Core Engineering &amp; Automation Logic</h3>
+                        <p>We implement business logic rules, transaction integrity checks, role validation, and automated background tasks.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">04</div>
+                        <h3>Integration Testing &amp; Cloud Launch</h3>
+                        <p>We execute concurrency load tests, conduct user acceptance testing with your team, and deploy to secure staging and production servers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= AUTHENTIC CASE STUDY SPOTLIGHT ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Documented Outcomes</span>
+                    <h2>Verified Software Engineering Proof</h2>
+                    <p>Review how our custom software solutions replace fragmented spreadsheets with centralized operations.</p>
+                </div>
+
+                <div class="proof-spotlight-box">
+                    <div class="spotlight-info">
+                        <span class="spotlight-tag">Aerospace &amp; Manufacturing Case Study</span>
+                        <h3>Custom Operations Software &amp; Inventory Ledger for Nucon Aerospace</h3>
+                        <p>
+                            Nucon Aerospace managed complex manufacturing across three facilities using manual spreadsheets and disconnected software, resulting in inventory errors and procurement bottlenecks. KK Digital Growth engineered a centralized cloud software system built on Django, React, and PostgreSQL, providing multi-warehouse tracking, automated RFQ matrices, and real-time executive visibility that accelerated operational turnaround by 45%.
+                        </p>
+                        <a href="{% url 'case_study_detail' slug='custom-erp-system' %}" class="spotlight-link">
+                            Explore the Nucon Operations Case Study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQS ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Frequently Asked Questions</span>
+                    <h2>Frequently Asked Questions on Custom Software</h2>
+                    <p>Honest technical insight into cost drivers, integration feasibility, and data ownership.</p>
+                </div>
+
+                <div class="faq-structured-container">
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> When should a company choose custom software over commercial SaaS?</h3>
+                        <p>Custom software is ideal when commercial off-the-shelf software cannot accommodate your core competitive workflows without expensive manual workarounds, when your per-seat subscription fees escalate as your staff grows, or when you require strict control over proprietary data security and internal compliance procedures.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Can custom software connect with our existing tools and hardware?</h3>
+                        <p>Yes. We design open, RESTful API endpoints and webhook integrations that communicate directly with existing accounting software, legacy inventory systems, biometric attendance hardware, and third-party logistics platforms.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> How do you guarantee database security and data integrity?</h3>
+                        <p>We implement ACID-compliant relational databases (such as PostgreSQL) with foreign key constraints, database transaction rollbacks, SQL injection prevention via Django ORM, encrypted HTTPS data transmission, and automated daily backup routines.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> What is your maintenance model after the software goes live?</h3>
+                        <p>We provide a dedicated warranty period immediately post-launch to monitor error rates and support user onboarding. Following launch, we offer flexible service level agreements (SLAs) for server maintenance, security patches, database tuning, and continuous feature expansion.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CTA BANNER ================= -->
+        <section class="site-container">
+            <div class="service-cta-block">
+                <h2>Ready to Automate Your Business Operations?</h2>
+                <p>Discuss your operational bottlenecks, database needs, and workflow automation goals with our software architects.</p>
+                <div class="cta-button-group">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Schedule a Free Architecture Review <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn-outline-light">
+                        Contact Our Software Team
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Structured Data: Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Custom Software Development",
+      "name": "Custom Software Development and Business Automation Services",
+      "description": "Bespoke business software, internal operations portals, workflow automation, and SaaS engineering services by KK Digital Growth.",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.kkdigitalgrowth.com/#organization"
+      },
+      "url": "https://www.kkdigitalgrowth.com/services/custom-software-development/",
+      "areaServed": [
+        { "@type": "City", "name": "Visakhapatnam" },
+        { "@type": "State", "name": "Andhra Pradesh" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Custom Software Capabilities",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Internal Operations Dashboards" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Workflow Automation Pipelines" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SaaS Platform Development" } }
+        ]
+      }
+    }
+    </script>
+</body>
+</html>

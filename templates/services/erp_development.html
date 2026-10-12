@@ -1,0 +1,347 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "partials/seo_meta.html" with seo_title="ERP Development Services | Custom Enterprise Resource Planning | KK Digital Growth" seo_description="Custom ERP software development for manufacturing, aerospace, and supply chain businesses. Multi-warehouse inventory, procurement RFQs, BOM versioning, and executive dashboards." seo_path="/services/erp-development/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Services" crumb_path="/services/" crumb2_name="ERP Development" crumb2_path="/services/erp-development/" %}
+
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "partials/google_tag_manager_head.html" %}
+    {% include "partials/meta_pixel.html" %}
+    {% include "partials/google_ads_tag.html" %}
+</head>
+<body>
+{% include "partials/google_tag_manager_body.html" %}
+    {% include 'header.html' %}
+
+    <main id="main-content">
+        <!-- ================= HERO ================= -->
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator">/</span>
+                    <a href="{% url 'services' %}">Services</a>
+                    <span class="separator">/</span>
+                    <span class="current">ERP Development</span>
+                </nav>
+
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-server" aria-hidden="true"></i> Enterprise Resource Planning
+                </span>
+
+                <h1>Custom ERP Development Services for Manufacturing &amp; Operations</h1>
+                <p class="hero-lead">
+                    We engineer unified Enterprise Resource Planning (ERP) platforms that centralize multi-facility inventory, procurement matrices, Bill of Materials (BOM) control, quality inspection, and executive financial reporting into a single high-integrity platform.
+                </p>
+
+                <div class="service-hero-actions">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Schedule an ERP Consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'case_study_detail' slug='skyroot-aerospace' %}" class="btn-outline-light">
+                        View Skyroot Aerospace Case Study
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= WHO IT IS FOR & PROBLEMS SOLVED ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Enterprise Clarity</span>
+                    <h2>Engineered for Complex Manufacturing &amp; Supply Chains</h2>
+                    <p>When off-the-shelf ERP platforms are too rigid or prohibitively expensive to customize, custom ERP development provides full operational alignment and zero per-seat licensing fees.</p>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-industry" aria-hidden="true"></i> Who Our ERP Systems Are Built For</h3>
+                        <p>Our custom ERP development services serve organizations with demanding operational workflows:</p>
+                        <ul>
+                            <li><strong>Industrial &amp; Discrete Manufacturers:</strong> Facilities needing nested Bill of Materials (BOM) tracking, work order routing, shop floor logging, and material consumption reconciliations.</li>
+                            <li><strong>Aerospace &amp; Defense Contractors:</strong> Companies requiring component serializations, AS9100 / ISO compliance audit trails, and strict Engineering Change Orders (ECO).</li>
+                            <li><strong>Multi-Warehouse Distributors:</strong> Businesses managing stock across regional facilities needing batch tracking, reorder alerts, and automated vendor RFQ matrices.</li>
+                            <li><strong>High-Compliance Enterprises:</strong> Organizations that must retain complete control over sensitive manufacturing records, proprietary CAD drawings, and cost accounting data.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Critical ERP Bottlenecks Solved</h3>
+                        <p>We eliminate operational disconnects that create production delays and financial blindspots:</p>
+                        <ul>
+                            <li><strong>Fragmented Departmental Spreadsheets:</strong> Replace disconnected Excel sheets across procurement, stores, and shop floor with an integrated relational database.</li>
+                            <li><strong>Inventory Reconciliation Discrepancies:</strong> Gain real-time ledger visibility across raw materials, work-in-progress (WIP), and finished goods.</li>
+                            <li><strong>Delayed Procurement Approval Cycles:</strong> Automate multi-tiered Request for Quote (RFQ) distributions, vendor comparative evaluation, and purchase order signoffs.</li>
+                            <li><strong>Compliance &amp; Audit Vulnerabilities:</strong> Enforce mandatory quality inspection checklists, non-conformance reports, and material lot traceability.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CAPABILITIES & MODULES ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Modular Architecture</span>
+                    <h2>Comprehensive Custom ERP Modules</h2>
+                    <p>Every module is designed to operate independently or synchronize cohesively across your entire operational enterprise.</p>
+                </div>
+
+                <div class="cards-3col-grid">
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></div>
+                        <h3>Multi-Warehouse Inventory Ledger</h3>
+                        <p>Complete traceability across storage depots with real-time stock levels, batch numbering, and automated replenishment triggers.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Multi-location warehouse transfers</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Batch and serial number serialization</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Automated reorder point alerts</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Discrepancy reconciliation logs</li>
+                        </ul>
+                    </article>
+
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i></div>
+                        <h3>Procurement &amp; Vendor Management</h3>
+                        <p>Structured procurement pipeline automating purchase requisitions, RFQ distribution matrices, and vendor performance scoring.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Automated RFQ matrix generation</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Purchase requisition approval matrices</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Vendor ledger and evaluation dashboards</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Automated purchase orders &amp; invoicing</li>
+                        </ul>
+                    </article>
+
+                    <article class="deliverable-card">
+                        <div class="card-icon"><i class="fa-solid fa-microchip" aria-hidden="true"></i></div>
+                        <h3>Engineering BOM &amp; ECO Control</h3>
+                        <p>High-integrity engineering change control linking CAD revisions, nested bills of materials, and assembly routing on the manufacturing floor.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Multi-tier Bill of Materials (BOM) hierarchy</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Engineering Change Requests (ECR) &amp; Orders (ECO)</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> CAD versioning &amp; document attachment</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Shop floor assembly consumption logging</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VERIFIED TECH STACK ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Tested Technologies</span>
+                    <h2>Verified ERP Engineering Stack</h2>
+                    <p>We deploy proven, scalable frameworks configured for high transaction concurrency and complex relational data modeling.</p>
+                </div>
+
+                <div class="tech-stack-container">
+                    <div class="tech-stack-row">
+                        <span class="tech-stack-category">Core Frameworks</span>
+                        <div class="tech-stack-badges">
+                            <span class="tech-badge-item">Python 3</span>
+                            <span class="tech-badge-item">Django / Frappe Framework</span>
+                            <span class="tech-badge-item">Node.js / Express</span>
+                            <span class="tech-badge-item">REST API Integration Hooks</span>
+                        </div>
+                    </div>
+                    <div class="tech-stack-row">
+                        <span class="tech-stack-category">User Interface</span>
+                        <div class="tech-stack-badges">
+                            <span class="tech-badge-item">React.js</span>
+                            <span class="tech-badge-item">TypeScript</span>
+                            <span class="tech-badge-item">High-Speed Tabular Grids</span>
+                            <span class="tech-badge-item">Responsive Floor Interface UI</span>
+                        </div>
+                    </div>
+                    <div class="tech-stack-row">
+                        <span class="tech-stack-category">Database &amp; Ledger</span>
+                        <div class="tech-stack-badges">
+                            <span class="tech-badge-item">PostgreSQL (Relational Schemas)</span>
+                            <span class="tech-badge-item">ACID Concurrency Handles</span>
+                            <span class="tech-badge-item">Automated DB Index Triggers</span>
+                            <span class="tech-badge-item">Redis Cache &amp; Queue</span>
+                        </div>
+                    </div>
+                    <div class="tech-stack-row">
+                        <span class="tech-stack-category">Cloud &amp; Telemetry</span>
+                        <div class="tech-stack-badges">
+                            <span class="tech-badge-item">Docker Containers</span>
+                            <span class="tech-badge-item">Kubernetes Orchestration</span>
+                            <span class="tech-badge-item">AWS Cloud Infrastructure</span>
+                            <span class="tech-badge-item">Power BI &amp; Grafana Dashboards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROCESS METHODOLOGY ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Implementation Lifecycle</span>
+                    <h2>Our Methodical 4-Stage ERP Implementation Process</h2>
+                    <p>ERP deployments succeed when business logic is carefully scoped before code is written. We follow a strict rollout framework.</p>
+                </div>
+
+                <div class="process-flow-grid">
+                    <div class="flow-step-card">
+                        <div class="step-number">01</div>
+                        <h3>On-Site Operations &amp; Workflow Audit</h3>
+                        <p>We interview floor operators, warehouse managers, and finance teams to document existing bottlenecks, schemas, and approval hierarchies.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">02</div>
+                        <h3>Modular Architecture &amp; Database Design</h3>
+                        <p>We plan modular ERP structures, role permission matrices, foreign key relationships, and data migration pipelines for legacy records.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">03</div>
+                        <h3>Iterative Development &amp; Module Validation</h3>
+                        <p>We build modules iteratively, validating concurrency handles, automated PDF generation, and department workflows against real test data.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">04</div>
+                        <h3>Staff Onboarding, Cutover &amp; Live Monitoring</h3>
+                        <p>We lead user onboarding workshops, execute database cutovers during planned maintenance windows, and provide intensive post-launch support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= AUTHENTIC CASE STUDIES ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Documented Case Studies</span>
+                    <h2>Verified ERP Engineering Case Studies</h2>
+                    <p>Review documented implementations where custom ERP platforms replaced manual procedures with centralized control.</p>
+                </div>
+
+                <div class="proof-spotlight-box" style="margin-bottom: 25px;">
+                    <div class="spotlight-info">
+                        <span class="spotlight-tag">Aerospace &amp; Space Technology</span>
+                        <h3>Aerospace ERP Platform for Skyroot Aerospace</h3>
+                        <p>
+                            Skyroot Aerospace required a unified enterprise system to manage component procurement, rocket assembly routing, AS9100 quality compliance, and launch program tracking under strict traceability standards. KK Digital Growth engineered a centralized ERP platform combining React, TypeScript, Node.js, and PostgreSQL with Power BI reporting.
+                        </p>
+                        <a href="{% url 'case_study_detail' slug='skyroot-aerospace' %}" class="spotlight-link">
+                            Read the Skyroot Aerospace ERP Case Study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="proof-spotlight-box">
+                    <div class="spotlight-info">
+                        <span class="spotlight-tag">Precision Manufacturing</span>
+                        <h3>Manufacturing Operations ERP for Nucon Aerospace</h3>
+                        <p>
+                            Nucon Aerospace transitioned complex manufacturing workflows across three facilities from spreadsheets into a centralized, cloud-based Django and React ERP platform, reducing operational lag by 45% and establishing real-time stock reconciliations.
+                        </p>
+                        <a href="{% url 'case_study_detail' slug='custom-erp-system' %}" class="spotlight-link">
+                            Read the Nucon Aerospace ERP Case Study <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQS ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Frequently Asked Questions</span>
+                    <h2>Frequently Asked Questions About ERP Development</h2>
+                    <p>Clear facts on timelines, legacy data migration, and software maintenance.</p>
+                </div>
+
+                <div class="faq-structured-container">
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> How long does a custom ERP development project typically take?</h3>
+                        <p>Timelines depend on the number of departments and modules required. A focused multi-warehouse inventory and procurement ERP typically takes 3 to 5 months, while comprehensive multi-department systems encompassing engineering BOMs, finance, and quality compliance range from 6 to 12 months. We deploy modules iteratively so your teams see value early.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> How do you migrate existing historical data from legacy software or Excel?</h3>
+                        <p>We write automated data extraction and transformation scripts that clean, de-duplicate, and validate historical records (vendors, component catalogs, transaction ledgers) before importing them into the new relational schema during a planned staging cutover.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Can the ERP be hosted on our private cloud or on-premise servers?</h3>
+                        <p>Yes. We package the ERP platform using Docker containers, allowing you to deploy either to private cloud instances (AWS, Google Cloud, DigitalOcean) or on-premise company servers behind your internal corporate firewall for strict data sovereignty.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Are there any recurring per-user licensing fees?</h3>
+                        <p>No. Unlike off-the-shelf commercial ERP vendors that charge monthly per-user licenses, custom ERP systems developed by KK Digital Growth belong entirely to your company. You can add unlimited employee accounts without licensing fee increases.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CTA BANNER ================= -->
+        <section class="site-container">
+            <div class="service-cta-block">
+                <h2>Ready to Centralize Your Manufacturing Operations?</h2>
+                <p>Discuss your operational requirements, database structures, and rollout timeline with our ERP architects.</p>
+                <div class="cta-button-group">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Book a Technical ERP Scoping Call <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn-outline-light">
+                        Contact Our Visakhapatnam Office
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Structured Data: Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "ERP Development",
+      "name": "Custom Enterprise Resource Planning (ERP) Development Services",
+      "description": "Custom ERP development for manufacturing, engineering, and supply chain operations by KK Digital Growth.",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.kkdigitalgrowth.com/#organization"
+      },
+      "url": "https://www.kkdigitalgrowth.com/services/erp-development/",
+      "areaServed": [
+        { "@type": "City", "name": "Visakhapatnam" },
+        { "@type": "State", "name": "Andhra Pradesh" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "ERP Capabilities",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Multi-Warehouse Inventory Ledger" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Procurement and RFQ Matrices" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Engineering BOM and ECO Control" } }
+        ]
+      }
+    }
+    </script>
+</body>
+</html>
