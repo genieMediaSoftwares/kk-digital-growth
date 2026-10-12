@@ -38,11 +38,12 @@
     outline-offset: 2px;
 }
 .dropdown-arrow {
-    font-size: 11px;
+    display: block;
+    width: 12px;
+    height: 12px;
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     color: inherit;
 }
-.nav-dropdown:hover .dropdown-arrow,
 .nav-dropdown.open .dropdown-arrow {
     transform: rotate(180deg);
     color: #F79421;
@@ -74,9 +75,9 @@
     right: 0;
     height: 18px;
 }
-.nav-dropdown:hover .dropdown-menu,
-.nav-dropdown.open .dropdown-menu,
-.nav-dropdown:focus-within .dropdown-menu {
+.nav-dropdown.open .dropdown-menu {
+    /* visible at once, so focus() can move into the menu straight away */
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -243,16 +244,15 @@
                     <button type="button"
                             class="dropdown-toggle-btn"
                             id="services-dropdown-btn"
-                            aria-haspopup="true"
                             aria-expanded="false"
                             aria-controls="services-dropdown-menu"
-                            aria-label="Toggle Services submenu">
-                        <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
+                            aria-label="Show service pages">
+                        <svg class="dropdown-arrow" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 4.5 6 8.5 10 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </button>
                 </div>
-                <ul class="dropdown-menu" id="services-dropdown-menu" role="menu" aria-label="Services list">
-                    <li role="none">
-                        <a href="{% url 'service_web_development' %}" role="menuitem" class="dropdown-item {% if request.path == '/services/web-development/' %}active-sublink{% endif %}">
+                <ul class="dropdown-menu" id="services-dropdown-menu" aria-label="Service pages">
+                    <li>
+                        <a href="{% url 'service_web_development' %}" class="dropdown-item {% if request.path == '/services/web-development/' %}active-sublink{% endif %}">
                             <span class="dropdown-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
                             <span class="dropdown-text">
                                 <span class="dropdown-title">Website Development</span>
@@ -260,8 +260,8 @@
                             </span>
                         </a>
                     </li>
-                    <li role="none">
-                        <a href="{% url 'service_mobile_app_development' %}" role="menuitem" class="dropdown-item {% if request.path == '/services/mobile-app-development/' %}active-sublink{% endif %}">
+                    <li>
+                        <a href="{% url 'service_mobile_app_development' %}" class="dropdown-item {% if request.path == '/services/mobile-app-development/' %}active-sublink{% endif %}">
                             <span class="dropdown-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span>
                             <span class="dropdown-text">
                                 <span class="dropdown-title">Mobile App Development</span>
@@ -269,17 +269,17 @@
                             </span>
                         </a>
                     </li>
-                    <li role="none">
-                        <a href="{% url 'service_erp_development' %}" role="menuitem" class="dropdown-item {% if request.path == '/services/erp-development/' %}active-sublink{% endif %}">
-                            <span class="dropdown-icon"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></span>
+                    <li>
+                        <a href="{% url 'service_erp_development' %}" class="dropdown-item {% if request.path == '/services/erp-development/' %}active-sublink{% endif %}">
+                            <span class="dropdown-icon"><i class="fa-solid fa-industry" aria-hidden="true"></i></span>
                             <span class="dropdown-text">
                                 <span class="dropdown-title">ERP Development</span>
                                 <span class="dropdown-desc">Custom inventory, manufacturing &amp; supply chain</span>
                             </span>
                         </a>
                     </li>
-                    <li role="none">
-                        <a href="{% url 'service_custom_software' %}" role="menuitem" class="dropdown-item {% if request.path == '/services/custom-software-development/' %}active-sublink{% endif %}">
+                    <li>
+                        <a href="{% url 'service_custom_software' %}" class="dropdown-item {% if request.path == '/services/custom-software-development/' %}active-sublink{% endif %}">
                             <span class="dropdown-icon"><i class="fa-solid fa-cubes" aria-hidden="true"></i></span>
                             <span class="dropdown-text">
                                 <span class="dropdown-title">Custom Software Development</span>
@@ -287,8 +287,8 @@
                             </span>
                         </a>
                     </li>
-                    <li role="none">
-                        <a href="{% url 'service_ui_ux_design' %}" role="menuitem" class="dropdown-item {% if request.path == '/services/ui-ux-design/' %}active-sublink{% endif %}">
+                    <li>
+                        <a href="{% url 'service_ui_ux_design' %}" class="dropdown-item {% if request.path == '/services/ui-ux-design/' %}active-sublink{% endif %}">
                             <span class="dropdown-icon"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></span>
                             <span class="dropdown-text">
                                 <span class="dropdown-title">UI/UX Design &amp; QA</span>
@@ -296,9 +296,9 @@
                             </span>
                         </a>
                     </li>
-                    <li class="dropdown-divider" role="separator"></li>
-                    <li role="none" class="dropdown-footer-item">
-                        <a href="{% url 'services' %}" role="menuitem" class="dropdown-all-services">
+                    <li class="dropdown-divider" aria-hidden="true"></li>
+                    <li class="dropdown-footer-item">
+                        <a href="{% url 'services' %}" class="dropdown-all-services">
                             <span>Explore All Services &amp; Capabilities</span>
                             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                         </a>
@@ -566,13 +566,17 @@ document.addEventListener("DOMContentLoaded", function() {
     // Click/touch toggle
     toggleBtn.addEventListener("click", toggleMenu);
 
-    // Desktop hover
-    dropdown.addEventListener("mouseenter", openMenu);
-    dropdown.addEventListener("mouseleave", closeMenu);
+    // Desktop hover (mouse only, so a tap doesn't open the menu and then toggle it shut)
+    dropdown.addEventListener("pointerenter", function(e) {
+        if (e.pointerType === "mouse") openMenu();
+    });
+    dropdown.addEventListener("pointerleave", function(e) {
+        if (e.pointerType === "mouse") closeMenu();
+    });
 
     // Keyboard support
     dropdown.addEventListener("keydown", function(e) {
-        if (e.key === "Escape" || e.keyCode === 27) {
+        if (e.key === "Escape" && dropdown.classList.contains("open")) {
             closeMenu();
             toggleBtn.focus();
         } else if (e.key === "ArrowDown" && document.activeElement === toggleBtn) {

@@ -8,10 +8,10 @@
 .dropdown-toggle-btn:hover{color:#F79421}
 .dropdown-toggle-btn:focus-visible{outline:2px solid #F79421;outline-offset:2px}
 .dropdown-arrow{font-size:11px;transition:transform .25s cubic-bezier(0.4,0,0.2,1);color:inherit}
-.nav-dropdown:hover .dropdown-arrow,.nav-dropdown.open .dropdown-arrow{transform:rotate(180deg);color:#F79421}
+.nav-dropdown.open .dropdown-arrow{transform:rotate(180deg);color:#F79421}
 .dropdown-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(8px);width:360px;background:#ffffff;border-radius:16px;padding:10px;box-shadow:0 16px 40px rgba(15,62,112,0.14),0 2px 8px rgba(0,0,0,0.04);border:1px solid rgba(15,62,112,0.08);list-style:none;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,transform .25s cubic-bezier(0.4,0,0.2,1),visibility .25s ease;z-index:1000;margin:0}
 .dropdown-menu::before{content:"";position:absolute;top:-16px;left:0;right:0;height:18px}
-.nav-dropdown:hover .dropdown-menu,.nav-dropdown.open .dropdown-menu,.nav-dropdown:focus-within .dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.nav-dropdown.open .dropdown-menu{transition:opacity .25s ease,transform .25s cubic-bezier(0.4,0,0.2,1),visibility 0s;opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
 .dropdown-menu li{position:relative;margin:0;padding:0}
 .dropdown-menu li::before{display:none !important}
 .dropdown-item{display:flex !important;align-items:flex-start;gap:12px;padding:10px 14px;border-radius:10px;text-decoration:none !important;transition:all .2s cubic-bezier(0.4,0,0.2,1)}
