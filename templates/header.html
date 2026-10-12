@@ -1,5 +1,204 @@
 {% load static %}
 
+<style>
+/* Services Desktop Dropdown Navigation */
+.nav-dropdown {
+    position: relative;
+}
+.nav-services-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+.nav-services-link {
+    text-decoration: none;
+    color: #0F3E70;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.dropdown-toggle-btn {
+    background: transparent;
+    border: none;
+    color: #0F3E70;
+    cursor: pointer;
+    padding: 6px 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+    line-height: 1;
+}
+.dropdown-toggle-btn:hover {
+    color: #F79421;
+}
+.dropdown-toggle-btn:focus-visible {
+    outline: 2px solid #F79421;
+    outline-offset: 2px;
+}
+.dropdown-arrow {
+    font-size: 11px;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    color: inherit;
+}
+.nav-dropdown:hover .dropdown-arrow,
+.nav-dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+    color: #F79421;
+}
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    width: 360px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 16px 40px rgba(15, 62, 112, 0.14), 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(15, 62, 112, 0.08);
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.25s ease;
+    z-index: 1000;
+    margin: 0;
+}
+.dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -16px;
+    left: 0;
+    right: 0;
+    height: 18px;
+}
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown.open .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+.dropdown-menu li {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.dropdown-menu li::before {
+    display: none !important;
+}
+.dropdown-item {
+    display: flex !important;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-decoration: none !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dropdown-item:hover,
+.dropdown-item:focus-visible {
+    background: #f7fafc;
+    transform: translateX(3px);
+    outline: none;
+}
+.dropdown-item:focus-visible {
+    outline: 2px solid #F79421;
+    outline-offset: -2px;
+}
+.dropdown-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(247, 148, 33, 0.1);
+    color: #F79421;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s ease;
+}
+.dropdown-item:hover .dropdown-icon,
+.dropdown-item:focus-visible .dropdown-icon {
+    background: #F79421;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(247, 148, 33, 0.3);
+}
+.dropdown-text {
+    display: flex;
+    flex-direction: column;
+}
+.dropdown-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0F3E70;
+    line-height: 1.3;
+    transition: color 0.2s ease;
+}
+.dropdown-item:hover .dropdown-title,
+.dropdown-item:focus-visible .dropdown-title {
+    color: #F79421;
+}
+.dropdown-desc {
+    font-size: 11.5px;
+    color: #64748b;
+    font-weight: 400;
+    line-height: 1.35;
+    margin-top: 3px;
+}
+.dropdown-item.active-sublink {
+    background: #eef6ff;
+}
+.dropdown-item.active-sublink .dropdown-title {
+    color: #F79421;
+}
+.dropdown-divider {
+    height: 1px;
+    background: #edf2f7;
+    margin: 6px 4px;
+    padding: 0;
+}
+.dropdown-all-services {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 16px;
+    border-radius: 10px;
+    background: #f0f7ff;
+    color: #0F3E70 !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    margin-top: 4px;
+}
+.dropdown-all-services:hover,
+.dropdown-all-services:focus-visible {
+    background: #0F3E70;
+    color: #ffffff !important;
+    transform: none;
+    outline: none;
+}
+.dropdown-all-services:focus-visible {
+    outline: 2px solid #F79421;
+    outline-offset: -2px;
+}
+.dropdown-all-services i {
+    font-size: 12px;
+    transition: transform 0.2s ease;
+}
+.dropdown-all-services:hover i,
+.dropdown-all-services:focus-visible i {
+    transform: translateX(4px);
+    color: #ffffff;
+}
+</style>
+
 <header class="navbar">
     <div class="navbar-container home-container site-container">
 
@@ -35,14 +234,23 @@
                 </a>
             </li>
 
-            <li class="nav-dropdown">
-                <a href="{% url 'services' %}"
-                   class="dropdown-trigger {% if '/services/' in request.path %}active-link{% endif %}"
-                   aria-haspopup="true"
-                   aria-expanded="false">
-                    Services <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
-                </a>
-                <ul class="dropdown-menu" role="menu">
+            <li class="nav-dropdown" id="services-nav-dropdown">
+                <div class="nav-services-wrap">
+                    <a href="{% url 'services' %}"
+                       class="nav-services-link {% if '/services/' in request.path %}active-link{% endif %}">
+                        Services
+                    </a>
+                    <button type="button"
+                            class="dropdown-toggle-btn"
+                            id="services-dropdown-btn"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            aria-controls="services-dropdown-menu"
+                            aria-label="Toggle Services submenu">
+                        <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <ul class="dropdown-menu" id="services-dropdown-menu" role="menu" aria-label="Services list">
                     <li role="none">
                         <a href="{% url 'service_web_development' %}" role="menuitem" class="dropdown-item {% if request.path == '/services/web-development/' %}active-sublink{% endif %}">
                             <span class="dropdown-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
@@ -321,6 +529,74 @@ document.addEventListener("click", (e) => {
 
 });
 
+</script>
+
+<!-- ================= SERVICES DROPDOWN ACCESSIBILITY SCRIPT ================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const dropdown = document.getElementById("services-nav-dropdown");
+    if (!dropdown) return;
+
+    const toggleBtn = document.getElementById("services-dropdown-btn");
+    const menu = document.getElementById("services-dropdown-menu");
+    if (!toggleBtn || !menu) return;
+
+    function openMenu() {
+        dropdown.classList.add("open");
+        toggleBtn.setAttribute("aria-expanded", "true");
+    }
+
+    function closeMenu() {
+        dropdown.classList.remove("open");
+        toggleBtn.setAttribute("aria-expanded", "false");
+    }
+
+    function toggleMenu(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        if (dropdown.classList.contains("open")) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    }
+
+    // Click/touch toggle
+    toggleBtn.addEventListener("click", toggleMenu);
+
+    // Desktop hover
+    dropdown.addEventListener("mouseenter", openMenu);
+    dropdown.addEventListener("mouseleave", closeMenu);
+
+    // Keyboard support
+    dropdown.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" || e.keyCode === 27) {
+            closeMenu();
+            toggleBtn.focus();
+        } else if (e.key === "ArrowDown" && document.activeElement === toggleBtn) {
+            e.preventDefault();
+            openMenu();
+            const firstLink = menu.querySelector("a");
+            if (firstLink) firstLink.focus();
+        }
+    });
+
+    // Close on click outside
+    document.addEventListener("click", function(e) {
+        if (!dropdown.contains(e.target)) {
+            closeMenu();
+        }
+    });
+
+    // Close when focus leaves the dropdown
+    document.addEventListener("focusin", function(e) {
+        if (!dropdown.contains(e.target)) {
+            closeMenu();
+        }
+    });
+});
 </script>
 
 <!-- ================= DYNAMIC SCROLL REVEAL SCRIPT ================= -->
