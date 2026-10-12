@@ -1,0 +1,252 @@
+/*=========================================
+  KK DIGITAL GROWTH - PUBLIC BLOG STYLESHEET
+  Design Language: Identical to Case Studies page
+  Colors: Navy (#112b4d), Orange Accent (#F79421), Light Gray (#f8fbff)
+=========================================*/
+
+/* 1. HERO SECTION */
+.blog-hero {
+    background: #112b4d;
+    padding: 60px 0 90px 0;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+}
+
+.blog-hero .case-hero-container {
+    max-width: 900px !important;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* 2. FILTER BUTTONS BAR */
+.blog-listing-section {
+    background: #f8fbff;
+    padding: 70px 0 100px 0;
+}
+
+.blog-filter-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 50px;
+}
+
+.blog-filter-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 50px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #17375d;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(18, 38, 63, 0.03);
+}
+
+.blog-filter-btn:hover {
+    border-color: #F79421;
+    color: #F79421;
+    transform: translateY(-2px);
+}
+
+.blog-filter-btn.active {
+    background: #F79421;
+    border-color: #F79421;
+    color: #ffffff !important;
+    box-shadow: 0 8px 20px rgba(247, 148, 33, 0.3);
+    font-weight: 700;
+}
+
+/* 3. GRID & CARDS (2 Columns Desktop, Laptop, Tablet; 1 Column Mobile) */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.blog-card-meta-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.blog-read-time {
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.no-blogs-found {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.no-blogs-found i {
+    font-size: 48px;
+    color: #94a3b8;
+    margin-bottom: 16px;
+}
+
+.no-blogs-found h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #17375d;
+    margin-bottom: 8px;
+}
+
+.no-blogs-found p {
+    color: #64748b;
+    font-size: 15px;
+}
+
+/* 4. SINGLE BLOG DETAIL STYLING (Matching Case Study Detail) */
+.blog-detail-featured-img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(18, 38, 63, 0.08);
+}
+
+.blog-article-content {
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #334155;
+}
+
+.blog-article-content h1,
+.blog-article-content h2,
+.blog-article-content h3,
+.blog-article-content h4 {
+    color: #17375d;
+    font-weight: 800;
+    margin: 28px 0 16px 0;
+    line-height: 1.3;
+}
+
+.blog-article-content h2 { font-size: 24px; }
+.blog-article-content h3 { font-size: 20px; }
+.blog-article-content h4 { font-size: 18px; }
+
+.blog-article-content p {
+    margin-bottom: 20px;
+}
+
+.blog-article-content img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 16px;
+    margin: 24px 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.blog-article-content blockquote {
+    border-left: 4px solid #F79421;
+    background: #fff8f0;
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    color: #7c2d12;
+    font-size: 17px;
+}
+
+.blog-article-content pre,
+.blog-article-content code {
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 18px;
+    border-radius: 12px;
+    overflow-x: auto;
+    font-family: monospace;
+    font-size: 14.5px;
+    display: block;
+    margin: 24px 0;
+}
+
+.blog-article-content table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin: 24px 0;
+}
+
+.blog-article-content table th,
+.blog-article-content table td {
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+}
+
+.blog-article-content table th {
+    background: #f1f5f9;
+    color: #17375d;
+    font-weight: 700;
+}
+
+/* 5. RESPONSIVE BREAKPOINTS (320px, 375px, 425px, 768px, 1024px, 1440px) */
+@media screen and (max-width: 1024px) {
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .blog-grid {
+        grid-template-columns: 1fr !important;
+        gap: 28px;
+    }
+
+    .blog-listing-section {
+        padding: 50px 0 70px 0;
+    }
+
+    .blog-filter-wrapper {
+        gap: 8px;
+        margin-bottom: 35px;
+    }
+
+    .blog-filter-btn {
+        padding: 8px 18px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .blog-hero {
+        padding: 40px 0 60px 0;
+    }
+
+    .blog-hero h1 {
+        font-size: 28px !important;
+    }
+
+    .case-card-content {
+        padding: 22px;
+    }
+
+    .case-card-content h2 {
+        font-size: 20px;
+    }
+}

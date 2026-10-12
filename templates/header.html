@@ -35,11 +35,67 @@
                 </a>
             </li>
 
-            <li>
+            <li class="nav-dropdown">
                 <a href="{% url 'services' %}"
-                   class="{% if request.path == '/services/' %}active-link{% endif %}">
-                    Services
+                   class="dropdown-trigger {% if '/services/' in request.path %}active-link{% endif %}"
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                    Services <i class="fa-solid fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
                 </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li role="none">
+                        <a href="{% url 'service_web_development' %}" role="menuitem" class="dropdown-item {% if request.path == '/services/web-development/' %}active-sublink{% endif %}">
+                            <span class="dropdown-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+                            <span class="dropdown-text">
+                                <span class="dropdown-title">Website Development</span>
+                                <span class="dropdown-desc">Corporate websites, web portals &amp; e-commerce</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="{% url 'service_mobile_app_development' %}" role="menuitem" class="dropdown-item {% if request.path == '/services/mobile-app-development/' %}active-sublink{% endif %}">
+                            <span class="dropdown-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span>
+                            <span class="dropdown-text">
+                                <span class="dropdown-title">Mobile App Development</span>
+                                <span class="dropdown-desc">Native iOS, Android &amp; Flutter cross-platform</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="{% url 'service_erp_development' %}" role="menuitem" class="dropdown-item {% if request.path == '/services/erp-development/' %}active-sublink{% endif %}">
+                            <span class="dropdown-icon"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></span>
+                            <span class="dropdown-text">
+                                <span class="dropdown-title">ERP Development</span>
+                                <span class="dropdown-desc">Custom inventory, manufacturing &amp; supply chain</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="{% url 'service_custom_software' %}" role="menuitem" class="dropdown-item {% if request.path == '/services/custom-software-development/' %}active-sublink{% endif %}">
+                            <span class="dropdown-icon"><i class="fa-solid fa-cubes" aria-hidden="true"></i></span>
+                            <span class="dropdown-text">
+                                <span class="dropdown-title">Custom Software Development</span>
+                                <span class="dropdown-desc">Automations, enterprise cloud &amp; API platforms</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li role="none">
+                        <a href="{% url 'service_ui_ux_design' %}" role="menuitem" class="dropdown-item {% if request.path == '/services/ui-ux-design/' %}active-sublink{% endif %}">
+                            <span class="dropdown-icon"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></span>
+                            <span class="dropdown-text">
+                                <span class="dropdown-title">UI/UX Design &amp; QA</span>
+                                <span class="dropdown-desc">User journeys, wireframes &amp; rigorous testing</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="dropdown-divider" role="separator"></li>
+                    <li role="none" class="dropdown-footer-item">
+                        <a href="{% url 'services' %}" role="menuitem" class="dropdown-all-services">
+                            <span>Explore All Services &amp; Capabilities</span>
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
             </li>
 
             <li>
