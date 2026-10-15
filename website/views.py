@@ -13,7 +13,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.utils.text import slugify
 from django.contrib.auth.hashers import check_password
-from .models import Consultation, Admin, Category, Blog
+from .models import Consultation, Admin, Category, Blog, JobOpening, JobApplication
 from .forms import ContactForm, AdminLoginForm, BlogForm
 
 
@@ -300,6 +300,34 @@ def service_erp_development(request):
 
 def service_ui_ux_design(request):
     return render(request, "services/ui_ux_design.html")
+
+
+def service_software_engineering(request):
+    return render(request, "services/software_engineering.html")
+
+
+def service_enterprise_systems(request):
+    return render(request, "services/enterprise_business_systems.html")
+
+
+def service_ai_solutions(request):
+    return render(request, "services/ai_solutions.html")
+
+
+def service_product_design(request):
+    return render(request, "services/experience_product_design.html")
+
+
+def service_cloud_devops(request):
+    return render(request, "services/cloud_devops.html")
+
+
+def service_digital_marketing(request):
+    return render(request, "services/digital_marketing.html")
+
+
+def service_seo(request):
+    return render(request, "services/seo_services.html")
 
 
 def location_visakhapatnam(request):
@@ -823,6 +851,14 @@ def admin_dashboard_view(request):
     except Exception:
         pass
 
+    open_jobs_count = 0
+    new_applications_count = 0
+    try:
+        open_jobs_count = JobOpening.objects.open().count()
+        new_applications_count = JobApplication.objects.filter(status='new').count()
+    except Exception:
+        pass
+
     context = {
         'admin_email': admin_email,
         'admin_name': admin_name,
@@ -830,6 +866,8 @@ def admin_dashboard_view(request):
         'published_blogs_count': published_blogs_count,
         'draft_blogs_count': draft_blogs_count,
         'categories_count': categories_count,
+        'open_jobs_count': open_jobs_count,
+        'new_applications_count': new_applications_count,
     }
     return render(request, 'admin/dashboard.html', context)
 

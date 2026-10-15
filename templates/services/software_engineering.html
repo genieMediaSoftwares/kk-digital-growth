@@ -1,0 +1,352 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "partials/seo_meta.html" with seo_title="Software Engineering: Websites, Apps & SaaS | KK Digital Growth" seo_description="Website, web application and mobile app development, custom software, SaaS platforms and e-commerce stores, built by KK Digital Growth in Visakhapatnam." seo_path="/services/software-engineering/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Services" crumb_path="/services/" crumb2_name="Software Engineering" crumb2_path="/services/software-engineering/" %}
+
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=8.1">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=9.2">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "partials/google_tag_manager_head.html" %}
+    {% include "partials/meta_pixel.html" %}
+    {% include "partials/google_ads_tag.html" %}
+</head>
+<body>
+{% include "partials/google_tag_manager_body.html" %}
+    {% include 'header.html' %}
+
+    <main id="main-content">
+        <!-- ================= HERO ================= -->
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <a href="{% url 'services' %}">Services</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <span class="current" aria-current="page">Software Engineering</span>
+                </nav>
+
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-code" aria-hidden="true"></i> Service area 01 · Software Engineering
+                </span>
+
+                <h1>Software Engineering: Websites, Apps, Custom Software &amp; SaaS</h1>
+                <p class="hero-lead">
+                    We design and build the software your customers and staff use directly: websites, web applications, mobile apps, custom software, SaaS products and online stores. Each project is scoped around who will use it, what it has to connect to, and what your team will need to manage after launch.
+                </p>
+
+                <div class="service-hero-actions">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Discuss your project <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'process' %}" class="btn-outline-light">
+                        See how we deliver
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SUB-SERVICES ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">What's Included</span>
+                    <h2>Six Software Engineering Services</h2>
+                    <p>Most projects combine two or three of these, for example a web application with a companion mobile app.</p>
+                </div>
+
+                <div class="svc-card-grid">
+                    <article class="svc-card" id="website-development">
+                        <div class="card-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
+                        <h3>Website Development</h3>
+                        <p>Company websites that explain what you do and make it easy for visitors to get in touch.</p>
+                        <ul class="svc-card-list">
+                            <li>Custom-designed, responsive layouts</li>
+                            <li>Built in custom code, WordPress or Shopify</li>
+                            <li>Enquiry, quotation and file-upload forms</li>
+                            <li>Fast-loading pages with a clean, crawlable structure</li>
+                        </ul>
+                        <a href="{% url 'service_web_development' %}" class="svc-card-link">Website development details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <article class="svc-card" id="web-applications">
+                        <div class="card-icon"><i class="fa-solid fa-display" aria-hidden="true"></i></div>
+                        <h3>Web Application Development</h3>
+                        <p>Browser-based applications where people log in to get something done, such as customer portals, booking systems or internal tools.</p>
+                        <ul class="svc-card-list">
+                            <li>Django or Node.js backends with React interfaces</li>
+                            <li>User accounts with role-based permissions</li>
+                            <li>REST APIs that mobile apps and other systems can use</li>
+                            <li>Document and image uploads</li>
+                        </ul>
+                        <a href="{% url 'service_custom_software' %}" class="svc-card-link">Custom software details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <article class="svc-card" id="mobile-app-development">
+                        <div class="card-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></div>
+                        <h3>Mobile App Development</h3>
+                        <p>iOS and Android apps, usually built from one Flutter codebase, together with the backend they rely on.</p>
+                        <ul class="svc-card-list">
+                            <li>Flutter apps for phones and tablets</li>
+                            <li>Secure REST backends with token authentication</li>
+                            <li>Push notifications through Firebase Cloud Messaging</li>
+                            <li>App Store and Google Play submission</li>
+                        </ul>
+                        <a href="{% url 'service_mobile_app_development' %}" class="svc-card-link">Mobile app development details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <article class="svc-card" id="custom-software">
+                        <div class="card-icon"><i class="fa-solid fa-cubes" aria-hidden="true"></i></div>
+                        <h3>Custom Software</h3>
+                        <p>Software built for a process that off-the-shelf products handle badly, and owned by your business rather than rented per user.</p>
+                        <ul class="svc-card-list">
+                            <li>Your current process mapped before anything is designed</li>
+                            <li>Relational databases such as PostgreSQL or MySQL</li>
+                            <li>Role-based access control</li>
+                            <li>Source code ownership once payment obligations are met</li>
+                        </ul>
+                        <a href="{% url 'service_custom_software' %}" class="svc-card-link">Custom software development <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <article class="svc-card" id="saas-platforms">
+                        <div class="card-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div>
+                        <h3>SaaS Platforms</h3>
+                        <p>Multi-tenant web products that serve many customer organisations from a single application.</p>
+                        <ul class="svc-card-list">
+                            <li>Data kept separate for each customer organisation</li>
+                            <li>Sign-up, user invitations and token authentication</li>
+                            <li>Subscription logic and billing webhooks</li>
+                        </ul>
+                        <a href="{% url 'service_custom_software' %}#saas-platforms" class="svc-card-link">SaaS platform details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <article class="svc-card" id="ecommerce">
+                        <div class="card-icon"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i></div>
+                        <h3>E-commerce Development</h3>
+                        <p>Online stores built on Shopify or as custom Django stores, organised so customers can find products and check out easily on a phone.</p>
+                        <ul class="svc-card-list">
+                            <li>Shopify theme customisation</li>
+                            <li>Payment gateway integration, such as Razorpay or Stripe</li>
+                            <li>Organisation of large product catalogues</li>
+                            <li>Mobile-friendly checkout</li>
+                        </ul>
+                        <a href="{% url 'service_web_development' %}#ecommerce" class="svc-card-link">E-commerce details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= WHO & WHY ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Fit</span>
+                    <h2>Who It's For and What It Solves</h2>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-user-check" aria-hidden="true"></i> Who Usually Needs This</h3>
+                        <ul>
+                            <li><strong>Founders</strong> launching a new product, app or SaaS idea.</li>
+                            <li><strong>Sales and marketing teams</strong> that need a website people can trust and contact easily.</li>
+                            <li><strong>Operations managers</strong> whose customers or field staff need a portal or an app.</li>
+                            <li><strong>Retail brands</strong> starting or rebuilding an online store.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-wrench" aria-hidden="true"></i> Problems It Addresses</h3>
+                        <ul>
+                            <li>An outdated website that is hard to use on a phone or hard for your team to update.</li>
+                            <li>Customers phoning or emailing for things they could do themselves online.</li>
+                            <li>A process that no available product handles without awkward workarounds.</li>
+                            <li>Separate web and mobile systems that don't share the same data.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SCOPE ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Scope</span>
+                    <h2>What a Project Includes</h2>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-square-check" aria-hidden="true"></i> Usually Included</h3>
+                        <ul>
+                            <li>Requirements and user-journey mapping.</li>
+                            <li>Screen design for the pages and app views being built.</li>
+                            <li>Front-end and back-end development.</li>
+                            <li>Integration with services you use, such as payment gateways.</li>
+                            <li>Testing across browsers and devices before release.</li>
+                            <li>Launch, app store submission where relevant, and handover documentation.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Agreed Separately</h3>
+                        <ul>
+                            <li>Written content and photography are agreed per project; tell us if you need help with them.</li>
+                            <li>Third-party costs such as domains, paid plugins, Shopify plans and app store developer accounts.</li>
+                            <li>Existing code from another developer can be taken over after we review it.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROCESS ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Delivery</span>
+                    <h2>How a Software Project Runs</h2>
+                    <p>The stages of our wider <a href="{% url 'process' %}">delivery process</a>, applied to websites and applications.</p>
+                </div>
+
+                <div class="process-flow-grid">
+                    <div class="flow-step-card">
+                        <div class="step-number">01</div>
+                        <h3>Discovery &amp; Structure</h3>
+                        <p>We agree the users, the key tasks they need to complete, and the pages or screens required.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">02</div>
+                        <h3>Design &amp; Prototype</h3>
+                        <p>Wireframes and visual designs are reviewed with you before development starts.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">03</div>
+                        <h3>Build &amp; Integrate</h3>
+                        <p>Front end, back end and integrations are built in stages you can review as they progress.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">04</div>
+                        <h3>Test, Launch &amp; Hand Over</h3>
+                        <p>Browser and device testing, release or store submission, then documentation for your team.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ESTIMATE & PROOF ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-list-check" aria-hidden="true"></i> What We Need to Estimate Your Project</h3>
+                        <ul>
+                            <li>Who will use it, and the main things they need to do.</li>
+                            <li>A list of the key pages, screens or features.</li>
+                            <li>Examples of websites or apps you like.</li>
+                            <li>Systems it must connect to, such as payments or an existing database.</li>
+                            <li>Any existing site, app or code we would be replacing or extending.</li>
+                            <li>Your target launch window.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Related Work</h3>
+                        <ul>
+                            <li><a href="{% url 'case_study_detail' slug='business-website' %}">KNS Metal Solutions website case study</a>: a corporate website with a product catalogue and a CAD file enquiry form.</li>
+                            <li><a href="{% url 'case_study_detail' slug='mobile-application' %}">Law App case study</a>: a cross-platform Flutter app with a Django REST backend.</li>
+                            <li><a href="{% url 'clients' %}">Client portfolio</a>: websites and online stores we have built, including e-commerce.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQS ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Frequently Asked Questions</span>
+                    <h2>Questions About Software Projects</h2>
+                </div>
+
+                <div class="faq-structured-container">
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Should we use WordPress, Shopify or a custom build?</h3>
+                        <p>It depends on what your team needs to edit and what the site has to do. WordPress suits content-led sites your staff update often, Shopify suits product stores, and a custom build suits sites or applications with logins, workflows or integrations that those platforms can't handle cleanly. We'll recommend one after discovery.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Will we own the source code?</h3>
+                        <p>Yes. Once the project is completed and payment obligations are met, you receive full ownership of the source code and project assets.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Can you continue a project someone else started?</h3>
+                        <p>Yes. We review the existing code first, identify issues, and then continue development from its current stage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CTA BANNER ================= -->
+        <section class="site-container">
+            <div class="service-cta-block">
+                <h2>Planning a Website, App or Software Product?</h2>
+                <p>Tell us who it's for and what it needs to do. We'll suggest an approach and give you an estimate.</p>
+                <div class="cta-button-group">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Book a consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn-outline-light">
+                        Contact our team
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Structured Data: Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Software development",
+      "name": "Software Engineering",
+      "description": "Website, web application and mobile app development, custom software, SaaS platforms and e-commerce development.",
+      "provider": { "@type": "ProfessionalService", "@id": "https://www.kkdigitalgrowth.com/#organization" },
+      "url": "https://www.kkdigitalgrowth.com/services/software-engineering/",
+      "areaServed": { "@type": "Country", "name": "India" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Software Engineering services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website development", "url": "https://www.kkdigitalgrowth.com/services/web-development/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web application development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile app development", "url": "https://www.kkdigitalgrowth.com/services/mobile-app-development/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom software development", "url": "https://www.kkdigitalgrowth.com/services/custom-software-development/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SaaS platform development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-commerce development" } }
+        ]
+      }
+    }
+    </script>
+</body>
+</html>

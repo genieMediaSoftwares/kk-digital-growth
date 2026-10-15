@@ -7,36 +7,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ================= PRIMARY SEO ================= -->
-    <title>Web, Mobile App & ERP Development Services in Visakhapatnam</title>
-    <meta name="description" content="Custom web, mobile app, ERP, and UI/UX design services from KK Digital Growth, a premier software development company in Visakhapatnam, Andhra Pradesh.">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <link rel="canonical" href="https://www.kkdigitalgrowth.com/services/">
-
-    <!-- ================= OPEN GRAPH ================= -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="KK Digital Growth">
-    <meta property="og:locale" content="en_IN">
-    <meta property="og:url" content="https://www.kkdigitalgrowth.com/services/">
-    <meta property="og:title" content="Web, Mobile App & ERP Development Services in Visakhapatnam">
-    <meta property="og:description" content="Custom web, mobile app, ERP, and UI/UX design services from KK Digital Growth, a premier software development company in Visakhapatnam, Andhra Pradesh.">
-    <meta property="og:image" content="https://www.kkdigitalgrowth.com{% static 'images/kk-logo.png' %}">
-    <meta property="og:image:alt" content="KK Digital Growth">
-
-    <!-- ================= TWITTER ================= -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Web, Mobile App & ERP Development Services in Visakhapatnam">
-    <meta name="twitter:description" content="Custom web, mobile app, ERP, and UI/UX design services from KK Digital Growth, a premier software development company in Visakhapatnam, Andhra Pradesh.">
-    <meta name="twitter:image" content="https://www.kkdigitalgrowth.com{% static 'images/kk-logo.png' %}">
+    {% include "partials/seo_meta.html" with seo_title="Software, AI & Digital Marketing Services | KK Digital Growth" seo_description="Browse KK Digital Growth's six service areas: software engineering, business systems, AI, product design, cloud & DevOps, and digital marketing." seo_path="/services/" %}
 
     <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
-    <link rel="stylesheet" href="{% static 'css/services.css' %}?v=6.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=8.1">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=9.2">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=8.0">
     <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
 {% include "partials/google_tag_manager_head.html" %}
 {% include "partials/meta_pixel.html" %}
@@ -45,220 +27,241 @@
 
 <body>
 {% include "partials/google_tag_manager_body.html" %}
-    <!-- Header -->
     {% include 'header.html' %}
 
-    <main>
+    <main id="main-content">
 
-    <!-- ================= SERVICES HERO ================= -->
-    <section class="services-hero">
-        <div class="services-hero-container home-container site-container">
-            <span class="hero-tag"><i class="fa-solid fa-gears" aria-hidden="true"></i> Our expertise</span>
-            <h1>Web, mobile app and ERP development services in Visakhapatnam</h1>
-            <p>KK Digital Growth is a web development, mobile app development and ERP development company in Visakhapatnam, Andhra Pradesh, building digital solutions that help businesses grow faster.</p>
-        </div>
-    </section>
+        <!-- ================= HERO ================= -->
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <span class="current" aria-current="page">Services</span>
+                </nav>
 
-    <!-- ================= SERVICES GRID ================= -->
-    <section class="services-section">
-        <div class="services-section-container site-container">
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-layer-group" aria-hidden="true"></i> Service catalogue
+                </span>
 
-            <div class="section-title">
-                <span class="section-badge">What we do</span>
-                <h2>Our web, mobile, ERP and custom software development services</h2>
-                <p>From custom websites and mobile apps to ERP platforms and UI/UX design, we deliver end-to-end software development for businesses across <a href="{% url 'location_visakhapatnam' %}" style="color:#F79421;">Visakhapatnam</a>, Andhra Pradesh and India. See how we work in our <a href="{% url 'process' %}" style="color:#F79421;">development process</a>, browse our <a href="{% url 'case_studies' %}" style="color:#F79421;">case studies</a>, or <a href="{% url 'contact' %}" style="color:#F79421;">talk to our team</a>.</p>
+                <h1>Software, AI &amp; Digital Marketing Services</h1>
+                <p class="hero-lead">
+                    KK Digital Growth is a software development company based in Yendada, Visakhapatnam, working with businesses across India. Our services are grouped into six areas. Choose an area to see what it covers, how the work runs and what we need to estimate your project.
+                </p>
+
+                <div class="service-hero-actions">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Book a consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'case_studies' %}" class="btn-outline-light">
+                        See our case studies
+                    </a>
+                </div>
             </div>
+        </section>
 
-            <div class="services-grid">
-                <!-- Website Development -->
-                <article class="service-card" id="website-development">
-                    <div class="service-header">
-                        <div class="service-icon website-icon">
-                            <div class="mini-browser">
-                                <div class="mini-browser-header">
-                                    <span class="mini-dot"></span>
-                                    <span class="mini-dot"></span>
-                                    <span class="mini-dot"></span>
-                                </div>
-                                <div class="mini-browser-screen">
-                                    <i class="fa-regular fa-window-maximize" aria-hidden="true"></i>
-                                </div>
+        <!-- ================= SERVICE AREAS ================= -->
+        <section class="service-content-section alt-bg" aria-labelledby="areas-heading">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Service areas</span>
+                    <h2 id="areas-heading">Six Ways We Can Help</h2>
+                    <p>Each area has its own page with the detail: who it is for, what is included, how the work runs and related examples.</p>
+                </div>
+
+                <div class="svc-cat-grid">
+                    <article class="svc-cat-card" id="software-engineering">
+                        <div class="svc-cat-top">
+                            <span class="svc-cat-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+                            <div>
+                                <span class="svc-cat-num">Service area 01</span>
+                                <h3><a href="{% url 'service_software_engineering' %}">Software Engineering</a></h3>
                             </div>
                         </div>
-                        <div class="service-title-info">
-                            <h3>Website design &amp; development services</h3>
-                            <p>Custom • responsive • performance-first</p>
-                        </div>
-                        <a href="{% url 'service_web_development' %}" class="explore-btn">Explore →</a>
-                    </div>
+                        <p>Websites, web applications, mobile apps, custom software, SaaS products and online stores, built around how your customers and team will use them.</p>
+                        <ul class="svc-cat-links" aria-label="Software Engineering services">
+                            <li><a href="{% url 'service_web_development' %}" id="website-development">Website development</a></li>
+                            <li><a href="{% url 'service_software_engineering' %}#web-applications">Web application development</a></li>
+                            <li><a href="{% url 'service_mobile_app_development' %}" id="mobile-app-development">Mobile app development</a></li>
+                            <li><a href="{% url 'service_custom_software' %}" id="custom-application-development">Custom software</a></li>
+                            <li><a href="{% url 'service_software_engineering' %}#saas-platforms">SaaS platforms</a></li>
+                            <li><a href="{% url 'service_software_engineering' %}#ecommerce">E-commerce development</a></li>
+                        </ul>
+                        <a href="{% url 'service_software_engineering' %}" class="svc-card-link">Explore Software Engineering <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
 
-                    <div class="service-body">
-                        <p>We build fast, scalable, conversion-focused websites that look great and perform even better. Our website development work covers custom web design, WordPress and Shopify builds, and e-commerce stores tuned for search and speed.</p>
-                        <div class="feature-grid">
-                            <span><i class="fa-solid fa-palette" aria-hidden="true"></i> Custom website design</span>
-                            <span><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> E-commerce development</span>
-                            <span><i class="fa-solid fa-database" aria-hidden="true"></i> CMS &amp; WordPress setup</span>
-                            <span><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i> SEO &amp; site performance</span>
-                        </div>
-                    </div>
-
-                    <div class="service-footer">
-                        <a href="{% url 'consultation' %}" class="service-action">Start your website project →</a>
-                    </div>
-                </article>
-
-                <!-- Mobile App -->
-                <article class="service-card" id="mobile-app-development">
-                    <div class="service-header">
-                        <div class="service-icon mobile-icon">
-                            <div class="mini-phone">
-                                <div class="mini-phone-notch"></div>
-                                <div class="mini-phone-screen">
-                                    <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
-                                </div>
-                                <div class="mini-phone-home"></div>
+                    <article class="svc-cat-card" id="business-systems">
+                        <div class="svc-cat-top">
+                            <span class="svc-cat-icon"><i class="fa-solid fa-industry" aria-hidden="true"></i></span>
+                            <div>
+                                <span class="svc-cat-num">Service area 02</span>
+                                <h3><a href="{% url 'service_enterprise_systems' %}">Enterprise &amp; Business Systems</a></h3>
                             </div>
                         </div>
-                        <div class="service-title-info">
-                            <h3>Mobile app development services</h3>
-                            <p>iOS • Android • cross-platform</p>
-                        </div>
-                        <a href="{% url 'service_mobile_app_development' %}" class="explore-btn">Explore →</a>
-                    </div>
+                        <p>ERP and CRM systems, dashboards, data analysis, workflow automation and integrations that support day-to-day operations.</p>
+                        <ul class="svc-cat-links" aria-label="Enterprise &amp; Business Systems services">
+                            <li><a href="{% url 'service_erp_development' %}" id="erp-development">ERP development</a></li>
+                            <li><a href="{% url 'service_enterprise_systems' %}#crm-systems">CRM systems</a></li>
+                            <li><a href="{% url 'service_enterprise_systems' %}#dashboards">Admin &amp; business dashboards</a></li>
+                            <li><a href="{% url 'service_enterprise_systems' %}#data-analysis">Data analysis</a></li>
+                            <li><a href="{% url 'service_enterprise_systems' %}#workflow-automation">Workflow automation</a></li>
+                            <li><a href="{% url 'service_enterprise_systems' %}#integrations">Business apps &amp; integrations</a></li>
+                        </ul>
+                        <a href="{% url 'service_enterprise_systems' %}" class="svc-card-link">Explore Enterprise &amp; Business Systems <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
 
-                    <div class="service-body">
-                        <p>Native and cross-platform mobile apps designed for growth. We handle mobile app development end to end — iOS and Android builds, secure API integration, and app store release support for startups and established businesses.</p>
-                        <div class="feature-grid">
-                            <span><i class="fa-brands fa-apple" aria-hidden="true"></i> iOS app development</span>
-                            <span><i class="fa-brands fa-android" aria-hidden="true"></i> Android app development</span>
-                            <span><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Cross-platform apps</span>
-                            <span><i class="fa-solid fa-circle-nodes" aria-hidden="true"></i> API integration</span>
-                        </div>
-                    </div>
-
-                    <div class="service-footer">
-                        <a href="{% url 'consultation' %}" class="service-action">Start your app project →</a>
-                    </div>
-                </article>
-
-                <!-- ERP -->
-                <article class="service-card" id="erp-development">
-                    <div class="service-header">
-                        <div class="service-icon erp-icon">
-                            <div class="mini-dashboard">
-                                <div class="mini-db-header">
-                                    <i class="fa-solid fa-server" aria-hidden="true"></i>
-                                </div>
-                                <div class="mini-db-bars">
-                                    <span class="mini-bar b-1"></span>
-                                    <span class="mini-bar b-2"></span>
-                                    <span class="mini-bar b-3"></span>
-                                </div>
+                    <article class="svc-cat-card" id="ai-systems">
+                        <div class="svc-cat-top">
+                            <span class="svc-cat-icon"><i class="fa-solid fa-microchip" aria-hidden="true"></i></span>
+                            <div>
+                                <span class="svc-cat-num">Service area 03</span>
+                                <h3><a href="{% url 'service_ai_solutions' %}">AI &amp; Intelligent Systems</a></h3>
                             </div>
                         </div>
-                        <div class="service-title-info">
-                            <h3>ERP development services</h3>
-                            <p>Inventory • finance • HR • operations</p>
-                        </div>
-                        <a href="{% url 'service_erp_development' %}" class="explore-btn">Explore →</a>
-                    </div>
+                        <p>AI and LLM features, task-focused agents and RAG knowledge assistants added to new or existing software, each scoped around one task and its data.</p>
+                        <ul class="svc-cat-links" aria-label="AI &amp; Intelligent Systems services">
+                            <li><a href="{% url 'service_ai_solutions' %}#ai-integrations">AI integrations</a></li>
+                            <li><a href="{% url 'service_ai_solutions' %}#llm-integration">LLM integrations</a></li>
+                            <li><a href="{% url 'service_ai_solutions' %}#ai-agents">AI agents</a></li>
+                            <li><a href="{% url 'service_ai_solutions' %}#rag-assistants">RAG knowledge assistants</a></li>
+                        </ul>
+                        <a href="{% url 'service_ai_solutions' %}" class="svc-card-link">Explore AI &amp; Intelligent Systems <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
 
-                    <div class="service-body">
-                        <p>Custom ERP systems that connect every part of your business. Our ERP development team builds inventory, finance, HR and production modules on a single platform, with reporting dashboards that give management real-time visibility.</p>
-                        <div class="feature-grid">
-                            <span><i class="fa-solid fa-warehouse" aria-hidden="true"></i> Inventory management</span>
-                            <span><i class="fa-solid fa-credit-card" aria-hidden="true"></i> Finance &amp; billing</span>
-                            <span><i class="fa-solid fa-users-gear" aria-hidden="true"></i> HR &amp; payroll</span>
-                            <span><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Reporting dashboards</span>
-                        </div>
-                    </div>
-
-                    <div class="service-footer">
-                        <a href="{% url 'consultation' %}" class="service-action">Start your ERP project →</a>
-                    </div>
-                </article>
-
-                <!-- Custom Application -->
-                <article class="service-card" id="custom-application-development">
-                    <div class="service-header">
-                        <div class="service-icon software-icon">
-                            <div class="mini-code">
-                                <div class="mini-code-lines">
-                                    <span class="code-line l-1"></span>
-                                    <span class="code-line l-2"></span>
-                                    <span class="code-line l-3"></span>
-                                </div>
-                                <i class="fa-solid fa-code" aria-hidden="true"></i>
+                    <article class="svc-cat-card" id="product-design">
+                        <div class="svc-cat-top">
+                            <span class="svc-cat-icon"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></span>
+                            <div>
+                                <span class="svc-cat-num">Service area 04</span>
+                                <h3><a href="{% url 'service_product_design' %}">Experience &amp; Product Design</a></h3>
                             </div>
                         </div>
-                        <div class="service-title-info">
-                            <h3>Custom application &amp; software development</h3>
-                            <p>Internal tools • SaaS • automation</p>
-                        </div>
-                        <a href="{% url 'service_custom_software' %}" class="explore-btn">Explore →</a>
-                    </div>
+                        <p>User research, interface design, prototyping and QA testing for web and mobile products.</p>
+                        <ul class="svc-cat-links" aria-label="Experience &amp; Product Design services">
+                            <li><a href="{% url 'service_ui_ux_design' %}" id="ui-ux-design">UI/UX research &amp; design</a></li>
+                            <li><a href="{% url 'service_product_design' %}#prototyping">Prototyping</a></li>
+                            <li><a href="{% url 'service_product_design' %}#interface-design">Product &amp; interface design</a></li>
+                            <li><a href="{% url 'service_product_design' %}#qa-testing">QA &amp; functional testing</a></li>
+                        </ul>
+                        <a href="{% url 'service_product_design' %}" class="svc-card-link">Explore Experience &amp; Product Design <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
 
-                    <div class="service-body">
-                        <p>Tailor-made applications built around your workflow. We deliver custom software development for internal business tools, SaaS products and process automation, integrated cleanly with the systems your team already uses.</p>
-                        <div class="feature-grid">
-                            <span><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Internal business tools</span>
-                            <span><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i> SaaS platforms</span>
-                            <span><i class="fa-solid fa-microchip" aria-hidden="true"></i> Workflow automation</span>
-                            <span><i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i> System integrations</span>
-                        </div>
-                    </div>
-
-                    <div class="service-footer">
-                        <a href="{% url 'consultation' %}" class="service-action">Start your project →</a>
-                    </div>
-                </article>
-
-                <!-- UI UX -->
-                <article class="service-card" id="ui-ux-design">
-                    <div class="service-header">
-                        <div class="service-icon design-icon">
-                            <div class="mini-design">
-                                <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+                    <article class="svc-cat-card" id="cloud-devops">
+                        <div class="svc-cat-top">
+                            <span class="svc-cat-icon"><i class="fa-solid fa-cloud" aria-hidden="true"></i></span>
+                            <div>
+                                <span class="svc-cat-num">Service area 05</span>
+                                <h3><a href="{% url 'service_cloud_devops' %}">Cloud &amp; DevOps</a></h3>
                             </div>
                         </div>
-                        <div class="service-title-info">
-                            <h3>UI/UX design &amp; QA testing services</h3>
-                            <p>Research • wireframing • testing • launch</p>
-                        </div>
-                        <a href="{% url 'service_ui_ux_design' %}" class="explore-btn">Explore →</a>
-                    </div>
+                        <p>Cloud deployment, CI/CD and cloud configuration for the software we build, delivered as part of the project.</p>
+                        <ul class="svc-cat-links" aria-label="Cloud &amp; DevOps services">
+                            <li><a href="{% url 'service_cloud_devops' %}#cloud-deployment">Cloud deployment</a></li>
+                            <li><a href="{% url 'service_cloud_devops' %}#devops-cicd">DevOps &amp; CI/CD</a></li>
+                            <li><a href="{% url 'service_cloud_devops' %}#cloud-configuration">Cloud configuration &amp; integrations</a></li>
+                        </ul>
+                        <a href="{% url 'service_cloud_devops' %}" class="svc-card-link">Explore Cloud &amp; DevOps <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
 
-                    <div class="service-body">
-                        <p>User-focused design backed by testing and research. Our UI/UX design and QA testing services cover user research, wireframing, prototyping and full functional testing, so every product launches clean on web and mobile.</p>
-                        <div class="feature-grid">
-                            <span><i class="fa-solid fa-user-gear" aria-hidden="true"></i> UX research</span>
-                            <span><i class="fa-solid fa-bezier-curve" aria-hidden="true"></i> Wireframing &amp; prototypes</span>
-                            <span><i class="fa-solid fa-bug-slash" aria-hidden="true"></i> QA &amp; functional testing</span>
-                            <span><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Performance audits</span>
+                    <article class="svc-cat-card" id="organic-growth">
+                        <div class="svc-cat-top">
+                            <span class="svc-cat-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
+                            <div>
+                                <span class="svc-cat-num">Service area 06</span>
+                                <h3><a href="{% url 'service_digital_marketing' %}">Digital Marketing &amp; Organic Growth</a></h3>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="service-footer">
-                        <a href="{% url 'consultation' %}" class="service-action">Start your design project →</a>
-                    </div>
-                </article>
+                        <p>Technical SEO audits, Google Business Profile management, local SEO, AEO/GEO, paid ads and social media marketing.</p>
+                        <ul class="svc-cat-links" aria-label="Digital Marketing &amp; Organic Growth services">
+                            <li><a href="{% url 'service_seo' %}">Technical SEO audits</a></li>
+                            <li><a href="{% url 'service_digital_marketing' %}#google-business-profile">Google Business Profile management</a></li>
+                            <li><a href="{% url 'service_digital_marketing' %}#local-seo">Local SEO</a></li>
+                            <li><a href="{% url 'service_digital_marketing' %}#aeo-geo">AEO &amp; GEO</a></li>
+                            <li><a href="{% url 'service_digital_marketing' %}#paid-ads">Paid ads</a></li>
+                            <li><a href="{% url 'service_digital_marketing' %}#social-media">Social media marketing</a></li>
+                        </ul>
+                        <a href="{% url 'service_digital_marketing' %}" class="svc-card-link">Explore Digital Marketing &amp; Organic Growth <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
+        <!-- ================= HOW WE WORK ================= -->
+        <section class="service-content-section" aria-labelledby="process-heading">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">How we work</span>
+                    <h2 id="process-heading">Five Phases, Whichever Area You Choose</h2>
+                    <p>The detail differs by service area; the overall shape follows our <a href="{% url 'process' %}">delivery process</a>.</p>
+                </div>
 
-
-    <!-- ================= CTA SECTION ================= -->
-    <section class="services-cta-section">
-        <div class="services-section-container site-container">
-            <div class="services-cta">
-                <h2>Not sure which service you need?</h2>
-                <h3>Let's talk it through.</h3>
-                <p>Book a free 30-minute call and we'll point you in the right direction.</p>
-                 <a href="{% url 'consultation' %}" class="cta-btn">Book a free consultation</a>
+                <ol class="svc-steps">
+                    <li>
+                        <h3>Discovery</h3>
+                        <p>We learn how your business works today and what the project needs to change.</p>
+                    </li>
+                    <li>
+                        <h3>Planning &amp; design</h3>
+                        <p>Scope, approach and design, agreed before the main work starts.</p>
+                    </li>
+                    <li>
+                        <h3>Delivery</h3>
+                        <p>Built or carried out in stages, with progress you can review.</p>
+                    </li>
+                    <li>
+                        <h3>Testing &amp; launch</h3>
+                        <p>Checked against what was agreed, then released or handed over.</p>
+                    </li>
+                    <li>
+                        <h3>Follow-up</h3>
+                        <p>Fixes, updates and further work as agreed for the project.</p>
+                    </li>
+                </ol>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- ================= LOCATION & GETTING STARTED ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h2 class="feature-box-title"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Based in Visakhapatnam</h2>
+                        <p>Our office is at 4th Floor, KP Icon, KP Infra, 5A2, Yendada, Visakhapatnam, Andhra Pradesh 530045. Clients nearby can meet us in person by appointment; projects elsewhere in India run remotely with scheduled reviews.</p>
+                        <ul>
+                            <li><a href="{% url 'location_visakhapatnam' %}">Our Visakhapatnam office</a></li>
+                            <li><a href="{% url 'contact' %}">Contact details and working hours</a></li>
+                            <li><a href="{% url 'about' %}">About KK Digital Growth</a></li>
+                        </ul>
+                    </div>
+                    <div class="feature-box">
+                        <h2 class="feature-box-title"><i class="fa-solid fa-list-check" aria-hidden="true"></i> Not Sure Where to Start?</h2>
+                        <p>Tell us briefly:</p>
+                        <ul>
+                            <li>What you want to achieve, and who it is for.</li>
+                            <li>What you have today: a website, software, data or online accounts.</li>
+                            <li>Any deadlines or budget limits.</li>
+                        </ul>
+                        <p>We'll suggest which service area fits, and say so plainly if something isn't a good fit for us.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CTA ================= -->
+        <section class="site-container">
+            <div class="service-cta-block">
+                <h2>Talk to Us About Your Project</h2>
+                <p>Book a consultation, or send us a message with the details above.</p>
+                <div class="cta-button-group">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Book a consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn-outline-light">
+                        Contact our team
+                    </a>
+                </div>
+            </div>
+        </section>
 
     </main>
 
@@ -266,6 +269,9 @@
     {% include 'footer.html' %}
 
     <!-- ================= STRUCTURED DATA ================= -->
+    {% comment %}Declares the organisation @id together with its service catalogue, so this page
+       does not include partials/schema-organization.html (two nodes with one @id would conflict).
+       Keep the business details here in step with that partial.{% endcomment %}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -275,12 +281,12 @@
       "url": "https://www.kkdigitalgrowth.com/",
       "logo": "https://www.kkdigitalgrowth.com{% static 'images/kk-logo.png' %}",
       "image": "https://www.kkdigitalgrowth.com{% static 'images/kk-logo.png' %}",
-      "description": "KK Digital Growth is a software development company in Visakhapatnam, Andhra Pradesh, offering web development, mobile app development, ERP development, custom application development and UI/UX design services.",
+      "description": "KK Digital Growth is a software development company in Visakhapatnam, Andhra Pradesh, offering software engineering, enterprise and business systems, AI solutions, product design, cloud and DevOps, and digital marketing services.",
       "telephone": "+91-9032845433",
       "email": "admin@kkdigitalgrowth.in",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "5A2, 4th Floor, Yendada",
+        "streetAddress": "4th Floor, KP Icon, KP Infra, 5A2, Yendada",
         "addressLocality": "Visakhapatnam",
         "addressRegion": "Andhra Pradesh",
         "postalCode": "530045",
@@ -297,92 +303,18 @@
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Software development services",
+        "name": "KK Digital Growth service areas",
         "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Website design and development services",
-              "serviceType": "Web development",
-              "description": "Custom website design, e-commerce development, CMS and WordPress setup, and SEO and site performance optimisation.",
-              "url": "https://www.kkdigitalgrowth.com/services/web-development/",
-              "provider": { "@id": "https://www.kkdigitalgrowth.com/#organization" },
-              "areaServed": { "@type": "City", "name": "Visakhapatnam" }
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Mobile app development services",
-              "serviceType": "Mobile app development",
-              "description": "iOS, Android and cross-platform mobile app development with secure API integration and app store release support.",
-              "url": "https://www.kkdigitalgrowth.com/services/mobile-app-development/",
-              "provider": { "@id": "https://www.kkdigitalgrowth.com/#organization" },
-              "areaServed": { "@type": "City", "name": "Visakhapatnam" }
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "ERP development services",
-              "serviceType": "ERP development",
-              "description": "Custom ERP systems covering inventory, finance, HR, payroll, production and operations reporting.",
-              "url": "https://www.kkdigitalgrowth.com/services/erp-development/",
-              "provider": { "@id": "https://www.kkdigitalgrowth.com/#organization" },
-              "areaServed": { "@type": "City", "name": "Visakhapatnam" }
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Custom application and software development",
-              "serviceType": "Custom software development",
-              "description": "Internal business tools, SaaS platforms, workflow automation and third-party system integrations.",
-              "url": "https://www.kkdigitalgrowth.com/services/custom-software-development/",
-              "provider": { "@id": "https://www.kkdigitalgrowth.com/#organization" },
-              "areaServed": { "@type": "City", "name": "Visakhapatnam" }
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "UI/UX design and QA testing services",
-              "serviceType": "UI/UX design",
-              "description": "User research, wireframing, prototyping, QA and functional testing, and performance audits.",
-              "url": "https://www.kkdigitalgrowth.com/services/ui-ux-design/",
-              "provider": { "@id": "https://www.kkdigitalgrowth.com/#organization" },
-              "areaServed": { "@type": "City", "name": "Visakhapatnam" }
-            }
-          }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Software Engineering", "url": "https://www.kkdigitalgrowth.com/services/software-engineering/", "provider": { "@id": "https://www.kkdigitalgrowth.com/#organization" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise and Business Systems", "url": "https://www.kkdigitalgrowth.com/services/enterprise-business-systems/", "provider": { "@id": "https://www.kkdigitalgrowth.com/#organization" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI and Intelligent Systems", "url": "https://www.kkdigitalgrowth.com/services/ai-solutions/", "provider": { "@id": "https://www.kkdigitalgrowth.com/#organization" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Experience and Product Design", "url": "https://www.kkdigitalgrowth.com/services/experience-product-design/", "provider": { "@id": "https://www.kkdigitalgrowth.com/#organization" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud and DevOps", "url": "https://www.kkdigitalgrowth.com/services/cloud-devops/", "provider": { "@id": "https://www.kkdigitalgrowth.com/#organization" } } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Marketing and Organic Growth", "url": "https://www.kkdigitalgrowth.com/services/digital-marketing/", "provider": { "@id": "https://www.kkdigitalgrowth.com/#organization" } } }
         ]
       }
     }
     </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.kkdigitalgrowth.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Services",
-          "item": "https://www.kkdigitalgrowth.com/services/"
-        }
-      ]
-    }
-    </script>
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Services" crumb_path="/services/" %}
 </body>
 </html>

@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=6.0">
     <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "partials/content_block_styles.html" %}
 {% include "partials/google_tag_manager_head.html" %}
 {% include "partials/meta_pixel.html" %}
 {% include "partials/google_ads_tag.html" %}
@@ -69,8 +70,9 @@
                 </div>
                 <h3>Office</h3>
                 <p>
-                    5A2, 4th Floor, KK Digital Growth<br>
-                    Yendada, Visakhapatnam - 530045
+                    4th Floor, KP Icon, KP Infra, 5A2,<br>
+                    Yendada, Visakhapatnam,<br>
+                    Andhra Pradesh 530045
                 </p>
             </div>
 
@@ -174,6 +176,71 @@
 
         </div>
 
+    </section>
+
+    <!-- ================= AFTER YOU CONTACT US ================= -->
+    <section class="kk-cb-section alt" aria-labelledby="next-steps-heading">
+        <div class="kk-cb-container">
+            <div class="kk-cb-head">
+                <span class="kk-cb-tag">What happens next</span>
+                <h2 id="next-steps-heading">What Happens After You Contact Us</h2>
+                <p>Whether you need a website, a mobile app, an ERP system or custom software, every enquiry starts the same way.</p>
+            </div>
+
+            <div class="kk-cb-grid cols-4">
+                <div class="kk-cb-card">
+                    <div class="kk-cb-step">Step 01</div>
+                    <h3>Send your enquiry</h3>
+                    <p>Use the form above, call us on +91 9032845433 or email admin@kkdigitalgrowth.in with a short description of what you need.</p>
+                </div>
+                <div class="kk-cb-card">
+                    <div class="kk-cb-step">Step 02</div>
+                    <h3>We review your requirements</h3>
+                    <p>Our team reads your message and gets back to you to understand your business, your users and what the software has to do.</p>
+                </div>
+                <div class="kk-cb-card">
+                    <div class="kk-cb-step">Step 03</div>
+                    <h3>Discovery conversation</h3>
+                    <p>We talk through your goals, the systems you already use, and any constraints such as deadlines, budget or integrations.</p>
+                </div>
+                <div class="kk-cb-card">
+                    <div class="kk-cb-step">Step 04</div>
+                    <h3>Approach and estimate</h3>
+                    <p>We suggest an approach and give you an estimate, so you can decide on the next step. You can read about the full delivery stages on our <a href="{% url 'process' %}">process page</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ENQUIRY GUIDANCE ================= -->
+    <section class="kk-cb-section" aria-labelledby="enquiry-heading">
+        <div class="kk-cb-container">
+            <div class="kk-cb-grid cols-2">
+                <div class="kk-cb-card">
+                    <h2 id="enquiry-heading" class="kk-cb-card-title">What to Include in Your Message</h2>
+                    <p>A few details help us understand your project faster and give you a more useful first reply:</p>
+                    <ul class="kk-cb-list">
+                        <li>What you want to build or improve, for example a new website, an app, or replacing spreadsheets with an ERP system</li>
+                        <li>Who will use it: your customers, your staff, or both</li>
+                        <li>Any tools or software you use today that it needs to work with</li>
+                        <li>Your preferred timeline and, if you have one, a budget range</li>
+                        <li>Links to websites or apps you like, or to your current site</li>
+                    </ul>
+                </div>
+                <div class="kk-cb-card">
+                    <h2 class="kk-cb-card-title">What You Can Contact Us About</h2>
+                    <p>KK Digital Growth is a software development company in Yendada, Visakhapatnam. You can talk to us about:</p>
+                    <ul class="kk-cb-list">
+                        <li><a href="{% url 'service_web_development' %}">Website and web application development</a></li>
+                        <li><a href="{% url 'service_mobile_app_development' %}">Mobile app development</a> for iOS and Android</li>
+                        <li><a href="{% url 'service_erp_development' %}">ERP development</a> and <a href="{% url 'service_enterprise_systems' %}">business systems</a></li>
+                        <li><a href="{% url 'service_custom_software' %}">Custom software</a> and <a href="{% url 'service_ai_solutions' %}">AI integrations</a></li>
+                        <li><a href="{% url 'service_ui_ux_design' %}">UI/UX design</a> and <a href="{% url 'service_digital_marketing' %}">digital marketing</a></li>
+                    </ul>
+                    <p class="kk-cb-after-list">Read more about our <a href="{% url 'location_visakhapatnam' %}">Visakhapatnam office</a>. For a structured first call, you can also <a href="{% url 'consultation' %}">book a consultation</a>.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     {% include 'footer.html' %}

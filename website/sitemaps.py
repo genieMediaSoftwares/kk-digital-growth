@@ -17,6 +17,13 @@ class StaticViewSitemap(Sitemap):
             'service_custom_software',
             'service_erp_development',
             'service_ui_ux_design',
+            'service_software_engineering',
+            'service_enterprise_systems',
+            'service_ai_solutions',
+            'service_product_design',
+            'service_cloud_devops',
+            'service_digital_marketing',
+            'service_seo',
             'location_visakhapatnam',
             'process',
             'clients',
@@ -24,6 +31,7 @@ class StaticViewSitemap(Sitemap):
             'consultation',
             'case_studies',
             'public_blog_list',
+            'careers',
         ]
 
     def location(self, item):
@@ -57,3 +65,23 @@ class BlogSitemap(Sitemap):
 
     def location(self, item):
         return reverse('public_blog_detail', kwargs={'slug': item.permalink})
+
+
+class JobOpeningSitemap(Sitemap):
+    """Open roles only: drafts, closed/expired roles and apply pages are never listed."""
+    changefreq = "weekly"
+    priority = 0.6
+    protocol = "https"
+
+    def items(self):
+        try:
+            from .models import JobOpening
+            return list(JobOpening.objects.open())
+        except Exception:
+            return []
+
+    def location(self, item):
+        return item.get_absolute_url()
+
+    def lastmod(self, item):
+        return item.updated_at

@@ -712,3 +712,409 @@
         gap: 20px;
     }
 }
+
+/* --------------------------------------------------------------------------
+   SERVICE CATALOGUE (/services/) & CATEGORY LANDING PAGES
+   -------------------------------------------------------------------------- */
+.service-content-section p a,
+.feature-box li a,
+.svc-note a {
+    color: #0F3E70;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.service-content-section p a:hover,
+.feature-box li a:hover,
+.svc-note a:hover {
+    color: #b45f00;
+}
+
+.service-detail-hero a:focus-visible,
+.service-content-section a:focus-visible,
+.service-cta-block a:focus-visible {
+    outline: 3px solid #F79421;
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+/* In-page section links (#erp-development, #qa-testing, ...) stop a little below the top edge */
+main [id] {
+    scroll-margin-top: 24px;
+}
+
+/* Directory cards on /services/ */
+.svc-cat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.svc-cat-card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 28px 24px 24px;
+    scroll-margin-top: 24px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.svc-cat-card:hover,
+.svc-cat-card:focus-within {
+    border-color: rgba(247, 148, 33, 0.55);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+}
+
+.svc-cat-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.svc-cat-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #112b4d;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+}
+
+.svc-cat-num {
+    display: block;
+    color: #c26a00;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.svc-cat-card h3 {
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 800;
+    margin: 2px 0 0;
+}
+
+.svc-cat-card h3 a {
+    color: #0f172a;
+    text-decoration: none;
+}
+
+.svc-cat-card h3 a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.svc-cat-card > p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #475569;
+    margin: 0 0 16px;
+}
+
+.svc-cat-links {
+    list-style: none;
+    margin: 0 0 20px;
+    padding: 14px 0 0;
+    border-top: 1px solid #f1f5f9;
+    display: grid;
+    gap: 2px;
+    flex-grow: 1;
+    align-content: start;
+}
+
+.svc-cat-links a {
+    display: inline-block;
+    padding: 4px 0;
+    color: #1e3a5f;
+    font-size: 14.5px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.svc-cat-links a:hover {
+    color: #0F3E70;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Sub-service cards on category pages */
+.svc-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.svc-card-grid.svc-card-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.svc-card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 28px 24px;
+    scroll-margin-top: 24px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.svc-card:hover,
+.svc-card:focus-within,
+.svc-card:target {
+    border-color: rgba(247, 148, 33, 0.55);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+}
+
+.svc-card .card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: rgba(17, 43, 77, 0.06);
+    color: #112b4d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.svc-card h3 {
+    font-size: 19px;
+    line-height: 1.35;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 10px;
+}
+
+.svc-card > p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #475569;
+    margin: 0 0 14px;
+}
+
+.svc-card-list {
+    list-style: none;
+    margin: 0 0 18px;
+    padding: 14px 0 0;
+    border-top: 1px solid #f1f5f9;
+    display: grid;
+    gap: 8px;
+    flex-grow: 1;
+    align-content: start;
+}
+
+.svc-card-list li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: #334155;
+}
+
+.svc-card-list li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #F79421;
+}
+
+.svc-card-link {
+    display: inline-block;
+    align-self: flex-start;
+    line-height: 1.45;
+    margin-top: auto;
+    color: #0F3E70;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.svc-card-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.svc-card-link i {
+    margin-left: 6px;
+    color: #c26a00;
+    transition: transform 0.2s ease;
+}
+
+.svc-card-link:hover i {
+    transform: translateX(3px);
+}
+
+.svc-note {
+    max-width: 900px;
+    margin: 28px auto 0;
+    padding: 16px 18px;
+    border-left: 4px solid #F79421;
+    border-radius: 0 10px 10px 0;
+    background: #fff8ef;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: #334155;
+}
+
+/* Process strip on /services/ */
+.svc-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+    counter-reset: svc-step;
+}
+
+.svc-steps li {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px 18px;
+}
+
+.svc-steps li::before {
+    counter-increment: svc-step;
+    content: "0" counter(svc-step);
+    display: block;
+    color: #c26a00;
+    font-weight: 800;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.svc-steps h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 6px;
+}
+
+.svc-steps p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #475569;
+    margin: 0;
+}
+
+.feature-box h2.feature-box-title {
+    font-size: 22px;
+    line-height: 1.3;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-box h2.feature-box-title i {
+    color: #F79421;
+}
+
+@media (max-width: 1100px) {
+    .svc-cat-grid,
+    .svc-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .svc-steps {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1100px) {
+    /* two-column range: an odd last card fills the row instead of leaving a gap */
+    .svc-card-grid > .svc-card:last-child:nth-child(odd),
+    .svc-cat-grid > .svc-cat-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 700px) {
+    .svc-cat-grid,
+    .svc-card-grid,
+    .svc-card-grid.svc-card-grid--2 {
+        grid-template-columns: 1fr;
+    }
+    .svc-steps {
+        grid-template-columns: 1fr;
+    }
+    .svc-cat-card,
+    .svc-card {
+        padding: 22px 20px;
+    }
+    .feature-box h2.feature-box-title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-hero-actions a {
+        width: 100%;
+    }
+    .feature-box {
+        padding: 26px 20px;
+    }
+    .faq-qna-card {
+        padding: 22px 18px;
+    }
+    .service-cta-block {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* Service & location page containers use exactly the same box as the header
+   (.navbar-container in footer.css/responsive.css): max 1200px wide with 80px side
+   padding, 40px at <=1024px and 20px at <=640px. Content edges therefore line up with
+   the logo and the "Get a quote" button at every width. (The served base.css predates
+   the shared .site-container rules, so these sections had no width limit.) */
+.service-detail-hero > .site-container,
+.service-content-section > .site-container,
+.svc-jump > .site-container,
+main > section.site-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 80px;
+    padding-right: 80px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+    .service-detail-hero > .site-container,
+    .service-content-section > .site-container,
+    .svc-jump > .site-container,
+    main > section.site-container {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .service-detail-hero > .site-container,
+    .service-content-section > .site-container,
+    .svc-jump > .site-container,
+    main > section.site-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

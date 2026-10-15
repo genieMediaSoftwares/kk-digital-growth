@@ -1,0 +1,353 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "partials/seo_meta.html" with seo_title="Digital Marketing: SEO, Local Search, Ads & Social | KK Digital Growth" seo_description="Technical SEO audits, Google Business Profile management, local SEO, AEO/GEO, paid ads and social media marketing from KK Digital Growth, Visakhapatnam." seo_path="/services/digital-marketing/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Services" crumb_path="/services/" crumb2_name="Digital Marketing & Organic Growth" crumb2_path="/services/digital-marketing/" %}
+
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=8.1">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=9.2">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "partials/google_tag_manager_head.html" %}
+    {% include "partials/meta_pixel.html" %}
+    {% include "partials/google_ads_tag.html" %}
+</head>
+<body>
+{% include "partials/google_tag_manager_body.html" %}
+    {% include 'header.html' %}
+
+    <main id="main-content">
+        <!-- ================= HERO ================= -->
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <a href="{% url 'services' %}">Services</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <span class="current" aria-current="page">Digital Marketing &amp; Organic Growth</span>
+                </nav>
+
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Service area 06 · Digital Marketing &amp; Organic Growth
+                </span>
+
+                <h1>Digital Marketing &amp; Organic Growth: SEO, Local Search, Ads &amp; Social</h1>
+                <p class="hero-lead">
+                    We help businesses get found and contacted online: a website search engines can crawl and understand, an accurate Google Business Profile, content that answers customers' questions, and paid ads and social media managed against goals agreed up front. We report honestly on what changes; we don't promise rankings or results no one can control.
+                </p>
+
+                <div class="service-hero-actions">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Request a marketing review <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'service_seo' %}" class="btn-outline-light">
+                        SEO service details
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SUB-SERVICES ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">What's Included</span>
+                    <h2>Six Marketing &amp; Search Services</h2>
+                    <p>Organic search work builds visibility over time; paid ads and social media reach people now. Most businesses benefit from a mix.</p>
+                </div>
+
+                <div class="svc-card-grid">
+                    <article class="svc-card" id="technical-seo">
+                        <div class="card-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></div>
+                        <h3>Technical SEO Audits</h3>
+                        <p>A structured review of how search engines crawl and index your website, with fixes in priority order.</p>
+                        <ul class="svc-card-list">
+                            <li>Indexing, sitemaps, canonicals and redirects</li>
+                            <li>Titles, descriptions and heading structure</li>
+                            <li>Page speed and mobile usability</li>
+                            <li>Google Search Console setup and review</li>
+                        </ul>
+                        <a href="{% url 'service_seo' %}" class="svc-card-link">Technical SEO details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <article class="svc-card" id="google-business-profile">
+                        <div class="card-icon"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
+                        <h3>Google Business Profile Management</h3>
+                        <p>Keeping your profile on Google Search and Maps complete, accurate and active.</p>
+                        <ul class="svc-card-list">
+                            <li>Categories, hours, services and photos</li>
+                            <li>Regular updates and posts</li>
+                            <li>Responding to reviews, as agreed with you</li>
+                            <li>An honest process for asking real customers for reviews</li>
+                        </ul>
+                    </article>
+
+                    <article class="svc-card" id="local-seo">
+                        <div class="card-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
+                        <h3>Local SEO</h3>
+                        <p>Helping customers nearby find you when they search for what you offer in your area.</p>
+                        <ul class="svc-card-list">
+                            <li>Consistent name, address and phone details everywhere</li>
+                            <li>Location pages only where you have a genuine presence</li>
+                            <li>Local business structured data that matches your site</li>
+                        </ul>
+                        <a href="{% url 'service_seo' %}#local-seo" class="svc-card-link">Local SEO details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <article class="svc-card" id="aeo-geo">
+                        <div class="card-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></div>
+                        <h3>AEO &amp; GEO</h3>
+                        <p>Answer engine optimisation (AEO) and generative engine optimisation (GEO) are emerging practices for making content easy for answer-style and AI-generated search results to understand.</p>
+                        <ul class="svc-card-list">
+                            <li>Direct answers to real customer questions</li>
+                            <li>Clear page structure and headings</li>
+                            <li>Structured data that matches visible content</li>
+                        </ul>
+                        <a href="{% url 'service_seo' %}#aeo-geo" class="svc-card-link">AEO &amp; GEO details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <article class="svc-card" id="paid-ads">
+                        <div class="card-icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></div>
+                        <h3>Paid Ads</h3>
+                        <p>Search and social advertising campaigns, planned and managed against goals and a budget you agree to before launch.</p>
+                        <ul class="svc-card-list">
+                            <li>Campaign structure, audiences and keywords</li>
+                            <li>Ad copy and landing page recommendations</li>
+                            <li>Conversion tracking, so results can be measured</li>
+                            <li>Regular reports on spend and results</li>
+                        </ul>
+                    </article>
+
+                    <article class="svc-card" id="social-media">
+                        <div class="card-icon"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></div>
+                        <h3>Social Media Marketing</h3>
+                        <p>Planning and publishing content on the social platforms your customers actually use.</p>
+                        <ul class="svc-card-list">
+                            <li>Profile setup and consistent branding</li>
+                            <li>A content calendar agreed in advance</li>
+                            <li>Publishing and replies to comments, as agreed</li>
+                            <li>Monthly reports on reach and engagement</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <p class="svc-note">
+                    <strong>No guarantees we can't keep:</strong> search engines, AI tools and ad platforms decide for themselves what to show, rank or cite. We can improve how your business is presented and measured; no one can honestly guarantee rankings, AI citations, ad performance, leads or sales.
+                </p>
+            </div>
+        </section>
+
+        <!-- ================= WHO & WHY ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Fit</span>
+                    <h2>Who It's For and What It Solves</h2>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-user-check" aria-hidden="true"></i> Who Usually Needs This</h3>
+                        <ul>
+                            <li><strong>Local businesses</strong> that rely on calls, visits and map searches.</li>
+                            <li><strong>B2B companies</strong> that want more enquiries from their website.</li>
+                            <li><strong>Online stores</strong> that need search visibility and well-tracked ad campaigns.</li>
+                            <li><strong>Businesses after a redesign</strong> that lost search visibility.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-wrench" aria-hidden="true"></i> Problems It Addresses</h3>
+                        <ul>
+                            <li>Not appearing when people search for the services you offer.</li>
+                            <li>A Business Profile that is incomplete, outdated or unverified.</li>
+                            <li>Ad spend with no clear tracking of what it produced.</li>
+                            <li>Social media profiles that are inactive or inconsistent.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SCOPE ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Scope</span>
+                    <h2>What's Included, and What Isn't</h2>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-square-check" aria-hidden="true"></i> Usually Included</h3>
+                        <ul>
+                            <li>A review of your website, listings, ad accounts and social profiles.</li>
+                            <li>A prioritised plan with goals you agree to.</li>
+                            <li>Implementation of the agreed work.</li>
+                            <li>Tracking setup, such as Search Console and conversion tracking.</li>
+                            <li>Regular reports in plain language.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> Not Included</h3>
+                        <ul>
+                            <li>Guaranteed rankings, traffic, AI citations, ad results or sales.</li>
+                            <li>Fake reviews, bought links, bought followers or anything that breaks platform rules.</li>
+                            <li>Thin "doorway" pages for every nearby area.</li>
+                            <li>Your advertising budget, which is spent on the ad platform and agreed with you before campaigns start.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROCESS ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Delivery</span>
+                    <h2>How Marketing Work Runs</h2>
+                </div>
+
+                <div class="process-flow-grid">
+                    <div class="flow-step-card">
+                        <div class="step-number">01</div>
+                        <h3>Access &amp; Review</h3>
+                        <p>With access to your site and accounts, we review what's in place and what's missing.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">02</div>
+                        <h3>Goals &amp; Plan</h3>
+                        <p>We agree goals, budget and priorities, and how progress will be measured.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">03</div>
+                        <h3>Implement &amp; Launch</h3>
+                        <p>Fixes, profile updates, content and campaigns go live as planned.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">04</div>
+                        <h3>Measure &amp; Adjust</h3>
+                        <p>We report what changed and adjust the plan based on real data.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ESTIMATE & PROOF ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-list-check" aria-hidden="true"></i> What We Need to Estimate the Work</h3>
+                        <ul>
+                            <li>Your website address and the platform it runs on.</li>
+                            <li>Which of the six services you are interested in.</li>
+                            <li>Your main services and the areas you serve.</li>
+                            <li>Current ad spend and results, if you advertise already.</li>
+                            <li>Your social media profiles, if any.</li>
+                            <li>What a good outcome looks like for you, such as calls, enquiries or sales.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Related Work</h3>
+                        <ul>
+                            <li><a href="{% url 'case_study_detail' slug='business-website' %}">KNS Metal Solutions case study</a>: describes the SEO setup and Search Console configuration in that website build.</li>
+                            <li><a href="{% url 'location_visakhapatnam' %}">Our Visakhapatnam office page</a>: an example of the genuine location page we recommend for local search.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQS ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Frequently Asked Questions</span>
+                    <h2>Questions About Digital Marketing</h2>
+                </div>
+
+                <div class="faq-structured-container">
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Can you guarantee first-page rankings or a place in AI answers?</h3>
+                        <p>No, and you should be wary of anyone who does. Search engines and AI tools decide independently what to show. We focus on the things that make a site easier to understand and more useful, and report honestly on what changes.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> How soon will we see results?</h3>
+                        <p>Paid ads can bring visits as soon as campaigns go live. Organic search changes take longer, because search engines recrawl and re-evaluate pages on their own schedule, so we don't promise a timeframe.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Should we start with SEO or ads?</h3>
+                        <p>If the website has technical problems, fixing them first helps both, because ads send visitors to the same pages. We'll recommend an order after reviewing your site and accounts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CTA BANNER ================= -->
+        <section class="site-container">
+            <div class="service-cta-block">
+                <h2>Want More People to Find Your Business?</h2>
+                <p>Share your website and what you'd like to be found for. We'll review it and explain where we'd start.</p>
+                <div class="cta-button-group">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Book a consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn-outline-light">
+                        Contact our team
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Structured Data: Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Digital marketing",
+      "name": "Digital Marketing and Organic Growth",
+      "description": "Technical SEO audits, Google Business Profile management, local SEO, AEO/GEO, paid ads and social media marketing.",
+      "provider": { "@type": "ProfessionalService", "@id": "https://www.kkdigitalgrowth.com/#organization" },
+      "url": "https://www.kkdigitalgrowth.com/services/digital-marketing/",
+      "areaServed": [
+        { "@type": "City", "name": "Visakhapatnam" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Digital Marketing services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technical SEO audits", "url": "https://www.kkdigitalgrowth.com/services/seo-services/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Business Profile management" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Local SEO" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AEO and GEO" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paid ads" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social media marketing" } }
+        ]
+      }
+    }
+    </script>
+</body>
+</html>

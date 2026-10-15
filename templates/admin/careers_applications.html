@@ -1,0 +1,69 @@
+{% extends "admin/careers_base.html" %}
+
+{% block title %}Applications{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+    <div>
+        <h1 class="page-title mb-1">Job Applications</h1>
+        <p class="text-muted mb-0 small">Visible only to logged-in admins. Delete an application when it is no longer needed or when the applicant asks.</p>
+    </div>
+</div>
+
+<form method="get" class="panel-card p-3 d-flex flex-wrap gap-3 align-items-end">
+    <div>
+        <label class="form-label small mb-1" for="filter-job">Role</label>
+        <select name="job" id="filter-job" class="form-select">
+            <option value="">All roles</option>
+            {% for job in jobs %}
+            <option value="{{ job.id }}"{% if selected_job == job.id|stringformat:"d" %} selected{% endif %}>{{ job.title }} ({{ job.get_status_display }})</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label class="form-label small mb-1" for="filter-status">Status</label>
+        <select name="status" id="filter-status" class="form-select">
+            <option value="">All statuses</option>
+            {% for value, label in status_choices %}
+            <option value="{{ value }}"{% if selected_status == value %} selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-outline-primary rounded-pill fw-bold px-3">Filter</button>
+    {% if selected_job or selected_status %}<a href="{% url 'careers_admin_applications' %}" class="btn btn-link">Clear</a>{% endif %}
+</form>
+
+<div class="panel-card">
+    {% if applications %}
+    <div class="table-responsive">
+        <table class="table mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Applicant</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Received</th>
+                    <th scope="col" class="text-end"><span class="visually-hidden">Actions</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for application in applications %}
+                <tr>
+                    <td>
+                        <a href="{% url 'careers_admin_application_detail' application_id=application.id %}" class="fw-bold text-decoration-none" style="color:#0F3D75;">{{ application.full_name }}</a>
+                        <div class="small text-muted">{{ application.email }}</div>
+                    </td>
+                    <td class="small">{{ application.job_title }}{% if not application.job %} <span class="text-muted">(job deleted)</span>{% endif %}</td>
+                    <td><span class="badge {% if application.status == 'new' %}bg-primary{% elif application.status == 'shortlisted' or application.status == 'hired' %}bg-success{% elif application.status == 'rejected' %}bg-secondary{% else %}bg-warning text-dark{% endif %}">{{ application.get_status_display }}</span></td>
+                    <td class="small">{{ application.created_at|date:"j M Y, H:i" }}</td>
+                    <td class="text-end"><a href="{% url 'careers_admin_application_detail' application_id=application.id %}" class="btn btn-sm btn-outline-primary rounded-pill">Open</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="p-5 text-center text-muted">No applications match these filters.</div>
+    {% endif %}
+</div>
+{% endblock %}

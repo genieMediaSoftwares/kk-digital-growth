@@ -1,0 +1,69 @@
+{% extends "admin/careers_base.html" %}
+
+{% block title %}{% if job %}Edit {{ job.title }}{% else %}New Job Opening{% endif %}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+    <div>
+        <h1 class="page-title mb-1">{% if job %}Edit job opening{% else %}New job opening{% endif %}</h1>
+        <p class="text-muted mb-0 small">Fill in only what has been confirmed. Empty fields are not shown on the website.</p>
+    </div>
+    <a href="{% url 'careers_admin_list' %}" class="btn btn-outline-secondary rounded-pill fw-semibold px-3">
+        <i class="fa-solid fa-arrow-left me-1"></i> Back to jobs
+    </a>
+</div>
+
+{% if form.non_field_errors %}
+<div class="alert alert-danger rounded-4" role="alert">{{ form.non_field_errors }}</div>
+{% endif %}
+
+<form method="post" novalidate>
+    {% csrf_token %}
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="panel-card">
+                <div class="panel-card-header"><h2 class="panel-card-title"><i class="fa-solid fa-briefcase text-warning"></i> Role</h2></div>
+                <div class="p-4">
+                    {% include "admin/_careers_field.html" with field=form.title %}
+                    {% include "admin/_careers_field.html" with field=form.summary %}
+                    {% include "admin/_careers_field.html" with field=form.description %}
+                    {% include "admin/_careers_field.html" with field=form.responsibilities %}
+                    {% include "admin/_careers_field.html" with field=form.required_skills %}
+                    {% include "admin/_careers_field.html" with field=form.preferred_skills %}
+                    {% include "admin/_careers_field.html" with field=form.application_instructions %}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="panel-card">
+                <div class="panel-card-header"><h2 class="panel-card-title"><i class="fa-solid fa-sliders text-warning"></i> Publishing</h2></div>
+                <div class="p-4">
+                    {% include "admin/_careers_field.html" with field=form.status %}
+                    {% include "admin/_careers_field.html" with field=form.closing_date %}
+                    {% include "admin/_careers_field.html" with field=form.display_order %}
+                    {% include "admin/_careers_field.html" with field=form.slug %}
+                    <p class="form-text mb-0">
+                        <strong>Draft</strong>: hidden. <strong>Published</strong>: listed on /careers/ until the closing date.
+                        <strong>Closed</strong>: hidden, and applications are refused.
+                    </p>
+                </div>
+            </div>
+            <div class="panel-card">
+                <div class="panel-card-header"><h2 class="panel-card-title"><i class="fa-solid fa-tags text-warning"></i> Details</h2></div>
+                <div class="p-4">
+                    {% include "admin/_careers_field.html" with field=form.department %}
+                    {% include "admin/_careers_field.html" with field=form.location %}
+                    {% include "admin/_careers_field.html" with field=form.work_mode %}
+                    {% include "admin/_careers_field.html" with field=form.employment_type %}
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-orange-primary py-2"><i class="fa-solid fa-floppy-disk me-1"></i> Save job opening</button>
+                {% if job %}
+                <a href="{% url 'career_detail' slug=job.slug %}" class="btn btn-outline-secondary rounded-pill fw-semibold" target="_blank" rel="noopener"><i class="fa-solid fa-eye me-1"></i> {% if job.is_open %}View on website{% else %}Preview{% endif %}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

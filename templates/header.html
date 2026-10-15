@@ -1,14 +1,53 @@
 {% load static %}
 
 <style>
-/* Services Desktop Dropdown Navigation */
-.nav-dropdown {
+/* ================= SERVICES MEGA MENU =================
+   Inline so it reaches every page: header.css/site.css are cached per page and
+   site.css (homepage) has no source in the repo. The old .dropdown-menu rules in
+   those files are no longer used by this markup. */
+/* No orange dot next to nav links on hover. The rule that drew it is removed from
+   header.css/site.css; this also hides it if a browser still has the old files cached. */
+.nav-links > li::before,
+.nav-links > li:hover::before {
+    content: none !important;
+    display: none !important;
+}
+/* Keep every nav link on one line, vertically centred. Without this the items aligned to
+   their top edge: "Services" (taller, because of its arrow button) sat lower than the rest,
+   and the active link's underline made its item taller too. */
+.nav-links {
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.nav-links > li {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.nav-links > li > a,
+.nav-links .nav-services-link {
+    display: inline-block;
     position: relative;
+    line-height: 1.4;
+    padding: 8px 0;
+}
+.nav-links .active-link::after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    margin: 0;
+}
+.nav-links > li.nav-dropdown {
+    position: static;
 }
 .nav-services-wrap {
     display: inline-flex;
     align-items: center;
-    gap: 3px;
+    gap: 2px;
 }
 .nav-services-link {
     text-decoration: none;
@@ -22,19 +61,22 @@
     border: none;
     color: #0F3E70;
     cursor: pointer;
-    padding: 6px 4px;
+    padding: 0;
+    min-width: 28px;
+    min-height: 28px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 4px;
-    transition: all 0.25s ease;
+    border-radius: 6px;
+    transition: background 0.2s ease, color 0.2s ease;
     line-height: 1;
 }
-.dropdown-toggle-btn:hover {
-    color: #F79421;
+.dropdown-toggle-btn:hover,
+.nav-dropdown.open .dropdown-toggle-btn {
+    background: rgba(15, 62, 112, 0.08);
 }
 .dropdown-toggle-btn:focus-visible {
-    outline: 2px solid #F79421;
+    outline: 2px solid #0F3E70;
     outline-offset: 2px;
 }
 .dropdown-arrow {
@@ -46,157 +88,355 @@
 }
 .nav-dropdown.open .dropdown-arrow {
     transform: rotate(180deg);
-    color: #F79421;
 }
-.dropdown-menu {
+
+.svc-mega {
     position: absolute;
-    top: calc(100% + 14px);
+    top: calc(100% - 6px);
     left: 50%;
-    transform: translateX(-50%) translateY(8px);
-    width: 360px;
+    width: min(1100px, calc(100vw - 32px));
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    transform: translate(-50%, 8px);
     background: #ffffff;
-    border-radius: 16px;
-    padding: 10px;
-    box-shadow: 0 16px 40px rgba(15, 62, 112, 0.14), 0 2px 8px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(15, 62, 112, 0.08);
-    list-style: none;
+    border: 1px solid rgba(15, 62, 112, 0.1);
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(15, 62, 112, 0.16), 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 18px;
+    text-align: left;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.25s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
     z-index: 1000;
-    margin: 0;
 }
-.dropdown-menu::before {
-    content: "";
-    position: absolute;
-    top: -16px;
-    left: 0;
-    right: 0;
-    height: 18px;
-}
-.nav-dropdown.open .dropdown-menu {
-    /* visible at once, so focus() can move into the menu straight away */
-    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s;
+.nav-dropdown.open .svc-mega {
+    /* visible at once, so focus() can move into the panel straight away */
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
+    transform: translate(-50%, 0);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
 }
-.dropdown-menu li {
-    position: relative;
-    margin: 0;
-    padding: 0;
+.svc-mega-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px 14px;
 }
-.dropdown-menu li::before {
-    display: none !important;
+.svc-mega-group {
+    padding: 14px;
+    border-radius: 14px;
+    transition: background 0.2s ease;
 }
-.dropdown-item {
-    display: flex !important;
+.svc-mega-group:hover,
+.svc-mega-group:focus-within {
+    background: #f6f9fc;
+}
+.svc-mega-cat {
+    display: flex;
     align-items: flex-start;
     gap: 12px;
-    padding: 10px 14px;
+    text-decoration: none;
     border-radius: 10px;
-    text-decoration: none !important;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.dropdown-item:hover,
-.dropdown-item:focus-visible {
-    background: #f7fafc;
-    transform: translateX(3px);
-    outline: none;
-}
-.dropdown-item:focus-visible {
-    outline: 2px solid #F79421;
-    outline-offset: -2px;
-}
-.dropdown-icon {
+.svc-mega-icon {
     width: 38px;
     height: 38px;
+    flex-shrink: 0;
     border-radius: 10px;
-    background: rgba(247, 148, 33, 0.1);
-    color: #F79421;
+    background: rgba(247, 148, 33, 0.12);
+    color: #c26a00;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 15px;
-    flex-shrink: 0;
-    margin-top: 2px;
-    transition: all 0.2s ease;
 }
-.dropdown-item:hover .dropdown-icon,
-.dropdown-item:focus-visible .dropdown-icon {
-    background: #F79421;
-    color: #ffffff;
-    box-shadow: 0 4px 12px rgba(247, 148, 33, 0.3);
-}
-.dropdown-text {
+.svc-mega-cat-text {
     display: flex;
     flex-direction: column;
+    min-width: 0;
 }
-.dropdown-title {
-    font-size: 14px;
+.svc-mega-cat-title {
+    font-size: 15px;
     font-weight: 700;
     color: #0F3E70;
     line-height: 1.3;
-    transition: color 0.2s ease;
 }
-.dropdown-item:hover .dropdown-title,
-.dropdown-item:focus-visible .dropdown-title {
-    color: #F79421;
+.svc-mega-cat:hover .svc-mega-cat-title {
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
-.dropdown-desc {
-    font-size: 11.5px;
-    color: #64748b;
-    font-weight: 400;
-    line-height: 1.35;
-    margin-top: 3px;
+.svc-mega-cat-sub {
+    font-size: 12.5px;
+    color: #475569;
+    line-height: 1.4;
+    margin-top: 2px;
 }
-.dropdown-item.active-sublink {
-    background: #eef6ff;
+.svc-mega-links {
+    list-style: none;
+    margin: 8px 0 0 50px;
+    padding: 0;
+    display: grid;
+    gap: 1px;
 }
-.dropdown-item.active-sublink .dropdown-title {
-    color: #F79421;
-}
-.dropdown-divider {
-    height: 1px;
-    background: #edf2f7;
-    margin: 6px 4px;
+.svc-mega-links li {
+    margin: 0;
     padding: 0;
 }
-.dropdown-all-services {
-    display: flex !important;
+.svc-mega-links li::before {
+    display: none !important;
+}
+.svc-mega-links a {
+    display: block;
+    padding: 5px 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #1e3a5f;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+.svc-mega-links a:hover {
+    background: #e9f1fa;
+    color: #0F3E70;
+}
+.svc-mega-links a[aria-current="page"] {
+    background: #eef6ff;
+    color: #0F3E70;
+    font-weight: 700;
+}
+.svc-mega a:focus-visible {
+    outline: 2px solid #0F3E70;
+    outline-offset: 2px;
+}
+.svc-mega-footer {
+    display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 11px 16px;
-    border-radius: 10px;
-    background: #f0f7ff;
-    color: #0F3E70 !important;
-    font-size: 13px !important;
-    font-weight: 700 !important;
-    text-decoration: none !important;
-    transition: all 0.2s ease;
-    margin-top: 4px;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    margin-top: 10px;
+    padding: 14px 14px 2px;
+    border-top: 1px solid #edf2f7;
 }
-.dropdown-all-services:hover,
-.dropdown-all-services:focus-visible {
+.svc-mega-footer p {
+    margin: 0;
+    font-size: 13.5px;
+    color: #475569;
+}
+.svc-mega-footer p a {
+    color: #0F3E70;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.svc-mega-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 10px;
     background: #0F3E70;
     color: #ffffff !important;
-    transform: none;
-    outline: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease;
 }
-.dropdown-all-services:focus-visible {
+.svc-mega-all:hover {
+    background: #0b2f55;
+}
+@media (max-width: 960px) {
+    .svc-mega-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+/* Tablet / small-laptop widths: the full desktop nav is shown down to 769px, so
+   tighten it to keep the links on one line and the quote button inside the viewport. */
+@media (min-width: 769px) and (max-width: 1100px) {
+    .nav-links {
+        gap: 14px;
+    }
+    .nav-links > li > a,
+    .nav-services-link {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    .logo img {
+        height: 40px;
+    }
+    .quote-btn {
+        padding: 10px 14px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+}
+@media (min-width: 769px) and (max-width: 920px) {
+    .nav-links {
+        gap: 9px;
+    }
+    .nav-links > li > a,
+    .nav-services-link {
+        font-size: 13px;
+    }
+    .dropdown-toggle-btn {
+        min-width: 24px;
+    }
+    .logo img {
+        height: 34px;
+    }
+    .quote-btn {
+        padding: 9px 11px;
+        font-size: 13px;
+    }
+}
+@media (max-width: 768px) {
+    /* the desktop nav is hidden below this width; the mobile menu lists services */
+    .svc-mega {
+        display: none;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .svc-mega,
+    .nav-dropdown.open .svc-mega,
+    .dropdown-arrow {
+        transition: none;
+    }
+}
+
+/* ================= MOBILE MENU CONTROLS ================= */
+.mobile-menu:not(.active) {
+    /* the closed panel sits just off-screen; its shadow otherwise shows on the right edge */
+    box-shadow: none;
+}
+button.menu-toggle {
+    background: none;
+    border: 0;
+    padding: 0;
+    position: relative;
+}
+button.menu-toggle::after {
+    /* larger touch target without changing the icon's layout */
+    content: "";
+    position: absolute;
+    inset: -12px -8px;
+}
+button.menu-toggle:focus-visible {
+    outline: 2px solid #0F3E70;
+    outline-offset: 6px;
+    border-radius: 4px;
+}
+button.close-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: 0 0 12px auto;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 28px;
+}
+button.close-menu:focus-visible,
+.mobile-menu a:focus-visible,
+.mobile-menu button:focus-visible {
     outline: 2px solid #F79421;
-    outline-offset: -2px;
+    outline-offset: 3px;
+    border-radius: 6px;
 }
-.dropdown-all-services i {
-    font-size: 12px;
+.mobile-menu .mobile-services h2 {
+    color: #ffffff;
+    font-size: 17px;
+    margin: 0 0 8px;
+}
+.m-svc-group {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.m-svc-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+.mobile-menu .m-svc-cat {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 0;
+    color: #ffffff;
+    font-size: 15.5px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-decoration: none;
+}
+.mobile-menu .m-svc-cat:hover,
+.mobile-menu .m-svc-cat[aria-current="page"] {
+    color: #ff9800;
+}
+.m-svc-toggle {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.06);
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.m-svc-chev {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #ff9800;
+    border-bottom: 2px solid #ff9800;
+    transform: rotate(45deg) translate(-2px, -2px);
     transition: transform 0.2s ease;
 }
-.dropdown-all-services:hover i,
-.dropdown-all-services:focus-visible i {
-    transform: translateX(4px);
-    color: #ffffff;
+.m-svc-toggle[aria-expanded="true"] .m-svc-chev {
+    transform: rotate(-135deg) translate(-2px, -2px);
+}
+.mobile-menu .m-svc-list {
+    margin: 0 0 10px;
+    padding: 0 0 0 12px;
+    border-left: 2px solid rgba(255, 152, 0, 0.35);
+}
+.mobile-menu .m-svc-list[hidden] {
+    display: none;
+}
+.mobile-menu .m-svc-list li {
+    margin: 0;
+}
+.mobile-menu .m-svc-list a {
+    display: block;
+    padding: 9px 0;
+    color: #dbe4f0;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.35;
+}
+.mobile-menu .m-svc-list a:hover,
+.mobile-menu .m-svc-list a[aria-current="page"] {
+    padding-left: 0;
+    color: #ff9800;
+}
+.m-svc-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    margin-top: 10px;
+    color: #ff9800;
+    font-weight: 700;
+    text-decoration: none;
 }
 </style>
 
@@ -217,7 +457,7 @@
 
     <!-- ================= DESKTOP NAVIGATION ================= -->
 
-    <nav>
+    <nav aria-label="Main">
 
         <ul class="nav-links">
 
@@ -245,65 +485,123 @@
                             class="dropdown-toggle-btn"
                             id="services-dropdown-btn"
                             aria-expanded="false"
-                            aria-controls="services-dropdown-menu"
-                            aria-label="Show service pages">
+                            aria-controls="services-mega"
+                            aria-label="Service categories">
                         <svg class="dropdown-arrow" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 4.5 6 8.5 10 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </button>
                 </div>
-                <ul class="dropdown-menu" id="services-dropdown-menu" aria-label="Service pages">
-                    <li>
-                        <a href="{% url 'service_web_development' %}" class="dropdown-item {% if request.path == '/services/web-development/' %}active-sublink{% endif %}">
-                            <span class="dropdown-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
-                            <span class="dropdown-text">
-                                <span class="dropdown-title">Website Development</span>
-                                <span class="dropdown-desc">Corporate websites, web portals &amp; e-commerce</span>
-                            </span>
+                <div class="svc-mega" id="services-mega">
+                    <div class="svc-mega-grid">
+
+                        <div class="svc-mega-group">
+                            <a class="svc-mega-cat" href="{% url 'service_software_engineering' %}"{% if request.path == '/services/software-engineering/' %} aria-current="page"{% endif %}>
+                                <span class="svc-mega-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+                                <span class="svc-mega-cat-text">
+                                    <span class="svc-mega-cat-title">Software Engineering</span>
+                                    <span class="svc-mega-cat-sub">Websites, apps, custom software and SaaS</span>
+                                </span>
+                            </a>
+                            <ul class="svc-mega-links">
+                                <li><a href="{% url 'service_web_development' %}"{% if request.path == '/services/web-development/' %} aria-current="page"{% endif %}>Website development</a></li>
+                                <li><a href="{% url 'service_software_engineering' %}#web-applications">Web application development</a></li>
+                                <li><a href="{% url 'service_mobile_app_development' %}"{% if request.path == '/services/mobile-app-development/' %} aria-current="page"{% endif %}>Mobile app development</a></li>
+                                <li><a href="{% url 'service_custom_software' %}"{% if request.path == '/services/custom-software-development/' %} aria-current="page"{% endif %}>Custom software</a></li>
+                                <li><a href="{% url 'service_software_engineering' %}#saas-platforms">SaaS platforms</a></li>
+                                <li><a href="{% url 'service_software_engineering' %}#ecommerce">E-commerce development</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="svc-mega-group">
+                            <a class="svc-mega-cat" href="{% url 'service_enterprise_systems' %}"{% if request.path == '/services/enterprise-business-systems/' %} aria-current="page"{% endif %}>
+                                <span class="svc-mega-icon"><i class="fa-solid fa-industry" aria-hidden="true"></i></span>
+                                <span class="svc-mega-cat-text">
+                                    <span class="svc-mega-cat-title">Enterprise &amp; Business Systems</span>
+                                    <span class="svc-mega-cat-sub">ERP, CRM, dashboards, data and workflows</span>
+                                </span>
+                            </a>
+                            <ul class="svc-mega-links">
+                                <li><a href="{% url 'service_erp_development' %}"{% if request.path == '/services/erp-development/' %} aria-current="page"{% endif %}>ERP development</a></li>
+                                <li><a href="{% url 'service_enterprise_systems' %}#crm-systems">CRM systems</a></li>
+                                <li><a href="{% url 'service_enterprise_systems' %}#dashboards">Admin &amp; business dashboards</a></li>
+                                <li><a href="{% url 'service_enterprise_systems' %}#data-analysis">Data analysis</a></li>
+                                <li><a href="{% url 'service_enterprise_systems' %}#workflow-automation">Workflow automation</a></li>
+                                <li><a href="{% url 'service_enterprise_systems' %}#integrations">Business apps &amp; integrations</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="svc-mega-group">
+                            <a class="svc-mega-cat" href="{% url 'service_ai_solutions' %}"{% if request.path == '/services/ai-solutions/' %} aria-current="page"{% endif %}>
+                                <span class="svc-mega-icon"><i class="fa-solid fa-microchip" aria-hidden="true"></i></span>
+                                <span class="svc-mega-cat-text">
+                                    <span class="svc-mega-cat-title">AI &amp; Intelligent Systems</span>
+                                    <span class="svc-mega-cat-sub">AI features built into your software</span>
+                                </span>
+                            </a>
+                            <ul class="svc-mega-links">
+                                <li><a href="{% url 'service_ai_solutions' %}#ai-integrations">AI integrations</a></li>
+                                <li><a href="{% url 'service_ai_solutions' %}#llm-integration">LLM integrations</a></li>
+                                <li><a href="{% url 'service_ai_solutions' %}#ai-agents">AI agents</a></li>
+                                <li><a href="{% url 'service_ai_solutions' %}#rag-assistants">RAG knowledge assistants</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="svc-mega-group">
+                            <a class="svc-mega-cat" href="{% url 'service_product_design' %}"{% if request.path == '/services/experience-product-design/' %} aria-current="page"{% endif %}>
+                                <span class="svc-mega-icon"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></span>
+                                <span class="svc-mega-cat-text">
+                                    <span class="svc-mega-cat-title">Experience &amp; Product Design</span>
+                                    <span class="svc-mega-cat-sub">Research, design, prototyping and QA</span>
+                                </span>
+                            </a>
+                            <ul class="svc-mega-links">
+                                <li><a href="{% url 'service_ui_ux_design' %}"{% if request.path == '/services/ui-ux-design/' %} aria-current="page"{% endif %}>UI/UX research &amp; design</a></li>
+                                <li><a href="{% url 'service_product_design' %}#prototyping">Prototyping</a></li>
+                                <li><a href="{% url 'service_product_design' %}#interface-design">Product &amp; interface design</a></li>
+                                <li><a href="{% url 'service_product_design' %}#qa-testing">QA &amp; functional testing</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="svc-mega-group">
+                            <a class="svc-mega-cat" href="{% url 'service_cloud_devops' %}"{% if request.path == '/services/cloud-devops/' %} aria-current="page"{% endif %}>
+                                <span class="svc-mega-icon"><i class="fa-solid fa-cloud" aria-hidden="true"></i></span>
+                                <span class="svc-mega-cat-text">
+                                    <span class="svc-mega-cat-title">Cloud &amp; DevOps</span>
+                                    <span class="svc-mega-cat-sub">Deployment and CI/CD within our projects</span>
+                                </span>
+                            </a>
+                            <ul class="svc-mega-links">
+                                <li><a href="{% url 'service_cloud_devops' %}#cloud-deployment">Cloud deployment</a></li>
+                                <li><a href="{% url 'service_cloud_devops' %}#devops-cicd">DevOps &amp; CI/CD</a></li>
+                                <li><a href="{% url 'service_cloud_devops' %}#cloud-configuration">Cloud configuration &amp; integrations</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="svc-mega-group">
+                            <a class="svc-mega-cat" href="{% url 'service_digital_marketing' %}"{% if request.path == '/services/digital-marketing/' %} aria-current="page"{% endif %}>
+                                <span class="svc-mega-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
+                                <span class="svc-mega-cat-text">
+                                    <span class="svc-mega-cat-title">Digital Marketing &amp; Organic Growth</span>
+                                    <span class="svc-mega-cat-sub">SEO, local search, ads and social media</span>
+                                </span>
+                            </a>
+                            <ul class="svc-mega-links">
+                                <li><a href="{% url 'service_seo' %}"{% if request.path == '/services/seo-services/' %} aria-current="page"{% endif %}>Technical SEO audits</a></li>
+                                <li><a href="{% url 'service_digital_marketing' %}#google-business-profile">Google Business Profile management</a></li>
+                                <li><a href="{% url 'service_digital_marketing' %}#local-seo">Local SEO</a></li>
+                                <li><a href="{% url 'service_digital_marketing' %}#aeo-geo">AEO &amp; GEO</a></li>
+                                <li><a href="{% url 'service_digital_marketing' %}#paid-ads">Paid ads</a></li>
+                                <li><a href="{% url 'service_digital_marketing' %}#social-media">Social media marketing</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="svc-mega-footer">
+                        <p>Not sure which service fits? <a href="{% url 'consultation' %}">Book a consultation</a></p>
+                        <a href="{% url 'services' %}" class="svc-mega-all">
+                            Explore all services <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                         </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'service_mobile_app_development' %}" class="dropdown-item {% if request.path == '/services/mobile-app-development/' %}active-sublink{% endif %}">
-                            <span class="dropdown-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span>
-                            <span class="dropdown-text">
-                                <span class="dropdown-title">Mobile App Development</span>
-                                <span class="dropdown-desc">Native iOS, Android &amp; Flutter cross-platform</span>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'service_erp_development' %}" class="dropdown-item {% if request.path == '/services/erp-development/' %}active-sublink{% endif %}">
-                            <span class="dropdown-icon"><i class="fa-solid fa-industry" aria-hidden="true"></i></span>
-                            <span class="dropdown-text">
-                                <span class="dropdown-title">ERP Development</span>
-                                <span class="dropdown-desc">Custom inventory, manufacturing &amp; supply chain</span>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'service_custom_software' %}" class="dropdown-item {% if request.path == '/services/custom-software-development/' %}active-sublink{% endif %}">
-                            <span class="dropdown-icon"><i class="fa-solid fa-cubes" aria-hidden="true"></i></span>
-                            <span class="dropdown-text">
-                                <span class="dropdown-title">Custom Software Development</span>
-                                <span class="dropdown-desc">Automations, enterprise cloud &amp; API platforms</span>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'service_ui_ux_design' %}" class="dropdown-item {% if request.path == '/services/ui-ux-design/' %}active-sublink{% endif %}">
-                            <span class="dropdown-icon"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></span>
-                            <span class="dropdown-text">
-                                <span class="dropdown-title">UI/UX Design &amp; QA</span>
-                                <span class="dropdown-desc">User journeys, wireframes &amp; rigorous testing</span>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="dropdown-divider" aria-hidden="true"></li>
-                    <li class="dropdown-footer-item">
-                        <a href="{% url 'services' %}" class="dropdown-all-services">
-                            <span>Explore All Services &amp; Capabilities</span>
-                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </li>
 
             <li>
@@ -335,6 +633,13 @@
             </li>
 
             <li>
+                <a href="{% url 'careers' %}"
+                   class="{% if request.path == '/careers/' or '/careers/' in request.path %}active-link{% endif %}">
+                    Careers
+                </a>
+            </li>
+
+            <li>
                 <a href="{% url 'contact' %}"
                    class="{% if request.path == '/contact/' %}active-link{% endif %}">
                     Contact
@@ -357,7 +662,7 @@
 
         <!-- Hamburger -->
 
-        <div class="menu-toggle" id="menu-toggle">
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
 
             <span></span>
 
@@ -365,7 +670,7 @@
 
             <span></span>
 
-        </div>
+        </button>
 
     </div>
     </div>
@@ -374,13 +679,13 @@
 
 <!-- ================= MOBILE MENU ================= -->
 
-<div class="mobile-menu" id="mobile-menu">
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Site menu">
 
-    <div class="close-menu" id="close-menu">
+    <button type="button" class="close-menu" id="close-menu" aria-label="Close menu">
 
-        <i class="fa-solid fa-xmark"></i>
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
 
-    </div>
+    </button>
 
     <div class="mobile-logo">
 
@@ -408,27 +713,102 @@
 
         <li><a href="{% url 'public_blog_list' %}"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
 
+        <li><a href="{% url 'careers' %}"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+
         <li><a href="{% url 'contact' %}"><i class="fa-solid fa-phone"></i> Contact</a></li>
 
     </ul>
 
-    <div class="mobile-services">
+    <nav class="mobile-services" aria-labelledby="mobile-services-heading">
 
-        <h4>Our expertise</h4>
+        <h2 id="mobile-services-heading">Our services</h2>
 
-        <a href="{% url 'service_web_development' %}" style="display:block;color:inherit;text-decoration:none;padding:6px 0;">🌐 Website development</a>
+        <div class="m-svc-group">
+            <div class="m-svc-row">
+                <a class="m-svc-cat" href="{% url 'service_software_engineering' %}"{% if request.path == '/services/software-engineering/' %} aria-current="page"{% endif %}>Software Engineering</a>
+                <button type="button" class="m-svc-toggle" aria-expanded="false" aria-controls="m-svc-software" aria-label="Show Software Engineering services"><span class="m-svc-chev" aria-hidden="true"></span></button>
+            </div>
+            <ul class="m-svc-list" id="m-svc-software" hidden>
+                <li><a href="{% url 'service_web_development' %}"{% if request.path == '/services/web-development/' %} aria-current="page"{% endif %}>Website development</a></li>
+                <li><a href="{% url 'service_software_engineering' %}#web-applications">Web application development</a></li>
+                <li><a href="{% url 'service_mobile_app_development' %}"{% if request.path == '/services/mobile-app-development/' %} aria-current="page"{% endif %}>Mobile app development</a></li>
+                <li><a href="{% url 'service_custom_software' %}"{% if request.path == '/services/custom-software-development/' %} aria-current="page"{% endif %}>Custom software</a></li>
+                <li><a href="{% url 'service_software_engineering' %}#saas-platforms">SaaS platforms</a></li>
+                <li><a href="{% url 'service_software_engineering' %}#ecommerce">E-commerce development</a></li>
+            </ul>
+        </div>
 
-        <a href="{% url 'service_mobile_app_development' %}" style="display:block;color:inherit;text-decoration:none;padding:6px 0;">📱 Mobile app development</a>
+        <div class="m-svc-group">
+            <div class="m-svc-row">
+                <a class="m-svc-cat" href="{% url 'service_enterprise_systems' %}"{% if request.path == '/services/enterprise-business-systems/' %} aria-current="page"{% endif %}>Enterprise &amp; Business Systems</a>
+                <button type="button" class="m-svc-toggle" aria-expanded="false" aria-controls="m-svc-enterprise" aria-label="Show Enterprise &amp; Business Systems services"><span class="m-svc-chev" aria-hidden="true"></span></button>
+            </div>
+            <ul class="m-svc-list" id="m-svc-enterprise" hidden>
+                <li><a href="{% url 'service_erp_development' %}"{% if request.path == '/services/erp-development/' %} aria-current="page"{% endif %}>ERP development</a></li>
+                <li><a href="{% url 'service_enterprise_systems' %}#crm-systems">CRM systems</a></li>
+                <li><a href="{% url 'service_enterprise_systems' %}#dashboards">Admin &amp; business dashboards</a></li>
+                <li><a href="{% url 'service_enterprise_systems' %}#data-analysis">Data analysis</a></li>
+                <li><a href="{% url 'service_enterprise_systems' %}#workflow-automation">Workflow automation</a></li>
+                <li><a href="{% url 'service_enterprise_systems' %}#integrations">Business apps &amp; integrations</a></li>
+            </ul>
+        </div>
 
-        <a href="{% url 'service_erp_development' %}" style="display:block;color:inherit;text-decoration:none;padding:6px 0;">💻 ERP development</a>
+        <div class="m-svc-group">
+            <div class="m-svc-row">
+                <a class="m-svc-cat" href="{% url 'service_ai_solutions' %}"{% if request.path == '/services/ai-solutions/' %} aria-current="page"{% endif %}>AI &amp; Intelligent Systems</a>
+                <button type="button" class="m-svc-toggle" aria-expanded="false" aria-controls="m-svc-ai" aria-label="Show AI &amp; Intelligent Systems services"><span class="m-svc-chev" aria-hidden="true"></span></button>
+            </div>
+            <ul class="m-svc-list" id="m-svc-ai" hidden>
+                <li><a href="{% url 'service_ai_solutions' %}#ai-integrations">AI integrations</a></li>
+                <li><a href="{% url 'service_ai_solutions' %}#llm-integration">LLM integrations</a></li>
+                <li><a href="{% url 'service_ai_solutions' %}#ai-agents">AI agents</a></li>
+                <li><a href="{% url 'service_ai_solutions' %}#rag-assistants">RAG knowledge assistants</a></li>
+            </ul>
+        </div>
 
-        <a href="{% url 'service_custom_software' %}" style="display:block;color:inherit;text-decoration:none;padding:6px 0;">⚙️ Custom software</a>
+        <div class="m-svc-group">
+            <div class="m-svc-row">
+                <a class="m-svc-cat" href="{% url 'service_product_design' %}"{% if request.path == '/services/experience-product-design/' %} aria-current="page"{% endif %}>Experience &amp; Product Design</a>
+                <button type="button" class="m-svc-toggle" aria-expanded="false" aria-controls="m-svc-design" aria-label="Show Experience &amp; Product Design services"><span class="m-svc-chev" aria-hidden="true"></span></button>
+            </div>
+            <ul class="m-svc-list" id="m-svc-design" hidden>
+                <li><a href="{% url 'service_ui_ux_design' %}"{% if request.path == '/services/ui-ux-design/' %} aria-current="page"{% endif %}>UI/UX research &amp; design</a></li>
+                <li><a href="{% url 'service_product_design' %}#prototyping">Prototyping</a></li>
+                <li><a href="{% url 'service_product_design' %}#interface-design">Product &amp; interface design</a></li>
+                <li><a href="{% url 'service_product_design' %}#qa-testing">QA &amp; functional testing</a></li>
+            </ul>
+        </div>
 
-        <a href="{% url 'service_ui_ux_design' %}" style="display:block;color:inherit;text-decoration:none;padding:6px 0;">🎨 UI/UX design</a>
+        <div class="m-svc-group">
+            <div class="m-svc-row">
+                <a class="m-svc-cat" href="{% url 'service_cloud_devops' %}"{% if request.path == '/services/cloud-devops/' %} aria-current="page"{% endif %}>Cloud &amp; DevOps</a>
+                <button type="button" class="m-svc-toggle" aria-expanded="false" aria-controls="m-svc-cloud" aria-label="Show Cloud &amp; DevOps services"><span class="m-svc-chev" aria-hidden="true"></span></button>
+            </div>
+            <ul class="m-svc-list" id="m-svc-cloud" hidden>
+                <li><a href="{% url 'service_cloud_devops' %}#cloud-deployment">Cloud deployment</a></li>
+                <li><a href="{% url 'service_cloud_devops' %}#devops-cicd">DevOps &amp; CI/CD</a></li>
+                <li><a href="{% url 'service_cloud_devops' %}#cloud-configuration">Cloud configuration &amp; integrations</a></li>
+            </ul>
+        </div>
 
-        <a href="{% url 'location_visakhapatnam' %}" style="display:block;color:inherit;text-decoration:none;padding:6px 0;">📍 Visakhapatnam Hub</a>
+        <div class="m-svc-group">
+            <div class="m-svc-row">
+                <a class="m-svc-cat" href="{% url 'service_digital_marketing' %}"{% if request.path == '/services/digital-marketing/' %} aria-current="page"{% endif %}>Digital Marketing &amp; Organic Growth</a>
+                <button type="button" class="m-svc-toggle" aria-expanded="false" aria-controls="m-svc-marketing" aria-label="Show Digital Marketing &amp; Organic Growth services"><span class="m-svc-chev" aria-hidden="true"></span></button>
+            </div>
+            <ul class="m-svc-list" id="m-svc-marketing" hidden>
+                <li><a href="{% url 'service_seo' %}"{% if request.path == '/services/seo-services/' %} aria-current="page"{% endif %}>Technical SEO audits</a></li>
+                <li><a href="{% url 'service_digital_marketing' %}#google-business-profile">Google Business Profile management</a></li>
+                <li><a href="{% url 'service_digital_marketing' %}#local-seo">Local SEO</a></li>
+                <li><a href="{% url 'service_digital_marketing' %}#aeo-geo">AEO &amp; GEO</a></li>
+                <li><a href="{% url 'service_digital_marketing' %}#paid-ads">Paid ads</a></li>
+                <li><a href="{% url 'service_digital_marketing' %}#social-media">Social media marketing</a></li>
+            </ul>
+        </div>
 
-    </div>
+        <a href="{% url 'services' %}" class="m-svc-all">Explore all services <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+
+    </nav>
 
     <div class="mobile-stats">
 
@@ -480,7 +860,7 @@
 
             <i class="fa-solid fa-location-dot"></i>
 
-            <a href="{% url 'location_visakhapatnam' %}" style="color:inherit;text-decoration:none;">Yendada, Visakhapatnam</a>
+            <a href="{% url 'location_visakhapatnam' %}" style="color:inherit;text-decoration:none;">4th Floor, KP Icon, KP Infra, 5A2, Yendada, Visakhapatnam, Andhra Pradesh 530045</a>
 
         </p>
 
@@ -497,110 +877,199 @@
 <!-- ================= MOBILE MENU SCRIPT ================= -->
 
 <script>
+(function () {
+    const toggle = document.getElementById("menu-toggle");
+    const panel = document.getElementById("mobile-menu");
+    const closeBtn = document.getElementById("close-menu");
+    if (!toggle || !panel || !closeBtn) return;
 
-const menu = document.getElementById("menu-toggle");
+    // Closed panel sits off-screen; keep it out of the tab order and accessibility tree.
+    panel.setAttribute("inert", "");
+    panel.setAttribute("aria-hidden", "true");
 
-const mobile = document.getElementById("mobile-menu");
-
-const closeMenu = document.getElementById("close-menu");
-
-menu.addEventListener("click", () => {
-
-    mobile.classList.add("active");
-
-});
-
-closeMenu.addEventListener("click", () => {
-
-    mobile.classList.remove("active");
-
-});
-
-document.addEventListener("click", (e) => {
-
-    if (
-        !mobile.contains(e.target) &&
-        !menu.contains(e.target)
-    ) {
-
-        mobile.classList.remove("active");
-
+    function isOpen() {
+        return panel.classList.contains("active");
     }
-
-});
-
-</script>
-
-<!-- ================= SERVICES DROPDOWN ACCESSIBILITY SCRIPT ================= -->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const dropdown = document.getElementById("services-nav-dropdown");
-    if (!dropdown) return;
-
-    const toggleBtn = document.getElementById("services-dropdown-btn");
-    const menu = document.getElementById("services-dropdown-menu");
-    if (!toggleBtn || !menu) return;
 
     function openMenu() {
-        dropdown.classList.add("open");
-        toggleBtn.setAttribute("aria-expanded", "true");
+        panel.classList.add("active");
+        panel.removeAttribute("inert");
+        panel.setAttribute("aria-hidden", "false");
+        toggle.setAttribute("aria-expanded", "true");
+        closeBtn.focus();
     }
 
-    function closeMenu() {
-        dropdown.classList.remove("open");
-        toggleBtn.setAttribute("aria-expanded", "false");
+    function closeMenu(returnFocus) {
+        if (!isOpen()) return;
+        panel.classList.remove("active");
+        panel.setAttribute("inert", "");
+        panel.setAttribute("aria-hidden", "true");
+        toggle.setAttribute("aria-expanded", "false");
+        if (returnFocus) toggle.focus();
     }
 
-    function toggleMenu(e) {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
+    toggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (isOpen()) closeMenu(true); else openMenu();
+    });
+
+    closeBtn.addEventListener("click", function () {
+        closeMenu(true);
+    });
+
+    // Open the group that contains the current page
+    panel.querySelectorAll('.m-svc-list a[aria-current="page"]').forEach(function (a) {
+        const list = a.closest(".m-svc-list");
+        const btn = panel.querySelector('[aria-controls="' + list.id + '"]');
+        list.hidden = false;
+        if (btn) btn.setAttribute("aria-expanded", "true");
+    });
+
+    // Expand / collapse a service group's sub-links (category names themselves are links)
+    panel.querySelectorAll(".m-svc-toggle").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            const list = document.getElementById(btn.getAttribute("aria-controls"));
+            const open = btn.getAttribute("aria-expanded") !== "true";
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+            if (list) list.hidden = !open;
+        });
+    });
+
+    // Close after following an in-page link (e.g. /services/#ai-systems while on /services/).
+    panel.addEventListener("click", function (e) {
+        if (e.target.closest("a")) closeMenu(false);
+    });
+
+    document.addEventListener("click", function (e) {
+        if (isOpen() && !panel.contains(e.target) && !toggle.contains(e.target)) {
+            closeMenu(false);
         }
-        if (dropdown.classList.contains("open")) {
-            closeMenu();
+    });
+
+    document.addEventListener("keydown", function (e) {
+        if (!isOpen()) return;
+        if (e.key === "Escape") {
+            closeMenu(true);
+        } else if (e.key === "Tab") {
+            // keep focus inside the open dialog
+            const items = Array.from(panel.querySelectorAll("a[href], button"))
+                .filter(function (el) { return el.offsetParent !== null; });
+            if (!items.length) return;
+            const first = items[0];
+            const last = items[items.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+    });
+})();
+</script>
+
+<!-- ================= IN-PAGE SECTION LINKS ================= -->
+<script>
+(function () {
+    // Links such as /services/enterprise-business-systems/#workflow-automation should land on
+    // that section even when the browser would otherwise restore an earlier scroll position.
+    if (!location.hash) return;
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    window.addEventListener("load", function () {
+        let target = null;
+        try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (e) {}
+        if (target) target.scrollIntoView({ block: "start" });
+    });
+})();
+</script>
+
+<!-- ================= SERVICES MEGA MENU SCRIPT ================= -->
+<script>
+(function () {
+    const dropdown = document.getElementById("services-nav-dropdown");
+    const toggleBtn = document.getElementById("services-dropdown-btn");
+    const panel = document.getElementById("services-mega");
+    if (!dropdown || !toggleBtn || !panel) return;
+
+    let openTimer = null;
+    let closeTimer = null;
+    let openedByHover = false;
+
+    function isOpen() {
+        return dropdown.classList.contains("open");
+    }
+
+    function setOpen(open) {
+        clearTimeout(openTimer);
+        clearTimeout(closeTimer);
+        dropdown.classList.toggle("open", open);
+        toggleBtn.setAttribute("aria-expanded", open ? "true" : "false");
+        if (!open) openedByHover = false;
+    }
+
+    // Click / tap / Enter / Space on the toggle button
+    toggleBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isOpen() && openedByHover) {
+            // opened by hovering, then clicked: keep it open until dismissed
+            openedByHover = false;
+            clearTimeout(closeTimer);
         } else {
-            openMenu();
+            setOpen(!isOpen());
         }
-    }
-
-    // Click/touch toggle
-    toggleBtn.addEventListener("click", toggleMenu);
-
-    // Desktop hover (mouse only, so a tap doesn't open the menu and then toggle it shut)
-    dropdown.addEventListener("pointerenter", function(e) {
-        if (e.pointerType === "mouse") openMenu();
-    });
-    dropdown.addEventListener("pointerleave", function(e) {
-        if (e.pointerType === "mouse") closeMenu();
     });
 
-    // Keyboard support
-    dropdown.addEventListener("keydown", function(e) {
-        if (e.key === "Escape" && dropdown.classList.contains("open")) {
-            closeMenu();
+    // Mouse hover (with short delays so passing over the menu doesn't flash it open
+    // and the pointer can travel from the toggle down into the panel)
+    dropdown.addEventListener("pointerenter", function (e) {
+        if (e.pointerType !== "mouse") return;
+        clearTimeout(closeTimer);
+        if (!isOpen()) {
+            openTimer = setTimeout(function () {
+                setOpen(true);
+                openedByHover = true;
+            }, 120);
+        }
+    });
+    dropdown.addEventListener("pointerleave", function (e) {
+        if (e.pointerType !== "mouse") return;
+        clearTimeout(openTimer);
+        if (isOpen() && openedByHover) {
+            closeTimer = setTimeout(function () { setOpen(false); }, 280);
+        }
+    });
+
+    dropdown.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && isOpen()) {
+            e.preventDefault();
+            setOpen(false);
             toggleBtn.focus();
         } else if (e.key === "ArrowDown" && document.activeElement === toggleBtn) {
             e.preventDefault();
-            openMenu();
-            const firstLink = menu.querySelector("a");
+            setOpen(true);
+            const firstLink = panel.querySelector("a");
             if (firstLink) firstLink.focus();
         }
     });
 
-    // Close on click outside
-    document.addEventListener("click", function(e) {
-        if (!dropdown.contains(e.target)) {
-            closeMenu();
-        }
+    // Close on click/tap outside, when focus leaves, or when following an in-page link
+    document.addEventListener("click", function (e) {
+        if (isOpen() && !dropdown.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener("focusin", function (e) {
+        if (isOpen() && !dropdown.contains(e.target)) setOpen(false);
+    });
+    panel.addEventListener("click", function (e) {
+        if (e.target.closest("a")) setOpen(false);
     });
 
-    // Close when focus leaves the dropdown
-    document.addEventListener("focusin", function(e) {
-        if (!dropdown.contains(e.target)) {
-            closeMenu();
-        }
-    });
-});
+    // The desktop nav is hidden on small screens; don't leave the panel open there
+    const smallScreen = window.matchMedia("(max-width: 768px)");
+    const onScreenChange = function (mq) { if (mq.matches) setOpen(false); };
+    if (smallScreen.addEventListener) smallScreen.addEventListener("change", onScreenChange);
+})();
 </script>
 
 <!-- ================= DYNAMIC SCROLL REVEAL SCRIPT ================= -->

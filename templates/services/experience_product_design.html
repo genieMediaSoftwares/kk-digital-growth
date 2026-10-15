@@ -1,0 +1,319 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "partials/seo_meta.html" with seo_title="UX Research, Product Design & QA Testing | KK Digital Growth" seo_description="UI/UX research and design, clickable prototypes, product and interface design systems, and QA and functional testing for web and mobile products." seo_path="/services/experience-product-design/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Services" crumb_path="/services/" crumb2_name="Experience & Product Design" crumb2_path="/services/experience-product-design/" %}
+
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=8.1">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=9.2">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "partials/google_tag_manager_head.html" %}
+    {% include "partials/meta_pixel.html" %}
+    {% include "partials/google_ads_tag.html" %}
+</head>
+<body>
+{% include "partials/google_tag_manager_body.html" %}
+    {% include 'header.html' %}
+
+    <main id="main-content">
+        <!-- ================= HERO ================= -->
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <a href="{% url 'services' %}">Services</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <span class="current" aria-current="page">Experience &amp; Product Design</span>
+                </nav>
+
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> Service area 04 · Experience &amp; Product Design
+                </span>
+
+                <h1>Experience &amp; Product Design: UX Research, Prototyping &amp; QA</h1>
+                <p class="hero-lead">
+                    We research how people will use your product, design the screens they will see, test the ideas as clickable prototypes, and check the finished build before it reaches customers. The work suits new products as well as redesigns of existing websites, apps and internal tools.
+                </p>
+
+                <div class="service-hero-actions">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Discuss your product <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'service_ui_ux_design' %}" class="btn-outline-light">
+                        UI/UX design &amp; QA details
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SUB-SERVICES ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">What's Included</span>
+                    <h2>Four Design &amp; Quality Services</h2>
+                    <p>Available together as one engagement, or individually: for example, design only, for your own developers to build.</p>
+                </div>
+
+                <div class="svc-card-grid svc-card-grid--2">
+                    <article class="svc-card" id="ux-research">
+                        <div class="card-icon"><i class="fa-solid fa-compass-drafting" aria-hidden="true"></i></div>
+                        <h3>UI/UX Research &amp; Design</h3>
+                        <p>Understanding who uses the product and what they are trying to do, then planning the structure before any visual styling.</p>
+                        <ul class="svc-card-list">
+                            <li>User and workflow mapping</li>
+                            <li>Review of comparable products</li>
+                            <li>Information architecture and navigation</li>
+                            <li>Low-fidelity wireframes</li>
+                        </ul>
+                        <a href="{% url 'service_ui_ux_design' %}" class="svc-card-link">UI/UX design details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <article class="svc-card" id="prototyping">
+                        <div class="card-icon"><i class="fa-solid fa-bezier-curve" aria-hidden="true"></i></div>
+                        <h3>Prototyping</h3>
+                        <p>Clickable prototypes that let you and your users try a product before development money is committed.</p>
+                        <ul class="svc-card-list">
+                            <li>Interactive prototypes built in Figma</li>
+                            <li>Key journeys such as sign-up, enquiry or checkout</li>
+                            <li>Feedback rounds before development starts</li>
+                        </ul>
+                    </article>
+
+                    <article class="svc-card" id="interface-design">
+                        <div class="card-icon"><i class="fa-solid fa-palette" aria-hidden="true"></i></div>
+                        <h3>Product &amp; Interface Design</h3>
+                        <p>High-fidelity screens and a reusable design system so every page and app view stays consistent as the product grows.</p>
+                        <ul class="svc-card-list">
+                            <li>Visual design for web and mobile screens</li>
+                            <li>Figma component libraries and design tokens</li>
+                            <li>Readable colour contrast and typography rules</li>
+                            <li>Hover, focus and interaction state specifications</li>
+                        </ul>
+                    </article>
+
+                    <article class="svc-card" id="qa-testing">
+                        <div class="card-icon"><i class="fa-solid fa-bug-slash" aria-hidden="true"></i></div>
+                        <h3>QA &amp; Functional Testing</h3>
+                        <p>Checking that the built product works as designed on the browsers and devices your customers use.</p>
+                        <ul class="svc-card-list">
+                            <li>Cross-browser testing in Chrome, Safari, Firefox and Edge</li>
+                            <li>Phone, tablet and desktop layout checks</li>
+                            <li>Form, login and error-state testing</li>
+                            <li>Page speed and accessibility checks</li>
+                        </ul>
+                        <a href="{% url 'service_ui_ux_design' %}#qa-testing" class="svc-card-link">QA testing details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= WHO & WHY ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Fit</span>
+                    <h2>Who It's For and What It Solves</h2>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-user-check" aria-hidden="true"></i> Who Usually Needs This</h3>
+                        <ul>
+                            <li><strong>Founders</strong> who want to test a product idea as a prototype before building it.</li>
+                            <li><strong>Product and IT teams</strong> redesigning complicated admin tools or portals.</li>
+                            <li><strong>Online retailers</strong> whose customers struggle to browse or check out on a phone.</li>
+                            <li><strong>Development teams</strong> that need independent testing before a launch.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-wrench" aria-hidden="true"></i> Problems It Addresses</h3>
+                        <ul>
+                            <li>Users who can't find features or give up partway through a task.</li>
+                            <li>Screens that look and behave differently from one page to the next.</li>
+                            <li>Layouts that break on some phones or browsers.</li>
+                            <li>Bugs in forms, logins or error handling that only appear after launch.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SCOPE ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Scope</span>
+                    <h2>What a Design Engagement Includes</h2>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-square-check" aria-hidden="true"></i> Usually Included</h3>
+                        <ul>
+                            <li>User flows and wireframes for the agreed screens.</li>
+                            <li>High-fidelity designs and a clickable prototype in Figma.</li>
+                            <li>A component library and design handoff notes for developers.</li>
+                            <li>Visual checks during the build that the code matches the design.</li>
+                            <li>A test log of issues found, retested once fixed.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Worth Knowing Up Front</h3>
+                        <ul>
+                            <li>We design with WCAG AA guidelines in mind; a formal accessibility certification is not included.</li>
+                            <li>Design-only engagements end with Figma files and handoff documentation for your own developers.</li>
+                            <li>Testing covers the browsers and devices agreed at the start of the project.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROCESS ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Delivery</span>
+                    <h2>How a Design Project Runs</h2>
+                    <p>Design and testing follow the same overall shape as our wider <a href="{% url 'process' %}">delivery process</a>.</p>
+                </div>
+
+                <div class="process-flow-grid">
+                    <div class="flow-step-card">
+                        <div class="step-number">01</div>
+                        <h3>Research &amp; Journeys</h3>
+                        <p>We learn what users need to achieve and map the paths they will take through the product.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">02</div>
+                        <h3>Wireframes</h3>
+                        <p>Structural layouts confirm content, hierarchy and navigation before any visual styling.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">03</div>
+                        <h3>Visual Design &amp; Prototype</h3>
+                        <p>High-fidelity screens and a clickable prototype for review and feedback.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">04</div>
+                        <h3>QA &amp; Verification</h3>
+                        <p>We test the built product against the designs across browsers and devices.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ESTIMATE & PROOF ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-list-check" aria-hidden="true"></i> What We Need to Estimate the Work</h3>
+                        <ul>
+                            <li>Who the users are and what they need to do.</li>
+                            <li>The screens or journeys in scope, or the product to be redesigned.</li>
+                            <li>Your brand guidelines, if you have them.</li>
+                            <li>Whether we'll also build it, or your developers will.</li>
+                            <li>For testing: the browsers, devices and features to cover.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Related Work</h3>
+                        <ul>
+                            <li><a href="{% url 'case_study_detail' slug='business-website' %}">KNS Metal Solutions case study</a>: includes the UI/UX design and testing stages of a corporate website.</li>
+                            <li><a href="{% url 'clients' %}">Client portfolio</a>: interface work across e-commerce, healthcare, education and industrial websites.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQS ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Frequently Asked Questions</span>
+                    <h2>Questions About Design &amp; Testing</h2>
+                </div>
+
+                <div class="faq-structured-container">
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Can we hire you for design only?</h3>
+                        <p>Yes. We can deliver Figma design systems, interactive prototypes, exportable assets and handoff documentation for your own engineering team to implement.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Which screen sizes do you test?</h3>
+                        <p>Common desktop widths, tablets from 768px to 1024px, and phones from 360px to 430px wide, in iOS Safari, Android Chrome and the major desktop browsers.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Can you test a product another team built?</h3>
+                        <p>Yes. We agree the features, browsers and devices to cover, then report issues with clear steps to reproduce them, and retest once they are fixed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CTA BANNER ================= -->
+        <section class="site-container">
+            <div class="service-cta-block">
+                <h2>Want a Product People Find Easy to Use?</h2>
+                <p>Tell us what you're designing or redesigning. We'll suggest where research, prototyping or testing would help most.</p>
+                <div class="cta-button-group">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Book a consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn-outline-light">
+                        Contact our team
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Structured Data: Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "User experience design",
+      "name": "Experience and Product Design",
+      "description": "UI/UX research and design, prototyping, product and interface design, and QA and functional testing for web and mobile products.",
+      "provider": { "@type": "ProfessionalService", "@id": "https://www.kkdigitalgrowth.com/#organization" },
+      "url": "https://www.kkdigitalgrowth.com/services/experience-product-design/",
+      "areaServed": { "@type": "Country", "name": "India" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Experience and Product Design services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "UI/UX research and design", "url": "https://www.kkdigitalgrowth.com/services/ui-ux-design/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Prototyping" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Product and interface design" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "QA and functional testing" } }
+        ]
+      }
+    }
+    </script>
+</body>
+</html>

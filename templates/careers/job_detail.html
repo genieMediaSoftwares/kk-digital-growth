@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% if closed or preview %}
+    <title>{{ job.title }} | Careers | KK Digital Growth</title>
+    <meta name="robots" content="noindex, follow">
+    {% else %}
+    {% with seo_title=job.title|add:" | Careers at KK Digital Growth" job_path=job.get_absolute_url %}
+    {% include "partials/seo_meta.html" with seo_title=seo_title seo_description=job.summary seo_path=job_path %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Careers" crumb_path="/careers/" crumb2_name=job.title crumb2_path=job_path %}
+    {% endwith %}
+    {% include "partials/schema-organization.html" %}
+    {% endif %}
+
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=8.1">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=9.2">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "careers/_styles.html" %}
+    {% include "partials/google_tag_manager_head.html" %}
+    {% include "partials/meta_pixel.html" %}
+    {% include "partials/google_ads_tag.html" %}
+    {% if job_posting_json_ld %}
+    <script type="application/ld+json">
+{{ job_posting_json_ld|safe }}
+    </script>
+    {% endif %}
+</head>
+<body>
+{% include "partials/google_tag_manager_body.html" %}
+    {% include 'header.html' %}
+
+    <main id="main-content">
+        <!-- ================= HERO ================= -->
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <a href="{% url 'careers' %}">Careers</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <span class="current" aria-current="page">{{ job.title }}</span>
+                </nav>
+
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-briefcase" aria-hidden="true"></i> {% if closed %}Role closed{% else %}Open role{% endif %}
+                </span>
+
+                <h1>{{ job.title }}</h1>
+                {% include "careers/_job_meta.html" %}
+                <p class="hero-lead">{{ job.summary }}</p>
+
+                <div class="service-hero-actions">
+                    {% if closed %}
+                    <a href="{% url 'careers' %}" class="btn-accent">
+                        See current openings <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    {% elif not preview %}
+                    <a href="{% url 'career_apply' slug=job.slug %}" class="btn-accent">
+                        Apply for this role <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'careers' %}" class="btn-outline-light">
+                        All openings
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+
+        <section class="service-content-section">
+            <div class="site-container">
+                {% if preview %}
+                <div class="careers-notice" role="status">
+                    <strong>Admin preview.</strong> This role is {{ job.get_status_display|lower }}{% if job.status == 'published' %} but its closing date has passed{% endif %}, so it is not shown to visitors. Publish it from the <a href="{% url 'careers_admin_list' %}">Careers admin</a> to make it public.
+                </div>
+                {% endif %}
+
+                {% if closed %}
+                <div class="careers-detail">
+                    <h2>This role is no longer open</h2>
+                    <p>We are not accepting applications for this position. Please see our <a href="{% url 'careers' %}">current openings</a>.</p>
+                </div>
+                {% else %}
+                <article class="careers-detail">
+                    {% if job.description_paragraphs %}
+                    <h2>About the role</h2>
+                    {% for paragraph in job.description_paragraphs %}
+                    <p>{{ paragraph|linebreaksbr }}</p>
+                    {% endfor %}
+                    {% endif %}
+
+                    {% if job.responsibilities_list %}
+                    <h2>Responsibilities</h2>
+                    <ul class="svc-card-list">
+                        {% for item in job.responsibilities_list %}<li>{{ item }}</li>{% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    {% if job.required_skills_list %}
+                    <h2>Required skills and qualifications</h2>
+                    <ul class="svc-card-list">
+                        {% for item in job.required_skills_list %}<li>{{ item }}</li>{% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    {% if job.preferred_skills_list %}
+                    <h2>Preferred skills</h2>
+                    <ul class="svc-card-list">
+                        {% for item in job.preferred_skills_list %}<li>{{ item }}</li>{% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    <div class="careers-apply-box">
+                        <h2>How to apply</h2>
+                        {% if job.application_instructions %}
+                        <p>{{ job.application_instructions|linebreaksbr }}</p>
+                        {% endif %}
+                        {% if job.closing_date %}
+                        <p><strong>Closing date:</strong> {{ job.closing_date|date:"j F Y" }}</p>
+                        {% endif %}
+                        {% if preview %}
+                        <p>The application form is available once the role is published.</p>
+                        {% else %}
+                        <p>Apply online with your contact details and a short message. You can include a link to your CV or portfolio.</p>
+                        <a href="{% url 'career_apply' slug=job.slug %}" class="btn-accent">
+                            Apply for this role <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                </article>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+</body>
+</html>

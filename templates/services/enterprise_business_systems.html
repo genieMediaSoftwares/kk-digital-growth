@@ -1,0 +1,347 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "partials/seo_meta.html" with seo_title="ERP, CRM & Business Systems Development | KK Digital Growth" seo_description="ERP and CRM development, admin dashboards, data analysis, workflow automation and system integrations for growing businesses, from KK Digital Growth." seo_path="/services/enterprise-business-systems/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Services" crumb_path="/services/" crumb2_name="Enterprise & Business Systems" crumb2_path="/services/enterprise-business-systems/" %}
+
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=8.1">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=9.2">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "partials/google_tag_manager_head.html" %}
+    {% include "partials/meta_pixel.html" %}
+    {% include "partials/google_ads_tag.html" %}
+</head>
+<body>
+{% include "partials/google_tag_manager_body.html" %}
+    {% include 'header.html' %}
+
+    <main id="main-content">
+        <!-- ================= HERO ================= -->
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <a href="{% url 'services' %}">Services</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <span class="current" aria-current="page">Enterprise &amp; Business Systems</span>
+                </nav>
+
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-industry" aria-hidden="true"></i> Service area 02 · Enterprise &amp; Business Systems
+                </span>
+
+                <h1>Enterprise &amp; Business Systems: ERP, CRM, Dashboards &amp; Automation</h1>
+                <p class="hero-lead">
+                    We build the systems that run day-to-day operations: ERP and CRM platforms, admin dashboards, reporting and data analysis, workflow automation, and the integrations that keep your existing tools in step. The aim is one reliable source of data in place of scattered spreadsheets, inboxes and manual hand-offs.
+                </p>
+
+                <div class="service-hero-actions">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Discuss your operations <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'case_study_detail' slug='skyroot-aerospace' %}" class="btn-outline-light">
+                        Read the Skyroot Aerospace case study
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SUB-SERVICES ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">What's Included</span>
+                    <h2>Six Business Systems Services</h2>
+                    <p>Each can be a project on its own, or one module of a larger system.</p>
+                </div>
+
+                <div class="svc-card-grid">
+                    <article class="svc-card" id="erp-development">
+                        <div class="card-icon"><i class="fa-solid fa-warehouse" aria-hidden="true"></i></div>
+                        <h3>ERP Development</h3>
+                        <p>One platform for the core operations of a manufacturing, trading or distribution business, rolled out module by module.</p>
+                        <ul class="svc-card-list">
+                            <li>Multi-warehouse inventory and stock transfers</li>
+                            <li>Procurement, RFQs and purchase approvals</li>
+                            <li>Bill of materials and production tracking</li>
+                            <li>Finance, HR and payroll modules</li>
+                        </ul>
+                        <a href="{% url 'service_erp_development' %}" class="svc-card-link">ERP development details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <article class="svc-card" id="crm-systems">
+                        <div class="card-icon"><i class="fa-solid fa-user-group" aria-hidden="true"></i></div>
+                        <h3>CRM Systems</h3>
+                        <p>A shared record of every lead and customer, so follow-ups don't depend on one person's inbox or memory.</p>
+                        <ul class="svc-card-list">
+                            <li>Lead and customer records with contact history</li>
+                            <li>Pipeline stages that match how you actually sell</li>
+                            <li>Follow-up reminders and task assignment</li>
+                            <li>Access limited to each team's own records where needed</li>
+                        </ul>
+                    </article>
+
+                    <article class="svc-card" id="dashboards">
+                        <div class="card-icon"><i class="fa-solid fa-table-columns" aria-hidden="true"></i></div>
+                        <h3>Admin &amp; Business Dashboards</h3>
+                        <p>Screens where staff manage records and managers see the current state of the business without asking for a report.</p>
+                        <ul class="svc-card-list">
+                            <li>Filterable data tables for everyday admin work</li>
+                            <li>Charts and key figures from live data</li>
+                            <li>PDF and CSV report exports</li>
+                            <li>Role-based permissions</li>
+                        </ul>
+                        <a href="{% url 'service_custom_software' %}#dashboards" class="svc-card-link">Dashboard development details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <article class="svc-card" id="data-analysis">
+                        <div class="card-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+                        <h3>Data Analysis</h3>
+                        <p>Answering specific questions from data you already collect, beyond what a standard dashboard shows.</p>
+                        <ul class="svc-card-list">
+                            <li>Combining spreadsheets, database records and system exports</li>
+                            <li>Cleaning duplicate and inconsistent entries</li>
+                            <li>One-off analyses or recurring reports</li>
+                            <li>Results in your own application or in BI tools such as Power BI</li>
+                        </ul>
+                    </article>
+
+                    <article class="svc-card" id="workflow-automation">
+                        <div class="card-icon"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></div>
+                        <h3>Workflow Automation</h3>
+                        <p>Approvals, notifications and hand-offs that currently rely on email threads, phone calls or someone remembering.</p>
+                        <ul class="svc-card-list">
+                            <li>Multi-step approval chains</li>
+                            <li>Automatic email and webhook notifications</li>
+                            <li>An audit trail of who approved what, and when</li>
+                        </ul>
+                        <a href="{% url 'service_custom_software' %}#workflow-automation" class="svc-card-link">Workflow automation details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <article class="svc-card" id="integrations">
+                        <div class="card-icon"><i class="fa-solid fa-plug" aria-hidden="true"></i></div>
+                        <h3>Business Apps &amp; Integrations</h3>
+                        <p>Smaller business applications, and connections between the systems you already run so data is entered once.</p>
+                        <ul class="svc-card-list">
+                            <li>Integration with existing ERP, CRM and accounting software</li>
+                            <li>REST APIs and webhooks between systems</li>
+                            <li>Connections to devices such as biometric attendance hardware</li>
+                            <li>Migration of records from spreadsheets or legacy software</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= WHO & WHY ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Fit</span>
+                    <h2>Who It's For and What It Solves</h2>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-user-check" aria-hidden="true"></i> Who Usually Needs This</h3>
+                        <ul>
+                            <li><strong>Operations and plant managers</strong> tracking stock, purchasing and production.</li>
+                            <li><strong>Sales teams</strong> that lose track of leads and follow-ups.</li>
+                            <li><strong>Finance and admin staff</strong> re-entering the same data into several tools.</li>
+                            <li><strong>Owners and management</strong> who want reliable figures without waiting for a manual report.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-wrench" aria-hidden="true"></i> Problems It Addresses</h3>
+                        <ul>
+                            <li>Different departments keeping their own spreadsheets, with different numbers.</li>
+                            <li>Approvals delayed because they depend on email and phone calls.</li>
+                            <li>Monthly reports compiled by hand from several sources.</li>
+                            <li>Systems that don't share data, so the same record is typed in more than once.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SCOPE ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Scope</span>
+                    <h2>What a Business Systems Project Includes</h2>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-square-check" aria-hidden="true"></i> Usually Included</h3>
+                        <ul>
+                            <li>Workflow sessions with the people who will use the system.</li>
+                            <li>Data model design and role permissions.</li>
+                            <li>Migration of existing records, cleaned and checked before import.</li>
+                            <li>A staged rollout, module by module.</li>
+                            <li>Onboarding sessions for your staff.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Worth Knowing Up Front</h3>
+                        <ul>
+                            <li>If an off-the-shelf product fits your process with light configuration, that is often the quicker and cheaper route, and we'll say so.</li>
+                            <li>Integrations depend on what the other system allows, usually through its API.</li>
+                            <li>Licences for third-party software you choose to connect are separate from development.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROCESS ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Delivery</span>
+                    <h2>How a Business Systems Project Runs</h2>
+                    <p>Business systems succeed when the process is understood before code is written. The overall shape follows our <a href="{% url 'process' %}">delivery process</a>.</p>
+                </div>
+
+                <div class="process-flow-grid">
+                    <div class="flow-step-card">
+                        <div class="step-number">01</div>
+                        <h3>Workflow Review</h3>
+                        <p>We talk to the people doing the work and document the current steps, data and approvals.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">02</div>
+                        <h3>Data Model &amp; Modules</h3>
+                        <p>We plan the modules, permissions and how existing records will be migrated.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">03</div>
+                        <h3>Build &amp; Validate</h3>
+                        <p>Modules are built one at a time and checked against real test data with your team.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">04</div>
+                        <h3>Onboarding &amp; Cutover</h3>
+                        <p>Staff onboarding, a planned switch-over from the old process, and support as people settle in.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ESTIMATE & PROOF ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-list-check" aria-hidden="true"></i> What We Need to Estimate Your Project</h3>
+                        <ul>
+                            <li>The departments involved and roughly how many people will use the system.</li>
+                            <li>The spreadsheets, forms or software you use today, ideally with samples.</li>
+                            <li>Which processes to cover first.</li>
+                            <li>Systems it must integrate with, such as accounting software.</li>
+                            <li>How much historical data needs to be migrated.</li>
+                            <li>The reports management needs to see.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Related Work</h3>
+                        <ul>
+                            <li><a href="{% url 'case_study_detail' slug='custom-erp-system' %}">Nucon Aerospace case study</a>: a centralised ERP replacing spreadsheets across manufacturing facilities.</li>
+                            <li><a href="{% url 'case_study_detail' slug='skyroot-aerospace' %}">Skyroot Aerospace case study</a>: an ERP covering engineering BOMs, procurement, inventory, quality and finance, with Power BI reporting.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQS ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Frequently Asked Questions</span>
+                    <h2>Questions About Business Systems</h2>
+                </div>
+
+                <div class="faq-structured-container">
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Can a new system work with the software we already use?</h3>
+                        <p>Usually, yes. We can integrate with existing ERP, CRM and accounting systems and other third-party platforms, provided they offer an API or another reliable way to exchange data.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> What happens to the data in our spreadsheets?</h3>
+                        <p>We write scripts that clean, de-duplicate and validate your existing records before importing them into the new system, then check the imported data with you before switching over.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Do we have to replace everything at once?</h3>
+                        <p>No. Most projects start with the process causing the most trouble and add modules from there, so your team can adjust gradually.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CTA BANNER ================= -->
+        <section class="site-container">
+            <div class="service-cta-block">
+                <h2>Ready to Replace the Spreadsheets?</h2>
+                <p>Show us how your team works today. We'll suggest where a system would help most and what it would involve.</p>
+                <div class="cta-button-group">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Book a consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn-outline-light">
+                        Contact our team
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Structured Data: Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Business systems development",
+      "name": "Enterprise and Business Systems",
+      "description": "ERP and CRM development, admin and business dashboards, data analysis, workflow automation, and business application integrations.",
+      "provider": { "@type": "ProfessionalService", "@id": "https://www.kkdigitalgrowth.com/#organization" },
+      "url": "https://www.kkdigitalgrowth.com/services/enterprise-business-systems/",
+      "areaServed": { "@type": "Country", "name": "India" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Enterprise and Business Systems services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ERP development", "url": "https://www.kkdigitalgrowth.com/services/erp-development/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CRM systems" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Admin and business dashboards" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Data analysis" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Workflow automation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business applications and integrations" } }
+        ]
+      }
+    }
+    </script>
+</body>
+</html>

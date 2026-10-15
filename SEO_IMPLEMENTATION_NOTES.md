@@ -2,7 +2,7 @@
 
 **Website:** [https://www.kkdigitalgrowth.com/](https://www.kkdigitalgrowth.com/)
 
-**Physical Office:** 5A2, 4th Floor, KK Digital Growth, Yendada, Visakhapatnam, Andhra Pradesh — 530045, India
+**Physical Office:** 4th Floor, KP Icon, KP Infra, 5A2, Yendada, Visakhapatnam, Andhra Pradesh 530045, India
 
 **Scope:** Technical SEO audit, content architecture, service hierarchy, local/national targeting, and full-stack implementation notes.
 

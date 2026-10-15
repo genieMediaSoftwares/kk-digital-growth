@@ -126,6 +126,9 @@
                 <a href="{% url 'blog_dashboard' %}" class="btn btn-orange-primary btn-sm px-3 rounded-pill fw-bold text-white shadow-sm">
                     <i class="fa-solid fa-feather me-1"></i> Blog CMS
                 </a>
+                <a href="{% url 'careers_admin_list' %}" class="btn btn-orange-primary btn-sm px-3 rounded-pill fw-bold text-white shadow-sm">
+                    <i class="fa-solid fa-briefcase me-1"></i> Careers
+                </a>
                 <span class="text-white small d-none d-lg-inline-block px-2">
                     <i class="fa-solid fa-circle-user me-1 text-warning"></i> {{ admin_email }}
                 </span>
@@ -250,6 +253,31 @@
                             </a>
                             <a href="{% url 'blog_dashboard' %}" class="btn btn-orange-primary px-3.5 py-2 fw-bold text-white shadow-sm">
                                 <i class="fa-solid fa-newspaper me-1"></i> Open Blog Studio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="panel-card">
+                    <div class="panel-card-header">
+                        <h3 class="panel-card-title">
+                            <i class="fa-solid fa-briefcase text-warning"></i> Careers
+                        </h3>
+                        <span class="badge bg-light text-secondary border fw-semibold">{{ open_jobs_count }} Open &middot; {{ new_applications_count }} New Applications</span>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-muted small mb-3">Create, publish, close or delete job openings shown on /careers/, and review applications.</p>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <a href="{% url 'careers_admin_create' %}" class="btn btn-orange-primary px-3.5 py-2 fw-bold text-white shadow-sm">
+                                <i class="fa-solid fa-plus me-1"></i> New Job Opening
+                            </a>
+                            <a href="{% url 'careers_admin_list' %}" class="btn btn-orange-primary px-3.5 py-2 fw-bold text-white shadow-sm">
+                                <i class="fa-solid fa-briefcase me-1"></i> Manage Jobs
+                            </a>
+                            <a href="{% url 'careers_admin_applications' %}" class="btn btn-orange-primary px-3.5 py-2 fw-bold text-white shadow-sm">
+                                <i class="fa-solid fa-inbox me-1"></i> View Applications
                             </a>
                         </div>
                     </div>

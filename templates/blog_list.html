@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% include "partials/seo_meta.html" with seo_title="Insights and Industry Articles | KK Digital Growth" seo_description="Articles and insights from KK Digital Growth on web development, ERP systems, mobile applications and business automation." seo_path="/blog/" %}
+    {% include "partials/seo_meta.html" with seo_title="Software & Web Development Blog | KK Digital Growth" seo_description="The KK Digital Growth blog: technology insights on software development, web development, ERP systems, mobile apps and business automation." seo_path="/blog/" %}
     {% include "partials/schema-organization.html" %}
     {% include "partials/schema-breadcrumb.html" with crumb_name="Blog" crumb_path="/blog/" %}
     <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{% static 'css/blog.css' %}?v=6.0">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=6.0">
     <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "partials/content_block_styles.html" %}
 {% include "partials/google_tag_manager_head.html" %}
 {% include "partials/meta_pixel.html" %}
 {% include "partials/google_ads_tag.html" %}
@@ -29,9 +30,9 @@
     <!-- ================= HERO SECTION ================= -->
     <section class="case-hero blog-hero">
         <div class="case-hero-container home-container site-container">
-            <span class="hero-tag"><i class="fa-solid fa-book-open"></i> Technical Insights &amp; Architecture</span>
-            <h1>Engineering Insights &amp; Architecture Notes</h1>
-            <p>Practical guides, architectural blueprints, and engineering notes on ERP systems, custom web applications, mobile platforms, and business automation.</p>
+            <span class="hero-tag"><i class="fa-solid fa-book-open"></i> Technology insights</span>
+            <h1>Software &amp; Web Development Blog</h1>
+            <p>The KK Digital Growth blog shares practical guides and technology insights on software development, web development, ERP systems, mobile apps and business automation.</p>
             <div class="case-hero-buttons">
                 <a href="{% url 'case_studies' %}" class="btn-primary">Browse Case Studies →</a>
                 <a href="{% url 'consultation' %}" class="btn-secondary">Request Consultation</a>
@@ -103,6 +104,67 @@
                 {% endfor %}
             </div>
 
+        </div>
+    </section>
+
+    <!-- ================= ABOUT THE BLOG ================= -->
+    <section class="kk-cb-section alt" aria-labelledby="blog-topics-heading">
+        <div class="kk-cb-container">
+            <div class="kk-cb-head">
+                <span class="kk-cb-tag">What we write about</span>
+                <h2 id="blog-topics-heading">Topics on the KK Digital Growth Blog</h2>
+                <p>Our articles come from the same work we do for clients: planning, building and improving business software. Each topic below links to the related service if you want to see how we deliver it.</p>
+            </div>
+
+            <div class="kk-cb-grid">
+                <article class="kk-cb-card">
+                    <div class="kk-cb-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
+                    <h3>Web development</h3>
+                    <p>Building business websites and web applications: choosing between WordPress, Shopify and a custom build, site speed, responsive layouts and on-page SEO.</p>
+                    <a href="{% url 'service_web_development' %}" class="kk-cb-link">Web development services →</a>
+                </article>
+                <article class="kk-cb-card">
+                    <div class="kk-cb-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></div>
+                    <h3>Mobile app development</h3>
+                    <p>Planning iOS and Android apps, cross-platform development with Flutter, connecting apps to a backend, and preparing for app store releases.</p>
+                    <a href="{% url 'service_mobile_app_development' %}" class="kk-cb-link">Mobile app development →</a>
+                </article>
+                <article class="kk-cb-card">
+                    <div class="kk-cb-icon"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></div>
+                    <h3>ERP and business systems</h3>
+                    <p>Replacing spreadsheets with ERP and CRM systems: inventory, procurement, approvals, reporting dashboards and moving data from older tools.</p>
+                    <a href="{% url 'service_erp_development' %}" class="kk-cb-link">ERP development →</a>
+                </article>
+                <article class="kk-cb-card">
+                    <div class="kk-cb-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
+                    <h3>Custom software development</h3>
+                    <p>Scoping and building software around your own workflow, from internal tools and portals to SaaS products, and deciding what to build first.</p>
+                    <a href="{% url 'service_custom_software' %}" class="kk-cb-link">Custom software →</a>
+                </article>
+                <article class="kk-cb-card">
+                    <div class="kk-cb-icon"><i class="fa-solid fa-microchip" aria-hidden="true"></i></div>
+                    <h3>AI and automation</h3>
+                    <p>Where AI and LLM integrations fit into business software, workflow automation, and how to keep people in control of automated decisions.</p>
+                    <a href="{% url 'service_ai_solutions' %}" class="kk-cb-link">AI solutions →</a>
+                </article>
+                <article class="kk-cb-card">
+                    <div class="kk-cb-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+                    <h3>SEO and digital marketing</h3>
+                    <p>Technical SEO, local search and Google Business Profile, and how a website's structure affects how people find a business online.</p>
+                    <a href="{% url 'service_digital_marketing' %}" class="kk-cb-link">Digital marketing →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="kk-cb-section" aria-labelledby="blog-readers-heading">
+        <div class="kk-cb-container kk-cb-prose">
+            <div class="kk-cb-head">
+                <span class="kk-cb-tag">Who it's for</span>
+                <h2 id="blog-readers-heading">Written for Business Owners and Teams</h2>
+            </div>
+            <p>We write for business owners, operations managers and in-house teams who are deciding whether to build a website, an app or an internal system, and want to know what that involves. We write in plain language and explain the trade-offs, so you can make a decision before talking to any developer.</p>
+            <p>If you'd like to see these ideas applied to real projects, read our <a href="{% url 'case_studies' %}">case studies</a>, or look at <a href="{% url 'process' %}">how we deliver a project</a> from discovery to launch. Have a question an article didn't answer? <a href="{% url 'contact' %}">Contact our team</a> in Visakhapatnam.</p>
         </div>
     </section>
 

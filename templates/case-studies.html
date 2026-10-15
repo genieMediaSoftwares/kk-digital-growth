@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=6.0">
     <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "partials/content_block_styles.html" %}
 {% include "partials/google_tag_manager_head.html" %}
 {% include "partials/meta_pixel.html" %}
 {% include "partials/google_ads_tag.html" %}
@@ -60,6 +61,76 @@
             </div>
         </div>
         {% endfor %}
+    </div>
+</section>
+
+<!-- ================= PROJECTS AT A GLANCE ================= -->
+<section class="kk-cb-section alt" aria-labelledby="glance-heading">
+    <div class="kk-cb-container">
+        <div class="kk-cb-head">
+            <span class="kk-cb-tag">Projects at a glance</span>
+            <h2 id="glance-heading">ERP, Website and Mobile App Projects</h2>
+            <p>Our case studies cover ERP development for manufacturing and aerospace companies, a corporate website for an industrial business, and a mobile app for a legal practice. Here is the scope, timeline and technology of each one.</p>
+        </div>
+
+        <div class="kk-cb-grid cols-2">
+            {% for case in case_studies %}
+            <article class="kk-cb-card">
+                <h3>{{ case.project }}: {{ case.title }}</h3>
+                <p class="kk-cb-meta">{{ case.industry }}{% if case.duration %} · {{ case.duration }}{% endif %}</p>
+                <p>{{ case.overview|truncatewords:40 }}</p>
+                {% if case.technologies %}<p><strong>Technology:</strong> {{ case.technologies|join:", " }}</p>{% endif %}
+                {% if case.results %}<p><strong>Outcomes:</strong> {{ case.results|slice:":3"|join:", " }}</p>{% endif %}
+                <a href="{% url 'case_study_detail' slug=case.slug %}" class="kk-cb-link">Read the {{ case.project }} case study →</a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ================= WHAT EACH CASE STUDY COVERS ================= -->
+<section class="kk-cb-section" aria-labelledby="covers-heading">
+    <div class="kk-cb-container">
+        <div class="kk-cb-head">
+            <span class="kk-cb-tag">Inside each case study</span>
+            <h2 id="covers-heading">From Business Problem to Delivered Software</h2>
+            <p>Every case study follows the project from start to finish, so you can see how we work and not only what we built.</p>
+        </div>
+
+        <div class="kk-cb-grid cols-4">
+            <div class="kk-cb-card">
+                <div class="kk-cb-icon"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i></div>
+                <h3>The challenge</h3>
+                <p>What wasn't working for the client, such as manual spreadsheets, disconnected tools or an outdated website, and what it was costing them.</p>
+            </div>
+            <div class="kk-cb-card">
+                <div class="kk-cb-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></div>
+                <h3>Research and planning</h3>
+                <p>How we mapped their workflows, spoke with the people using the system, and planned the architecture and database before writing code.</p>
+            </div>
+            <div class="kk-cb-card">
+                <div class="kk-cb-icon"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></div>
+                <h3>Design and development</h3>
+                <p>The interface design, the technology stack, and the modules we built, from inventory and procurement to enquiry forms and appointment booking.</p>
+            </div>
+            <div class="kk-cb-card">
+                <div class="kk-cb-icon"><i class="fa-solid fa-rocket" aria-hidden="true"></i></div>
+                <h3>Testing, launch and results</h3>
+                <p>How the system was tested and deployed, how the team moved onto it, and the outcomes the client reported afterwards.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= NEXT STEP ================= -->
+<section class="kk-cb-section alt" aria-labelledby="similar-heading">
+    <div class="kk-cb-container kk-cb-prose">
+        <div class="kk-cb-head">
+            <span class="kk-cb-tag">Your project</span>
+            <h2 id="similar-heading">Planning a Similar Project?</h2>
+        </div>
+        <p>Whether you need custom <a href="{% url 'service_erp_development' %}">ERP development</a>, a new <a href="{% url 'service_web_development' %}">business website</a>, or a <a href="{% url 'service_mobile_app_development' %}">mobile app for iOS and Android</a>, the approach is the same as in these projects: understand how your business works, agree the scope, then design, build, test and launch. You can read more about each stage on our <a href="{% url 'process' %}">process page</a>.</p>
+        <p>Tell us what you're trying to fix or build, and we'll suggest an approach. <a href="{% url 'consultation' %}">Book a consultation</a> or <a href="{% url 'contact' %}">contact our team</a> in Visakhapatnam.</p>
     </div>
 </section>
 

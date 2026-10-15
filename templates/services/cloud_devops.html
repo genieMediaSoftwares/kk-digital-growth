@@ -1,0 +1,309 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "partials/seo_meta.html" with seo_title="Cloud Deployment & DevOps for Software Projects | KK Digital Growth" seo_description="Cloud deployment, CI/CD pipelines and cloud configuration for the software KK Digital Growth builds, delivered as part of each project rather than as hosting." seo_path="/services/cloud-devops/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Services" crumb_path="/services/" crumb2_name="Cloud & DevOps" crumb2_path="/services/cloud-devops/" %}
+
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=8.1">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=9.2">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "partials/google_tag_manager_head.html" %}
+    {% include "partials/meta_pixel.html" %}
+    {% include "partials/google_ads_tag.html" %}
+</head>
+<body>
+{% include "partials/google_tag_manager_body.html" %}
+    {% include 'header.html' %}
+
+    <main id="main-content">
+        <!-- ================= HERO ================= -->
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <a href="{% url 'services' %}">Services</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <span class="current" aria-current="page">Cloud &amp; DevOps</span>
+                </nav>
+
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-cloud" aria-hidden="true"></i> Service area 05 · Cloud &amp; DevOps
+                </span>
+
+                <h1>Cloud &amp; DevOps: Deployment and CI/CD for the Software We Build</h1>
+                <p class="hero-lead">
+                    When we build or take over software, we also set up where and how it runs: the cloud platform or servers, the deployment pipeline, a staging environment and the services the application relies on. This work is part of the software project; it is not a separate hosting service.
+                </p>
+
+                <div class="service-hero-actions">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Discuss your project <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'process' %}" class="btn-outline-light">
+                        See how we deliver
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SUB-SERVICES ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">What's Included</span>
+                    <h2>Three Parts of Getting Software Live</h2>
+                    <p>Set up during the project and documented at handover.</p>
+                </div>
+
+                <div class="svc-card-grid">
+                    <article class="svc-card" id="cloud-deployment">
+                        <div class="card-icon"><i class="fa-solid fa-server" aria-hidden="true"></i></div>
+                        <h3>Cloud Deployment</h3>
+                        <p>Putting the application on the platform that suits its data, budget and control requirements.</p>
+                        <ul class="svc-card-list">
+                            <li>AWS, Azure, Google Cloud or DigitalOcean</li>
+                            <li>A Linux VPS, or servers you already run on-premise</li>
+                            <li>Docker containers, with Nginx and Gunicorn where suitable</li>
+                            <li>Domain and SSL certificate setup</li>
+                        </ul>
+                    </article>
+
+                    <article class="svc-card" id="devops-cicd">
+                        <div class="card-icon"><i class="fa-solid fa-code-branch" aria-hidden="true"></i></div>
+                        <h3>DevOps &amp; CI/CD</h3>
+                        <p>A repeatable way to test and release changes, so releases don't depend on one person's laptop.</p>
+                        <ul class="svc-card-list">
+                            <li>Git version control on GitHub</li>
+                            <li>Automated build and deployment pipelines</li>
+                            <li>A staging environment for reviewing changes before release</li>
+                            <li>TestFlight and Google Play internal testing for mobile apps</li>
+                        </ul>
+                    </article>
+
+                    <article class="svc-card" id="cloud-configuration">
+                        <div class="card-icon"><i class="fa-solid fa-gears" aria-hidden="true"></i></div>
+                        <h3>Cloud Configuration &amp; Integrations</h3>
+                        <p>Setting up the cloud services an application depends on, where the project needs them.</p>
+                        <ul class="svc-card-list">
+                            <li>Storage for uploaded documents and images</li>
+                            <li>Email delivery for system notifications</li>
+                            <li>Push notifications through Firebase</li>
+                            <li>Environment settings and secrets kept out of the code</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <p class="svc-note">
+                    <strong>Scope:</strong> cloud and DevOps work is delivered as part of software projects we build or take over. We don't offer standalone hosting, hosting plans or uptime SLAs.
+                </p>
+            </div>
+        </section>
+
+        <!-- ================= WHO & WHY ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Fit</span>
+                    <h2>Who It's For and What It Solves</h2>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-user-check" aria-hidden="true"></i> Who Usually Needs This</h3>
+                        <ul>
+                            <li><strong>Businesses commissioning new software</strong> that want it launched properly, not just handed over as code.</li>
+                            <li><strong>Teams taking over an application</strong> whose deployment was never documented.</li>
+                            <li><strong>Organisations with data-control requirements</strong> that need software on their own servers.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-wrench" aria-hidden="true"></i> Problems It Addresses</h3>
+                        <ul>
+                            <li>Releases done by hand, with steps only one person knows.</li>
+                            <li>Changes tested directly on the live site because there is no staging copy.</li>
+                            <li>Uncertainty about where the application runs and who has access.</li>
+                            <li>Missing or expired SSL certificates.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SCOPE ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Scope</span>
+                    <h2>What's Included, and What Isn't</h2>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-square-check" aria-hidden="true"></i> Included in the Project</h3>
+                        <ul>
+                            <li>Choosing the deployment target with you.</li>
+                            <li>Setting up staging and production environments.</li>
+                            <li>The build and deployment pipeline.</li>
+                            <li>Domain, SSL and the cloud services the application needs.</li>
+                            <li>Deployment documentation at handover.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> Not Included</h3>
+                        <ul>
+                            <li>Standalone hosting or managed hosting plans.</li>
+                            <li>Uptime guarantees or service level agreements (SLAs).</li>
+                            <li>Cloud work unconnected to software we are building or taking over.</li>
+                            <li>Cloud provider charges, which are separate from development costs.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROCESS ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Delivery</span>
+                    <h2>How Deployment Fits Into a Project</h2>
+                    <p>These steps run alongside development, as part of our wider <a href="{% url 'process' %}">delivery process</a>.</p>
+                </div>
+
+                <div class="process-flow-grid">
+                    <div class="flow-step-card">
+                        <div class="step-number">01</div>
+                        <h3>Choose the Environment</h3>
+                        <p>We agree where the software will run, based on your data, budget and any existing infrastructure.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">02</div>
+                        <h3>Configure &amp; Containerise</h3>
+                        <p>Servers or cloud services are set up, and the application is packaged so it runs the same everywhere.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">03</div>
+                        <h3>Pipeline &amp; Staging</h3>
+                        <p>Automated deployments go to a staging copy first, where you review changes before release.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">04</div>
+                        <h3>Launch &amp; Hand Over</h3>
+                        <p>Production release with domain and SSL in place, followed by deployment documentation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ESTIMATE & PROOF ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-list-check" aria-hidden="true"></i> What We Need to Plan Deployment</h3>
+                        <ul>
+                            <li>Any cloud account, servers or hosting you already use.</li>
+                            <li>Roughly how many people will use the software.</li>
+                            <li>Whether any data must stay on your own servers.</li>
+                            <li>Who owns the domain, and access to its DNS settings.</li>
+                            <li>For an existing application: its code repository and current setup.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Related Work</h3>
+                        <ul>
+                            <li><a href="{% url 'case_study_detail' slug='custom-erp-system' %}">Nucon Aerospace case study</a>: describes deployment to a cloud staging environment before the live cutover.</li>
+                            <li><a href="{% url 'case_study_detail' slug='business-website' %}">KNS Metal Solutions case study</a>: describes VPS hosting setup and SSL configuration.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQS ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Frequently Asked Questions</span>
+                    <h2>Questions About Cloud &amp; DevOps</h2>
+                </div>
+
+                <div class="faq-structured-container">
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Do you offer hosting plans?</h3>
+                        <p>No. We set up and document the environment for the software we build, on a cloud platform or servers agreed for the project. We don't sell standalone hosting or uptime SLAs.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Can the software run on our own servers?</h3>
+                        <p>Yes. Packaging the application in Docker containers lets it run on a private cloud account or on servers inside your own network, if your data needs to stay there.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Which cloud provider should we use?</h3>
+                        <p>It depends on your existing accounts, budget and where your data needs to be. We'll recommend an option during the project and explain the trade-offs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CTA BANNER ================= -->
+        <section class="site-container">
+            <div class="service-cta-block">
+                <h2>Building Software That Needs to Go Live?</h2>
+                <p>Tell us about the project and any infrastructure you already have. Deployment is planned in from the start.</p>
+                <div class="cta-button-group">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Book a consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn-outline-light">
+                        Contact our team
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Structured Data: Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Cloud deployment and DevOps",
+      "name": "Cloud and DevOps",
+      "description": "Cloud deployment, CI/CD pipelines and cloud configuration delivered as part of software development projects. Standalone hosting and uptime SLAs are not offered.",
+      "provider": { "@type": "ProfessionalService", "@id": "https://www.kkdigitalgrowth.com/#organization" },
+      "url": "https://www.kkdigitalgrowth.com/services/cloud-devops/",
+      "areaServed": { "@type": "Country", "name": "India" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cloud and DevOps services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud deployment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DevOps and CI/CD" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud configuration and integrations" } }
+        ]
+      }
+    }
+    </script>
+</body>
+</html>

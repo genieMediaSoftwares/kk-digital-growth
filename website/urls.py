@@ -3,13 +3,14 @@ from django.urls import path
 from django.views.generic import RedirectView, TemplateView
 from django.views.static import serve as serve_media
 from django.contrib.sitemaps.views import sitemap
-from website.sitemaps import StaticViewSitemap, CaseStudySitemap, BlogSitemap
-from website import views
+from website.sitemaps import StaticViewSitemap, CaseStudySitemap, BlogSitemap, JobOpeningSitemap
+from website import views, careers_views
 
 sitemaps = {
     'static': StaticViewSitemap,
     'case_studies': CaseStudySitemap,
     'blogs': BlogSitemap,
+    'careers': JobOpeningSitemap,
 }
 
 urlpatterns = [
@@ -21,6 +22,14 @@ urlpatterns = [
     path('services/custom-software-development/', views.service_custom_software, name='service_custom_software'),
     path('services/erp-development/', views.service_erp_development, name='service_erp_development'),
     path('services/ui-ux-design/', views.service_ui_ux_design, name='service_ui_ux_design'),
+    # Service category landing pages (linked from the Services mega-menu and /services/)
+    path('services/software-engineering/', views.service_software_engineering, name='service_software_engineering'),
+    path('services/enterprise-business-systems/', views.service_enterprise_systems, name='service_enterprise_systems'),
+    path('services/ai-solutions/', views.service_ai_solutions, name='service_ai_solutions'),
+    path('services/experience-product-design/', views.service_product_design, name='service_product_design'),
+    path('services/cloud-devops/', views.service_cloud_devops, name='service_cloud_devops'),
+    path('services/digital-marketing/', views.service_digital_marketing, name='service_digital_marketing'),
+    path('services/seo-services/', views.service_seo, name='service_seo'),
     path('locations/visakhapatnam/', views.location_visakhapatnam, name='location_visakhapatnam'),
     path('process/', views.process, name='process'),
     path("clients/", views.clients, name="clients"),
@@ -28,12 +37,25 @@ urlpatterns = [
     path("about/", views.about, name="about"),
     path('case-studies/', views.case_studies, name='case_studies'),
     path('case-studies/<slug:slug>/', views.case_study_detail, name='case_study_detail'),
+    path('careers/', careers_views.careers, name='careers'),
+    path('careers/<slug:slug>/', careers_views.career_detail, name='career_detail'),
+    path('careers/<slug:slug>/apply/', careers_views.career_apply, name='career_apply'),
     
     # Custom Admin Routes
     path('admin/login/', views.admin_login_view, name='admin_login'),
     path('admin/dashboard/', views.admin_dashboard_view, name='admin_dashboard'),
     path('admin/logout/', views.admin_logout_view, name='admin_logout'),
     path('admin/', views.admin_login_view),
+
+    # Careers management (custom admin)
+    path('admin/careers/', careers_views.careers_admin_list, name='careers_admin_list'),
+    path('admin/careers/new/', careers_views.careers_admin_edit, name='careers_admin_create'),
+    path('admin/careers/<int:job_id>/edit/', careers_views.careers_admin_edit, name='careers_admin_edit'),
+    path('admin/careers/<int:job_id>/status/', careers_views.careers_admin_status, name='careers_admin_status'),
+    path('admin/careers/<int:job_id>/delete/', careers_views.careers_admin_delete, name='careers_admin_delete'),
+    path('admin/careers/applications/', careers_views.careers_admin_applications, name='careers_admin_applications'),
+    path('admin/careers/applications/<int:application_id>/', careers_views.careers_admin_application_detail, name='careers_admin_application_detail'),
+    path('admin/careers/applications/<int:application_id>/delete/', careers_views.careers_admin_application_delete, name='careers_admin_application_delete'),
 
     # Blog Management CMS Routes
     path('blog/admin/', views.blog_dashboard_view, name='blog_dashboard'),

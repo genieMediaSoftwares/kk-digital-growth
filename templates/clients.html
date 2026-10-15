@@ -12,6 +12,10 @@
     {% include "partials/schema-breadcrumb.html" with crumb_name="Clients" crumb_path="/clients/" %}
     <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="{% static 'css/base.css' %}?v=6.0">
     <link rel="stylesheet" href="{% static 'css/clients.css' %}?v=6.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=6.0">
@@ -67,72 +71,7 @@
     </div>
 
 </section>
-<section class="platforms-section">
-    <div class="home-container site-container">
-
-        <div class="platform-title">
-
-            <h2>
-                Platforms we use for
-                <span>Web development</span>
-            </h2>
-
-        </div>
-
-        <div class="platform-icons">
-
-            <div class="platform-card">
-
-                <picture style="display:contents"><source srcset="{% static 'images/opt/wordpress-512.webp' %}" type="image/webp"><img src="{% static 'images/wordpress.png' %}" alt="WordPress"></picture>
-
-                <h3>WordPress</h3>
-
-            </div>
-
-            <div class="platform-card">
-
-                <picture style="display:contents"><source srcset="{% static 'images/opt/shopify-256.webp' %}" type="image/webp"><img src="{% static 'images/shopify.png' %}" alt="Shopify"></picture>
-
-                <h3>Shopify</h3>
-
-            </div>
-
-            <div class="platform-card">
-
-                <picture style="display:contents"><source srcset="{% static 'images/opt/web-development-530.webp' %}" type="image/webp"><img src="{% static 'images/web-development.png' %}" alt="Custom development"></picture>
-
-                <h3>Custom development</h3>
-
-            </div>
-
-        </div>
-
-        <div class="platform-content">
-
-            <p>
-
-                If you're looking for an agency that elevates your brand
-                with creativity, strategy, and innovation,
-                then you're ready for us.
-
-            </p>
-
-        </div>
-
-        <div class="platform-button">
-
-            <a href="{% url 'consultation' %}" class="platform-btn">
-
-                Need help to upscale your brand
-
-                <span>→</span>
-
-            </a>
-
-        </div>
-
-    </div>
-</section>
+{% include "partials/tech_stack.html" %}
 
 <!-- ================= OUR CLIENTS MARQUEE SECTION ================= -->
 <section class="clients-marquee-section">

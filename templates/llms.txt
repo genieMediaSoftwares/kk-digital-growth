@@ -1,9 +1,10 @@
 # KK Digital Growth
 
 > KK Digital Growth is a software development company based in Visakhapatnam,
-> Andhra Pradesh, India. It builds custom websites, mobile applications, ERP
-> systems, custom business software, and UI/UX design with QA testing for
-> business clients across India.
+> Andhra Pradesh, India. Its services are grouped into six areas: software
+> engineering, enterprise and business systems, AI and intelligent systems,
+> experience and product design, cloud and DevOps (delivered within software
+> projects), and digital marketing and organic growth.
 
 ## Company
 
@@ -16,12 +17,25 @@
 
 ## Services
 
-- [Services Overview](https://www.kkdigitalgrowth.com/services/): High-level software development capabilities and offerings directory.
+- [Services Overview](https://www.kkdigitalgrowth.com/services/): Directory of the six service areas.
+
+### Service areas
+
+- [Software Engineering](https://www.kkdigitalgrowth.com/services/software-engineering/): Website, web application and mobile app development, custom software, SaaS platforms and e-commerce.
+- [Enterprise & Business Systems](https://www.kkdigitalgrowth.com/services/enterprise-business-systems/): ERP and CRM systems, admin and business dashboards, data analysis, workflow automation and integrations.
+- [AI & Intelligent Systems](https://www.kkdigitalgrowth.com/services/ai-solutions/): AI integrations, LLM integrations, AI agents and RAG knowledge assistants.
+- [Experience & Product Design](https://www.kkdigitalgrowth.com/services/experience-product-design/): UI/UX research and design, prototyping, interface design, and QA and functional testing.
+- [Cloud & DevOps](https://www.kkdigitalgrowth.com/services/cloud-devops/): Cloud deployment, CI/CD and cloud configuration delivered as part of software projects; no standalone hosting or uptime SLAs.
+- [Digital Marketing & Organic Growth](https://www.kkdigitalgrowth.com/services/digital-marketing/): Technical SEO audits, Google Business Profile management, local SEO, AEO/GEO, paid ads and social media marketing. No ranking, AI-citation or ad-performance guarantees.
+
+### Individual service pages
+
 - [Web Development](https://www.kkdigitalgrowth.com/services/web-development/): Custom business websites, corporate portals, e-commerce storefronts, and performance engineering.
 - [Mobile App Development](https://www.kkdigitalgrowth.com/services/mobile-app-development/): iOS, Android, and cross-platform Flutter mobile applications with secure Django REST APIs.
 - [Custom Software Development](https://www.kkdigitalgrowth.com/services/custom-software-development/): Bespoke internal tools, operations dashboards, workflow automation, and B2B SaaS platforms.
 - [ERP Development](https://www.kkdigitalgrowth.com/services/erp-development/): Custom Enterprise Resource Planning for manufacturing, multi-warehouse inventory, procurement RFQs, and engineering BOM control.
 - [UI/UX Design & QA](https://www.kkdigitalgrowth.com/services/ui-ux-design/): User research, wireframing, responsive design systems, and cross-browser functional QA testing.
+- [SEO Services](https://www.kkdigitalgrowth.com/services/seo-services/): Technical SEO audits, Google Business Profile and local SEO, and AEO/GEO content structure.
 
 ## Locations
 
@@ -41,7 +55,7 @@
 
 ## Office & Contact
 
-- Office: 5A2, 4th Floor, KK Digital Growth, Yendada, Visakhapatnam, Andhra Pradesh — 530045, India.
+- Office: 4th Floor, KP Icon, KP Infra, 5A2, Yendada, Visakhapatnam, Andhra Pradesh 530045, India.
 - Working hours: Monday to Friday 10:00-19:00, Saturday 10:00-16:00 (India Standard Time).
 - Phone: +91 9032845433
 - Email: admin@kkdigitalgrowth.in

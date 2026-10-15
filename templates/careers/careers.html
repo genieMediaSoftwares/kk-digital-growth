@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "partials/seo_meta.html" with seo_title="Careers at KK Digital Growth | Jobs in Visakhapatnam" seo_description="Current job openings at KK Digital Growth, a software development and digital marketing company in Yendada, Visakhapatnam. See each role and apply online." seo_path="/careers/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Careers" crumb_path="/careers/" %}
+
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=8.1">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=9.2">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "careers/_styles.html" %}
+    {% include "partials/google_tag_manager_head.html" %}
+    {% include "partials/meta_pixel.html" %}
+    {% include "partials/google_ads_tag.html" %}
+</head>
+<body>
+{% include "partials/google_tag_manager_body.html" %}
+    {% include 'header.html' %}
+
+    <main id="main-content">
+        <!-- ================= HERO ================= -->
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <span class="current" aria-current="page">Careers</span>
+                </nav>
+
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Careers
+                </span>
+
+                <h1>Careers at KK Digital Growth</h1>
+                <p class="hero-lead">
+                    KK Digital Growth is a software development and digital marketing company based in Yendada, Visakhapatnam. We build websites, mobile apps, custom software and ERP systems, and run digital marketing for businesses. When we are hiring, every open role is listed on this page with what the job involves and how to apply.
+                </p>
+
+                <div class="service-hero-actions">
+                    <a href="#openings" class="btn-accent">
+                        View current openings <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'about' %}" class="btn-outline-light">
+                        About the company
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= OPENINGS ================= -->
+        <section class="service-content-section alt-bg" id="openings" aria-labelledby="openings-heading">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Open roles</span>
+                    <h2 id="openings-heading">Current Openings</h2>
+                    {% if jobs %}
+                    <p>{{ jobs|length }} open role{{ jobs|length|pluralize }}. Open a role to read the full details and apply.</p>
+                    {% endif %}
+                </div>
+
+                {% if jobs %}
+                <ul class="careers-job-list">
+                    {% for job in jobs %}
+                    <li class="careers-job-card">
+                        <h3><a href="{% url 'career_detail' slug=job.slug %}">{{ job.title }}</a></h3>
+                        {% include "careers/_job_meta.html" %}
+                        <p>{{ job.summary }}</p>
+                        {% if job.closing_date %}
+                        <p class="careers-closing"><i class="fa-regular fa-clock" aria-hidden="true"></i> Apply by {{ job.closing_date|date:"j F Y" }}</p>
+                        {% endif %}
+                        <div class="careers-job-actions">
+                            <a href="{% url 'career_apply' slug=job.slug %}" class="btn-accent" aria-label="Apply for {{ job.title }}">
+                                Apply now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                            <a href="{% url 'career_detail' slug=job.slug %}" class="svc-card-link" aria-label="View role details: {{ job.title }}">
+                                View role details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <div class="careers-empty">
+                    <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+                    <h3>No open roles right now</h3>
+                    <p>We don't have any openings at the moment. New roles are posted on this page as soon as they open, so please check back later.</p>
+                    <a href="{% url 'about' %}" class="svc-card-link">
+                        Learn more about KK Digital Growth <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+
+        <!-- ================= WHAT WE WORK ON ================= -->
+        <section class="service-content-section" aria-labelledby="work-heading">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Our work</span>
+                    <h2 id="work-heading">What We Work On</h2>
+                    <p>Our roles support the services we deliver to clients. Each area has its own page with more detail.</p>
+                </div>
+
+                <div class="svc-card-grid">
+                    <article class="svc-card">
+                        <div class="card-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
+                        <h3>Software Engineering</h3>
+                        <p>Websites, web applications, mobile apps, custom software, SaaS platforms and e-commerce stores.</p>
+                        <a href="{% url 'service_software_engineering' %}" class="svc-card-link">Software Engineering <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                    <article class="svc-card">
+                        <div class="card-icon"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></div>
+                        <h3>Enterprise &amp; Business Systems</h3>
+                        <p>ERP and CRM systems, business dashboards, data analysis, workflow automation and integrations.</p>
+                        <a href="{% url 'service_enterprise_systems' %}" class="svc-card-link">Business Systems <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                    <article class="svc-card">
+                        <div class="card-icon"><i class="fa-solid fa-microchip" aria-hidden="true"></i></div>
+                        <h3>AI &amp; Intelligent Systems</h3>
+                        <p>AI and LLM integrations, AI agents and knowledge assistants built into business software.</p>
+                        <a href="{% url 'service_ai_solutions' %}" class="svc-card-link">AI Solutions <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                    <article class="svc-card">
+                        <div class="card-icon"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></div>
+                        <h3>Experience &amp; Product Design</h3>
+                        <p>UI/UX research and design, prototyping, interface design, and QA and functional testing.</p>
+                        <a href="{% url 'service_product_design' %}" class="svc-card-link">Product Design <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                    <article class="svc-card">
+                        <div class="card-icon"><i class="fa-solid fa-cloud" aria-hidden="true"></i></div>
+                        <h3>Cloud &amp; DevOps</h3>
+                        <p>Cloud deployment, CI/CD and configuration for the software we build.</p>
+                        <a href="{% url 'service_cloud_devops' %}" class="svc-card-link">Cloud &amp; DevOps <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                    <article class="svc-card">
+                        <div class="card-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+                        <h3>Digital Marketing</h3>
+                        <p>SEO, Google Business Profile management, paid ads and social media marketing.</p>
+                        <a href="{% url 'service_digital_marketing' %}" class="svc-card-link">Digital Marketing <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQS ================= -->
+        <section class="service-content-section alt-bg" aria-labelledby="faq-heading">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Frequently Asked Questions</span>
+                    <h2 id="faq-heading">Questions About Applying</h2>
+                </div>
+
+                <div class="faq-structured-container">
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> How do I apply?</h3>
+                        <p>Open the role you're interested in and select "Apply now". The form asks for your name, email address, an optional phone number and profile link, and a short message about why the role suits you.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Can I upload my CV?</h3>
+                        <p>Not at the moment. Instead, add a link to your CV, portfolio, GitHub or LinkedIn profile in the application form.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Where is the work based?</h3>
+                        <p>Our office is in Yendada, Visakhapatnam. Each role lists its own location and work arrangement where these have been set.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> How is my application information used?</h3>
+                        <p>Only to consider you for the role you applied for. It is visible only to authorised KK Digital Growth staff. To have your application deleted, email <a href="mailto:admin@kkdigitalgrowth.in">admin@kkdigitalgrowth.in</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+</body>
+</html>

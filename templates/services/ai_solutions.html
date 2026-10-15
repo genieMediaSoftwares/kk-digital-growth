@@ -1,0 +1,331 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "partials/seo_meta.html" with seo_title="AI Integrations, LLMs, Agents & RAG Assistants | KK Digital Growth" seo_description="AI and LLM integrations, task-focused AI agents and RAG knowledge assistants that answer from your own documents, scoped and built by KK Digital Growth." seo_path="/services/ai-solutions/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Services" crumb_path="/services/" crumb2_name="AI & Intelligent Systems" crumb2_path="/services/ai-solutions/" %}
+
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=8.1">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=9.2">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "partials/google_tag_manager_head.html" %}
+    {% include "partials/meta_pixel.html" %}
+    {% include "partials/google_ads_tag.html" %}
+</head>
+<body>
+{% include "partials/google_tag_manager_body.html" %}
+    {% include 'header.html' %}
+
+    <main id="main-content">
+        <!-- ================= HERO ================= -->
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <a href="{% url 'services' %}">Services</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <span class="current" aria-current="page">AI &amp; Intelligent Systems</span>
+                </nav>
+
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-microchip" aria-hidden="true"></i> Service area 03 · AI &amp; Intelligent Systems
+                </span>
+
+                <h1>AI &amp; Intelligent Systems: AI Integrations, LLMs, Agents &amp; RAG</h1>
+                <p class="hero-lead">
+                    We add AI features to business software where they solve a specific, well-defined problem: reading and summarising documents, answering questions from your own material, or carrying out routine multi-step tasks. Each feature is scoped around the data it uses, how its output is checked, and what it is allowed to change.
+                </p>
+
+                <div class="service-hero-actions">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Discuss an AI use case <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'process' %}" class="btn-outline-light">
+                        See how we deliver
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SUB-SERVICES ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">What's Included</span>
+                    <h2>Four Kinds of AI Work</h2>
+                    <p>Most projects combine two or more of these, connected to your existing data and software.</p>
+                </div>
+
+                <div class="svc-card-grid svc-card-grid--2">
+                    <article class="svc-card" id="ai-integrations">
+                        <div class="card-icon"><i class="fa-solid fa-plug" aria-hidden="true"></i></div>
+                        <h3>AI Integrations</h3>
+                        <p>Connecting AI services to the software and data you already have, so results appear where your team already works.</p>
+                        <ul class="svc-card-list">
+                            <li>AI features inside your website, app or admin panel</li>
+                            <li>Connections to your existing records through APIs</li>
+                            <li>Review steps before AI output is saved or sent</li>
+                            <li>Usage logs and admin controls</li>
+                        </ul>
+                    </article>
+
+                    <article class="svc-card" id="llm-integration">
+                        <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></div>
+                        <h3>LLM Integrations</h3>
+                        <p>Large language model (LLM) features for tasks that involve reading or writing text.</p>
+                        <ul class="svc-card-list">
+                            <li>Summarising long documents or threads</li>
+                            <li>Classifying and routing incoming enquiries</li>
+                            <li>Extracting fields from unstructured text</li>
+                            <li>Drafting replies for staff to edit and send</li>
+                        </ul>
+                    </article>
+
+                    <article class="svc-card" id="ai-agents">
+                        <div class="card-icon"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></div>
+                        <h3>AI Agents</h3>
+                        <p>An agent is a language model that can use a defined set of tools, such as looking up a record or creating a ticket, to complete a task in several steps.</p>
+                        <ul class="svc-card-list">
+                            <li>An explicit list of allowed actions</li>
+                            <li>Approval steps before changes are made</li>
+                            <li>A log of every step the agent took</li>
+                            <li>Limits on retries, scope and usage</li>
+                        </ul>
+                    </article>
+
+                    <article class="svc-card" id="rag-assistants">
+                        <div class="card-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></div>
+                        <h3>RAG Knowledge Assistants</h3>
+                        <p>Retrieval-augmented generation (RAG) first finds the relevant passages in your documents, then answers using those passages rather than the model's general knowledge.</p>
+                        <ul class="svc-card-list">
+                            <li>Built on documents and records you choose</li>
+                            <li>Answers that link to their sources</li>
+                            <li>Respects who may see which documents</li>
+                            <li>Says so when it can't find an answer</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= WHO IT IS FOR ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Fit</span>
+                    <h2>Where AI Helps, and Where It Doesn't</h2>
+                    <p>A large language model (LLM) is good at working with text: reading it, summarising it, sorting it and drafting it. It is not a replacement for ordinary software where the rules are fixed.</p>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-user-check" aria-hidden="true"></i> Who This Service Is For</h3>
+                        <ul>
+                            <li><strong>Teams answering the same questions repeatedly</strong> from manuals, policies, product sheets or past tickets.</li>
+                            <li><strong>Businesses handling large volumes of text</strong> such as enquiries, emails, forms or reports that need sorting, summarising or data extraction.</li>
+                            <li><strong>Companies with existing software</strong> that want an AI feature inside the tools staff already use, rather than another separate app.</li>
+                            <li><strong>Product founders</strong> adding AI capabilities to a SaaS product or mobile app.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> When We'll Suggest Something Else</h3>
+                        <ul>
+                            <li><strong>The task follows fixed rules.</strong> Ordinary <a href="{% url 'service_enterprise_systems' %}#workflow-automation">workflow automation</a> is cheaper, faster and more predictable.</li>
+                            <li><strong>A wrong answer would cause serious harm</strong> and there is no one to review the output before it is used.</li>
+                            <li><strong>The information isn't available</strong> in a form the system can access, or it changes faster than it can be kept up to date.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SCOPE ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Scope</span>
+                    <h2>What an AI Engagement Includes</h2>
+                    <p>The aim is a feature you can measure and trust, not a demo.</p>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-square-check" aria-hidden="true"></i> Included</h3>
+                        <ul>
+                            <li>Choosing one clearly defined use case to start with.</li>
+                            <li>Reviewing the data the feature will rely on: where it lives, its format and its quality.</li>
+                            <li>A prototype tested on a sample of your real data.</li>
+                            <li>A set of real example questions or tasks used to check answer quality before launch.</li>
+                            <li>Integration into your website, app or internal tools, with interface design where needed.</li>
+                            <li>Usage logs and admin controls, plus documentation at handover.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Worth Knowing Up Front</h3>
+                        <ul>
+                            <li>We build on existing language models; we don't train foundation models from scratch.</li>
+                            <li>Which model provider to use is decided with you, based on your data, privacy and budget requirements.</li>
+                            <li>Ongoing model usage costs depend on the provider and on how much the feature is used, so discuss them during scoping.</li>
+                            <li>No AI system is error-free. Where mistakes matter, the design keeps a person in the loop.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROCESS ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Delivery</span>
+                    <h2>How an AI Project Runs</h2>
+                    <p>The same stages as our wider <a href="{% url 'process' %}">delivery process</a>, with an evaluation step before anything goes live.</p>
+                </div>
+
+                <div class="process-flow-grid">
+                    <div class="flow-step-card">
+                        <div class="step-number">01</div>
+                        <h3>Use Case &amp; Data Review</h3>
+                        <p>We agree the task, who will use the feature, what good output looks like, and which data it can access.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">02</div>
+                        <h3>Prototype on Your Data</h3>
+                        <p>A working prototype on a sample of real inputs, checked against the example questions or tasks you provide.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">03</div>
+                        <h3>Build &amp; Integrate</h3>
+                        <p>The feature is connected to your systems, with permissions, logging, review steps and an interface for your users.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">04</div>
+                        <h3>Launch &amp; Refine</h3>
+                        <p>Release to a small group first, review real usage and logs, then adjust prompts, data and limits before wider use.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ESTIMATE & DATA ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-list-check" aria-hidden="true"></i> What We Need to Estimate Your Project</h3>
+                        <ul>
+                            <li>A description of the task and who will use the feature.</li>
+                            <li>A handful of real examples of inputs, and what a good result would look like for each.</li>
+                            <li>Where the relevant data lives, its format and roughly how much there is.</li>
+                            <li>The systems the feature must read from or write to.</li>
+                            <li>Who will review the output, and any privacy or regulatory constraints.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Data Questions We Settle Together</h3>
+                        <ul>
+                            <li>Which data may be sent to an external model provider, and what must stay on your own servers.</li>
+                            <li>Who may see which documents through the assistant.</li>
+                            <li>How long prompts, responses and logs are kept.</li>
+                            <li>What the system should do when it isn't confident in an answer.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQS ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Frequently Asked Questions</span>
+                    <h2>Questions About AI Projects</h2>
+                </div>
+
+                <div class="faq-structured-container">
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Will the AI ever give wrong answers?</h3>
+                        <p>Yes, it can. Language models sometimes produce confident but incorrect output. The risk is reduced by grounding answers in your own documents, showing sources, narrowing what the feature is asked to do, and keeping a person in the loop for decisions that matter. Testing against your real examples before launch shows how well it performs on your use case.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Can you add AI to software we already have?</h3>
+                        <p>Often, yes, provided the existing system can share its data and actions through an API or database access. We review the system first and tell you what's practical. If the software needs other changes, we can handle those as part of the same project.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Is this the same as adding a chatbot?</h3>
+                        <p>A chat window is one possible interface. Many useful AI features have no chat at all, for example tagging incoming enquiries automatically or pulling fields out of supplier documents into your database.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Where will the AI feature be hosted?</h3>
+                        <p>Alongside the rest of your application, on the cloud platform or servers agreed for the project. Deployment is set up as part of the same project.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CTA BANNER ================= -->
+        <section class="site-container">
+            <div class="service-cta-block">
+                <h2>Have a Task You Think AI Could Help With?</h2>
+                <p>Describe it and share a few real examples. We'll tell you whether AI is a good fit, and what a first version would involve.</p>
+                <div class="cta-button-group">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Book a consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn-outline-light">
+                        Contact our team
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Structured Data: Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "AI integration",
+      "name": "AI and Intelligent Systems",
+      "description": "AI integrations, LLM integrations, task-focused AI agents, and retrieval-augmented generation (RAG) assistants that answer from a business's own documents.",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.kkdigitalgrowth.com/#organization"
+      },
+      "url": "https://www.kkdigitalgrowth.com/services/ai-solutions/",
+      "areaServed": { "@type": "Country", "name": "India" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "AI Capabilities",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI integrations" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "LLM integrations" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI agents" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "RAG knowledge assistants" } }
+        ]
+      }
+    }
+    </script>
+</body>
+</html>

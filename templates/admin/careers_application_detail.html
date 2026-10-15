@@ -1,0 +1,57 @@
+{% extends "admin/careers_base.html" %}
+
+{% block title %}Application: {{ application.full_name }}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+    <div>
+        <h1 class="page-title mb-1">{{ application.full_name }}</h1>
+        <p class="text-muted mb-0 small">Applied for <strong>{{ application.job_title }}</strong> on {{ application.created_at|date:"j M Y, H:i" }}</p>
+    </div>
+    <a href="{% url 'careers_admin_applications' %}" class="btn btn-outline-secondary rounded-pill fw-semibold px-3">
+        <i class="fa-solid fa-arrow-left me-1"></i> All applications
+    </a>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-8">
+        <div class="panel-card">
+            <div class="panel-card-header"><h2 class="panel-card-title"><i class="fa-solid fa-user text-warning"></i> Applicant</h2></div>
+            <div class="p-4">
+                <dl class="row mb-0">
+                    <dt class="col-sm-3">Email</dt>
+                    <dd class="col-sm-9"><a href="mailto:{{ application.email }}">{{ application.email }}</a></dd>
+                    <dt class="col-sm-3">Phone</dt>
+                    <dd class="col-sm-9">{{ application.phone|default:"—" }}</dd>
+                    <dt class="col-sm-3">Profile link</dt>
+                    <dd class="col-sm-9">{% if application.profile_url %}<a href="{{ application.profile_url }}" target="_blank" rel="noopener noreferrer nofollow">{{ application.profile_url }}</a>{% else %}—{% endif %}</dd>
+                    <dt class="col-sm-3">Role</dt>
+                    <dd class="col-sm-9">{% if application.job %}<a href="{% url 'careers_admin_edit' job_id=application.job.id %}">{{ application.job_title }}</a>{% else %}{{ application.job_title }} <span class="text-muted">(job deleted)</span>{% endif %}</dd>
+                    <dt class="col-sm-3">Privacy notice</dt>
+                    <dd class="col-sm-9">{% if application.consent %}Acknowledged{% else %}—{% endif %}</dd>
+                </dl>
+                <hr>
+                <h3 class="h6 fw-bold">Message</h3>
+                <p class="mb-0" style="white-space: pre-wrap;">{{ application.message }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <form method="post" class="panel-card">
+            {% csrf_token %}
+            <div class="panel-card-header"><h2 class="panel-card-title"><i class="fa-solid fa-list-check text-warning"></i> Review</h2></div>
+            <div class="p-4">
+                {% include "admin/_careers_field.html" with field=form.status %}
+                {% include "admin/_careers_field.html" with field=form.internal_notes %}
+                <p class="form-text">Internal notes are visible only to admins.</p>
+                <button type="submit" class="btn btn-orange-primary px-3 py-2 w-100"><i class="fa-solid fa-floppy-disk me-1"></i> Save</button>
+            </div>
+        </form>
+        <form method="post" action="{% url 'careers_admin_application_delete' application_id=application.id %}"
+              onsubmit="return confirm('Permanently delete this application? This cannot be undone.');">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-danger rounded-pill w-100 fw-semibold"><i class="fa-solid fa-trash me-1"></i> Delete application</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

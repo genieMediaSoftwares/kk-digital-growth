@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {% include "partials/seo_meta.html" with seo_title="Custom Software Development Services | Business Tools & SaaS | KK Digital Growth" seo_description="Tailor-made business software engineering, internal operational tools, workflow automation, and SaaS product platforms by KK Digital Growth. High-integrity database architectures." seo_path="/services/custom-software-development/" %}
+    {% include "partials/seo_meta.html" with seo_title="Custom Software Development Services | KK Digital Growth" seo_description="Tailor-made business software engineering, internal operational tools, workflow automation, and SaaS product platforms by KK Digital Growth. High-integrity database architectures." seo_path="/services/custom-software-development/" %}
     {% include "partials/schema-organization.html" %}
     {% include "partials/schema-breadcrumb.html" with crumb_name="Services" crumb_path="/services/" crumb2_name="Custom Software" crumb2_path="/services/custom-software-development/" %}
 
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}?v=8.0">
     <link rel="stylesheet" href="{% static 'css/header.css' %}?v=8.1">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=8.0">
-    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=9.2">
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=8.0">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=8.0">
     <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
@@ -105,7 +105,7 @@
                 </div>
 
                 <div class="cards-3col-grid">
-                    <article class="deliverable-card">
+                    <article class="deliverable-card" id="dashboards">
                         <div class="card-icon"><i class="fa-solid fa-table-columns" aria-hidden="true"></i></div>
                         <h3>Internal Operations Dashboards</h3>
                         <p>Clean administrative interfaces consolidating live KPIs, team task queues, inventory statuses, and executive financial summaries in real time.</p>
@@ -117,7 +117,7 @@
                         </ul>
                     </article>
 
-                    <article class="deliverable-card">
+                    <article class="deliverable-card" id="workflow-automation">
                         <div class="card-icon"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></div>
                         <h3>Workflow Automation Pipelines</h3>
                         <p>Systemized logic loops that replace manual handoffs with automated trigger events, email/SMS alerts, and transactional audit trails.</p>
@@ -129,7 +129,7 @@
                         </ul>
                     </article>
 
-                    <article class="deliverable-card">
+                    <article class="deliverable-card" id="saas-platforms">
                         <div class="card-icon"><i class="fa-solid fa-cloud" aria-hidden="true"></i></div>
                         <h3>SaaS &amp; Multi-Tenant Platforms</h3>
                         <p>Scalable web applications built to serve multiple client organizations with secure database isolation, subscription logic, and billing APIs.</p>

@@ -39,27 +39,6 @@
     font-weight:500;
     transition:all 0.3s ease;
 }
-/* Orange Dot */
-
-.nav-links > li::before{
-    content:"";
-    position:absolute;
-    left:-18px;
-    top:50%;
-    transform:translateY(-50%);
-    width:10px;
-    height:10px;
-    background:#F79421;
-    border-radius:50%;
-    opacity:0;
-   transition:0.3s ease;
-}
-/* Hover Effect */
-
-.nav-links > li:hover::before{
-    opacity:1;
-}
-
 .nav-links > li:hover > a{
     font-weight:700;
 }

@@ -1,0 +1,9 @@
+{# Chips for the job fields an admin filled in; empty fields are left out. #}
+{% if job.department or job.location or job.work_mode or job.employment_type %}
+<ul class="careers-meta" aria-label="Role details">
+    {% if job.department %}<li><i class="fa-solid fa-layer-group" aria-hidden="true"></i> <span class="sr-label">Team:</span> {{ job.department }}</li>{% endif %}
+    {% if job.location %}<li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span class="sr-label">Location:</span> {{ job.location }}</li>{% endif %}
+    {% if job.work_mode %}<li><i class="fa-solid fa-building" aria-hidden="true"></i> <span class="sr-label">Work mode:</span> {{ job.get_work_mode_display }}</li>{% endif %}
+    {% if job.employment_type %}<li><i class="fa-solid fa-briefcase" aria-hidden="true"></i> <span class="sr-label">Employment type:</span> {{ job.get_employment_type_display }}</li>{% endif %}
+</ul>
+{% endif %}

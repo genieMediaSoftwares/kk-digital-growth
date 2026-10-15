@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply: {{ job.title }} | Careers | KK Digital Growth</title>
+    <meta name="description" content="Application form for the {{ job.title }} role at KK Digital Growth.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://www.kkdigitalgrowth.com{{ job.get_absolute_url }}">
+
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=8.1">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=9.2">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "careers/_styles.html" %}
+    {% include "partials/google_tag_manager_head.html" %}
+    {% include "partials/meta_pixel.html" %}
+    {% include "partials/google_ads_tag.html" %}
+</head>
+<body>
+{% include "partials/google_tag_manager_body.html" %}
+    {% include 'header.html' %}
+
+    <main id="main-content">
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <a href="{% url 'careers' %}">Careers</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <a href="{% url 'career_detail' slug=job.slug %}">{{ job.title }}</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <span class="current" aria-current="page">Apply</span>
+                </nav>
+
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Application
+                </span>
+
+                <h1>Apply: {{ job.title }}</h1>
+                {% include "careers/_job_meta.html" %}
+            </div>
+        </section>
+
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="careers-detail">
+                    {% if submitted %}
+                    <div class="careers-alert success" role="status" tabindex="-1" id="application-status">
+                        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                        <div>
+                            <strong>Thank you, your application has been received.</strong><br>
+                            We'll use the email address or phone number you gave us if we'd like to take your application further. <a href="{% url 'careers' %}">Back to all openings</a>
+                        </div>
+                    </div>
+                    {% else %}
+
+                    {% if error %}
+                    <div class="careers-alert error" role="alert">
+                        <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                        <div>{{ error }}</div>
+                    </div>
+                    {% elif form.errors %}
+                    <div class="careers-alert error" role="alert" tabindex="-1" id="application-status">
+                        <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                        <div>
+                            <strong>Please check the form.</strong>
+                            {% for error in form.non_field_errors %}<br>{{ error }}{% endfor %}
+                            {% if not form.non_field_errors %} The fields that need attention are marked below.{% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if job.application_instructions %}
+                    <div class="careers-notice">
+                        <strong>Before you apply:</strong> {{ job.application_instructions|linebreaksbr }}
+                    </div>
+                    {% endif %}
+
+                    <form method="post" action="{% url 'career_apply' slug=job.slug %}" class="careers-form" novalidate>
+                        {% csrf_token %}
+                        <input type="hidden" name="form_ts" value="{{ form.form_ts.value|default:'' }}">
+                        <div class="careers-hp" aria-hidden="true">
+                            <label for="id_website">Leave this field empty</label>
+                            <input type="text" name="website" id="id_website" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div class="careers-form-grid">
+                            <div class="careers-field">
+                                <label for="id_full_name">Full name <span class="req" aria-hidden="true">*</span></label>
+                                <input type="text" name="full_name" id="id_full_name" maxlength="120" required autocomplete="name"
+                                       value="{{ form.full_name.value|default:'' }}"{% if form.full_name.errors %} aria-invalid="true" aria-describedby="err_full_name"{% endif %}>
+                                {% if form.full_name.errors %}<span class="field-error" id="err_full_name">{{ form.full_name.errors.0 }}</span>{% endif %}
+                            </div>
+
+                            <div class="careers-field">
+                                <label for="id_email">Email address <span class="req" aria-hidden="true">*</span></label>
+                                <input type="email" name="email" id="id_email" maxlength="254" required autocomplete="email"
+                                       value="{{ form.email.value|default:'' }}"{% if form.email.errors %} aria-invalid="true" aria-describedby="err_email"{% endif %}>
+                                {% if form.email.errors %}<span class="field-error" id="err_email">{{ form.email.errors.0 }}</span>{% endif %}
+                            </div>
+
+                            <div class="careers-field">
+                                <label for="id_phone">Phone number <span class="hint-inline">(optional)</span></label>
+                                <input type="tel" name="phone" id="id_phone" maxlength="20" autocomplete="tel"
+                                       value="{{ form.phone.value|default:'' }}"{% if form.phone.errors %} aria-invalid="true" aria-describedby="err_phone"{% endif %}>
+                                {% if form.phone.errors %}<span class="field-error" id="err_phone">{{ form.phone.errors.0 }}</span>{% endif %}
+                            </div>
+
+                            <div class="careers-field">
+                                <label for="id_profile_url">CV, portfolio or LinkedIn link <span class="hint-inline">(optional)</span></label>
+                                <input type="url" name="profile_url" id="id_profile_url" maxlength="300" inputmode="url" placeholder="https://"
+                                       aria-describedby="hint_profile_url{% if form.profile_url.errors %} err_profile_url{% endif %}"
+                                       value="{{ form.profile_url.value|default:'' }}"{% if form.profile_url.errors %} aria-invalid="true"{% endif %}>
+                                <span class="hint" id="hint_profile_url">Online CV upload isn't available, so share a link instead.</span>
+                                {% if form.profile_url.errors %}<span class="field-error" id="err_profile_url">{{ form.profile_url.errors.0 }}</span>{% endif %}
+                            </div>
+                        </div>
+
+                        <div class="careers-field">
+                            <label for="id_message">Why are you a good fit for this role? <span class="req" aria-hidden="true">*</span></label>
+                            <textarea name="message" id="id_message" maxlength="4000" required
+                                      aria-describedby="hint_message{% if form.message.errors %} err_message{% endif %}"{% if form.message.errors %} aria-invalid="true"{% endif %}>{{ form.message.value|default:'' }}</textarea>
+                            <span class="hint" id="hint_message">Tell us about your relevant experience and skills. Please don't include sensitive personal information such as ID numbers or bank details.</span>
+                            {% if form.message.errors %}<span class="field-error" id="err_message">{{ form.message.errors.0 }}</span>{% endif %}
+                        </div>
+
+                        <div class="careers-privacy" id="privacy-notice">
+                            <h3>How we use your application</h3>
+                            <p>We use the details you submit only to consider you for this role and to contact you about it. Your application is stored in the KK Digital Growth website's admin system and can be viewed only by authorised KK Digital Growth staff.</p>
+                            <p>To ask for your application to be deleted, email <a href="mailto:admin@kkdigitalgrowth.in">admin@kkdigitalgrowth.in</a>.</p>
+                        </div>
+
+                        <div class="careers-field">
+                            <label class="careers-consent" for="id_consent">
+                                <input type="checkbox" name="consent" id="id_consent" required{% if form.consent.value %} checked{% endif %}{% if form.consent.errors %} aria-invalid="true" aria-describedby="err_consent"{% endif %}>
+                                <span>I have read how my application details will be used. <span class="req" aria-hidden="true">*</span></span>
+                            </label>
+                            {% if form.consent.errors %}<span class="field-error" id="err_consent">{{ form.consent.errors.0 }}</span>{% endif %}
+                        </div>
+
+                        <button type="submit" class="btn-accent">
+                            Submit application <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                        </button>
+                        <p class="hint">Fields marked * are required.</p>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+    {% if submitted or form.errors %}
+    <script>
+    (function () {
+        var el = document.getElementById('application-status');
+        if (el) { el.focus(); }
+    })();
+    </script>
+    {% endif %}
+</body>
+</html>

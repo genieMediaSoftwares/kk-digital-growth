@@ -1,0 +1,325 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "partials/seo_meta.html" with seo_title="SEO Services: Technical, Local & AEO/GEO | KK Digital Growth" seo_description="Technical SEO audits and fixes, Google Business Profile and local SEO, and AEO/GEO readiness for business websites, from KK Digital Growth in Visakhapatnam." seo_path="/services/seo-services/" %}
+    {% include "partials/schema-organization.html" %}
+    {% include "partials/schema-breadcrumb.html" with crumb_name="Services" crumb_path="/services/" crumb2_name="SEO Services" crumb2_path="/services/seo-services/" %}
+
+    <link rel="icon" type="image/png" href="{% static 'images/opt/favicon-48.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=8.1">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/service-detail.css' %}?v=9.2">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=8.0">
+    <link rel="stylesheet" href="{% static 'vendor/fontawesome-6.5.1-subset/css/all.min.css' %}">
+    {% include "partials/google_tag_manager_head.html" %}
+    {% include "partials/meta_pixel.html" %}
+    {% include "partials/google_ads_tag.html" %}
+</head>
+<body>
+{% include "partials/google_tag_manager_body.html" %}
+    {% include 'header.html' %}
+
+    <main id="main-content">
+        <!-- ================= HERO ================= -->
+        <section class="service-detail-hero">
+            <div class="site-container">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <a href="{% url 'services' %}">Services</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <span class="current" aria-current="page">SEO Services</span>
+                </nav>
+
+                <span class="service-detail-tag">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Digital Marketing &amp; Organic Growth
+                </span>
+
+                <h1>SEO Services: Technical SEO, Local SEO &amp; AEO/GEO Readiness</h1>
+                <p class="hero-lead">
+                    We make business websites easier for search engines to crawl, index and understand, help keep your Google Business Profile accurate, and structure your content so AI-powered search tools can interpret it. The work is technical and content-focused. We don't sell ranking guarantees, because no one can honestly deliver them.
+                </p>
+
+                <div class="service-hero-actions">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Request an SEO review <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'service_digital_marketing' %}" class="btn-outline-light">
+                        Digital Marketing &amp; Organic Growth
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= WHO IT IS FOR ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Fit</span>
+                    <h2>Who This Is For and What It Fixes</h2>
+                    <p>Most visibility problems we see are technical or structural: pages search engines can't reach, can't tell apart, or can't connect to a real business.</p>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-user-check" aria-hidden="true"></i> Who This Service Is For</h3>
+                        <ul>
+                            <li><strong>Businesses whose site doesn't appear</strong> when people search for the services it offers.</li>
+                            <li><strong>Local businesses</strong> whose map listing is incomplete, unverified or inconsistent with their website.</li>
+                            <li><strong>Companies after a redesign or migration</strong> that changed URLs and lost search visibility.</li>
+                            <li><strong>Websites built by us or by others</strong>, including custom, WordPress and Shopify sites.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-wrench" aria-hidden="true"></i> Common Problems We Address</h3>
+                        <ul>
+                            <li>Important pages missing from the search index, or blocked by robots.txt or noindex tags.</li>
+                            <li>Duplicate, missing or unclear page titles, descriptions and headings.</li>
+                            <li>Slow pages on mobile, broken links and long redirect chains.</li>
+                            <li>No clear page for each service, so search engines can't match pages to queries.</li>
+                            <li>Business name, address and phone details that differ across the site and listings.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CAPABILITIES ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">What We Do</span>
+                    <h2>Three Areas of Organic Search Work</h2>
+                    <p>They overlap, so most engagements start with a single review that covers all three.</p>
+                </div>
+
+                <div class="cards-3col-grid">
+                    <article class="deliverable-card" id="technical-seo">
+                        <div class="card-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></div>
+                        <h3>Technical SEO &amp; Audits</h3>
+                        <p>A structured review of how search engines crawl and index your site, followed by fixes in priority order.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> robots.txt, sitemaps, canonicals and status codes</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Titles, descriptions and heading structure</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Site structure and internal linking</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Page speed and Core Web Vitals checks</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Google Search Console setup and review</li>
+                        </ul>
+                    </article>
+
+                    <article class="deliverable-card" id="local-seo">
+                        <div class="card-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
+                        <h3>Google Business Profile &amp; Local SEO</h3>
+                        <p>Helping customers nearby find accurate details for your business on Google Search and Maps.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Profile categories, hours, services and photos</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Consistent name, address and phone details</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> A location page with genuine local information</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> A simple, honest process for asking customers for reviews</li>
+                        </ul>
+                    </article>
+
+                    <article class="deliverable-card" id="aeo-geo">
+                        <div class="card-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></div>
+                        <h3>AEO &amp; GEO Readiness</h3>
+                        <p>Answer engine optimisation (AEO) and generative engine optimisation (GEO) are emerging terms for making content easy for answer-style and AI-generated search results to understand.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Direct answers to real customer questions</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Clear page structure and headings</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Structured data that matches visible content</li>
+                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Consistent business facts across your site</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <p class="svc-note">
+                    <strong>About AEO, GEO and structured data:</strong> these practices help search engines and AI tools interpret your pages, but they don't control what those systems choose to show. Structured data, an llms.txt file or any other markup does not guarantee rankings, rich results or citations in AI-generated answers.
+                </p>
+            </div>
+        </section>
+
+        <!-- ================= SCOPE ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Scope</span>
+                    <h2>What's Included, and What Isn't</h2>
+                </div>
+
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-square-check" aria-hidden="true"></i> Included</h3>
+                        <ul>
+                            <li>An audit report listing issues in priority order, with the reason each one matters.</li>
+                            <li>Fixes made directly where we have access to the site, or clear instructions for your developer.</li>
+                            <li>Search Console and Business Profile checks, using access you grant.</li>
+                            <li>Content structure recommendations for your service and location pages.</li>
+                            <li>A re-check after changes go live, confirming the technical fixes are in place.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> Not Included</h3>
+                        <ul>
+                            <li>Guaranteed rankings, traffic, leads or AI citations.</li>
+                            <li>Buying links, fake reviews or any tactic that breaks search engine guidelines.</li>
+                            <li>Thin "doorway" pages for every nearby neighbourhood or city.</li>
+                            <li>Paid ads and social media marketing, which are covered on our <a href="{% url 'service_digital_marketing' %}">digital marketing</a> page.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROCESS ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Delivery</span>
+                    <h2>How an SEO Engagement Runs</h2>
+                </div>
+
+                <div class="process-flow-grid">
+                    <div class="flow-step-card">
+                        <div class="step-number">01</div>
+                        <h3>Access &amp; Audit</h3>
+                        <p>With access to your site, Search Console and Business Profile, we review crawling, indexing, content structure and listings.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">02</div>
+                        <h3>Prioritised Plan</h3>
+                        <p>Issues ranked by likely impact and effort, so the most important fixes happen first.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">03</div>
+                        <h3>Fixes &amp; Content Structure</h3>
+                        <p>Technical fixes, metadata, internal links, structured data and page structure, made by us or your developer.</p>
+                    </div>
+                    <div class="flow-step-card">
+                        <div class="step-number">04</div>
+                        <h3>Re-check &amp; Handover</h3>
+                        <p>We confirm the changes are live and working, request recrawls where useful, and document what was done.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ESTIMATE & PROOF ================= -->
+        <section class="service-content-section alt-bg">
+            <div class="site-container">
+                <div class="dual-column-grid">
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-list-check" aria-hidden="true"></i> What We Need to Estimate the Work</h3>
+                        <ul>
+                            <li>Your website address and the platform it runs on (custom, WordPress, Shopify or other).</li>
+                            <li>Whether we'll have access to the site's code or content management system.</li>
+                            <li>Access to Google Search Console and your Business Profile, if they exist.</li>
+                            <li>Your main services and the areas you serve.</li>
+                            <li>Any recent redesign, migration or domain change.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h3><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Related Work</h3>
+                        <ul>
+                            <li>Our <a href="{% url 'case_study_detail' slug='business-website' %}">KNS Metal Solutions case study</a> describes the SEO setup included in that website build, including Search Console configuration.</li>
+                            <li>SEO basics are part of our website builds; see our <a href="{% url 'service_web_development' %}">web development services</a>.</li>
+                            <li>For businesses near us, our <a href="{% url 'location_visakhapatnam' %}">Visakhapatnam office page</a> shows the kind of genuine location page we recommend.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQS ================= -->
+        <section class="service-content-section">
+            <div class="site-container">
+                <div class="section-header-block">
+                    <span class="section-tag">Frequently Asked Questions</span>
+                    <h2>Questions About SEO Work</h2>
+                </div>
+
+                <div class="faq-structured-container">
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> How soon will changes show up in search?</h3>
+                        <p>It varies. Search engines recrawl and re-evaluate pages on their own schedule, and results depend on competition and many factors outside anyone's control, so we don't promise a timeframe. What we can do is confirm the fixes are live and request recrawls of key pages through Search Console.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Will structured data or llms.txt get us cited by AI tools?</h3>
+                        <p>Not on its own. Accurate structured data and a clear llms.txt file can help systems interpret your site, but each search engine and AI tool decides independently what to show or cite. Clear, accurate, useful content matters more than any single file or tag.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Do we need a separate page for every area we serve?</h3>
+                        <p>Usually not. Near-identical pages for each neighbourhood are treated as doorway pages and can hurt more than help. A location page makes sense where you have a real presence and something specific to say about serving that area.</p>
+                    </div>
+
+                    <div class="faq-qna-card">
+                        <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Can you work on a website you didn't build?</h3>
+                        <p>Usually, yes, as long as we get access to the code or content management system, or can work alongside your developer. If the site needs deeper changes, our <a href="{% url 'service_web_development' %}">web development</a> team can take those on.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CTA BANNER ================= -->
+        <section class="site-container">
+            <div class="service-cta-block">
+                <h2>Want to Know What's Holding Your Site Back?</h2>
+                <p>Share your website address and what you'd like people to find you for. We'll review it and explain what we'd fix first.</p>
+                <div class="cta-button-group">
+                    <a href="{% url 'consultation' %}" class="btn-accent">
+                        Request an SEO review <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="{% url 'contact' %}" class="btn-outline-light">
+                        Contact our team
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Structured Data: Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Search engine optimization",
+      "name": "Technical SEO, Local SEO and AEO/GEO Readiness",
+      "description": "Technical SEO audits and fixes, Google Business Profile and local SEO, and AEO/GEO content structure for business websites.",
+      "provider": {
+        "@type": "ProfessionalService",
+        "@id": "https://www.kkdigitalgrowth.com/#organization"
+      },
+      "url": "https://www.kkdigitalgrowth.com/services/seo-services/",
+      "areaServed": [
+        { "@type": "City", "name": "Visakhapatnam" },
+        { "@type": "State", "name": "Andhra Pradesh" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "SEO Capabilities",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technical SEO audits" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Business Profile and local SEO" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AEO and GEO readiness" } }
+        ]
+      }
+    }
+    </script>
+</body>
+</html>

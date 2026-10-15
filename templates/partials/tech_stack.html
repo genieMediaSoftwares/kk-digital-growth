@@ -1,0 +1,424 @@
+{% comment %}"Platforms & Technologies We Use" section (Clients page).
+   Styles are inline so the section doesn't need a new file in the committed staticfiles/ build.
+   Logos come from partials/tech_stack_sprite.html (Simple Icons, CC0); generic items such as
+   REST API, Machine Learning and Automation use Font Awesome icons from the local subset.{% endcomment %}
+<style>
+/* Same box as the header and footer: max 1200px, 80px side padding (40px <=1024px, 20px <=640px). */
+.ts-section {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0 84px;
+    background: #f7f9fc;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+.ts-section::before,
+.ts-section::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+}
+.ts-section::before {
+    width: 560px;
+    height: 560px;
+    top: -240px;
+    left: -200px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0) 70%);
+}
+.ts-section::after {
+    width: 580px;
+    height: 580px;
+    right: -220px;
+    bottom: -280px;
+    background: radial-gradient(circle, rgba(247, 147, 30, 0.08) 0%, rgba(247, 147, 30, 0) 70%);
+}
+.ts-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 80px;
+    box-sizing: border-box;
+}
+.ts-head {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 44px;
+}
+.ts-pill {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: #e4eefc;
+    color: #1d4fa8;
+    font-size: 12.5px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+.ts-head h2 {
+    margin: 18px 0 14px;
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #0f2547;
+}
+.ts-head h2 span {
+    color: #f7931e;
+}
+.ts-head p {
+    margin: 0 auto;
+    font-size: 17px;
+    line-height: 1.65;
+    color: #4b5563;
+}
+
+.ts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+.ts-card {
+    --ts-tint: #fff4ea;
+    --ts-border: #fbe3cc;
+    --ts-accent: #f7931e;
+    --ts-soft: #ffeedd;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 20px 18px 18px;
+    border-radius: 18px;
+    border: 1px solid var(--ts-border);
+    background: linear-gradient(140deg, var(--ts-tint) 0%, #ffffff 60%);
+    box-shadow: 0 8px 24px rgba(15, 37, 71, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.ts-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(15, 37, 71, 0.09);
+}
+.ts-card.ts-blue {
+    --ts-tint: #eef5ff;
+    --ts-border: #dbe7fa;
+    --ts-accent: #2563eb;
+    --ts-soft: #e3edfd;
+}
+.ts-card.ts-green {
+    --ts-tint: #eefaf2;
+    --ts-border: #d6efdf;
+    --ts-accent: #16a34a;
+    --ts-soft: #dff4e6;
+}
+.ts-card.ts-purple {
+    --ts-tint: #f6f1ff;
+    --ts-border: #e6dcfb;
+    --ts-accent: #7c3aed;
+    --ts-soft: #ece3fe;
+}
+/* icon | title | chevron, with the description full width underneath */
+.ts-card-top {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr) 34px;
+    grid-template-areas:
+        "icon title chev"
+        "desc desc desc";
+    column-gap: 14px;
+    align-items: center;
+    margin-bottom: 18px;
+}
+.ts-card-text {
+    display: contents;
+}
+.ts-icon-box {
+    grid-area: icon;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: var(--ts-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ts-accent);
+}
+.ts-icon-box svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+.ts-icon-box i {
+    font-size: 26px;
+    line-height: 1;
+}
+.ts-card h3 {
+    grid-area: title;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: 800;
+    color: #0f2547;
+}
+.ts-card-text p {
+    grid-area: desc;
+    margin: 14px 0 0;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: #4b5563;
+}
+.ts-chevron {
+    grid-area: chev;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--ts-soft);
+    color: var(--ts-accent) !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.ts-chevron:hover {
+    background: var(--ts-accent);
+    color: #ffffff !important;
+}
+.ts-chevron:focus-visible {
+    outline: 3px solid var(--ts-accent);
+    outline-offset: 3px;
+}
+/* badges: five as a centred 3 + 2, four as 2 x 2 (both two rows, so cards line up) */
+.ts-badges {
+    list-style: none;
+    margin: auto 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+}
+.ts-badges li {
+    flex: 0 0 calc((100% - 12px) / 3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 10px 4px 8px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(226, 232, 240, 0.75);
+    text-align: center;
+}
+.ts-badges.ts-four li {
+    flex-basis: calc((100% - 6px) / 2);
+}
+.ts-badges svg,
+.ts-badges i {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+}
+.ts-badges svg {
+    fill: currentColor;
+}
+.ts-badges svg.ts-wide {
+    width: 36px;
+}
+.ts-badges i {
+    font-size: 22px;
+    line-height: 26px;
+    text-align: center;
+}
+.ts-badges span {
+    font-size: 11.5px;
+    line-height: 1.25;
+    font-weight: 500;
+    color: #1f2937;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ts-card,
+    .ts-card:hover {
+        transition: none;
+        transform: none;
+    }
+}
+
+/* two columns once three no longer fit the 1200px box */
+@media (max-width: 1199px) {
+    .ts-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 1024px) {
+    .ts-section {
+        padding: 64px 0 70px;
+    }
+    .ts-container {
+        padding: 0 40px;
+    }
+    .ts-head h2 {
+        font-size: 34px;
+    }
+    .ts-head p {
+        font-size: 16px;
+    }
+}
+@media (max-width: 735px) {
+    .ts-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+@media (max-width: 640px) {
+    .ts-section {
+        padding: 52px 0 56px;
+    }
+    .ts-container {
+        padding: 0 20px;
+    }
+    .ts-head {
+        margin-bottom: 32px;
+    }
+    .ts-pill {
+        font-size: 11.5px;
+        letter-spacing: 2px;
+    }
+    .ts-head h2 {
+        font-size: 28px;
+    }
+    .ts-head p {
+        font-size: 15px;
+    }
+}
+</style>
+
+{% include "partials/tech_stack_sprite.html" %}
+
+<section class="ts-section" aria-labelledby="tech-stack-heading">
+    <div class="ts-container">
+        <div class="ts-head">
+            <span class="ts-pill">Our technology stack</span>
+            <h2 id="tech-stack-heading">Platforms &amp; Technologies <span>We Use</span></h2>
+            <p>We leverage modern programming languages, frameworks, databases, cloud platforms, and AI technologies to build custom software, enterprise systems, web applications, and intelligent digital solutions.</p>
+        </div>
+
+        <div class="ts-grid">
+            <!-- 1. Programming Languages -->
+            <article class="ts-card ts-orange">
+                <div class="ts-card-top">
+                    <div class="ts-icon-box"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
+                    <div class="ts-card-text">
+                        <h3>Programming Languages</h3>
+                        <p>Powerful and versatile languages to build scalable and high-performance software solutions.</p>
+                    </div>
+                    <a class="ts-chevron" href="{% url 'service_software_engineering' %}" aria-label="Software engineering services"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+                <ul class="ts-badges" aria-label="Programming languages">
+                    <li><svg aria-hidden="true" style="color:#F7DF1E"><use href="#ts-javascript"></use></svg><span>JavaScript</span></li>
+                    <li><svg aria-hidden="true" style="color:#3178C6"><use href="#ts-typescript"></use></svg><span>TypeScript</span></li>
+                    <li><svg aria-hidden="true" style="color:#3776AB"><use href="#ts-python"></use></svg><span>Python</span></li>
+                    <li><svg aria-hidden="true" style="color:#E76F00"><use href="#ts-java"></use></svg><span>Java</span></li>
+                    <li><svg aria-hidden="true" style="color:#68217A"><use href="#ts-csharp"></use></svg><span>C#</span></li>
+                </ul>
+            </article>
+
+            <!-- 2. Frontend Technologies -->
+            <article class="ts-card ts-blue">
+                <div class="ts-card-top">
+                    <div class="ts-icon-box"><svg aria-hidden="true" style="color:#1FB5E6"><use href="#ts-react"></use></svg></div>
+                    <div class="ts-card-text">
+                        <h3>Frontend Technologies</h3>
+                        <p>Modern frameworks to create responsive, dynamic and user-friendly interfaces.</p>
+                    </div>
+                    <a class="ts-chevron" href="{% url 'service_web_development' %}" aria-label="Web development services"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+                <ul class="ts-badges ts-four" aria-label="Frontend technologies">
+                    <li><svg aria-hidden="true" style="color:#1FB5E6"><use href="#ts-react"></use></svg><span>React.js</span></li>
+                    <li><svg aria-hidden="true" style="color:#111111"><use href="#ts-nextjs"></use></svg><span>Next.js</span></li>
+                    <li><svg aria-hidden="true" style="color:#3178C6"><use href="#ts-typescript"></use></svg><span>TypeScript</span></li>
+                    <li><svg aria-hidden="true" style="color:#06B6D4"><use href="#ts-tailwind"></use></svg><span>Tailwind CSS</span></li>
+                </ul>
+            </article>
+
+            <!-- 3. Backend & APIs -->
+            <article class="ts-card ts-green">
+                <div class="ts-card-top">
+                    <div class="ts-icon-box"><svg aria-hidden="true" style="color:#5FA04E"><use href="#ts-nodejs"></use></svg></div>
+                    <div class="ts-card-text">
+                        <h3>Backend &amp; APIs</h3>
+                        <p>Robust server-side technologies to build secure APIs, enterprise systems and scalable applications.</p>
+                    </div>
+                    <a class="ts-chevron" href="{% url 'service_custom_software' %}" aria-label="Custom software development services"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+                <ul class="ts-badges" aria-label="Backend and API technologies">
+                    <li><svg aria-hidden="true" style="color:#5FA04E"><use href="#ts-nodejs"></use></svg><span>Node.js</span></li>
+                    <li><svg aria-hidden="true" style="color:#111111"><use href="#ts-express"></use></svg><span>Express.js</span></li>
+                    <li><svg aria-hidden="true" style="color:#0C4B33"><use href="#ts-django"></use></svg><span>Django</span></li>
+                    <li><i class="fa-solid fa-diagram-project" aria-hidden="true" style="color:#0EA5E9"></i><span>REST API</span></li>
+                    <li><svg aria-hidden="true" style="color:#E10098"><use href="#ts-graphql"></use></svg><span>GraphQL</span></li>
+                </ul>
+            </article>
+
+            <!-- 4. Databases & Storage -->
+            <article class="ts-card ts-purple">
+                <div class="ts-card-top">
+                    <div class="ts-icon-box"><i class="fa-solid fa-database" aria-hidden="true"></i></div>
+                    <div class="ts-card-text">
+                        <h3>Databases &amp; Storage</h3>
+                        <p>Reliable and scalable databases to store, manage and secure your business data.</p>
+                    </div>
+                    <a class="ts-chevron" href="{% url 'service_enterprise_systems' %}" aria-label="Enterprise and business systems services"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+                <ul class="ts-badges ts-four" aria-label="Databases">
+                    <li><svg aria-hidden="true" style="color:#47A248"><use href="#ts-mongodb"></use></svg><span>MongoDB</span></li>
+                    <li><svg aria-hidden="true" style="color:#4479A1"><use href="#ts-mysql"></use></svg><span>MySQL</span></li>
+                    <li><svg aria-hidden="true" style="color:#4169E1"><use href="#ts-postgresql"></use></svg><span>PostgreSQL</span></li>
+                    <li><svg aria-hidden="true" style="color:#FF4438"><use href="#ts-redis"></use></svg><span>Redis</span></li>
+                </ul>
+            </article>
+
+            <!-- 5. Cloud & DevOps -->
+            <article class="ts-card ts-orange">
+                <div class="ts-card-top">
+                    <div class="ts-icon-box"><svg aria-hidden="true" style="color:#232F3E"><use href="#ts-aws"></use></svg></div>
+                    <div class="ts-card-text">
+                        <h3>Cloud &amp; DevOps</h3>
+                        <p>Modern cloud platforms and DevOps tools for deployment, scalability and continuous delivery.</p>
+                    </div>
+                    <a class="ts-chevron" href="{% url 'service_cloud_devops' %}" aria-label="Cloud and DevOps services"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+                <ul class="ts-badges ts-four" aria-label="Cloud and DevOps tools">
+                    <li><svg aria-hidden="true" style="color:#232F3E"><use href="#ts-aws"></use></svg><span>AWS</span></li>
+                    <li><svg aria-hidden="true" style="color:#F38020"><use href="#ts-cloudflare"></use></svg><span>Cloudflare</span></li>
+                    <li><svg aria-hidden="true" style="color:#2496ED"><use href="#ts-docker"></use></svg><span>Docker</span></li>
+                    <li><svg class="ts-wide" aria-hidden="true" style="color:#4F46E5"><use href="#ts-infinity"></use></svg><span>CI/CD</span></li>
+                </ul>
+            </article>
+
+            <!-- 6. AI & Intelligent Technologies -->
+            <article class="ts-card ts-purple">
+                <div class="ts-card-top">
+                    <div class="ts-icon-box"><svg aria-hidden="true" style="color:#7C3AED"><use href="#ts-aichip"></use></svg></div>
+                    <div class="ts-card-text">
+                        <h3>AI &amp; Intelligent Technologies</h3>
+                        <p>Advanced AI tools and models to build intelligent systems and automate business processes.</p>
+                    </div>
+                    <a class="ts-chevron" href="{% url 'service_ai_solutions' %}" aria-label="AI solutions"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+                <ul class="ts-badges" aria-label="AI technologies">
+                    <li><svg aria-hidden="true" style="color:#111111"><use href="#ts-openai"></use></svg><span>OpenAI</span></li>
+                    <li><svg aria-hidden="true" style="color:#4E7CF6"><use href="#ts-gemini"></use></svg><span>Gemini</span></li>
+                    <li><svg aria-hidden="true" style="color:#7C3AED"><use href="#ts-robot"></use></svg><span>AI Agents</span></li>
+                    <li><i class="fa-solid fa-circle-nodes" aria-hidden="true" style="color:#7C3AED"></i><span>Machine Learning</span></li>
+                    <li><i class="fa-solid fa-gears" aria-hidden="true" style="color:#7C3AED"></i><span>Automation</span></li>
+                </ul>
+            </article>
+        </div>
+    </div>
+</section>
